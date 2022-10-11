@@ -6,5 +6,5 @@ public interface ISpamManager
 {
     int nbClicks { get; }
 
-    void Click();
+    public void Click(int playerIndex);
 }

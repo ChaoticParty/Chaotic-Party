@@ -6,13 +6,14 @@ using UnityEngine.Events;
 
 public class Spam : MonoBehaviour
 {
+    private PlayerController player;
     public SpamButton spamButton;
     public ISpamManager spamManager;
     
     private void Awake()
     {
-        //spamManager = FindObjectOfType<ISpamManager>();
-        PlayerController player = GetComponent<PlayerController>();
+        player = GetComponent<PlayerController>();
+        spamManager = player.miniGameManager as ISpamManager;
         UnityEvent buttonEvent = new();
         switch (spamButton)
         {
@@ -44,7 +45,7 @@ public class Spam : MonoBehaviour
 
     private void Click()
     {
-        
+        spamManager.Click(player.index);
     }
 }
 

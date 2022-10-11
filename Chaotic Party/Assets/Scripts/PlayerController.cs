@@ -7,7 +7,9 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
+    public MiniGameManager miniGameManager;
     public Gamepad gamepad;
+    public int index;
     
     [NonSerialized] public UnityEvent aJustPressed = new ();
     [NonSerialized] public UnityEvent bJustPressed = new ();
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (gamepad == null) return;
+        
         if(gamepad.A.justPressed)
         {
             aJustPressed.Invoke();
