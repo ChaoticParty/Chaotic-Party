@@ -10,7 +10,7 @@ public class SpamTest : MonoBehaviour
         PlayerController player = GetComponent<PlayerController>();
         player.aJustPressed.AddListener(Spam);
         player.aLongPressed.AddListener(LongPress);
-        player.leftStickMoved.AddListener(TitillageStick);
+        //player.leftStickMoved.AddListener(MoveHorizontally);
     }
 
     private void Spam()
@@ -26,5 +26,9 @@ public class SpamTest : MonoBehaviour
     {
         Debug.Log("titillage stick hor : "+ hor + "vert : "+vert);
     }
-    
+
+    private void MoveHorizontally(float x, float y)
+    {
+        transform.position += new Vector3(x, 0) / 30;
+    }
 }
