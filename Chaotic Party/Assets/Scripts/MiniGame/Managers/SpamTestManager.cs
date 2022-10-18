@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class SpamTestManager : SpamManager
@@ -9,22 +8,17 @@ public class SpamTestManager : SpamManager
     private void Start()
     {
         clicksArray = new float[players.Count];
-        Debug.Log(clicksArray.Length);
-        Debug.Log(players.Count);
     }
 
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
     {
         nbClicks += value;
-        Debug.Log(nbClicks);
         if(spamButton == SpamButton.A)
         {
             clicksArray[playerIndex] += value;
-            Debug.Log(clicksArray[playerIndex]);
         }
         else
         {
-            Debug.Log("Appuie autre touche");
             int otherPlayerindex = 0;
             switch (spamButton)
             {
@@ -44,7 +38,6 @@ public class SpamTestManager : SpamManager
                 otherPlayerindex++;
             }
             
-            Debug.Log("Joueur numero " + otherPlayerindex + "a prit un malus");
             players[otherPlayerindex].GetComponent<Spam>().Malus();
         }
     }
