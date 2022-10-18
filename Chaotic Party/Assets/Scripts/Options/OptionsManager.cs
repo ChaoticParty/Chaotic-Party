@@ -19,6 +19,7 @@ public class OptionsManager : MonoBehaviour
     public Toggle masterMuteButton;
     public Toggle musicMuteButton;
     public Toggle effectMuteButton;
+    public Toggle fullScreenMode;
 
     public TextMeshProUGUI masterTMP;
     public TextMeshProUGUI musicTMP;
@@ -41,8 +42,26 @@ public class OptionsManager : MonoBehaviour
         masterMuteButton.onValueChanged.AddListener(MasterMute);
         musicMuteButton.onValueChanged.AddListener(MusicMute);
         effectMuteButton.onValueChanged.AddListener(EffectMute);
-        //Penser a remove all listners
+        
+        fullScreenMode.onValueChanged.AddListener(FullScreenChange);
+
+        fullScreenMode.isOn = optionsSO.optionsData.fullscreen;
     }
+
+    private void OnDisable()
+    {
+        masterVolume.onValueChanged.RemoveAllListeners();
+        musicVolume.onValueChanged.RemoveAllListeners();
+        effectVolume.onValueChanged.RemoveAllListeners();
+        
+        masterMuteButton.onValueChanged.RemoveAllListeners();
+        musicMuteButton.onValueChanged.RemoveAllListeners();
+        effectMuteButton.onValueChanged.RemoveAllListeners();
+        
+        fullScreenMode.onValueChanged.RemoveAllListeners();
+    }
+
+    #region Gestion Sonore
 
     private void MasterChange(float sliderValue)
     {
@@ -105,5 +124,13 @@ public class OptionsManager : MonoBehaviour
             audioManager.SetFloat("effectVolume", -80);
             effectVolume.interactable = false;
         }
+    }
+
+    #endregion
+    
+    private void FullScreenChange(bool toggleValue)
+    {
+        Screen.fullScreen = toggleValue;
+        optionsSO.optionsData.fullscreen = toggleValue;
     }
 }

@@ -31,7 +31,7 @@ public class Initializer : MonoBehaviour
         else
         {
             Debug.Log("Option FIle Creation at " + path);
-            StructOptions options = new StructOptions {masterVolume = 100, musicVolume = 100, effectVolume = 100};
+            StructOptions options = new StructOptions {masterVolume = 100, musicVolume = 100, effectVolume = 100, fullscreen = true};
             string json = JsonUtility.ToJson(options);
             using StreamWriter writer = new StreamWriter(path + "optionsData");
             writer.Write(json);
@@ -49,6 +49,8 @@ public class Initializer : MonoBehaviour
         audioManager.SetFloat("masterVolume", Mathf.Log10(optionsSO.optionsData.masterVolume/100) * 20); //Valeurs entre 0.001 et 100 dans le json
         audioManager.SetFloat("musicVolume", Mathf.Log10(optionsSO.optionsData.musicVolume/100) * 20); //Mettre direct les valeurs pour le slider
         audioManager.SetFloat("effectVolume", Mathf.Log10(optionsSO.optionsData.effectVolume/100) * 20);
+
+        Screen.fullScreen = optionsSO.optionsData.fullscreen;
     }
 
     private void OnApplicationQuit()
