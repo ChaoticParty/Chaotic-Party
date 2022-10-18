@@ -4,16 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Spam : MonoBehaviour
+public class Spam : SpamController
 {
-    private PlayerController player;
     public SpamButton spamButton;
-    public ISpamManager spamManager;
     
-    private void Awake()
+    protected new void Awake()
     {
-        player = GetComponent<PlayerController>();
-        spamManager = player.miniGameManager as ISpamManager;
+        base.Awake();
         UnityEvent buttonEvent = new();
         switch (spamButton)
         {
@@ -37,15 +34,18 @@ public class Spam : MonoBehaviour
                 break;
             case SpamButton.Any:
                 break;
-            default:
-                break;
         }
         buttonEvent.AddListener(Click);
     }
 
-    private void Click()
+    protected override void Click()
     {
-        spamManager.Click(player.index);
+        spamManager.Click(player.index, spamValue, spamButton);
+    }
+
+    public void Malus()
+    {
+        spamManager.Click(player.index, -100, SpamButton.A);
     }
 }
 

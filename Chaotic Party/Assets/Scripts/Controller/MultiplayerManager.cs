@@ -7,7 +7,7 @@ using UnityEngine;
 public class MultiplayerManager : MonoBehaviour
 {
     public List<PlayerController> players;
-    private MiniGameManager miniGameManager;
+    [SerializeField] private MiniGameManager miniGameManager;
     
     private void Awake()
     {

@@ -1,25 +1,51 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SpamTestManager : MiniGameManager, ISpamManager
+public class SpamTestManager : SpamManager
 {
-    public int nbClicks { get; private set; }
-    private int[] clicksArray;
+    public float nbClicks { get; private set; }
+    public float[] clicksArray { get; private set; }
 
     private void Start()
     {
-        clicksArray = new int[players.Count];
+        clicksArray = new float[players.Count];
         Debug.Log(clicksArray.Length);
         Debug.Log(players.Count);
     }
 
-    public void Click(int playerIndex)
+    public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
     {
-        nbClicks++;
+        nbClicks += value;
         Debug.Log(nbClicks);
-        clicksArray[playerIndex]++;
-        Debug.Log(clicksArray[playerIndex]);
+        if(spamButton == SpamButton.A)
+        {
+            clicksArray[playerIndex] += value;
+            Debug.Log(clicksArray[playerIndex]);
+        }
+        else
+        {
+            Debug.Log("Appuie autre touche");
+            int otherPlayerindex = 0;
+            switch (spamButton)
+            {
+                case SpamButton.B:
+                    otherPlayerindex = 0;
+                    break;
+                case SpamButton.X:
+                    otherPlayerindex = 1;
+                    break;
+                case SpamButton.Y:
+                    otherPlayerindex = 2;
+                    break;
+            }
+
+            if (otherPlayerindex <= playerIndex)
+            {
+                otherPlayerindex++;
+            }
+            
+            Debug.Log("Joueur numero " + otherPlayerindex + "a prit un malus");
+            players[otherPlayerindex].GetComponent<Spam>().Malus();
+        }
     }
 }
