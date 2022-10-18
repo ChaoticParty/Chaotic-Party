@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using HinputClasses;
+using System;using HinputClasses;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,12 +8,14 @@ public class PlayerController : MonoBehaviour
     public MiniGameManager miniGameManager;
     public Gamepad gamepad;
     public int index;
+    [SerializeField] private TextMeshProUGUI nameObject;
+    [SerializeField] private string nameText;
     
     [NonSerialized] public UnityEvent aJustPressed = new ();
     [NonSerialized] public UnityEvent bJustPressed = new ();
     [NonSerialized] public UnityEvent xJustPressed = new ();
     [NonSerialized] public UnityEvent yJustPressed = new ();
-    
+
     [NonSerialized] public UnityEvent<float> aLongPressed = new ();
     [NonSerialized] public UnityEvent<float> bLongPressed = new ();
     [NonSerialized] public UnityEvent<float> xLongPressed = new ();
@@ -28,7 +28,11 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent<float, float> leftStickMoved = new (); //Déplacement avec joystick gauche
     [NonSerialized] public UnityEvent leftStickPressed = new ();
     [NonSerialized] public UnityEvent<float> leftStickLongPressed = new ();
-    
+
+    private void Start()
+    {
+        if(nameObject) nameObject.text = nameText + (index + 1);
+    }
 
     private void Update()
     {

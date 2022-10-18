@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
 
 public class Spam : SpamController
@@ -40,7 +36,7 @@ public class Spam : SpamController
 
     protected override void Click()
     {
-        spamManager.Click(player.index, spamValue, spamButton);
+        spamManager.Click(player.index, spamManager.spamValue, spamButton);
     }
 
     public void Malus()

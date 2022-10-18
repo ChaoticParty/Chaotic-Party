@@ -692,7 +692,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spamManager: {fileID: 0}
-  spamValue: 1
 --- !u!1 &1300378381
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,11 +908,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2252403983823352973, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_text
-      value: J3
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252403983823352973, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_fontSize
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 2404240370564157597, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_text
-      value: J2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2404240370564157597, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_fontSize
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 3438680031012444020, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Name
@@ -931,6 +938,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Name
       objectReference: {fileID: 0}
+    - target: {fileID: 4375329125508602976, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375329125508602976, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 5747240720535153738, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: miniGameManager
       value: 
@@ -941,7 +956,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7302032791220534875, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_text
-      value: J4
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302032791220534875, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_fontSize
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 7466727021374288918, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: miniGameManager
@@ -1082,7 +1101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spamManager: {fileID: 0}
-  spamValue: 1
 --- !u!114 &1525570150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,7 +1114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spamManager: {fileID: 0}
-  spamValue: 1
 --- !u!114 &1525570151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,7 +1127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spamManager: {fileID: 0}
-  spamValue: 1
 --- !u!1 &1685107523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,6 +1227,8 @@ MonoBehaviour:
   - {fileID: 37896364}
   - {fileID: 2004001777}
   - {fileID: 2101880510}
+  spamValue: 100
+  versusSpamValue: 50
 --- !u!1 &2004001775
 GameObject:
   m_ObjectHideFlags: 0

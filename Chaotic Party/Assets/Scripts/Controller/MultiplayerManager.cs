@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using HinputClasses;
 using UnityEngine;
@@ -20,11 +18,9 @@ public class MultiplayerManager : MonoBehaviour
             {
                 return;
             }
-            Debug.Log("avant player connecté");
             PlayerController player = players[i];
             if (gamepad.isConnected)
             {
-                Debug.Log("player ajouté");
                 gamepad.Enable();
                 player.gamepad = gamepad;
                 player.index = i;
