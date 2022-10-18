@@ -7,8 +7,8 @@ public abstract class SpamController : MonoBehaviour
 
     protected void Awake()
     {
-        player = GetComponent<PlayerController>();
-        spamManager = player.miniGameManager as SpamManager;
+        player ??= GetComponent<PlayerController>();
+        spamManager ??= player.miniGameManager as SpamManager;
     }
 
     protected abstract void Click();

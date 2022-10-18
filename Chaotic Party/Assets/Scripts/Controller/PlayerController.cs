@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (gamepad == null) return;
+        if (gamepad == null || Time.timeScale == 0) return;
         
         if(gamepad.A.justPressed)
         {

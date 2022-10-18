@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class SpamTestManager : SpamManager
 {
-    public float nbClicks { get; private set; }
-    public float[] clicksArray { get; private set; }
-
-    private void Start()
+    private new void Start()
     {
+        base.Start();
         clicksArray = new float[players.Count];
     }
 

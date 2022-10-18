@@ -2,7 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpamTrainingRoom : SpamController
+public class SpamTrainingRoomController : SpamController
 {
     private int[] playersIndex;
     private bool hasClicked;
