@@ -7,5 +7,5 @@ public class SOOptions : ScriptableObject
 {
     public StructOptions optionsData;
 
-    public bool firstLaunch = true;
+    //public bool firstLaunch = true;
 }
