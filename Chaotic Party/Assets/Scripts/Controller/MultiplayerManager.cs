@@ -24,7 +24,7 @@ public class MultiplayerManager : MonoBehaviour
                 gamepad.Enable();
                 player.gamepad = gamepad;
                 player.index = i;
-                miniGameManager.RegisterPlayer(player);
+                if(miniGameManager) miniGameManager.RegisterPlayer(player);
             }
             else
             {
