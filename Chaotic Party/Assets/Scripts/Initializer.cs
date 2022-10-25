@@ -35,6 +35,7 @@ public class Initializer : MonoBehaviour
             string json = JsonUtility.ToJson(options);
             using StreamWriter writer = new StreamWriter(path + "optionsData");
             writer.Write(json);
+            //writer.Close();
             
             optionsSO.optionsData = options;
         }
@@ -61,5 +62,6 @@ public class Initializer : MonoBehaviour
         
         using StreamWriter writer = new StreamWriter(path + "optionsData");
         writer.Write(json);
+        //writer.Close();
     }
 }
