@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (gamepad == null || Time.timeScale == 0) return;
+        if (gamepad == null || miniGameManager.isGameDone) return;
         
         if(gamepad.A.justPressed)
         {
