@@ -306,4 +306,9 @@ public class PlayerController : MonoBehaviour
     {
         return isInTheAir && isTackling && isHit && isPausing;
     }
+
+    public bool CanAct()
+    {
+        return !(isInTheAir && isTackling && isHit);
+    }
 }
