@@ -217,7 +217,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 79164002}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e7b5373f28e7baa4288caf785585e526, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -534,7 +534,8 @@ GameObject:
   - component: {fileID: 135394761}
   - component: {fileID: 135394760}
   - component: {fileID: 135394759}
-  - component: {fileID: 135394764}
+  - component: {fileID: 135394765}
+  - component: {fileID: 135394766}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -598,11 +599,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 69f76186b25c25f46b1ccf1c371bb996, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &135394762
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -670,7 +671,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &135394764
+--- !u!114 &135394765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -679,9 +680,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 135394758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff3fc2f7edf83d242ae76244b56c8b01, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a5cae074678dac41b8f51103a17638f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniGameManager: {fileID: 0}
+  index: 0
+  nameObject: {fileID: 0}
+  nameText: 
+  isInTheAir: 0
+  isTackling: 0
+  isHit: 0
+  isPausing: 0
+--- !u!114 &135394766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135394758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitForce: {x: 100000, y: 10000}
 --- !u!1 &163131863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,8 +1278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a183068e2de43a647bfc0f086429325a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxClamp: 0
-  minClamp: 0
+  speed: 5
+  minClamp: -8
+  maxClamp: 8
 --- !u!114 &655692414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,8 +1293,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a183068e2de43a647bfc0f086429325a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxClamp: 0
-  minClamp: 0
+  speed: 5
+  minClamp: -8
+  maxClamp: 8
 --- !u!114 &655692415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1284,8 +1308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a183068e2de43a647bfc0f086429325a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxClamp: 0
-  minClamp: 0
+  speed: 5
+  minClamp: -8
+  maxClamp: 8
 --- !u!114 &655692416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1298,8 +1323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a183068e2de43a647bfc0f086429325a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxClamp: 0
-  minClamp: 0
+  speed: 5
+  minClamp: -8
+  maxClamp: 8
 --- !u!61 &655692417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1416,7 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impultion: 10
+  impulsion: 1.5
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
 --- !u!50 &655692425
 Rigidbody2D:
@@ -1438,7 +1464,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &655692427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,7 +1477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impultion: 10
+  impulsion: 1.5
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
 --- !u!50 &655692428
 Rigidbody2D:
@@ -1473,7 +1499,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &714943961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,7 +1910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impultion: 10
+  impulsion: 1.5
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
 --- !u!50 &1065306327
 Rigidbody2D:
@@ -1906,7 +1932,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1100410708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,7 +2569,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1313140456}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e7b5373f28e7baa4288caf785585e526, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2802,7 +2828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impultion: 10
+  impulsion: 1.5
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
 --- !u!50 &1429443740
 Rigidbody2D:
@@ -2824,7 +2850,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1444690717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2859,6 +2885,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1486544765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1839996419223313192, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+  m_PrefabInstance: {fileID: 655692408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1486544768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486544765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90a3d59334f48841843635c133a284f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  isGameDone: 0
 --- !u!1 &1520508886
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,7 +4071,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2145894197}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 69f76186b25c25f46b1ccf1c371bb996, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

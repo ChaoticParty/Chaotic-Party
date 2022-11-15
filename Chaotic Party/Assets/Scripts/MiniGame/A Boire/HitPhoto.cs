@@ -5,11 +5,13 @@ using UnityEngine;
 public class HitPhoto : HitController
 {
     public Vector2 hitForce;
-    private Rigidbody2D myRigidbody;
-    
+
     public override void Hited()
     {
+        if (player.isHit) return;
+        
         Debug.Log("Photo");
+        player.isHit = true;
         //Lancement de l'anim de hit
         player.gamepad.A.Disable();
         player.gamepad.Y.Disable();
@@ -27,5 +29,6 @@ public class HitPhoto : HitController
         player.gamepad.Y.Enable();
         player.gamepad.leftStick.Enable();
         player.gamepad.X.Enable();
+        player.isHit = false;
     }
 }

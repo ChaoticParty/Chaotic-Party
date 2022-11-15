@@ -6,7 +6,10 @@ public class HitBoire : HitController
 {
     public override void Hited()
     {
+        if (player.isHit) return;
+        
         Debug.Log("Boire");
+        player.isHit = true;
         //Lancement de l'anim de hit
         player.gamepad.A.Disable();
         player.gamepad.B.Disable();
@@ -24,5 +27,6 @@ public class HitBoire : HitController
         player.gamepad.B.Enable();
         player.gamepad.leftStick.Enable();
         player.gamepad.X.Enable();
+        player.isHit = false;
     }
 }
