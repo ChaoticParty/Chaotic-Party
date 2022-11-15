@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionsManager : MonoBehaviour
@@ -19,12 +20,17 @@ public class OptionsManager : MonoBehaviour
     public Toggle masterMuteButton;
     public Toggle musicMuteButton;
     public Toggle effectMuteButton;
+    public Toggle fullScreenMode;
 
     public TextMeshProUGUI masterTMP;
     public TextMeshProUGUI musicTMP;
     public TextMeshProUGUI effectTMP;
 
-    private void Awake()
+    public Button backBTN;
+
+    #region MonoBehaviour Méthodes
+
+    private void OnEnable()
     {
         masterVolume.value = optionsSO.optionsData.masterVolume;
         musicVolume.value = optionsSO.optionsData.musicVolume;
@@ -34,6 +40,8 @@ public class OptionsManager : MonoBehaviour
         MusicChange(musicVolume.value);
         EffectChange(effectVolume.value);
         
+        fullScreenMode.isOn = optionsSO.optionsData.fullscreen;
+        
         masterVolume.onValueChanged.AddListener(MasterChange);
         musicVolume.onValueChanged.AddListener(MusicChange);
         effectVolume.onValueChanged.AddListener(EffectChange);
@@ -41,8 +49,32 @@ public class OptionsManager : MonoBehaviour
         masterMuteButton.onValueChanged.AddListener(MasterMute);
         musicMuteButton.onValueChanged.AddListener(MusicMute);
         effectMuteButton.onValueChanged.AddListener(EffectMute);
-        //Penser a remove all listners
+        
+        fullScreenMode.onValueChanged.AddListener(FullScreenChange);
+        
+        backBTN.onClick.AddListener(Back);
     }
+
+    private void OnDisable()
+    {
+        masterVolume.onValueChanged.RemoveAllListeners();
+        musicVolume.onValueChanged.RemoveAllListeners();
+        effectVolume.onValueChanged.RemoveAllListeners();
+        
+        masterMuteButton.onValueChanged.RemoveAllListeners();
+        musicMuteButton.onValueChanged.RemoveAllListeners();
+        effectMuteButton.onValueChanged.RemoveAllListeners();
+        
+        fullScreenMode.onValueChanged.RemoveAllListeners();
+        
+        backBTN.onClick.RemoveAllListeners();
+    }
+
+    #endregion
+
+    #region Class Méthodes
+
+    #region Gestion Sonore
 
     private void MasterChange(float sliderValue)
     {
@@ -106,4 +138,20 @@ public class OptionsManager : MonoBehaviour
             effectVolume.interactable = false;
         }
     }
+
+    #endregion
+    
+    private void FullScreenChange(bool toggleValue)
+    {
+        Screen.fullScreen = toggleValue;
+        optionsSO.optionsData.fullscreen = toggleValue;
+    }
+
+    private void Back()
+    {
+        SceneManager.UnloadSceneAsync(gameObject.scene);
+    }
+
+    #endregion
+
 }
