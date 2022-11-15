@@ -59,6 +59,15 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent leftStickPressed = new ();
     [NonSerialized] public UnityEvent<float> leftStickLongPressed = new ();
 
+    #region PlayerStateBooleans
+
+    public bool isInTheAir;
+    public bool isTackling;
+    public bool isHit;
+    public bool isPausing;
+
+    #endregion
+
     private void Start()
     {
         if(nameObject) nameObject.text = nameText + (index + 1);
@@ -290,5 +299,10 @@ public class PlayerController : MonoBehaviour
         leftStickJustMovedUp.RemoveAllListeners();
         leftStickPressed.RemoveAllListeners();
         leftStickLongPressed.RemoveAllListeners();
+    }
+
+    public bool IsDoingSomething()
+    {
+        return isInTheAir && isTackling && isHit && isPausing;
     }
 }
