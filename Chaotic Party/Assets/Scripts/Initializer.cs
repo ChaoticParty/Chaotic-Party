@@ -17,8 +17,6 @@ public class Initializer : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         path = Application.persistentDataPath + Path.AltDirectorySeparatorChar;
         
-        //if (optionsSO.firstLaunch) //Check si c'est le premier appel de l'awake, vu qu'il est en dontdestroy y a plus besoin normalement
-        //{
         if (File.Exists(path + "optionsData"))
         {
             Debug.Log("Reading file at " + path);
@@ -39,10 +37,6 @@ public class Initializer : MonoBehaviour
             
             optionsSO.optionsData = options;
         }
-
-        
-        //optionsSO.firstLauch = false;
-        //}
     }
 
     private void Start()

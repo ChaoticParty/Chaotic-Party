@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameObject;
     [SerializeField] private string nameText;
     
+    [NonSerialized] public UnityEvent startPressed = new ();
+    
     [NonSerialized] public UnityEvent aJustPressed = new ();
     [NonSerialized] public UnityEvent bJustPressed = new ();
     [NonSerialized] public UnityEvent xJustPressed = new ();
@@ -22,10 +24,38 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent<float> yLongPressed = new ();
     
     [NonSerialized] public UnityEvent<float, float> rightStickMoved = new ();
+    [NonSerialized] public UnityEvent<float, float> rightStickMovedUp = new ();
+    [NonSerialized] public UnityEvent<float, float> rightStickMovedDown = new ();
+    [NonSerialized] public UnityEvent<float, float> rightStickMovedLeft = new ();
+    [NonSerialized] public UnityEvent<float, float> rightStickMovedRight = new ();
+    [NonSerialized] public UnityEvent<float, float> rightStickJustMovedUp = new ();
+    [NonSerialized] public UnityEvent<float, float> rightStickJustMovedDown = new ();
+    [NonSerialized] public UnityEvent<float, float> rightStickJustMovedLeft = new ();
+    [NonSerialized] public UnityEvent<float, float> rightStickJustMovedRight = new ();
+    [NonSerialized] private bool isRightStickMovedUp;
+    [NonSerialized] private bool isRightStickMovedDown;
+    [NonSerialized] private bool isRightStickMovedLeft;
+    [NonSerialized] private bool isRightStickMovedRight;
+    [NonSerialized] public UnityEvent<float, float> rightStickJustMoved = new ();
+    [NonSerialized] private bool isRightStickMoved;
     [NonSerialized] public UnityEvent rightStickPressed = new ();
     [NonSerialized] public UnityEvent<float> rightStickLongPressed = new ();
     
     [NonSerialized] public UnityEvent<float, float> leftStickMoved = new (); //Déplacement avec joystick gauche
+    [NonSerialized] public UnityEvent<float, float> leftStickMovedUp = new ();
+    [NonSerialized] public UnityEvent<float, float> leftStickMovedDown = new ();
+    [NonSerialized] public UnityEvent<float, float> leftStickMovedLeft = new ();
+    [NonSerialized] public UnityEvent<float, float> leftStickMovedRight = new ();
+    [NonSerialized] public UnityEvent<float, float> leftStickJustMovedUp = new ();
+    [NonSerialized] public UnityEvent<float, float> leftStickJustMovedDown = new ();
+    [NonSerialized] public UnityEvent<float, float> leftStickJustMovedLeft = new ();
+    [NonSerialized] public UnityEvent<float, float> leftStickJustMovedRight = new ();
+    [NonSerialized] private bool isLeftStickMovedUp;
+    [NonSerialized] private bool isLeftStickMovedDown;
+    [NonSerialized] private bool isLeftStickMovedLeft;
+    [NonSerialized] private bool isLeftStickMovedRight;
+    [NonSerialized] public UnityEvent<float, float> leftStickJustMoved = new ();
+    [NonSerialized] private bool isLeftStickMoved;
     [NonSerialized] public UnityEvent leftStickPressed = new ();
     [NonSerialized] public UnityEvent<float> leftStickLongPressed = new ();
 
@@ -37,7 +67,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (gamepad == null) return;
-        
+
+        if (gamepad.start.justPressed)
+        {
+            startPressed.Invoke();
+        }
         if(gamepad.A.justPressed)
         {
             aJustPressed.Invoke();
@@ -74,7 +108,68 @@ public class PlayerController : MonoBehaviour
         
         if(gamepad.rightStick.distance != 0)
         {
+            if (!isRightStickMoved)
+            {
+                rightStickJustMoved.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+                isRightStickMoved = true;
+            }
+            if (gamepad.rightStick.up)
+            {
+                if (!isRightStickMovedUp)
+                {
+                    rightStickJustMovedUp.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+                    isRightStickMovedUp = true;
+                }
+                rightStickMovedUp.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+            }
+            else
+            {
+                isRightStickMovedUp = false;
+            }
+            if (gamepad.rightStick.down)
+            {
+                if (!isRightStickMovedDown)
+                {
+                    rightStickJustMovedDown.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+                    isRightStickMovedDown = true;
+                }
+                rightStickMovedDown.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+            }
+            else
+            {
+                isRightStickMovedDown = false;
+            }
+            if (gamepad.rightStick.left)
+            {
+                if (!isRightStickMovedLeft)
+                {
+                    rightStickJustMovedLeft.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+                    isRightStickMovedLeft = true;
+                }
+                rightStickMovedLeft.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+            }
+            else
+            {
+                isRightStickMovedLeft = false;
+            }
+            if (gamepad.rightStick.right)
+            {
+                if (!isRightStickMovedRight)
+                {
+                    rightStickJustMovedRight.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+                    isRightStickMovedRight = true;
+                }
+                rightStickMovedRight.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+            }
+            else
+            {
+                isRightStickMovedRight = false;
+            }
             rightStickMoved.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+        }
+        else
+        {
+            isRightStickMoved = false;
         }
         if(gamepad.rightStickClick.pressed)
         {
@@ -87,7 +182,68 @@ public class PlayerController : MonoBehaviour
         
         if(gamepad.leftStick.distance != 0)
         {
+            if (!isLeftStickMoved)
+            {
+                leftStickJustMoved.Invoke(gamepad.leftStick.horizontal, gamepad.leftStick.vertical);
+                isLeftStickMoved = true;
+            }
+            if (gamepad.leftStick.up)
+            {
+                if (!isLeftStickMovedUp)
+                {
+                    leftStickJustMovedUp.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+                    isLeftStickMovedUp = true;
+                }
+                leftStickMovedUp.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+            }
+            else
+            {
+                isLeftStickMovedUp = false;
+            }
+            if (gamepad.leftStick.down)
+            {
+                if (!isLeftStickMovedDown)
+                {
+                    leftStickJustMovedDown.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+                    isLeftStickMovedDown = true;
+                }
+                leftStickMovedDown.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+            }
+            else
+            {
+                isLeftStickMovedDown = false;
+            }
+            if (gamepad.leftStick.left)
+            {
+                if (!isLeftStickMovedLeft)
+                {
+                    leftStickJustMovedLeft.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+                    isLeftStickMovedLeft = true;
+                }
+                leftStickMovedLeft.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+            }
+            else
+            {
+                isLeftStickMovedLeft = false;
+            }
+            if (gamepad.leftStick.right)
+            {
+                if (!isLeftStickMovedRight)
+                {
+                    leftStickJustMovedRight.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+                    isLeftStickMovedRight = true;
+                }
+                leftStickMovedRight.Invoke(gamepad.rightStick.horizontal, gamepad.rightStick.vertical);
+            }
+            else
+            {
+                isLeftStickMovedRight = false;
+            }
             leftStickMoved.Invoke(gamepad.leftStick.horizontal, gamepad.leftStick.vertical);
+        }
+        else
+        {
+            isLeftStickMoved = false;
         }
         if(gamepad.leftStickClick.pressed)
         {
@@ -101,6 +257,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
+        startPressed.RemoveAllListeners();
         aJustPressed.RemoveAllListeners();
         bJustPressed.RemoveAllListeners();
         xJustPressed.RemoveAllListeners();
@@ -110,9 +267,27 @@ public class PlayerController : MonoBehaviour
         xLongPressed.RemoveAllListeners();
         yLongPressed.RemoveAllListeners();
         rightStickMoved.RemoveAllListeners();
+        rightStickJustMoved.RemoveAllListeners();
+        rightStickMovedDown.RemoveAllListeners();
+        rightStickMovedLeft.RemoveAllListeners();
+        rightStickMovedRight.RemoveAllListeners();
+        rightStickMovedUp.RemoveAllListeners();
+        rightStickJustMovedDown.RemoveAllListeners();
+        rightStickJustMovedLeft.RemoveAllListeners();
+        rightStickJustMovedRight.RemoveAllListeners();
+        rightStickJustMovedUp.RemoveAllListeners();
         rightStickPressed.RemoveAllListeners();
         rightStickLongPressed.RemoveAllListeners();
         leftStickMoved.RemoveAllListeners();
+        leftStickJustMoved.RemoveAllListeners();
+        leftStickMovedDown.RemoveAllListeners();
+        leftStickMovedLeft.RemoveAllListeners();
+        leftStickMovedRight.RemoveAllListeners();
+        leftStickMovedUp.RemoveAllListeners();
+        leftStickJustMovedDown.RemoveAllListeners();
+        leftStickJustMovedLeft.RemoveAllListeners();
+        leftStickJustMovedRight.RemoveAllListeners();
+        leftStickJustMovedUp.RemoveAllListeners();
         leftStickPressed.RemoveAllListeners();
         leftStickLongPressed.RemoveAllListeners();
     }
