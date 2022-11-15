@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public abstract class SpamController : MonoBehaviour
+public abstract class SpamController : MiniGameController
 {
-    protected PlayerController player;
     public SpamManager spamManager;
 
     protected void Awake()
     {
-        player ??= GetComponent<PlayerController>();
+        base.Awake();
         spamManager ??= player.miniGameManager as SpamManager;
     }
 
