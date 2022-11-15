@@ -46,11 +46,14 @@ public class JumpController : MiniGameController
     {
         isJumping = !Physics2D.BoxCast(footObject.position, _raycastSize, 0, _downVector,
             0.1f, LayerMask.GetMask("Floor")).collider;
+        player.isInTheAir = isJumping;
     }
 
     private void Jump()
     {
-        if (isJumping) return;
-        _rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        if (player.CanAct())
+        {
+            _rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
     }
 }

@@ -304,11 +304,11 @@ public class PlayerController : MonoBehaviour
 
     public bool IsDoingSomething()
     {
-        return isInTheAir && isTackling && isHit && isPausing;
+        return isInTheAir || isTackling || isHit || isPausing;
     }
 
     public bool CanAct()
     {
-        return !(isInTheAir && isTackling && isHit);
+        return !(isInTheAir || isTackling || isHit);
     }
 }
