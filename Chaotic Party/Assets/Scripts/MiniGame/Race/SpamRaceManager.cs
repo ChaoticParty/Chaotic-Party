@@ -19,6 +19,7 @@ public class SpamRaceManager : SpamManager
     [SerializeField] private CinemachineVirtualCamera raceCamera;
     [SerializeField] private Transform[] raceCars;
     [SerializeField] private CinemachineTargetGroup targetGroup;
+    private Dictionary<PlayerController, int> _ranking;
 
     protected new void Start()
     {
@@ -110,7 +111,7 @@ public class SpamRaceManager : SpamManager
             {
                 if (i != j)
                 {
-                    if (clicksArray[i] >= clicksArray[j])
+                    if (clicksArray[i] < clicksArray[j])
                     {
                         currentRanking++;
                     }
@@ -124,6 +125,18 @@ public class SpamRaceManager : SpamManager
 
     public void ReplaceCars()
     {
+        _ranking = GetRanking();
+        foreach ((PlayerController key, int value) in _ranking)
+        {
+            Debug.Log(key.index + " " + value);
+            if (value == 0)
+            {
+                Transform winnerTransform = key.transform;
+                raceCamera.Follow = winnerTransform;
+                raceCamera.LookAt = winnerTransform;
+            }
+        }
+        
         raceCamera.Priority = 100;
         foreach (PlayerController player in players)
         {
@@ -136,12 +149,12 @@ public class SpamRaceManager : SpamManager
 
     public void StartRace()
     {
-        Dictionary<PlayerController, int> ranking = GetRanking();
+        
         foreach (PlayerController player in players)
         {
             SpamRaceController playerScript = player.GetComponent<SpamRaceController>();
             Transform raceCar = raceCars[players.IndexOf(player)];
-            playerScript.Race(raceCar.position + Vector3.right * (8 - ranking[player]) * 10);
+            playerScript.Race(raceCar.position + Vector3.right * (5 - _ranking[player]) * 10);
         }
     }
 }

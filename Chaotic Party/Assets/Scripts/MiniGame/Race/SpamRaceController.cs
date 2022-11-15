@@ -70,7 +70,7 @@ public class SpamRaceController : SpamController
         while ((Vector2)raceCarTransform.position != destination)
         {
             raceCarTransform.position = Vector2.MoveTowards(raceCarTransform.position,
-                destination, Time.deltaTime * 10);
+                destination, Time.deltaTime * 5);
             yield return new WaitForNextFrameUnit();
         }
     }
