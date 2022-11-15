@@ -6,9 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class HorizontalMovement : MiniGameController
 {
-    public float speed;
-    public float maxClamp;
-    public float minClamp;
+    public float speed = 5;
+    public float minClamp = -8;
+    public float maxClamp = 8;
     private Rigidbody2D _rigidbody2D;
     
     private new void Awake()
