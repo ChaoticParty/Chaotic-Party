@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         if(nameObject) nameObject.text = nameText + (index + 1);
+        miniGameManager ??= FindObjectOfType<MiniGameManager>();
     }
 
     private void Update()
