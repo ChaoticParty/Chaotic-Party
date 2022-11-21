@@ -24,7 +24,7 @@ public class HitPhoto : HitController
 
     IEnumerator ReactivateInput()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         player.gamepad.A.Enable();
         player.gamepad.Y.Enable();
         player.gamepad.leftStick.Enable();

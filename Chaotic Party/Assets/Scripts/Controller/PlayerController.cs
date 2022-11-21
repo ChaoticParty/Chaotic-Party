@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
             yLongPressed.Invoke(gamepad.Y.pressDuration);
         }
         
-        if(gamepad.rightStick.distance != 0)
+        if(gamepad.rightStick.distance > 0.2f)
         {
             if (!isRightStickMoved)
             {
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
             rightStickLongPressed.Invoke(gamepad.rightStickClick.pressDuration);
         }
         
-        if(gamepad.leftStick.distance != 0)
+        if(gamepad.leftStick.distance > 0.2f)
         {
             if (!isLeftStickMoved)
             {
@@ -305,5 +305,10 @@ public class PlayerController : MonoBehaviour
     public bool IsDoingSomething()
     {
         return isInTheAir && isTackling && isHit && isPausing;
+    }
+
+    public bool CanMove()
+    {
+        return !(isTackling || isHit);
     }
 }

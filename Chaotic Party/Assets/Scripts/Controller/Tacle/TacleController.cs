@@ -8,10 +8,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(BoxCollider2D))]
 public class TacleController : MiniGameController
 {
-    public float impulsion;
     public GameObject tacleChild;
     
-    private Vector2 forceTacle;
+    public Vector2 forceTacle;
     private Rigidbody2D rigidbody2D;
 
     private bool isTacling = false;
@@ -25,26 +24,29 @@ public class TacleController : MiniGameController
 
     private void Tacled()
     {
+        if (isTacling)
+        {
+            return;
+        }
         //Lancement de l'anim
         isTacling = true;
         player.isTackling = true;
         player.gamepad.leftStick.Disable();
-        rigidbody2D.velocity = Vector2.zero;
+        rigidbody2D.velocity = forceTacle * player.transform.localScale.x;
         player.gamepad.A.Disable();
         player.gamepad.X.Disable();
-        forceTacle = new Vector2(impulsion * transform.localScale.x, 0);
-        rigidbody2D.AddForce(forceTacle, ForceMode2D.Force);
         StartCoroutine(ReactivateInput());
         //Remettre isTacling a false et reactiver les touches A et stick gauche a la fin de l'anim
     }
     
     IEnumerator ReactivateInput()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         player.gamepad.A.Enable();
         player.gamepad.X.Enable();
         player.gamepad.leftStick.Enable();
         isTacling = false;
         player.isTackling = false;
+        rigidbody2D.velocity = Vector2.zero;
     }
 }

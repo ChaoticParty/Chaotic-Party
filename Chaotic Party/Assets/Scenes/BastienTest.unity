@@ -1442,8 +1442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impulsion: 1.5
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
+  forceTacle: {x: 0, y: 0}
 --- !u!50 &655692425
 Rigidbody2D:
   serializedVersion: 4
@@ -1477,8 +1477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impulsion: 1.5
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
+  forceTacle: {x: 0, y: 0}
 --- !u!50 &655692428
 Rigidbody2D:
   serializedVersion: 4
@@ -1910,8 +1910,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impulsion: 1.5
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
+  forceTacle: {x: 0, y: 0}
 --- !u!50 &1065306327
 Rigidbody2D:
   serializedVersion: 4
@@ -2828,8 +2828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impulsion: 1.5
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
+  forceTacle: {x: 8, y: 0}
 --- !u!50 &1429443740
 Rigidbody2D:
   serializedVersion: 4
