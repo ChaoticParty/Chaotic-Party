@@ -51,6 +51,7 @@ public class JumpController : MiniGameController
 
     private void Jump()
     {
+        Debug.Log("Jump pressed");
         if (player.CanAct())
         {
             _rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);

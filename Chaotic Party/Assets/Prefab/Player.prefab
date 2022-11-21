@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4518951441886738147}
   - component: {fileID: 4518951441886738173}
   - component: {fileID: 4518951441886738144}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,10 @@ MonoBehaviour:
   index: 0
   nameObject: {fileID: 7941785568734260775}
   nameText: J
+  isInTheAir: 0
+  isTackling: 0
+  isHit: 0
+  isPausing: 0
 --- !u!1 &5980701041646339337
 GameObject:
   m_ObjectHideFlags: 0
