@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
     public bool isTackling;
     public bool isHit;
     public bool isPausing;
+    public bool isStunned;
 
     #endregion
 
@@ -304,16 +305,21 @@ public class PlayerController : MonoBehaviour
 
     public bool IsDoingSomething()
     {
-        return isInTheAir || isTackling || isHit || isPausing;
+        return isInTheAir || isTackling || isHit || isPausing || isStunned;
     }
 
     public bool CanAct()
     {
-        return !(isInTheAir || isTackling || isHit);
+        return !(isInTheAir || isTackling || isHit || isStunned);
     }
 
     public bool CanMove()
     {
-        return !(isTackling || isHit);
+        return !(isTackling || isHit || isStunned);
+    }
+
+    public bool CanBeStunned()
+    {
+        return !(isStunned || isHit);
     }
 }
