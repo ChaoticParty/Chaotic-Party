@@ -868,8 +868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplayerManager: {fileID: 0}
   optionsScene: Options
-  selectTete: []
-  selectCorps: []
+  selectColor: 
   readyCount: 0
   listPersonnages:
   - {fileID: 5614323535690735779}
@@ -1633,6 +1632,10 @@ PrefabInstance:
       value: -447.09155
       objectReference: {fileID: 0}
     - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
+      propertyPath: actualPanel
+      value: 
+      objectReference: {fileID: 1336493702446623293}
+    - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
       propertyPath: menuManager
       value: 
       objectReference: {fileID: 2964346414296264589}
@@ -1801,6 +1804,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -447.09155
       objectReference: {fileID: 0}
+    - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
+      propertyPath: actualPanel
+      value: 
+      objectReference: {fileID: 1336493702446623293}
     - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
       propertyPath: menuManager
       value: 
@@ -1971,6 +1978,10 @@ PrefabInstance:
       value: -447.09155
       objectReference: {fileID: 0}
     - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
+      propertyPath: actualPanel
+      value: 
+      objectReference: {fileID: 1336493702446623293}
+    - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
       propertyPath: menuManager
       value: 
       objectReference: {fileID: 2964346414296264589}
@@ -2139,6 +2150,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -447.09155
       objectReference: {fileID: 0}
+    - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
+      propertyPath: actualPanel
+      value: 
+      objectReference: {fileID: 1336493702446623293}
     - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
       propertyPath: menuManager
       value: 

@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (gamepad == null || miniGameManager.isGameDone) return;
+        if (gamepad == null /*|| miniGameManager.isGameDone*/) return;
 
         if (gamepad.start.justPressed)
         {
