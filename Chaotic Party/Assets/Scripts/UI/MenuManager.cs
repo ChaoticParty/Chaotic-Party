@@ -11,8 +11,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] MultiplayerManager multiplayerManager;
     
     public string optionsScene;
-    public List<Sprite> selectTete = new List<Sprite>();
-    public List<Sprite> selectCorps = new List<Sprite>();
+    public List<ColorEnum> selectColor = new List<ColorEnum>();
     public sbyte readyCount = 0;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
     private sbyte nbCurrentGamepads;
@@ -38,6 +37,11 @@ public class MenuManager : MonoBehaviour
     
     #region MonoBehaviour Méthodes
 
+    private void Awake()
+    {
+        Caching.ClearCache(); // Tester si ça resout le soucis de l'attribution des manettes
+    }
+
     private void OnEnable()
     {
         EventSystem.current.SetSelectedGameObject(null);
@@ -47,7 +51,8 @@ public class MenuManager : MonoBehaviour
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
         
         partyBTN.onClick.AddListener(PartyClick);
-        minigameBTN.onClick.AddListener(MinigameClick);
+        //minigameBTN.onClick.AddListener(MinigameClick);
+        minigameBTN.onClick.AddListener(PartyClick);
         optionsBTN.onClick.AddListener(OptionsClick);
         quitBTN.onClick.AddListener(QuitClick);
         //Pas encore cree sur le prefab
@@ -124,7 +129,7 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    private void Back(GameObject actualPanel)
+    public void Back(GameObject actualPanel)
     {
         oldPanel.SetActive(true);
         actualPanel.SetActive(false);
