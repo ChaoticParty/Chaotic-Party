@@ -6,10 +6,13 @@ public class MultiplayerManager : MonoBehaviour
 {
     public List<PlayerController> players;
     [SerializeField] private MiniGameManager miniGameManager;
+    [SerializeField] private PlayersListSO playersListSo;
     
     private void Awake()
     {
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
+        playersListSo ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
+        Debug.Log(playersListSo);
         InitMultiplayer();
     }
 
@@ -30,6 +33,7 @@ public class MultiplayerManager : MonoBehaviour
                 player.gamepad = gamepad;
                 player.index = i;
                 if (miniGameManager) miniGameManager.RegisterPlayer(player);
+                player.SetupSprite(playersListSo.players[i]);
             }
             else
             {

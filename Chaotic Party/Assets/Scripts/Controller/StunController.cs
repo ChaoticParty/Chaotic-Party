@@ -30,7 +30,7 @@ public class StunController : MiniGameController
         Debug.Log("player got stunned");
         player.isStunned = true;
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        player.GetComponent<SpriteRenderer>().color = Color.grey;
+        player.ChangeColor(Color.grey);
         StartCoroutine(StopStun());
     }
 
@@ -40,7 +40,7 @@ public class StunController : MiniGameController
 
         Debug.Log("player is no more stunned");
         _stunTime = defaultStunTime;
-        player.GetComponent<SpriteRenderer>().color = Color.red;
+        player.ChangeColor();
         player.isStunned = false;
     }
 }

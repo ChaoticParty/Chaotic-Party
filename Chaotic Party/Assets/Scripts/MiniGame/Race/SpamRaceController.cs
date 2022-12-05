@@ -17,17 +17,6 @@ public class SpamRaceController : SpamController
         player.yJustPressed.AddListener(player.index == 1 ? Click : () => { ClickOnOtherPlayer(1); });
         player.bJustPressed.AddListener(player.index == 2 ? Click : () => { ClickOnOtherPlayer(2); });
         player.aJustPressed.AddListener(player.index == 3 ? Click : () => { ClickOnOtherPlayer(3); });
-        
-        player.aJustPressed.AddListener(Click);
-        playersIndex = new int[player.miniGameManager.players.Count - 1];
-        for (int i = 0; i < playersIndex.Length; i++)
-        {
-            playersIndex[i] = i + 1;
-            if (playersIndex[i] <= player.index) playersIndex[i]--;
-        }
-        if(playersIndex.Length > 0) player.xJustPressed.AddListener(() => { ClickOnOtherPlayer(playersIndex[0]); });
-        if(playersIndex.Length > 1) player.yJustPressed.AddListener(() => { ClickOnOtherPlayer(playersIndex[1]); });
-        if(playersIndex.Length > 2) player.bJustPressed.AddListener(() => { ClickOnOtherPlayer(playersIndex[2]); });
     }
 
     public void DeactivatePlayer()

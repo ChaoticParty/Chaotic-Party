@@ -18,7 +18,7 @@ public class JumpController : MiniGameController
 
     private readonly Vector2 _downVector = Vector2.down;
     private readonly Vector2 _upVector = Vector2.up;
-    private readonly Vector2 _raycastSize = new Vector2(1, 0.01f);
+    private readonly Vector2 _raycastSize = new Vector2(0.49f, 0.01f);
 
     #endregion
     

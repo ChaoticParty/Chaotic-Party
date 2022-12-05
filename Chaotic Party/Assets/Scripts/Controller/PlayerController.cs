@@ -10,8 +10,19 @@ public class PlayerController : MonoBehaviour
     public int index;
     [SerializeField] private TextMeshProUGUI nameObject;
     [SerializeField] private string nameText;
-    
+    private PlayerSO _playerSo;
+
+    #region Sprites
+
+    public SpriteRenderer head;
+    public SpriteRenderer body;
+
+    #endregion
+
+    #region ControllerEvents
+
     [NonSerialized] public UnityEvent startPressed = new ();
+    [NonSerialized] public UnityEvent selectPressed = new ();
     
     [NonSerialized] public UnityEvent aJustPressed = new ();
     [NonSerialized] public UnityEvent bJustPressed = new ();
@@ -59,6 +70,8 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent leftStickPressed = new ();
     [NonSerialized] public UnityEvent<float> leftStickLongPressed = new ();
 
+    #endregion
+
     #region PlayerStateBooleans
 
     public bool isInTheAir;
@@ -82,6 +95,10 @@ public class PlayerController : MonoBehaviour
         if (gamepad.start.justPressed)
         {
             startPressed.Invoke();
+        }
+        if (gamepad.back.justPressed)
+        {
+            selectPressed.Invoke();
         }
         if(gamepad.A.justPressed)
         {
@@ -321,5 +338,34 @@ public class PlayerController : MonoBehaviour
     public bool CanBeStunned()
     {
         return !(isStunned || isHit);
+    }
+
+    public void SetupSprite(PlayerSO playerSo)
+    {
+        _playerSo = playerSo;
+        
+        head.sprite = playerSo.head;
+        body.sprite = playerSo.body;
+        head.color = playerSo.color;
+        body.color = playerSo.color;
+    }
+
+    public void SetupSprite()
+    {
+        head.sprite = _playerSo.head;
+        body.sprite = _playerSo.body;
+        head.color = _playerSo.color;
+        body.color = _playerSo.color;
+    }
+
+    public void ChangeColor()
+    {
+        ChangeColor(_playerSo.color);
+    }
+
+    public void ChangeColor(Color color)
+    {
+        head.color = color;
+        body.color = color;
     }
 }
