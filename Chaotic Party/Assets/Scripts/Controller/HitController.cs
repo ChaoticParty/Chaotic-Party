@@ -10,5 +10,5 @@ public abstract class HitController : MiniGameController
         base.Awake();
         myRigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
-    public abstract void Hited();
+    public abstract void Hited(GameObject hitter);
 }

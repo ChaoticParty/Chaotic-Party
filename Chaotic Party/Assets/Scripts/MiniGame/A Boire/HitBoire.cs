@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HitBoire : HitController
 {
-    public override void Hited()
+    public override void Hited(GameObject hitter)
     {
         if (player.isHit) return;
         
