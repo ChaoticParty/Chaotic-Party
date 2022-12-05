@@ -11,6 +11,7 @@ public class EcranPersonnage : MonoBehaviour
     public MenuManager menuManager;
     public GameObject actualPanel;
     public sbyte playSceneIndex = 1;
+    [SerializeField] private sbyte playerSOIndex = 0;
 
     private bool isReady = false;
 
@@ -397,7 +398,10 @@ public class EcranPersonnage : MonoBehaviour
         
         currentRace = listRaces[0];
         currentRaceIndex = 0;
+        currentTeteIndex = 0;
+        currentCorpsIndex = 0;
         currentColorIndex = 0;
+        
         SwitchRace();
         VisualRefresh();
     }
@@ -508,7 +512,6 @@ public class EcranPersonnage : MonoBehaviour
                 break;
         }
         VisualRefresh();
-        Console.Clear();
     }
 
     private void BackToMain(float t)
@@ -521,13 +524,43 @@ public class EcranPersonnage : MonoBehaviour
         }
     }
 
+    public void CompleteSO()
+    {
+        menuManager.playersListSO.players[playerSOIndex].head = listCurrentTete[currentTeteIndex];
+        menuManager.playersListSO.players[playerSOIndex].body = listCurrentCorps[currentCorpsIndex];
+        menuManager.playersListSO.players[playerSOIndex].color = listColor[currentColorIndex];
+        
+        Debug.Log("Current tete : "+listCurrentTete[currentTeteIndex].name);
+        Debug.Log("Current corps : "+listCurrentCorps[currentCorpsIndex].name);
+        
+        Debug.Log("SO tete : "+menuManager.playersListSO.players[playerSOIndex].head.name);
+        Debug.Log("SO corps : "+menuManager.playersListSO.players[playerSOIndex].body.name);
+        Debug.Log("SO color : "+menuManager.playersListSO.players[playerSOIndex].color);
+    }
+    
     private void Ready()
     {
-        if (menuManager.readyCount.Equals(1/*compte du nb de joueurs*/) /*&& j1*/) //Que si j1 et que nb joueur egal readycount
+        sbyte playerCountTemp = 0;
+        foreach (EcranPersonnage ecranPersonnage in menuManager.listPersonnages)
         {
+            if (ecranPersonnage.gameObject.activeSelf)
+            {
+                playerCountTemp++;
+            }
+        }
+        if (menuManager.readyCount.Equals(playerCountTemp/*1*/) /*&& j1*/) //Que si j1 et que nb joueur egal readycount
+        {
+            foreach (EcranPersonnage ecranPerso in menuManager.listPersonnages)
+            {
+                if (ecranPerso.gameObject.activeSelf)
+                {
+                    ecranPerso.CompleteSO();    
+                }
+            }
             SceneManager.LoadScene(playSceneIndex);
         }
-        if (isReady)
+        
+        if (!isReady)
         {
             //Anim du parchemin qui se ferme et remonte + possibilité au joueur de jouer avec son perso
             menuManager.readyCount++;
@@ -553,7 +586,6 @@ public class EcranPersonnage : MonoBehaviour
                     lockJauneGO.SetActive(true);
                     break;
             }
-            //Ajout et attribution des sprites tete, corps et couleur au player concerné (cf scriptable object)
             //Faire le check aussi
         }
         else

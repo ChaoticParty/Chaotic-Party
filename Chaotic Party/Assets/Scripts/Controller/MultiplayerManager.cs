@@ -7,6 +7,8 @@ public class MultiplayerManager : MonoBehaviour
     public List<PlayerController> players;
     [SerializeField] private MiniGameManager miniGameManager;
     [SerializeField] private PlayersListSO playersListSo;
+    [Space]
+    [SerializeField] private bool isInMenu = false;
     
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class MultiplayerManager : MonoBehaviour
                 player.gamepad = gamepad;
                 player.index = i;
                 if (miniGameManager) miniGameManager.RegisterPlayer(player);
+                if (isInMenu) continue;
                 player.SetupSprite(playersListSo.players[i]);
             }
             else

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] MultiplayerManager multiplayerManager;
+    public PlayersListSO playersListSO;
     
     public string optionsScene;
     public List<ColorEnum> selectColor = new List<ColorEnum>();

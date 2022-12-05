@@ -867,6 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplayerManager: {fileID: 0}
+  playersListSO: {fileID: 11400000, guid: 42d594bc8afb56a42ba27f94141ce02f, type: 2}
   optionsScene: Options
   selectColor: 
   readyCount: 0
@@ -1639,6 +1640,10 @@ PrefabInstance:
       propertyPath: menuManager
       value: 
       objectReference: {fileID: 2964346414296264589}
+    - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
+      propertyPath: playerSOIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4770347556321756616, guid: da470763fa826f440ac358454798ec7b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1812,6 +1817,10 @@ PrefabInstance:
       propertyPath: menuManager
       value: 
       objectReference: {fileID: 2964346414296264589}
+    - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
+      propertyPath: playerSOIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4770347556321756616, guid: da470763fa826f440ac358454798ec7b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1985,6 +1994,10 @@ PrefabInstance:
       propertyPath: menuManager
       value: 
       objectReference: {fileID: 2964346414296264589}
+    - target: {fileID: 4023459446512045712, guid: da470763fa826f440ac358454798ec7b, type: 3}
+      propertyPath: playerSOIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4770347556321756616, guid: da470763fa826f440ac358454798ec7b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
