@@ -51,7 +51,8 @@ public class MenuManager : MonoBehaviour
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
         
         partyBTN.onClick.AddListener(PartyClick);
-        minigameBTN.onClick.AddListener(MinigameClick);
+        //minigameBTN.onClick.AddListener(MinigameClick);
+        minigameBTN.onClick.AddListener(PartyClick);
         optionsBTN.onClick.AddListener(OptionsClick);
         quitBTN.onClick.AddListener(QuitClick);
         //Pas encore cree sur le prefab
