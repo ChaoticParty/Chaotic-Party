@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,12 +10,14 @@ public class JumpController : MiniGameController
     private Rigidbody2D _rigidbody2D;
     public SpamButton jumpButton = SpamButton.A;
     public float jumpForce = 5;
+    public bool canFootStool;
     public bool isJumping;
-    public Transform footObject;
+    [NotNull] public Transform footObject;
 
     #region CodeVariables
 
     private readonly Vector2 _downVector = Vector2.down;
+    private readonly Vector2 _upVector = Vector2.up;
     private readonly Vector2 _raycastSize = new Vector2(1, 0.01f);
 
     #endregion
@@ -51,10 +54,29 @@ public class JumpController : MiniGameController
 
     private void Jump()
     {
-        Debug.Log("Jump pressed");
         if (player.CanAct())
         {
-            _rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            Jumping();
         }
+        else
+        {
+            Collider2D otherPlayerCollider = Physics2D.BoxCast((Vector2)footObject.position + _downVector * 0.2f, _raycastSize, 0, _upVector,
+                0.1f, LayerMask.GetMask("Player")).collider;
+            if (isJumping && canFootStool && otherPlayerCollider)
+            {
+                _rigidbody2D.velocity = Vector2.zero;
+                Jumping();
+                if (otherPlayerCollider.TryGetComponent(out StunController stunScript))
+                {
+                    stunScript.Stun();
+                }
+            }
+        }
+    }
+
+    private void Jumping()
+    {
+        //_rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        _rigidbody2D.velocity = new Vector2(0, jumpForce);
     }
 }
