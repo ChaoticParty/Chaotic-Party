@@ -1507,6 +1507,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!1 &684486894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1257797463396168505, guid: fe556df843489be44be0b0c17f7e240c, type: 3}
+  m_PrefabInstance: {fileID: 1442679428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &684486895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684486894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eacf22bece486649a3a24f0827de69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: {fileID: 11400000, guid: 42d594bc8afb56a42ba27f94141ce02f, type: 2}
 --- !u!1 &714943961
 GameObject:
   m_ObjectHideFlags: 0

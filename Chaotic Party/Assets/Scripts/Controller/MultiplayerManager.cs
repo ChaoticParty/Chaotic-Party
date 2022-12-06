@@ -13,7 +13,7 @@ public class MultiplayerManager : MonoBehaviour
     private void Awake()
     {
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
-        playersListSo ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
+        playersListSo ??= ReferenceHolder.instance.players;
         Debug.Log(playersListSo);
         InitMultiplayer();
     }

@@ -41,6 +41,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         Caching.ClearCache(); // Tester si ça resout le soucis de l'attribution des manettes
+        playersListSO ??= ReferenceHolder.instance.players;
     }
 
     private void OnEnable()

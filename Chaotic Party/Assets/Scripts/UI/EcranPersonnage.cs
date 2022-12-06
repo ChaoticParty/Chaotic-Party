@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+// ReSharper disable InconsistentNaming
 
 public class EcranPersonnage : MonoBehaviour
 {
@@ -390,6 +391,15 @@ public class EcranPersonnage : MonoBehaviour
 
     public void InitCusto()
     {
+        Debug.Log("Current tete : "+listTetes[currentRaceIndex].listTête[currentTeteIndex]);
+        Debug.Log("Current corps : "+listCorps[currentRaceIndex].listCorps[currentTeteIndex]);
+        Debug.Log("Current color : "+listColor[currentColorIndex]);
+        Debug.Log("index: " + playerSOIndex);
+        
+        Debug.Log("SO tete : "+menuManager.playersListSO.players[playerSOIndex].head.name);
+        Debug.Log("SO corps : "+menuManager.playersListSO.players[playerSOIndex].body.name);
+        Debug.Log("SO color : "+menuManager.playersListSO.players[playerSOIndex].color);
+        
         indicNavGoblinGO.SetActive(true);
         selectedGoblinGO.SetActive(true);
         indicNavTeteGO.SetActive(false);
@@ -524,14 +534,18 @@ public class EcranPersonnage : MonoBehaviour
         }
     }
 
-    public void CompleteSO()
+    public void FillSO()
     {
-        menuManager.playersListSO.players[playerSOIndex].head = listCurrentTete[currentTeteIndex];
-        menuManager.playersListSO.players[playerSOIndex].body = listCurrentCorps[currentCorpsIndex];
+        Debug.Log("Fill SO");
+        
+        menuManager.playersListSO.players[playerSOIndex].head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
+        menuManager.playersListSO.players[playerSOIndex].body = listCorps[currentRaceIndex].listCorps[currentTeteIndex];
         menuManager.playersListSO.players[playerSOIndex].color = listColor[currentColorIndex];
         
-        Debug.Log("Current tete : "+listCurrentTete[currentTeteIndex].name);
-        Debug.Log("Current corps : "+listCurrentCorps[currentCorpsIndex].name);
+        Debug.Log("Current tete : "+listTetes[currentRaceIndex].listTête[currentTeteIndex]);
+        Debug.Log("Current corps : "+listCorps[currentRaceIndex].listCorps[currentTeteIndex]);
+        Debug.Log("Current color : "+listColor[currentColorIndex]);
+        Debug.Log("index: " + playerSOIndex);
         
         Debug.Log("SO tete : "+menuManager.playersListSO.players[playerSOIndex].head.name);
         Debug.Log("SO corps : "+menuManager.playersListSO.players[playerSOIndex].body.name);
@@ -554,7 +568,7 @@ public class EcranPersonnage : MonoBehaviour
             {
                 if (ecranPerso.gameObject.activeSelf)
                 {
-                    ecranPerso.CompleteSO();    
+                    ecranPerso.FillSO();    
                 }
             }
             SceneManager.LoadScene(playSceneIndex);
