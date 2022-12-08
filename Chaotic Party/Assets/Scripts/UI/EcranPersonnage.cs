@@ -57,8 +57,10 @@ public class EcranPersonnage : MonoBehaviour
     [SerializeField] private GameObject indicNavJauneGO;
     [SerializeField] private GameObject selectedJauneGO;
     [SerializeField] private GameObject lockJauneGO;
-    
-    [Header("Affichage")]
+
+    [Header("Affichage")] 
+    [SerializeField] private Image readyIMG;
+    [SerializeField] private Image backIMG;
     private Races currentRace;
     private sbyte currentRaceIndex = 0; //De -128 à 128
     private sbyte currentTeteIndex = 0;
@@ -391,15 +393,6 @@ public class EcranPersonnage : MonoBehaviour
 
     public void InitCusto()
     {
-        Debug.Log("Current tete : "+listTetes[currentRaceIndex].listTête[currentTeteIndex]);
-        Debug.Log("Current corps : "+listCorps[currentRaceIndex].listCorps[currentTeteIndex]);
-        Debug.Log("Current color : "+listColor[currentColorIndex]);
-        Debug.Log("index: " + playerSOIndex);
-        
-        Debug.Log("SO tete : "+menuManager.playersListSO.players[playerSOIndex].head.name);
-        Debug.Log("SO corps : "+menuManager.playersListSO.players[playerSOIndex].body.name);
-        Debug.Log("SO color : "+menuManager.playersListSO.players[playerSOIndex].color);
-        
         indicNavGoblinGO.SetActive(true);
         selectedGoblinGO.SetActive(true);
         indicNavTeteGO.SetActive(false);
@@ -527,6 +520,7 @@ public class EcranPersonnage : MonoBehaviour
     private void BackToMain(float t)
     {
         //Anim du retour qui se complète
+        backIMG.color = Color.red;
         if (t > 2)
         {
             menuManager.Back(actualPanel);
@@ -536,20 +530,39 @@ public class EcranPersonnage : MonoBehaviour
 
     public void FillSO()
     {
-        Debug.Log("Fill SO");
-        
         menuManager.playersListSO.players[playerSOIndex].head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
         menuManager.playersListSO.players[playerSOIndex].body = listCorps[currentRaceIndex].listCorps[currentTeteIndex];
         menuManager.playersListSO.players[playerSOIndex].color = listColor[currentColorIndex];
+    }
+
+    public void LockColor(bool _isReady)
+    {
+        if (!_isReady)
+            menuManager.selectColor.Add(enumColor);
+        else
+            menuManager.selectColor.Remove(enumColor);
         
-        Debug.Log("Current tete : "+listTetes[currentRaceIndex].listTête[currentTeteIndex]);
-        Debug.Log("Current corps : "+listCorps[currentRaceIndex].listCorps[currentTeteIndex]);
-        Debug.Log("Current color : "+listColor[currentColorIndex]);
-        Debug.Log("index: " + playerSOIndex);
-        
-        Debug.Log("SO tete : "+menuManager.playersListSO.players[playerSOIndex].head.name);
-        Debug.Log("SO corps : "+menuManager.playersListSO.players[playerSOIndex].body.name);
-        Debug.Log("SO color : "+menuManager.playersListSO.players[playerSOIndex].color);
+        switch (currentColorIndex)
+        {
+            case 0:
+                lockBlancGO.SetActive(!_isReady);
+                break;
+            case 1:
+                lockVertGO.SetActive(!_isReady);
+                break;
+            case 2:
+                lockVioletGO.SetActive(!_isReady);
+                break;
+            case 3:
+                lockRougeGO.SetActive(!_isReady);
+                break;
+            case 4:
+                lockOrangeGO.SetActive(!_isReady);
+                break;
+            case 5:
+                lockJauneGO.SetActive(!_isReady);
+                break;
+        }
     }
     
     private void Ready()
@@ -578,56 +591,16 @@ public class EcranPersonnage : MonoBehaviour
         {
             //Anim du parchemin qui se ferme et remonte + possibilité au joueur de jouer avec son perso
             menuManager.readyCount++;
-            menuManager.selectColor.Add(enumColor);
-            switch (enumColor)
-            {
-                case ColorEnum.BLANC:
-                    lockBlancGO.SetActive(true);
-                    break;
-                case ColorEnum.VERT:
-                    lockVertGO.SetActive(true);
-                    break;
-                case ColorEnum.VIOLET:
-                    lockVioletGO.SetActive(true);
-                    break;
-                case ColorEnum.ROUGE:
-                    lockRougeGO.SetActive(true);
-                    break;
-                case ColorEnum.ORANGE:
-                    lockOrangeGO.SetActive(true);
-                    break;
-                case ColorEnum.JAUNE:
-                    lockJauneGO.SetActive(true);
-                    break;
-            }
+            readyIMG.color = Color.red;
+            LockColor(isReady);
             //Faire le check aussi
         }
         else
         {
             //Anim du parchemin qui s'ouvre et redscent + peut plus joeur avec son perso
             menuManager.readyCount--;
-            menuManager.selectColor.Remove(enumColor);
-            switch (enumColor)
-            {
-                case ColorEnum.BLANC:
-                    lockBlancGO.SetActive(false);
-                    break;
-                case ColorEnum.VERT:
-                    lockVertGO.SetActive(false);
-                    break;
-                case ColorEnum.VIOLET:
-                    lockVioletGO.SetActive(false);
-                    break;
-                case ColorEnum.ROUGE:
-                    lockRougeGO.SetActive(false);
-                    break;
-                case ColorEnum.ORANGE:
-                    lockOrangeGO.SetActive(false);
-                    break;
-                case ColorEnum.JAUNE:
-                    lockJauneGO.SetActive(false);
-                    break;
-            }
+            readyIMG.color = Color.white;
+            LockColor(isReady);
         }
 
         isReady = !isReady;

@@ -350,14 +350,6 @@ public class PlayerController : MonoBehaviour
         body.color = playerSo.color;
     }
 
-    public void SetupSprite()
-    {
-        head.sprite = _playerSo.head;
-        body.sprite = _playerSo.body;
-        head.color = _playerSo.color;
-        body.color = _playerSo.color;
-    }
-
     public void ChangeColor()
     {
         ChangeColor(_playerSo.color);

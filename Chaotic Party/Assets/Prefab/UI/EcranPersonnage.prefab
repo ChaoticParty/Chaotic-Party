@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Appuyez sur start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1699,10 +1699,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 20.55
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2242,39 +2242,39 @@ MonoBehaviour:
     nomRace: HommePoisson
   listTetes:
   - "listT\xEAte":
-    - {fileID: 21300000, guid: 90a7ddc7b63abcc4eb0fc7c279bdc856, type: 3}
-    - {fileID: 21300000, guid: b0dcb598d4a0453479e092563867f00a, type: 3}
-    - {fileID: 21300000, guid: a7570c27d111e1341a69ae3dbadd78b0, type: 3}
-    - {fileID: 21300000, guid: e0b53cb33f49ab14994157128ab9a54b, type: 3}
+    - {fileID: 21300000, guid: b9128de1d447ac448aaeb1c7aa5e6230, type: 3}
+    - {fileID: 21300000, guid: 19abc09d1d55f4d45855e119cb13f9ef, type: 3}
     nomTete: Goblin
   - "listT\xEAte":
-    - {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
-    - {fileID: 21300000, guid: 8d98ab6168c3e91439339f1908b8fe97, type: 3}
+    - {fileID: 21300000, guid: 1558d945a8fdb7746a7fd6ac3b78d11b, type: 3}
+    - {fileID: 21300000, guid: 0f78605e1d07d734d8dd900542faf4d9, type: 3}
+    - {fileID: 21300000, guid: 9acf27ed0f1fd9545b7d89e34e22c64e, type: 3}
     nomTete: Chevalier
   - "listT\xEAte":
-    - {fileID: 21300000, guid: 0ac55f9f886d827408c102bdf33c5ff7, type: 3}
-    - {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
+    - {fileID: 21300000, guid: fae58b02187cff141960e1dec2f3ca98, type: 3}
+    - {fileID: 21300000, guid: fea368193b086d5419f7916a12c00ee1, type: 3}
     nomTete: Diablotin
   - "listT\xEAte":
-    - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 21300000, guid: c1f24c6e146cf0e4dab1bd30822388c9, type: 3}
+    - {fileID: 21300000, guid: f15094d8b13cb554aacaab1ae1e01ec6, type: 3}
     nomTete: HommePoisson
   listCorps:
   - listCorps:
-    - {fileID: 21300000, guid: 301a3fbeb677d7648ae4bdd590d95978, type: 3}
-    - {fileID: 21300000, guid: ce33710f7ac25fc42a2281f3f9df4246, type: 3}
+    - {fileID: 21300000, guid: f6b618750702d9046bf1f48b682b1369, type: 3}
+    - {fileID: 21300000, guid: 76fbab21a901f654d9213d126a03cc4d, type: 3}
     nomCorps: Goblin
   - listCorps:
-    - {fileID: 21300000, guid: 84174f8833c88334f929617d4f7cf08c, type: 3}
-    - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 21300000, guid: d9bdc1e76749a3e4aa4670d41b36df75, type: 3}
+    - {fileID: 21300000, guid: 131e8772bda1c294e9cb8500e3560086, type: 3}
     nomCorps: Chevalier
   - listCorps:
-    - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    - {fileID: 21300000, guid: a4a62bbf55f1db440b9f106c245f4122, type: 3}
+    - {fileID: 21300000, guid: 86d8ca9ce59dd214e98ec73d99f84254, type: 3}
+    - {fileID: 21300000, guid: ac81366ddd087634abc99eb10002a804, type: 3}
+    - {fileID: 21300000, guid: d6cb49b19802f2f4fb581745e3b556f8, type: 3}
     nomCorps: Diablotin
   - listCorps:
-    - {fileID: 21300000, guid: 675b0134615dc2847ba5e81a42353120, type: 3}
-    - {fileID: 21300000, guid: be2bb42c0681f8948a6ea803cf421fdf, type: 3}
+    - {fileID: 21300000, guid: 6a5cad60052d9f04186af5982f69714f, type: 3}
+    - {fileID: 21300000, guid: 21275446f04d7b54b98a215ea7cd247b, type: 3}
     nomCorps: HommePoisson
   listColor:
   - {r: 1, g: 1, b: 1, a: 1}
@@ -2315,6 +2315,7 @@ MonoBehaviour:
   indicNavJauneGO: {fileID: 4259061568694777922}
   selectedJauneGO: {fileID: 8885159250801766736}
   lockJauneGO: {fileID: 7158205064824274079}
+  readyIMG: {fileID: 3390334942863000538}
   myPlayerController: {fileID: 0}
 --- !u!114 &2427349045169927206
 MonoBehaviour:
