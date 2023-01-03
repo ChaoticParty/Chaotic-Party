@@ -57,6 +57,8 @@ public class EcranPersonnage : MonoBehaviour
     [SerializeField] private GameObject indicNavJauneGO;
     [SerializeField] private GameObject selectedJauneGO;
     [SerializeField] private GameObject lockJauneGO;
+    [Space]
+    [SerializeField] private GameObject indicNavReadyGO;
 
     [Header("Affichage")] 
     [SerializeField] private Image readyIMG;
@@ -75,7 +77,6 @@ public class EcranPersonnage : MonoBehaviour
 
     private void Awake()
     {
-        myPlayerController ??= GetComponent<PlayerController>();
         InitCusto();
     }
 
@@ -85,13 +86,14 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.leftStickJustMovedLeft.AddListener(MenuNavigateLeft);
         myPlayerController.leftStickJustMovedRight.AddListener(MenuNavigateRight);
         myPlayerController.leftStickJustMovedUp.AddListener(MenuNavigateUp);
-        myPlayerController.startPressed.AddListener(Ready);
+        myPlayerController.startPressed.AddListener(LauchGame);
         myPlayerController.aJustPressed.AddListener(ValidateCusto);
         myPlayerController.bLongPressed.AddListener(BackToMain);
     }
 
     private void MenuNavigateUp(float x, float y)
     {
+        if (isReady) return;
         switch (enumCusto)
         {
             case Custo.RACE:
@@ -145,10 +147,36 @@ public class EcranPersonnage : MonoBehaviour
                 
                 indicNavCorpsGO.SetActive(true);
                 break;
+            case Custo.READY:
+                enumCusto = Custo.COULEUR;
+                indicNavReadyGO.SetActive(false);
+                switch (enumColor)
+                {
+                    case ColorEnum.BLANC:
+                        indicNavBlancGO.SetActive(true);
+                        break;
+                    case ColorEnum.VERT:
+                        indicNavVertGO.SetActive(true);
+                        break;
+                    case ColorEnum.VIOLET:
+                        indicNavVioletGO.SetActive(true);
+                        break;
+                    case ColorEnum.ROUGE:
+                        indicNavRougeGO.SetActive(true);
+                        break;
+                    case ColorEnum.ORANGE:
+                        indicNavOrangeGO.SetActive(true);
+                        break;
+                    case ColorEnum.JAUNE:
+                        indicNavJauneGO.SetActive(true);
+                        break;
+                }
+                break;
         }
     }
     private void MenuNavigateDown(float x, float y)
     {
+        if (isReady) return;
         switch (enumCusto)
         {
             case Custo.RACE:
@@ -206,10 +234,36 @@ public class EcranPersonnage : MonoBehaviour
                         break;
                 }
                 break;
+            case Custo.COULEUR:
+                enumCusto = Custo.READY;
+                indicNavReadyGO.SetActive(true);
+                switch (enumColor)
+                {
+                    case ColorEnum.BLANC:
+                        indicNavBlancGO.SetActive(false);
+                        break;
+                    case ColorEnum.VERT:
+                        indicNavVertGO.SetActive(false);
+                        break;
+                    case ColorEnum.VIOLET:
+                        indicNavVioletGO.SetActive(false);
+                        break;
+                    case ColorEnum.ROUGE:
+                        indicNavRougeGO.SetActive(false);
+                        break;
+                    case ColorEnum.ORANGE:
+                        indicNavOrangeGO.SetActive(false);
+                        break;
+                    case ColorEnum.JAUNE:
+                        indicNavJauneGO.SetActive(false);
+                        break;
+                }
+                break;
         }
     }
     private void MenuNavigateRight(float x, float y)
     {
+        if (isReady) return;
         switch (enumCusto)
         {
             case Custo.RACE:
@@ -285,6 +339,7 @@ public class EcranPersonnage : MonoBehaviour
     }
     private void MenuNavigateLeft(float x, float y)
     {
+        if (isReady) return;
         switch (enumCusto)
         {
             case Custo.RACE:
@@ -513,6 +568,9 @@ public class EcranPersonnage : MonoBehaviour
                         break;
                 }
                 break;
+            case Custo.READY:
+                Ready();
+                break;
         }
         VisualRefresh();
     }
@@ -530,8 +588,14 @@ public class EcranPersonnage : MonoBehaviour
 
     public void FillSO()
     {
+        Debug.Log("Race : "+(currentRaceIndex +1) + "/"+listRaces.Count);
+        Debug.Log("Tete : "+(currentTeteIndex+1) + "/"+listTetes[currentRaceIndex].listTête.Count);
+        Debug.Log("Corps : "+(currentCorpsIndex+1) + "/"+listCorps[currentRaceIndex].listCorps.Count);
+        Debug.Log("Couleur : "+(currentColorIndex+1) + "/"+listColor.Count);
+        Debug.Log("SO : "+(playerSOIndex+1) + "/"+menuManager.playersListSO.players.Count);
+        
         menuManager.playersListSO.players[playerSOIndex].head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
-        menuManager.playersListSO.players[playerSOIndex].body = listCorps[currentRaceIndex].listCorps[currentTeteIndex];
+        menuManager.playersListSO.players[playerSOIndex].body = listCorps[currentRaceIndex].listCorps[currentCorpsIndex];
         menuManager.playersListSO.players[playerSOIndex].color = listColor[currentColorIndex];
     }
 
@@ -567,26 +631,6 @@ public class EcranPersonnage : MonoBehaviour
     
     private void Ready()
     {
-        sbyte playerCountTemp = 0;
-        foreach (EcranPersonnage ecranPersonnage in menuManager.listPersonnages)
-        {
-            if (ecranPersonnage.gameObject.activeSelf)
-            {
-                playerCountTemp++;
-            }
-        }
-        if (menuManager.readyCount.Equals(playerCountTemp/*1*/) /*&& j1*/) //Que si j1 et que nb joueur egal readycount
-        {
-            foreach (EcranPersonnage ecranPerso in menuManager.listPersonnages)
-            {
-                if (ecranPerso.gameObject.activeSelf)
-                {
-                    ecranPerso.FillSO();    
-                }
-            }
-            SceneManager.LoadScene(playSceneIndex);
-        }
-        
         if (!isReady)
         {
             //Anim du parchemin qui se ferme et remonte + possibilité au joueur de jouer avec son perso
@@ -605,6 +649,52 @@ public class EcranPersonnage : MonoBehaviour
 
         isReady = !isReady;
         VisualRefresh();
+        if (IsLaunchPossible())
+        {
+            //Apparition bandeau a la smash (placeholder a voir si on garde)
+            // foreach (EcranPersonnage ecranPerso in menuManager.listPersonnages)
+            // {
+            //     if (ecranPerso.gameObject.activeSelf)
+            //     {
+            //         myPlayerController.startPressed.AddListener(LauchGame);   
+            //     }
+            // }
+            menuManager.partyBandeauReadyGO.SetActive(true);
+        }
+        else
+        {
+            //Disparition bandeau
+            // myPlayerController.startPressed.RemoveAllListeners();
+            menuManager.partyBandeauReadyGO.SetActive(false);
+        }
+    }
+
+    private bool IsLaunchPossible()
+    {
+        sbyte playerCountTemp = 0;
+        foreach (EcranPersonnage ecranPersonnage in menuManager.listPersonnages)
+        {
+            if (ecranPersonnage.gameObject.activeSelf)
+            {
+                playerCountTemp++;
+            }
+        }
+        return menuManager.readyCount.Equals(playerCountTemp) /*&& playerCountTemp > 1*/;
+    }
+
+    private void LauchGame()
+    {
+        if (IsLaunchPossible())
+        {
+            foreach (EcranPersonnage ecranPerso in menuManager.listPersonnages)
+            {
+                if (ecranPerso.gameObject.activeSelf)
+                {
+                    ecranPerso.FillSO();    
+                }
+            }
+            SceneManager.LoadScene(playSceneIndex);
+        }
     }
 }
 
@@ -629,7 +719,7 @@ public struct Corps
 
 public enum Custo
 {
-    RACE,TETE,CORPS,COULEUR
+    RACE,TETE,CORPS,COULEUR,READY
 }
 public enum Race
 {

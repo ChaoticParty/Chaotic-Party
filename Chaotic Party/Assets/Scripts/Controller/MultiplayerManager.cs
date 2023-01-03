@@ -14,7 +14,6 @@ public class MultiplayerManager : MonoBehaviour
     {
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
         playersListSo ??= ReferenceHolder.instance.players;
-        Debug.Log(playersListSo);
         InitMultiplayer();
     }
 
@@ -23,7 +22,7 @@ public class MultiplayerManager : MonoBehaviour
         for (int i = 0; i < Hinput.gamepad.Count; i++)
         {
             Gamepad gamepad = Hinput.gamepad[i];
-            
+            //Debug.Log(i + " / "+gamepad.isConnected);
             if (players.Count <= i)
             {
                 return;
