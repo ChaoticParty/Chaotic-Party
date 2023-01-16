@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
 {
     public MultiplayerManager multiplayerManager;
     public PlayersListSO playersListSO;
+    private ReferenceHolder _referenceHolder;
     [Space]
     public string optionsScene;
     public List<ColorEnum> selectColor = new List<ColorEnum>();
@@ -34,7 +35,6 @@ public class MenuManager : MonoBehaviour
     public Button optionsBTN;
     public Button quitBTN;
     [Space]
-    public Button partyBackBTN;
     public Button minigameBackBTN;
     [Space]
     public GameObject partyPlayerMinGO;
@@ -45,6 +45,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         Caching.ClearCache(); // Tester si ça resout le soucis de l'attribution des manettes
+        _referenceHolder = GameObject.Find("ReferenceHolder").GetComponent<ReferenceHolder>();
         foreach (EcranPersonnage ecranPersonnage in listPersonnages)
         {
             ecranPersonnage.myPlayerController ??= ecranPersonnage.gameObject.GetComponent<PlayerController>();
@@ -126,7 +127,9 @@ public class MenuManager : MonoBehaviour
 
     private void OptionsClick()
     {
-        SceneManager.LoadSceneAsync(optionsScene);
+        _referenceHolder.oldEventSystem = EventSystem.current.gameObject;
+        EventSystem.current.gameObject.SetActive(false);
+        SceneManager.LoadSceneAsync(optionsScene, LoadSceneMode.Additive);
     }
 
     private void QuitClick()

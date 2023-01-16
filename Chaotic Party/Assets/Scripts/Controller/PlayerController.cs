@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] private bool isLeftStickMoved;
     [NonSerialized] public UnityEvent leftStickPressed = new ();
     [NonSerialized] public UnityEvent<float> leftStickLongPressed = new ();
+    
+    [NonSerialized] public UnityEvent dPadUp = new ();
+    [NonSerialized] public UnityEvent dPadDown = new ();
+    [NonSerialized] public UnityEvent dPadLeft = new ();
+    [NonSerialized] public UnityEvent dPadRight = new ();
 
     #endregion
 
@@ -281,6 +286,23 @@ public class PlayerController : MonoBehaviour
         {
             leftStickLongPressed.Invoke(gamepad.leftStickClick.pressDuration);
         }
+        
+        if(gamepad.dPad.up)
+        {
+            dPadUp.Invoke();
+        }
+        if(gamepad.dPad.down)
+        {
+            dPadDown.Invoke();
+        }
+        if(gamepad.dPad.left)
+        {
+            dPadLeft.Invoke();
+        }
+        if(gamepad.dPad.right)
+        {
+            dPadRight.Invoke();
+        }
     }
 
     private void OnDisable()
@@ -318,6 +340,10 @@ public class PlayerController : MonoBehaviour
         leftStickJustMovedUp.RemoveAllListeners();
         leftStickPressed.RemoveAllListeners();
         leftStickLongPressed.RemoveAllListeners();
+        dPadUp.RemoveAllListeners();
+        dPadDown.RemoveAllListeners();
+        dPadLeft.RemoveAllListeners();
+        dPadRight.RemoveAllListeners();
     }
 
     public bool IsDoingSomething()

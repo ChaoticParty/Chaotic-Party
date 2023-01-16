@@ -83,14 +83,30 @@ public class EcranPersonnage : MonoBehaviour
     private void OnEnable()
     {
         myPlayerController.leftStickJustMovedDown.AddListener(MenuNavigateDown);
+        myPlayerController.rightStickMovedDown.AddListener(MenuNavigateDown);
+        myPlayerController.dPadDown.AddListener(MenuNavigateDown);
+        
         myPlayerController.leftStickJustMovedLeft.AddListener(MenuNavigateLeft);
+        myPlayerController.rightStickMovedLeft.AddListener(MenuNavigateLeft);
+        myPlayerController.dPadLeft.AddListener(MenuNavigateLeft);
+        
         myPlayerController.leftStickJustMovedRight.AddListener(MenuNavigateRight);
+        myPlayerController.rightStickMovedRight.AddListener(MenuNavigateRight);
+        myPlayerController.dPadRight.AddListener(MenuNavigateRight);
+        
         myPlayerController.leftStickJustMovedUp.AddListener(MenuNavigateUp);
+        myPlayerController.rightStickMovedUp.AddListener(MenuNavigateUp);
+        myPlayerController.dPadUp.AddListener(MenuNavigateUp);
+        
         myPlayerController.startPressed.AddListener(LauchGame);
         myPlayerController.aJustPressed.AddListener(ValidateCusto);
         myPlayerController.bLongPressed.AddListener(BackToMain);
     }
 
+    private void MenuNavigateUp()
+    {
+        MenuNavigateUp(0,0);
+    }
     private void MenuNavigateUp(float x, float y)
     {
         if (isReady) return;
@@ -173,6 +189,10 @@ public class EcranPersonnage : MonoBehaviour
                 }
                 break;
         }
+    }
+    private void MenuNavigateDown()
+    {
+        MenuNavigateDown(0,0);
     }
     private void MenuNavigateDown(float x, float y)
     {
@@ -261,6 +281,11 @@ public class EcranPersonnage : MonoBehaviour
                 break;
         }
     }
+
+    private void MenuNavigateRight()
+    {
+        MenuNavigateRight(0,0);
+    }
     private void MenuNavigateRight(float x, float y)
     {
         if (isReady) return;
@@ -336,6 +361,11 @@ public class EcranPersonnage : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    private void MenuNavigateLeft()
+    {
+        MenuNavigateLeft(0,0);
     }
     private void MenuNavigateLeft(float x, float y)
     {
@@ -584,16 +614,11 @@ public class EcranPersonnage : MonoBehaviour
             menuManager.Back(actualPanel);
             EventSystem.current.SetSelectedGameObject(menuManager.partyBTN.gameObject);
         }
+        //Ajout d'un panel de confirmation ou tt le monde y a acces ?
     }
 
     public void FillSO()
     {
-        Debug.Log("Race : "+(currentRaceIndex +1) + "/"+listRaces.Count);
-        Debug.Log("Tete : "+(currentTeteIndex+1) + "/"+listTetes[currentRaceIndex].listTête.Count);
-        Debug.Log("Corps : "+(currentCorpsIndex+1) + "/"+listCorps[currentRaceIndex].listCorps.Count);
-        Debug.Log("Couleur : "+(currentColorIndex+1) + "/"+listColor.Count);
-        Debug.Log("SO : "+(playerSOIndex+1) + "/"+menuManager.playersListSO.players.Count);
-        
         menuManager.playersListSO.players[playerSOIndex].head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
         menuManager.playersListSO.players[playerSOIndex].body = listCorps[currentRaceIndex].listCorps[currentCorpsIndex];
         menuManager.playersListSO.players[playerSOIndex].color = listColor[currentColorIndex];
