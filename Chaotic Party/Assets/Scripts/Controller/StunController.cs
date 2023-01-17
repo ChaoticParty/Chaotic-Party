@@ -29,9 +29,27 @@ public class StunController : MiniGameController
 
         Debug.Log("player got stunned");
         player.isStunned = true;
+        DesactivateInput();
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.ChangeColor(Color.grey);
         StartCoroutine(StopStun());
+    }
+
+    private void DesactivateInput()
+    {
+        player.gamepad.A.Disable();
+        player.gamepad.B.Disable();
+        player.gamepad.X.Disable();
+        player.gamepad.Y.Disable();
+        player.gamepad.leftStick.Disable();
+    }
+    private void ReactivateInput()
+    {
+        player.gamepad.A.Enable();
+        player.gamepad.B.Enable();
+        player.gamepad.X.Enable();
+        player.gamepad.Y.Enable();
+        player.gamepad.leftStick.Enable();
     }
 
     private IEnumerator StopStun()
@@ -41,6 +59,8 @@ public class StunController : MiniGameController
         Debug.Log("player is no more stunned");
         _stunTime = defaultStunTime;
         player.ChangeColor();
+        ReactivateInput();
         player.isStunned = false;
+        //Voir comment on gere avec les anims
     }
 }
