@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.UI;
 
@@ -21,11 +21,19 @@ public class SpamRaceManager : SpamManager
     [SerializeField] private CinemachineTargetGroup targetGroup;
     private Dictionary<PlayerController, int> _ranking;
 
+    #region Events
+
+    [Space, Header("Events")] 
+    public UnityEvent<Vector2, string> playerGetsPointsEvent;
+    public UnityEvent<Vector2, string> playerLosePointsEvent;
+    public UnityEvent<Vector2> playerGets1000PointsEvents;
+
+    #endregion
+
     protected new void Start()
     {
         base.Start();
         targetGroup.m_Targets = new CinemachineTargetGroup.Target[players.Count];
-        Debug.Log(targetGroup.m_Targets.Length);
         for (int i = 0; i < spamTexts.Length; i++)
         {
             if (i >= players.Count)
@@ -74,6 +82,17 @@ public class SpamRaceManager : SpamManager
         clicksArray[playerIndex] += value;
         if(spamTexts.Length > playerIndex) spamTexts[playerIndex].text = clicksArray[playerIndex].ToString(CultureInfo.CurrentCulture);
         DisplayCrown();
+        
+        string valueToDisplay = value.ToString(CultureInfo.InvariantCulture);
+        if (value >= 0) valueToDisplay = "+" + valueToDisplay;
+        if(value >= 0) playerGetsPointsEvent.Invoke(players[playerIndex].transform.position, valueToDisplay);
+        else playerLosePointsEvent.Invoke(players[playerIndex].transform.position, valueToDisplay);
+        
+        if (clicksArray[playerIndex] % 1000 == 0)
+        {
+            playerGets1000PointsEvents.Invoke(players[playerIndex].transform.position);
+            CameraController.Shake();
+        }
     }
 
     private void DisplayCrown()

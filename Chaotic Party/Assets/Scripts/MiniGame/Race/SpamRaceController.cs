@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,26 +9,17 @@ public class SpamRaceController : SpamController
     private bool hasClicked;
     public GameObject car;
     public GameObject raceCar;
+    public Sprite launchSprite;
     
     protected new void Awake()
     {
         base.Awake();
         
+        Debug.Log("index:" + player.index);
         player.xJustPressed.AddListener(player.index == 0 ? Click : () => { ClickOnOtherPlayer(0); });
         player.yJustPressed.AddListener(player.index == 1 ? Click : () => { ClickOnOtherPlayer(1); });
         player.bJustPressed.AddListener(player.index == 2 ? Click : () => { ClickOnOtherPlayer(2); });
         player.aJustPressed.AddListener(player.index == 3 ? Click : () => { ClickOnOtherPlayer(3); });
-        
-        player.aJustPressed.AddListener(Click);
-        playersIndex = new int[player.miniGameManager.players.Count - 1];
-        for (int i = 0; i < playersIndex.Length; i++)
-        {
-            playersIndex[i] = i + 1;
-            if (playersIndex[i] <= player.index) playersIndex[i]--;
-        }
-        if(playersIndex.Length > 0) player.xJustPressed.AddListener(() => { ClickOnOtherPlayer(playersIndex[0]); });
-        if(playersIndex.Length > 1) player.yJustPressed.AddListener(() => { ClickOnOtherPlayer(playersIndex[1]); });
-        if(playersIndex.Length > 2) player.bJustPressed.AddListener(() => { ClickOnOtherPlayer(playersIndex[2]); });
     }
 
     public void DeactivatePlayer()
@@ -47,7 +39,12 @@ public class SpamRaceController : SpamController
     {
         if (hasClicked) return;
         StartCoroutine(Cooldown());
-        spamManager.Click(otherPlayerIndex, -spamManager.versusSpamValue);
+        ThrowObjectCurve throwObjectScript = new GameObject().AddComponent<ThrowObjectCurve>();
+        Vector2 pos = transform.position;
+        Vector2 endPos = spamManager.players[otherPlayerIndex].transform.position;//new(-3f, -1f);
+        void OnEnd() => spamManager.Click(otherPlayerIndex, -spamManager.versusSpamValue);
+        throwObjectScript.Setup(pos, endPos/*spamManager.players[otherPlayerIndex].transform.position*/, 0.5f, 
+            1, launchSprite, OnEnd);
     }
 
     private IEnumerator Cooldown()

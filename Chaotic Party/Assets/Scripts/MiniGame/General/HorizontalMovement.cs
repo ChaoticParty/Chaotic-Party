@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,13 @@ public class HorizontalMovement : MiniGameController
         watchingLeft = new Vector3(-1, localScale.y, localScale.z);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         player.leftStickMoved.AddListener(MoveHorizontally);
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 position = transform.position;
+        position = new Vector3(Mathf.Clamp(position.x, minClamp, maxClamp), position.y);
+        transform.position = position;
     }
 
     private void MoveHorizontally(float x, float y)

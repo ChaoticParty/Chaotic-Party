@@ -10,9 +10,15 @@ public class ObjectTP : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(inputActivation))
+        if (Input.GetKeyDown(inputActivation) || Hinput.anyGamepad.Y.justPressed)
         {
             transform.position = coordonées;
+            if (TryGetComponent(out Rigidbody2D rigidbody2D))
+            {
+                rigidbody2D.velocity = Vector2.zero;
+                rigidbody2D.Sleep();
+                rigidbody2D.WakeUp();
+            }
         }
     }
 }

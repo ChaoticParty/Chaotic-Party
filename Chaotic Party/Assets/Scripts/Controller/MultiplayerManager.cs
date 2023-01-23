@@ -6,10 +6,14 @@ public class MultiplayerManager : MonoBehaviour
 {
     public List<PlayerController> players;
     [SerializeField] private MiniGameManager miniGameManager;
+    [SerializeField] private PlayersListSO playersListSo;
+    [Space]
+    [SerializeField] private bool isInMenu = false;
     
     private void Awake()
     {
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
+        playersListSo ??= ReferenceHolder.instance.players;
         InitMultiplayer();
     }
 
@@ -18,7 +22,7 @@ public class MultiplayerManager : MonoBehaviour
         for (int i = 0; i < Hinput.gamepad.Count; i++)
         {
             Gamepad gamepad = Hinput.gamepad[i];
-            
+            //Debug.Log(i + " / "+gamepad.isConnected);
             if (players.Count <= i)
             {
                 return;
@@ -30,6 +34,8 @@ public class MultiplayerManager : MonoBehaviour
                 player.gamepad = gamepad;
                 player.index = i;
                 if (miniGameManager) miniGameManager.RegisterPlayer(player);
+                if (isInMenu) continue;
+                player.SetupSprite(playersListSo.players[i]);
             }
             else
             {
