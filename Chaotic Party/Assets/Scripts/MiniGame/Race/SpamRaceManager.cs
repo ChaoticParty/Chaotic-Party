@@ -19,7 +19,6 @@ public class SpamRaceManager : SpamManager
     [SerializeField] private CinemachineVirtualCamera raceCamera;
     [SerializeField] private Transform[] raceCars;
     [SerializeField] private CinemachineTargetGroup targetGroup;
-    private Dictionary<PlayerController, int> _ranking;
 
     #region Events
 
@@ -62,7 +61,7 @@ public class SpamRaceManager : SpamManager
             isGameDone = true;
             winText.text = "Joueur " + (GetWinner() + 1) + " a gagné!";
             //winText.gameObject.SetActive(true);
-            GetComponent<PlayableDirector>().Play();
+            OnMinigameEnd();
 
             
 
@@ -95,16 +94,7 @@ public class SpamRaceManager : SpamManager
         }
     }
 
-    private void DisplayCrown()
-    {
-        int winner = GetWinner();
-        for (int i = 0; i < crowns.Length; i++)
-        {
-            crowns[i].SetActive(i == winner);
-        }
-    }
-
-    private int GetWinner()
+    protected override int GetWinner()
     {
         int winnerIndex = 0;
         float winValue = clicksArray[0];
@@ -118,6 +108,11 @@ public class SpamRaceManager : SpamManager
         }
 
         return winnerIndex;
+    }
+
+    protected override void OnMinigameEnd()
+    {
+        GetComponent<PlayableDirector>().Play();
     }
 
     private Dictionary<PlayerController, int> GetRanking()

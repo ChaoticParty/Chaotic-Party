@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CrownManager))]
 public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameObject;
     [SerializeField] private string nameText;
     private PlayerSO _playerSo;
+    private CrownManager _crownManager;
 
     #region Sprites
 
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour
     {
         if(nameObject) nameObject.text = nameText + (index + 1);
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
+        _crownManager ??= GetComponent<CrownManager>();
     }
 
     private void Update()

@@ -36,4 +36,14 @@ public class CameraController : MonoBehaviour
         Debug.Log("shake");
         _impulseSource.GenerateImpulse();
     }
+
+    public static void Shake(Vector3 position, Vector3 velocity)
+    {
+        _impulseSource.GenerateImpulseAtPositionWithVelocity(position, velocity);
+    }
+
+    public static void Shake(float force)
+    {
+        _impulseSource.GenerateImpulseWithForce(force);
+    }
 }
