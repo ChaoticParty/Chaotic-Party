@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,11 +9,13 @@ public class SpamRaceController : SpamController
     private bool hasClicked;
     public GameObject car;
     public GameObject raceCar;
+    public Sprite launchSprite;
     
     protected new void Awake()
     {
         base.Awake();
         
+        Debug.Log("index:" + player.index);
         player.xJustPressed.AddListener(player.index == 0 ? Click : () => { ClickOnOtherPlayer(0); });
         player.yJustPressed.AddListener(player.index == 1 ? Click : () => { ClickOnOtherPlayer(1); });
         player.bJustPressed.AddListener(player.index == 2 ? Click : () => { ClickOnOtherPlayer(2); });
@@ -36,7 +39,12 @@ public class SpamRaceController : SpamController
     {
         if (hasClicked) return;
         StartCoroutine(Cooldown());
-        spamManager.Click(otherPlayerIndex, -spamManager.versusSpamValue);
+        ThrowObjectCurve throwObjectScript = new GameObject().AddComponent<ThrowObjectCurve>();
+        Vector2 pos = transform.position;
+        Vector2 endPos = spamManager.players[otherPlayerIndex].transform.position;//new(-3f, -1f);
+        void OnEnd() => spamManager.Click(otherPlayerIndex, -spamManager.versusSpamValue);
+        throwObjectScript.Setup(pos, endPos/*spamManager.players[otherPlayerIndex].transform.position*/, 0.5f, 
+            1, launchSprite, OnEnd);
     }
 
     private IEnumerator Cooldown()

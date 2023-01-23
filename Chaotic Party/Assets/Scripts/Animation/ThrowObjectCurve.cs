@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class ThrowObjectCurve : MonoBehaviour
 {
     [Header("Curve")]
@@ -15,13 +16,17 @@ public class ThrowObjectCurve : MonoBehaviour
     private Vector2 endPosition;
     [SerializeField] private float duration = 1;
     [SerializeField] private float maxHeight = 3;
+    private Action _onEnd;
 
-    public void Setup(Vector2 startPos, Vector2 endPos, float durate = -1, float height = -1, Sprite sprite = null)
+    public void Setup(Vector2 startPos, Vector2 endPos, float durate = -1, float height = -1, Sprite sprite = null, Action onEnd = null)
     {
         startPosition = startPos;
         endPosition = endPos;
-        if (durate != -1) duration = durate;
-        if (height != -1) maxHeight = height;
+        if (durate > 0) duration = durate;
+        if (height > 0) maxHeight = height;
+        animationCurve = new AnimationCurve(new[] { new Keyframe(0, 0, 0, 10), 
+            new Keyframe(duration / 2, maxHeight), new Keyframe(duration, 0, -10, 0) });
+        _onEnd = onEnd;
 
         if (sprite != null) GetComponent<SpriteRenderer>().sprite = sprite;
         transform.position = startPosition;
@@ -33,11 +38,14 @@ public class ThrowObjectCurve : MonoBehaviour
         if (!isInit) return;
         
         float linearT = timePassed / duration;
-        float heightT = animationCurve.Evaluate(linearT);
-        float height = Mathf.Lerp(0f, maxHeight, heightT);
+        float height = animationCurve.Evaluate(timePassed);
 
         transform.position = Vector2.Lerp(startPosition, endPosition, linearT) + new Vector2(0f, height);
         timePassed += Time.deltaTime;
-        if (timePassed >= duration) Destroy(gameObject);
+        if (timePassed >= duration)
+        {
+            _onEnd();
+            Destroy(gameObject);
+        }
     }
 }
