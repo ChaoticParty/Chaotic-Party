@@ -6,7 +6,7 @@ public class HitPhoto : HitController
 {
     public Vector2 hitForce;
 
-    public override void Hited()
+    public override void Hited(GameObject hitter)
     {
         if (player.isHit) return;
         
@@ -17,7 +17,7 @@ public class HitPhoto : HitController
         player.gamepad.Y.Disable();
         player.gamepad.leftStick.Disable();
         player.gamepad.X.Disable();
-        myRigidbody.AddForce(hitForce * transform.localScale); //Propulsion
+        myRigidbody.AddForce(hitForce * gameObject.transform.localScale); //Propulsion
         StartCoroutine(ReactivateInput());
         //Reactivation des valeurs du gamepad
     }

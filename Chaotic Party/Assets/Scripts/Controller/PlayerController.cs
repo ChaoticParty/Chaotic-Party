@@ -10,8 +10,19 @@ public class PlayerController : MonoBehaviour
     public int index;
     [SerializeField] private TextMeshProUGUI nameObject;
     [SerializeField] private string nameText;
-    
+    private PlayerSO _playerSo;
+
+    #region Sprites
+
+    public SpriteRenderer head;
+    public SpriteRenderer body;
+
+    #endregion
+
+    #region ControllerEvents
+
     [NonSerialized] public UnityEvent startPressed = new ();
+    [NonSerialized] public UnityEvent selectPressed = new ();
     
     [NonSerialized] public UnityEvent aJustPressed = new ();
     [NonSerialized] public UnityEvent bJustPressed = new ();
@@ -58,6 +69,13 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] private bool isLeftStickMoved;
     [NonSerialized] public UnityEvent leftStickPressed = new ();
     [NonSerialized] public UnityEvent<float> leftStickLongPressed = new ();
+    
+    [NonSerialized] public UnityEvent dPadUp = new ();
+    [NonSerialized] public UnityEvent dPadDown = new ();
+    [NonSerialized] public UnityEvent dPadLeft = new ();
+    [NonSerialized] public UnityEvent dPadRight = new ();
+
+    #endregion
 
     #region PlayerStateBooleans
 
@@ -65,6 +83,7 @@ public class PlayerController : MonoBehaviour
     public bool isTackling;
     public bool isHit;
     public bool isPausing;
+    public bool isStunned;
 
     #endregion
 
@@ -76,11 +95,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (gamepad == null || miniGameManager.isGameDone) return;
+        if (gamepad == null /*|| miniGameManager.isGameDone*/) return;
 
         if (gamepad.start.justPressed)
         {
             startPressed.Invoke();
+        }
+        if (gamepad.back.justPressed)
+        {
+            selectPressed.Invoke();
         }
         if(gamepad.A.justPressed)
         {
@@ -263,6 +286,23 @@ public class PlayerController : MonoBehaviour
         {
             leftStickLongPressed.Invoke(gamepad.leftStickClick.pressDuration);
         }
+        
+        if(gamepad.dPad.up)
+        {
+            dPadUp.Invoke();
+        }
+        if(gamepad.dPad.down)
+        {
+            dPadDown.Invoke();
+        }
+        if(gamepad.dPad.left)
+        {
+            dPadLeft.Invoke();
+        }
+        if(gamepad.dPad.right)
+        {
+            dPadRight.Invoke();
+        }
     }
 
     private void OnDisable()
@@ -300,20 +340,50 @@ public class PlayerController : MonoBehaviour
         leftStickJustMovedUp.RemoveAllListeners();
         leftStickPressed.RemoveAllListeners();
         leftStickLongPressed.RemoveAllListeners();
+        dPadUp.RemoveAllListeners();
+        dPadDown.RemoveAllListeners();
+        dPadLeft.RemoveAllListeners();
+        dPadRight.RemoveAllListeners();
     }
 
     public bool IsDoingSomething()
     {
-        return isInTheAir || isTackling || isHit || isPausing;
+        return isInTheAir || isTackling || isHit || isPausing || isStunned;
     }
 
     public bool CanAct()
     {
-        return !(isInTheAir || isTackling || isHit);
+        return !(isInTheAir || isTackling || isHit || isStunned);
     }
 
     public bool CanMove()
     {
-        return !(isTackling || isHit);
+        return !(isTackling || isHit || isStunned);
+    }
+
+    public bool CanBeStunned()
+    {
+        return !(isStunned || isHit);
+    }
+
+    public void SetupSprite(PlayerSO playerSo)
+    {
+        _playerSo = playerSo;
+        
+        head.sprite = playerSo.head;
+        body.sprite = playerSo.body;
+        head.color = playerSo.color;
+        body.color = playerSo.color;
+    }
+
+    public void ChangeColor()
+    {
+        ChangeColor(_playerSo.color);
+    }
+
+    public void ChangeColor(Color color)
+    {
+        head.color = color;
+        body.color = color;
     }
 }

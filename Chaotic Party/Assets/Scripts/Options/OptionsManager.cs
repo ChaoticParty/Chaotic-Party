@@ -4,34 +4,40 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionsManager : MonoBehaviour
 {
     public SOOptions optionsSO;
-
+    private ReferenceHolder _referenceHolder;
+    [SerializeField] private EventSystem _eventSystem;
+    [Space]
     public AudioMixer audioManager;
-    
+    [Space]
     public Slider masterVolume;
     public Slider musicVolume;
     public Slider effectVolume;
-    
+    [Space]
     public Toggle masterMuteButton;
     public Toggle musicMuteButton;
     public Toggle effectMuteButton;
     public Toggle fullScreenMode;
-
+    [Space]
     public TextMeshProUGUI masterTMP;
     public TextMeshProUGUI musicTMP;
     public TextMeshProUGUI effectTMP;
-
+    [Space]
     public Button backBTN;
 
     #region MonoBehaviour Méthodes
 
     private void OnEnable()
     {
+        _referenceHolder ??= GameObject.Find("ReferenceHolder").GetComponent<ReferenceHolder>();
+        EventSystem.current = _eventSystem;
+        
         masterVolume.value = optionsSO.optionsData.masterVolume;
         musicVolume.value = optionsSO.optionsData.musicVolume;
         effectVolume.value = optionsSO.optionsData.effectVolume;
@@ -149,6 +155,7 @@ public class OptionsManager : MonoBehaviour
 
     private void Back()
     {
+        _referenceHolder.oldEventSystem.SetActive(true);
         SceneManager.UnloadSceneAsync(gameObject.scene);
     }
 

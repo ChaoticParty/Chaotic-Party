@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -8,35 +9,49 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] MultiplayerManager multiplayerManager;
-    
+    public MultiplayerManager multiplayerManager;
+    public PlayersListSO playersListSO;
+    private ReferenceHolder _referenceHolder;
+    [Space]
     public string optionsScene;
-    public List<Sprite> selectTete = new List<Sprite>();
-    public List<Sprite> selectCorps = new List<Sprite>();
+    public List<ColorEnum> selectColor = new List<ColorEnum>();
     public sbyte readyCount = 0;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
-    private sbyte nbCurrentGamepads;
-    private sbyte nbGamepadsLastFrame;
-
+    private sbyte nbCurrentGamepads = 0;
+    private sbyte nbGamepadsLastFrame = 0;
+    [Space]
     public GameObject panelPrincipal;
     public GameObject panelParty;
     public GameObject panelMinigame;
     private GameObject oldPanel;
-    
+    [Space]
     public GameObject firstMenuPrincpal;
     public GameObject firstParty;
     public GameObject firstMinigame;
     public GameObject firstOptions;
-    
+    [Space]
     public Button partyBTN;
     public Button minigameBTN;
     public Button optionsBTN;
     public Button quitBTN;
-    
-    public Button partyBackBTN;
+    [Space]
     public Button minigameBackBTN;
+    [Space]
+    public GameObject partyPlayerMinGO;
+    public GameObject partyBandeauReadyGO;
     
     #region MonoBehaviour Méthodes
+
+    private void Awake()
+    {
+        Caching.ClearCache(); // Tester si ça resout le soucis de l'attribution des manettes
+        _referenceHolder = GameObject.Find("ReferenceHolder").GetComponent<ReferenceHolder>();
+        foreach (EcranPersonnage ecranPersonnage in listPersonnages)
+        {
+            ecranPersonnage.myPlayerController ??= ecranPersonnage.gameObject.GetComponent<PlayerController>();
+        }
+        playersListSO ??= ReferenceHolder.instance.players;
+    }
 
     private void OnEnable()
     {
@@ -71,21 +86,16 @@ public class MenuManager : MonoBehaviour
         nbCurrentGamepads = multiplayerManager.GamepadCount();
         if (!nbCurrentGamepads.Equals(nbGamepadsLastFrame))
         {
-            // for (int i = 0; i < Hinput.gamepad.Count - 1; i++) //////////////////////////////////////LA suite ici
-            // {
-            //     if (Hinput.gamepad[i].type == "")
-            //     {
-            //         Hinput.gamepad[i].type = Hinput.gamepad[i + 1].type;
-            //     }
-            // }
             multiplayerManager.InitMultiplayer();
-            foreach (var player in listPersonnages)
+            Debug.Log("InitFinis");
+            foreach (EcranPersonnage ecranPersonnage in listPersonnages)
             {
-                if (player.myPlayerController != null)
+                Debug.Log(ecranPersonnage.myPlayerController);
+                if (ecranPersonnage.myPlayerController.gamepad != null)
                 {
-                    Debug.Log(player.myPlayerController.index);
-                    player.gameObject.SetActive(player.myPlayerController.gamepad.isConnected);
-                    player.InitCusto();
+                    Debug.Log(ecranPersonnage.myPlayerController.index);
+                    ecranPersonnage.gameObject.SetActive(ecranPersonnage.myPlayerController.gamepad.isConnected);
+                    ecranPersonnage.InitCusto();
                 }
                 else
                 {
@@ -94,6 +104,7 @@ public class MenuManager : MonoBehaviour
             }
         }
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
+        partyPlayerMinGO.SetActive(nbGamepadsLastFrame < 2);
     }
 
     #endregion
@@ -116,7 +127,9 @@ public class MenuManager : MonoBehaviour
 
     private void OptionsClick()
     {
-        SceneManager.LoadSceneAsync(optionsScene);
+        _referenceHolder.oldEventSystem = EventSystem.current.gameObject;
+        EventSystem.current.gameObject.SetActive(false);
+        SceneManager.LoadSceneAsync(optionsScene, LoadSceneMode.Additive);
     }
 
     private void QuitClick()
@@ -124,7 +137,7 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    private void Back(GameObject actualPanel)
+    public void Back(GameObject actualPanel)
     {
         oldPanel.SetActive(true);
         actualPanel.SetActive(false);

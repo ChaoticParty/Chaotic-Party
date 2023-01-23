@@ -24,7 +24,7 @@ public class TacleControllerChild : MonoBehaviour
     {
         if (player.isTackling && other.TryGetComponent(out HitController hitController))
         {
-            hitController.Hited();
+            hitController.Hited(player.gameObject);
         }
     }
 }
