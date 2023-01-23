@@ -29,4 +29,6 @@ public abstract class MiniGameManager : MonoBehaviour
     }
 
     protected abstract int GetWinner();
+
+    protected abstract void OnMinigameEnd();
 }
