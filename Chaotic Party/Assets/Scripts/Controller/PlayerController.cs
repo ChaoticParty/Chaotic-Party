@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
     public bool isHit;
     public bool isPausing;
     public bool isStunned;
+    public bool isMoving;
 
     #endregion
 
@@ -351,7 +352,7 @@ public class PlayerController : MonoBehaviour
 
     public bool IsDoingSomething()
     {
-        return isInTheAir || isTackling || isHit || isPausing || isStunned;
+        return isInTheAir || isTackling || isHit || isPausing || isStunned || isMoving;
     }
 
     public bool CanAct()
@@ -367,6 +368,11 @@ public class PlayerController : MonoBehaviour
     public bool CanBeStunned()
     {
         return !(isStunned || isHit);
+    }
+
+    public bool IsStandingStill()
+    {
+        return !(isStunned || isMoving || isInTheAir || isTackling || isHit);
     }
 
     public void SetupSprite(PlayerSO playerSo)
