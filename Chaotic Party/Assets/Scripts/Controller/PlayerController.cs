@@ -311,6 +311,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
+        RemoveAllListeners();
+    }
+    
+    public void RemoveAllListeners()
+    {
         startPressed.RemoveAllListeners();
         aJustPressed.RemoveAllListeners();
         bJustPressed.RemoveAllListeners();

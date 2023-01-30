@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,16 +11,31 @@ public class CerbereManager : SpamManager
     [SerializeField] private ParticleSystem rompicheEffect;
     private bool isMinigamelaunch = false;
     private bool[] wasHittedByCerbere; //Tableau de bool, true si a été touché. Repasse a false quand Cerbere se rendort. De 0 à 3, correspondant aux players;
-    [SerializeField] private int endValue = 0;
     [SerializeField] private float timeBeforeWake = 0;
     [SerializeField] private float timePassedBeforeWake = 0;
+    [SerializeField] private float xStartValuePos = 0;
+    [SerializeField] private float inGameValuePerClick = 0;
     [SerializeField] private bool isRompiche = false;
+    [Header("Distance avec Cerbere")]
+    [SerializeField] [Tooltip("Valeur indiquant la distance entre les joueurs et cerbere")] private int endValue;
     [Header("Rompiche")]
     [SerializeField] [Range(0,120)] [Tooltip("Valeur basse du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberRompicheRangeMin;
     [SerializeField] [Range(0,120)] [Tooltip("Valeur haute du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberRompicheRangeMax;
     [Header("Réveil")]
     [SerializeField] [Range(0,120)] [Tooltip("Valeur basse du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberWakeUpTimeRangeMin;
     [SerializeField] [Range(0,120)] [Tooltip("Valeur haute du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberWakeUpTimeRangeMax;
+    [Space] 
+    [Header("Score UI")] 
+    [SerializeField] private TextMeshPro j1TMP;
+    [SerializeField] private TextMeshPro j2TMP;
+    [SerializeField] private TextMeshPro j3TMP;
+    [SerializeField] private TextMeshPro j4TMP;
+    [Space] 
+    [Header("Cerbere UI")] 
+    [SerializeField] private SpriteRenderer tete1;
+    [SerializeField] private SpriteRenderer tete2;
+    [SerializeField] private SpriteRenderer tete3;
+    [SerializeField] private SpriteRenderer tete4;
 
     private new void Start()
     {
@@ -30,7 +46,8 @@ public class CerbereManager : SpamManager
             (cerberRompicheRangeMax, cerberRompicheRangeMin) = (cerberRompicheRangeMin, cerberRompicheRangeMax);
         }
         wasHittedByCerbere = new[] {false, false, false, false};
-        //Mettre a true isRompiche
+        xStartValuePos = players[0].transform.position.x;
+        inGameValuePerClick = Mathf.RoundToInt(tete1.transform.position.x - players[0].transform.position.x) / endValue;
     }
     
     private void Update()
@@ -116,6 +133,10 @@ public class CerbereManager : SpamManager
 
     protected override void OnMinigameEnd()
     {
-        throw new System.NotImplementedException();
+        foreach (PlayerController player in players)
+        {
+            player.RemoveAllListeners();
+        }
+        //Gerer la fin du mini jeu
     }
 }
