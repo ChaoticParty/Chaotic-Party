@@ -7,6 +7,7 @@ public class HitRules : HitController
     public List<GameObject> objectsToHit;
     public Vector2 hitForce;
     private Collider2D _collider2D;
+    private bool _wasHit;
 
     protected new void Awake()
     {
@@ -15,15 +16,19 @@ public class HitRules : HitController
 
     public override void Hited(GameObject hitter)
     {
-        Destroy(_collider2D);
+        if(_wasHit) return;
+        _wasHit = true;
+        
+        float xScale = hitter.transform.localScale.x;
         //Lancement de l'anim de hit
         foreach (GameObject objectToHit in objectsToHit)
         {
+            float rnd = Random.Range(hitForce.x, hitForce.x * 2);
             Rigidbody2D objectToHitRb = objectToHit.AddComponent<Rigidbody2D>();
-            Debug.Log(objectToHitRb);
             objectToHitRb.AddForce( new Vector3(
-                Random.Range(hitForce.x, hitForce.x * 2) * hitter.transform.localScale.x,
-                Random.Range(hitForce.y, hitForce.y * 2)));
+                rnd * xScale,
+                rnd));
+            objectToHitRb.AddTorque(rnd);
         }
         
         /*myRigidbody.AddForce(new Vector3(

@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class ReferenceHolder : MonoBehaviour
 {
-    public PlayersListSO players;
     private static ReferenceHolder instance;
     public static ReferenceHolder Instance
     {
@@ -22,11 +21,13 @@ public class ReferenceHolder : MonoBehaviour
             }
         }
     }
+    public PlayersListSO players;
+    public MiniGameData miniGameData;
     public GameObject oldEventSystem;
 
     private void Awake()
     {
-        
+        miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
         DontDestroyOnLoad(gameObject);
     }
