@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Textbuilder", menuName = "ScriptableObjects/FX/TextBuilder")]
+[CreateAssetMenu(fileName = "ShakeEffect", menuName = "ScriptableObjects/FX/ShakeEffect")]
 public class ShakeEffect : ScriptableObject
 {
     public Vector3 position;
     public Vector3 velocity;
     public float force;
-    
+
     public void Spawn()
     {
         if (velocity != default)

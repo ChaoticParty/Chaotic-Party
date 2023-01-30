@@ -12,6 +12,7 @@ public abstract class FXBuilder : ScriptableObject
     public float scaleMultiplier = 1;
     public AnimationCurve rotationCurve;
     public float rotationMultiplier = 1;
+    public Vector2 startPosition;
     public AnimationCurve xPositionCurve;
     public float xMultiplier = 1;
     public AnimationCurve yPositionCurve;
@@ -21,22 +22,32 @@ public abstract class FXBuilder : ScriptableObject
 
     public virtual void Spawn(Vector2 position)
     {
-        FXSpawner.Spawn(this, position);
+        FXSpawner.Spawn(this, startPosition + position);
+    }
+
+    public virtual void Spawn()
+    {
+        FXSpawner.Spawn(this, startPosition);
     }
 
     public virtual void Spawn(Vector2 position, int value)
     {
-        FXSpawner.Spawn(this, position);
+        FXSpawner.Spawn(this, startPosition + position);
     }
 
     public virtual void Spawn(Vector2 position, string value)
     {
-        FXSpawner.Spawn(this, position);
+        FXSpawner.Spawn(this, startPosition + position);
     }
 
     public virtual void Spawn(Vector2 position, Sprite sprite)
     {
-        FXSpawner.Spawn(this, position);
+        FXSpawner.Spawn(this, startPosition + position);
+    }
+
+    public virtual void Spawn(Vector2 position, GameObject prefab)
+    {
+        FXSpawner.Spawn(this, startPosition + position);
     }
 
     public abstract void BaseSetup(GameObject gameObject);
