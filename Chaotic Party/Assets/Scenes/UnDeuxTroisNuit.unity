@@ -207,6 +207,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &194665552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7798021414279382182, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+  m_PrefabInstance: {fileID: 715334291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &194665557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194665552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3107e7f20e017304fbea0d113c953d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spamManager: {fileID: 1820787240}
+  isMoving: 0
+--- !u!114 &194665558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194665552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
+--- !u!1 &257379428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8204989393249634395, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+  m_PrefabInstance: {fileID: 715334291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &257379433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257379428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3107e7f20e017304fbea0d113c953d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spamManager: {fileID: 1820787240}
+  isMoving: 0
+--- !u!114 &257379434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257379428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
 --- !u!1 &445992593
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +716,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869703775}
   m_CullTransparentMesh: 1
+--- !u!1 &889343515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3879395484462966429, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+  m_PrefabInstance: {fileID: 715334291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &889343520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889343515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3107e7f20e017304fbea0d113c953d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spamManager: {fileID: 1820787240}
+  isMoving: 0
+--- !u!114 &889343521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889343515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
 --- !u!1 &902711402
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +917,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1049312340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5747240720535153739, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+  m_PrefabInstance: {fileID: 715334291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1049312345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049312340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3107e7f20e017304fbea0d113c953d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spamManager: {fileID: 1820787240}
+  isMoving: 0
+--- !u!114 &1049312346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049312340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
 --- !u!1 &1239736438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +2034,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1820787237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1839996419223313192, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+  m_PrefabInstance: {fileID: 715334291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1820787240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820787237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09586e194406c146a8862cd7635dc76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  isGameDone: 0
+  crowns: []
+  spamTexts: []
+  spamValue: 10
+  versusSpamValue: 0
+  rompicheEffect: {fileID: 0}
+  timeBeforeWake: 0
+  timePassedBeforeWake: 0
+  xStartValuePos: 0
+  xEndValuePos: 0
+  inGameValuePerClick: 0
+  isRompiche: 1
+  endValue: 100
+  cerberRompicheRangeMin: 5
+  cerberRompicheRangeMax: 10
+  cerberWakeUpTimeRangeMin: 2
+  cerberWakeUpTimeRangeMax: 5
+  scoreDisplay:
+  - {fileID: 1423167138}
+  - {fileID: 2094540643}
+  - {fileID: 902711404}
+  - {fileID: 1239736440}
+  listTeteCerbere:
+  - {fileID: 1801920346}
+  - {fileID: 1965132828}
+  - {fileID: 32283930}
+  - {fileID: 1745452775}
+  playerWalk:
+    m_PersistentCalls:
+      m_Calls: []
+  playerGetBackToStart:
+    m_PersistentCalls:
+      m_Calls: []
+  playerYell:
+    m_PersistentCalls:
+      m_Calls: []
+  cerbereLaser:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1855199174
 GameObject:
   m_ObjectHideFlags: 0
