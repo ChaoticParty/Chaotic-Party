@@ -10,6 +10,7 @@ public class SpamRaceController : SpamController
     public GameObject car;
     public GameObject raceCar;
     public Sprite launchSprite;
+    private Coroutine _coroutine;
     
     protected new void Awake()
     {
@@ -54,11 +55,12 @@ public class SpamRaceController : SpamController
         hasClicked = false;
     }
 
-    public void Race(Vector2 destination)
+    public Coroutine Race(Vector2 destination)
     {
         Debug.Log(player.index);
         Debug.Log(destination.x);
-        StartCoroutine(RaceEnumerator(destination));
+        _coroutine = StartCoroutine(RaceEnumerator(destination));
+        return _coroutine;
     }
 
     private IEnumerator RaceEnumerator(Vector2 destination)
@@ -70,5 +72,7 @@ public class SpamRaceController : SpamController
                 destination, Time.deltaTime * 5);
             yield return new WaitForNextFrameUnit();
         }
+
+        _coroutine = null;
     }
 }

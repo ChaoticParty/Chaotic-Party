@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private CrownManager _crownManager;
 
     #region Sprites
-
+    
     public SpriteRenderer head;
     public SpriteRenderer body;
 
