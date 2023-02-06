@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,13 +9,15 @@ public class CerbereSpamController : SpamController
 {
     private StunController _stunController;
     private bool hasClicked = false;
-    [HideInInspector] public bool isMoving = false;
-    private Etat _etat = Etat.NULL;
+    [HideInInspector] public bool isShout = false;
+    public Etat _etat = Etat.NULL;
+    private CerbereManager cerbereManager;
 
     protected new void Awake()
     {
         base.Awake();
         _stunController ??= GetComponent<StunController>();
+        cerbereManager = spamManager as CerbereManager;
         player.aJustPressed.AddListener(() => AlternateClick(Etat.A));
         player.bJustPressed.AddListener(() => AlternateClick(Etat.B));
         player.yJustPressed.AddListener(WakuUp);
@@ -28,8 +31,8 @@ public class CerbereSpamController : SpamController
 
     private void AlternateClick(Etat value) //false = a, true = b
     {
-        if (hasClicked || player.isStunned) return;
-        player.isMoving = true;
+        if (hasClicked || !player.CanMove()) return;
+        // player.isMoving = true;
         StartCoroutine(Cooldown());
         
         if (_etat != value)
@@ -43,7 +46,7 @@ public class CerbereSpamController : SpamController
             _etat = Etat.NULL;
         }
 
-        player.isMoving = false;
+        // player.isMoving = false;
     }
 
     private void FailAlternate()
@@ -55,14 +58,20 @@ public class CerbereSpamController : SpamController
 
     private void WakuUp()
     {
-        isMoving = true;
-        isMoving = false;
+        if (isShout || !player.CanMove()) return;
+        isShout = true;
+        cerbereManager.playerYell.Invoke(transform.position, "Argument");
+        player.ChangeColor(Color.magenta);
+        cerbereManager.PlayerWakeUp();
+        StartCoroutine(WakeUpFeedBack(2));
         //Crer pour reveil cerbere
     }
 
-    public bool IsMoving()
+    private IEnumerator WakeUpFeedBack(float animationTime)
     {
-        return isMoving || player.isStunned;
+        yield return new WaitForSeconds(animationTime);
+        isShout = false;
+        player.ChangeColor();
     }
     
     private IEnumerator Cooldown()
@@ -71,8 +80,8 @@ public class CerbereSpamController : SpamController
         yield return new WaitForNextFrameUnit();
         hasClicked = false;
     }
-    
-    private enum Etat
+
+    public enum Etat
     {
         A,B,NULL
     }
