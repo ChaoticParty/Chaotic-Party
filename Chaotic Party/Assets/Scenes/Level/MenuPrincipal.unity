@@ -550,6 +550,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5614323535690735779, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: playSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5656117940169488573, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -661,6 +665,10 @@ PrefabInstance:
     - target: {fileID: 6173293512216393599, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214815147585941345, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: playSceneIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6275279379295127403, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -754,6 +762,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6834712370834607079, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: playSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6886575960203988144, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -801,6 +813,10 @@ PrefabInstance:
     - target: {fileID: 7486747806206367116, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516927432656472093, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: playSceneIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7655012294650832087, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1117,6 +1133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: {fileID: 11400000, guid: 42d594bc8afb56a42ba27f94141ce02f, type: 2}
+  miniGameData: {fileID: 0}
+  oldEventSystem: {fileID: 0}
 --- !u!4 &1220554209
 Transform:
   m_ObjectHideFlags: 0

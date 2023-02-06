@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Textbuilder", menuName = "ScriptableObjects/FX/TextBuilder")]
+[CreateAssetMenu(fileName = "TextBuilder", menuName = "ScriptableObjects/FX/TextBuilder")]
 public class TextBuilder : FXBuilder
 {
     public string text;
@@ -11,13 +11,13 @@ public class TextBuilder : FXBuilder
     public override void Spawn(Vector2 position, int value)
     {
         text = value.ToString();
-        FXSpawner.Spawn(this, position);
+        FXSpawner.Spawn(this, startPosition + position);
     }
 
     public override void Spawn(Vector2 position, string value)
     {
         text = value;
-        FXSpawner.Spawn(this, position);
+        FXSpawner.Spawn(this, startPosition + position);
     }
 
     public override void BaseSetup(GameObject gameObject)

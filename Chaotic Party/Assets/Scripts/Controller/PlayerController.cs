@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CrownManager))]
 public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
@@ -11,9 +12,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameObject;
     [SerializeField] private string nameText;
     private PlayerSO _playerSo;
+    private CrownManager _crownManager;
 
     #region Sprites
-
+    
     public SpriteRenderer head;
     public SpriteRenderer body;
 
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour
     public bool isHit;
     public bool isPausing;
     public bool isStunned;
+    public bool isMoving;
 
     #endregion
 
@@ -91,6 +94,7 @@ public class PlayerController : MonoBehaviour
     {
         if(nameObject) nameObject.text = nameText + (index + 1);
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
+        _crownManager ??= GetComponent<CrownManager>();
     }
 
     private void Update()
@@ -307,6 +311,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
+        RemoveAllListeners();
+    }
+    
+    public void RemoveAllListeners()
+    {
         startPressed.RemoveAllListeners();
         aJustPressed.RemoveAllListeners();
         bJustPressed.RemoveAllListeners();
@@ -348,7 +357,7 @@ public class PlayerController : MonoBehaviour
 
     public bool IsDoingSomething()
     {
-        return isInTheAir || isTackling || isHit || isPausing || isStunned;
+        return isInTheAir || isTackling || isHit || isPausing || isStunned || isMoving;
     }
 
     public bool CanAct()
@@ -364,6 +373,11 @@ public class PlayerController : MonoBehaviour
     public bool CanBeStunned()
     {
         return !(isStunned || isHit);
+    }
+
+    public bool IsStandingStill()
+    {
+        return !(isStunned || isMoving || isInTheAir || isTackling || isHit);
     }
 
     public void SetupSprite(PlayerSO playerSo)

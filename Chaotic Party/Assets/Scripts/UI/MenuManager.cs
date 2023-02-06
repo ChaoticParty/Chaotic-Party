@@ -50,7 +50,7 @@ public class MenuManager : MonoBehaviour
         {
             ecranPersonnage.myPlayerController ??= ecranPersonnage.gameObject.GetComponent<PlayerController>();
         }
-        playersListSO ??= ReferenceHolder.instance.players;
+        playersListSO ??= ReferenceHolder.Instance.players;
     }
 
     private void OnEnable()
