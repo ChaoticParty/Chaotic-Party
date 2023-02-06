@@ -12,8 +12,14 @@ public abstract class SpamManager : MiniGameManager
     [Range(0, 1000), Tooltip("Valeur qui sera ajoutée au conteur d'un joueur quand il spam")] public float spamValue;
     [Range(0, 1000), Tooltip("Valeur qui sera soustraite au conteur d'un joueur quand il spam")] public float versusSpamValue;
 
-    protected void Start()
+    protected virtual void Start()
     {
+        
+    }
+    
+    public override void StartMiniGame()
+    {
+        base.StartMiniGame();
         clicksArray = new float[players.Count];
     }
     

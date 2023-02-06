@@ -6,13 +6,7 @@ public class HitRules : HitController
 {
     public List<GameObject> objectsToHit;
     public Vector2 hitForce;
-    private Collider2D _collider2D;
     private bool _wasHit;
-
-    protected new void Awake()
-    {
-        _collider2D = GetComponent<Collider2D>();
-    }
 
     public override void Hited(GameObject hitter)
     {

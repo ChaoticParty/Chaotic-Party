@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class MiniGameManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public abstract class MiniGameManager : MonoBehaviour
     public bool isGameDone;
     protected Dictionary<PlayerController, int> _ranking;
     [SerializeField] private GameObject[] crowns;
+    protected bool isMinigamelaunched;
 
     public void RegisterPlayer(PlayerController player)
     {
@@ -31,4 +33,14 @@ public abstract class MiniGameManager : MonoBehaviour
     protected abstract int GetWinner();
 
     protected abstract void OnMinigameEnd();
+
+    public virtual void StartMiniGame()
+    {
+        isMinigamelaunched = true;
+    }
+
+    public void LoadRecap()
+    {
+        SceneManager.LoadScene("RecapScore");
+    }
 }

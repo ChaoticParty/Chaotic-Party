@@ -28,6 +28,7 @@ public class ReferenceHolder : MonoBehaviour
     private void Awake()
     {
         miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
+        miniGameData.currentMiniGameIndex = 0;
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
         DontDestroyOnLoad(gameObject);
     }
