@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using Cinemachine;
@@ -19,7 +20,7 @@ public class SpamRaceManager : SpamManager
     [SerializeField] private CinemachineVirtualCamera raceCamera;
     [SerializeField] private Transform[] raceCars;
     [SerializeField] private CinemachineTargetGroup targetGroup;
-    private Dictionary<PlayerController, int> _ranking;
+    private List<Coroutine> _coroutines;
 
     #region Events
 
@@ -30,9 +31,24 @@ public class SpamRaceManager : SpamManager
 
     #endregion
 
-    protected new void Start()
+    protected override void Start()
     {
         base.Start();
+        ActivateUI(false);
+    }
+
+    private void ActivateUI(bool activate)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(activate);
+        }
+    }
+    
+    public override void StartMiniGame()
+    {
+        base.StartMiniGame();
+        ActivateUI(true);
         targetGroup.m_Targets = new CinemachineTargetGroup.Target[players.Count];
         for (int i = 0; i < spamTexts.Length; i++)
         {
@@ -53,7 +69,7 @@ public class SpamRaceManager : SpamManager
 
     private void Update()
     {
-        if(isGameDone) return;
+        if(!isMinigamelaunched || isGameDone) return;
         
         currentTimer -= Time.deltaTime;
 
@@ -62,7 +78,7 @@ public class SpamRaceManager : SpamManager
             isGameDone = true;
             winText.text = "Joueur " + (GetWinner() + 1) + " a gagné!";
             //winText.gameObject.SetActive(true);
-            GetComponent<PlayableDirector>().Play();
+            OnMinigameEnd();
 
             
 
@@ -76,7 +92,7 @@ public class SpamRaceManager : SpamManager
 
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
     {
-        if(playerIndex >= players.Count) return;
+        if(!isMinigamelaunched || playerIndex >= players.Count) return;
         
         nbClicks++;
         clicksArray[playerIndex] += value;
@@ -95,16 +111,7 @@ public class SpamRaceManager : SpamManager
         }
     }
 
-    private void DisplayCrown()
-    {
-        int winner = GetWinner();
-        for (int i = 0; i < crowns.Length; i++)
-        {
-            crowns[i].SetActive(i == winner);
-        }
-    }
-
-    private int GetWinner()
+    protected override int GetWinner()
     {
         int winnerIndex = 0;
         float winValue = clicksArray[0];
@@ -118,6 +125,11 @@ public class SpamRaceManager : SpamManager
         }
 
         return winnerIndex;
+    }
+
+    protected override void OnMinigameEnd()
+    {
+        GetComponent<PlayableDirector>().Play();
     }
 
     private Dictionary<PlayerController, int> GetRanking()
@@ -173,7 +185,25 @@ public class SpamRaceManager : SpamManager
         {
             SpamRaceController playerScript = player.GetComponent<SpamRaceController>();
             Transform raceCar = raceCars[players.IndexOf(player)];
-            playerScript.Race(raceCar.position + Vector3.right * (5 - _ranking[player]) * 10);
+            _coroutines.Add(playerScript.Race(raceCar.position + Vector3.right * (5 - _ranking[player]) * 10));
         }
+        StartCoroutine(CheckCoroutines());
+    }
+
+    public IEnumerator CheckCoroutines()
+    {
+        bool coroutinesDone = false;
+        while (!coroutinesDone)
+        {
+            foreach (Coroutine coroutine in _coroutines)
+            {
+                if (coroutine != null) coroutinesDone = true;
+                yield return null;
+            }
+        }
+
+        yield return new WaitForSeconds(1);
+        
+        LoadRecap();
     }
 }

@@ -4,18 +4,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Imagebuilder", menuName = "ScriptableObjects/FX/ImageBuilder")]
 public class ImageBuilder : FXBuilder
 {
-    private Sprite _sprite;
-    private SpriteRenderer _spriteRenderer;
+    public Sprite sprite;
+    public SpriteRenderer spriteRenderer;
 
     public override void Spawn(Vector2 position, Sprite image)
     {
-        _sprite = image;
-        FXSpawner.Spawn(this, position);
+        sprite = image;
+        FXSpawner.Spawn(this, startPosition + position);
     }
 
     public override void BaseSetup(GameObject gameObject)
     {
-        _spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         SetupSprite();
     }
 
@@ -48,15 +48,15 @@ public class ImageBuilder : FXBuilder
 
     private void SetupSprite(Sprite sprite = null)
     {
-        _spriteRenderer ??= fxObject.GetComponent<SpriteRenderer>();
-        if(sprite) _sprite = sprite;
-        _spriteRenderer.sprite = _sprite;
-        _spriteRenderer.sortingLayerName = "FX";
+        spriteRenderer ??= fxObject.GetComponent<SpriteRenderer>();
+        if(sprite) this.sprite = sprite;
+        spriteRenderer.sprite = this.sprite;
+        spriteRenderer.sortingLayerName = "FX";
     }
 
     public void ChangeSprite(Sprite sprite)
     {
-        _sprite = sprite;
-        _spriteRenderer.sprite = sprite;
+        this.sprite = sprite;
+        spriteRenderer.sprite = sprite;
     }
 }

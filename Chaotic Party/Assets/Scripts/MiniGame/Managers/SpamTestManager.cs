@@ -39,4 +39,9 @@ public class SpamTestManager : SpamManager
             players[otherPlayerindex].GetComponent<Spam>().Malus();
         }
     }
+
+    protected override void OnMinigameEnd()
+    {
+        
+    }
 }

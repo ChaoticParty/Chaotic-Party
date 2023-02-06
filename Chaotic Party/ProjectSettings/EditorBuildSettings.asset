@@ -5,28 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Level/MenuPrincipal.unity
     guid: c92da6141dec93f46a3ed1c9f6db4b76
   - enabled: 1
-    path: Assets/Scenes/TrainingRooms/SelectionTrainingRoom.unity
-    guid: f6a9ad9c66a90734081fb2ddb7fb32b1
-  - enabled: 1
-    path: Assets/Scenes/TrainingRooms/TrainingRoomJump.unity
-    guid: bdf9365b3c9321f468ccfe67565d6fd0
-  - enabled: 1
-    path: Assets/Scenes/TrainingRooms/TrainingRoomSpam.unity
-    guid: f141be86848fa85488a34c079b21856f
-  - enabled: 1
-    path: Assets/Scenes/TrainingRooms/TrainingRoomStun.unity
-    guid: ee2f3d282411d834e9a5d0a1175009a7
-  - enabled: 1
-    path: Assets/Scenes/TrainingRooms/TrainingRoomTacle.unity
-    guid: 3ec763be426659946845f2e3e0c554f7
-  - enabled: 1
     path: Assets/Scenes/Level/Options.unity
     guid: 665f802e3b8347d45a28ff07e9beaffd
+  - enabled: 1
+    path: Assets/Scenes/RulesUI.unity
+    guid: b3736568645720149be99a6ebdd9eeec
+  - enabled: 1
+    path: Assets/Scenes/Race.unity
+    guid: 6b927ebf0be515747933389202ca1f4c
+  - enabled: 1
+    path: Assets/Scenes/Level/RecapScore.unity
+    guid: e70eb4d880b6d2448b08bbb0a7d425cc
   m_configObjects: {}

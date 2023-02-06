@@ -22,4 +22,9 @@ public class TrainingRoomManager : SpamManager
         clicksArray[playerIndex] += value;
         spamTexts[playerIndex].text = clicksArray[playerIndex].ToString(CultureInfo.CurrentCulture);
     }
+
+    protected override void OnMinigameEnd()
+    {
+        
+    }
 }
