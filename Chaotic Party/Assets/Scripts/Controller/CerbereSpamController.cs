@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class CerbereSpamController : SpamController
 {
     private StunController _stunController;
     private bool hasClicked = false;
     [HideInInspector] public bool isShout = false;
-    public Etat _etat = Etat.NULL;
+    [HideInInspector] public Etat etat = Etat.NULL;
     private CerbereManager cerbereManager;
+    [SerializeField] private float standUpAnimTime = 1f;
 
     protected new void Awake()
     {
@@ -26,27 +28,31 @@ public class CerbereSpamController : SpamController
     protected override void Click()
     {
         spamManager.Click(player.index, spamManager.spamValue);
-        //A chaque input fait avancer (incremente une unité dans le minigame controller correspondant a la position du player)
     }
 
-    private void AlternateClick(Etat value) //false = a, true = b
+    private void AlternateClick(Etat value)
     {
         if (hasClicked || !player.CanMove()) return;
-        // player.isMoving = true;
+
+        if (etat.Equals(Etat.FALL))
+        {
+            hasClicked = true;
+            StartCoroutine(StandUpPlayer(standUpAnimTime));
+            return;
+        } 
+        
         StartCoroutine(Cooldown());
         
-        if (_etat != value)
+        if (etat != value)
         {
             Click();
-            _etat = value;
+            etat = value;
         }
         else
         {
             FailAlternate();
-            _etat = Etat.NULL;
+            etat = Etat.FALL;
         }
-
-        // player.isMoving = false;
     }
 
     private void FailAlternate()
@@ -64,15 +70,28 @@ public class CerbereSpamController : SpamController
         player.ChangeColor(Color.magenta);
         cerbereManager.PlayerWakeUp();
         StartCoroutine(WakeUpFeedBack(2));
-        //Crer pour reveil cerbere
     }
 
+    
+    #region Feedback Methods
+
+    private IEnumerator StandUpPlayer(float animationTime)
+    {
+        player.ChangeColor(Color.yellow);
+        yield return new WaitForSeconds(animationTime);
+        player.ChangeColor();
+        hasClicked = false;
+        etat = Etat.NULL;
+    } 
+    
     private IEnumerator WakeUpFeedBack(float animationTime)
     {
         yield return new WaitForSeconds(animationTime);
         isShout = false;
         player.ChangeColor();
     }
+
+    #endregion
     
     private IEnumerator Cooldown()
     {
@@ -83,6 +102,6 @@ public class CerbereSpamController : SpamController
 
     public enum Etat
     {
-        A,B,NULL
+        A,B,FALL,NULL
     }
 }

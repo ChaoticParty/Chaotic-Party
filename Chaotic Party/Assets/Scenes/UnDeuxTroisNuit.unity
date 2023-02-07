@@ -310,7 +310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spamManager: {fileID: 1820787240}
   isShout: 0
-  _etat: 2
+  etat: 3
+  standUpAnimTime: 1
 --- !u!114 &194665558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spamManager: {fileID: 1820787240}
   isShout: 0
-  _etat: 2
+  etat: 3
+  standUpAnimTime: 1
 --- !u!114 &257379434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1075,7 +1077,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spamManager: {fileID: 1820787240}
   isShout: 0
-  _etat: 2
+  etat: 3
+  standUpAnimTime: 1
 --- !u!114 &889343521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,7 +1281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spamManager: {fileID: 1820787240}
   isShout: 0
-  _etat: 2
+  etat: 3
+  standUpAnimTime: 1
 --- !u!114 &1049312346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2496,6 +2500,7 @@ MonoBehaviour:
   endValue: 500
   cerberRompicheRangeMin: 3
   cerberRompicheRangeMax: 9
+  cerberBeginAnimTime: 1
   cerberWakeUpTimeRangeMin: 1
   cerberWakeUpTimeRangeMax: 3
   scoreDisplay:
