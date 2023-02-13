@@ -94,7 +94,7 @@ public class CerbereManager : SpamManager
         isMinigamelaunch = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isMinigamelaunch) return;
         for (int i = 0; i < walkDestination.Length; i++)
@@ -141,7 +141,7 @@ public class CerbereManager : SpamManager
         }
         else //Lancement d'une nouvelle boucle de dodo
         {
-            if (rompicheState.Equals(RompicheState.NULL)) return;
+            if (!rompicheState.Equals(RompicheState.ZERO)) return;
             rompicheState = RompicheState.NULL;
             StartCoroutine(WakeUp());
         }
@@ -209,7 +209,7 @@ public class CerbereManager : SpamManager
     private IEnumerator ZNumberFeedBack(float timeBefWake)
     {
         var rompicheEffectMain = rompicheEffect.main;
-
+        
         //TODO:En commentaire le temps d'avoir ce particle system
         
         if (timePassedBeforeWake > timeBefWake / 3 * 2)
@@ -243,7 +243,14 @@ public class CerbereManager : SpamManager
 
         yield return new WaitForSeconds(timeBefWake / 3);
 
-        if(isRompiche) myCoroutine = StartCoroutine(ZNumberFeedBack(timeBefWake));
+        if (timePassedBeforeWake >= 0)
+        {
+            myCoroutine = StartCoroutine(ZNumberFeedBack(timeBefWake));
+        }
+        else
+        {
+            rompicheState = RompicheState.ZERO;
+        }
     }
 
     public void PlayerWakeUp()
@@ -278,7 +285,9 @@ public class CerbereManager : SpamManager
             player.RemoveAllListeners();
         }
         StopAllCoroutines();
-        StartCoroutine(EndMiniGameAnim());
+        // StartCoroutine(EndMiniGameAnim()); //TODO enlever une fois les anims preparer
+        
+        LoadRecap();
 
         isMinigamelaunch = true;
         //Gerer la fin du mini jeu
@@ -310,6 +319,6 @@ public class CerbereManager : SpamManager
     
     public enum RompicheState
     {
-        UN,DEUX,TROIS,NULL
+        ZERO,UN,DEUX,TROIS,NULL
     }
 }
