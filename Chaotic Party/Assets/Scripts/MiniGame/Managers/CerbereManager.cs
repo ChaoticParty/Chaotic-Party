@@ -11,7 +11,6 @@ public class CerbereManager : SpamManager
 {
     [SerializeField] private ParticleSystem rompicheEffect;
     private int winnerIndex;
-    private bool isMinigamelaunch = false;
     private bool[] wasHittedByCerbere; //Tableau de bool, true si a été touché. Repasse a false quand Cerbere se rendort. De 0 à 3, correspondant aux players;
     private float[] walkDestination = new float[]{};
     private Coroutine myCoroutine;
@@ -88,15 +87,13 @@ public class CerbereManager : SpamManager
                 scoreDisplay[i].text = "0";
             }
         }
-        
-        StartCoroutine(ZNumberFeedBack(timeBeforeWake));
-        StartMiniGame();
-        isMinigamelaunch = true;
+        // StartMiniGame();
+        // isMinigamelaunch = true;
     }
 
     private void FixedUpdate()
     {
-        if (!isMinigamelaunch) return;
+        if (!isMinigamelaunched) return;
         for (int i = 0; i < walkDestination.Length; i++)
         {
             if(i >= players.Count) continue;
@@ -146,10 +143,17 @@ public class CerbereManager : SpamManager
             StartCoroutine(WakeUp());
         }
     }
-    
+
+    public override void StartMiniGame()
+    {
+        base.StartMiniGame();
+        StartCoroutine(ZNumberFeedBack(timeBeforeWake));
+    }
+
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
     {
-        //BUG Si on descactive les input avec le stun et qu'on r'appui, tt les inputs sont compté et nous "tp" a la fin, Envoyer une action dans le stun ?
+        //BUG Si on descactive les input avec le stun et qu'on r'appui, tt les inputs sont compté et nous "tp" a la fin, Envoyer une action dans le stun ? (peut etre plus d'actu)
+        if (!isMinigamelaunched) return;
         walkDestination[playerIndex] += inGameValuePerClick;
         clicksArray[playerIndex] += Mathf.RoundToInt(spamValue);
         scoreDisplay[playerIndex].text = clicksArray[playerIndex].ToString();
@@ -288,8 +292,6 @@ public class CerbereManager : SpamManager
         // StartCoroutine(EndMiniGameAnim()); //TODO enlever une fois les anims preparer
         
         LoadRecap();
-
-        isMinigamelaunch = true;
         //Gerer la fin du mini jeu
     }
 

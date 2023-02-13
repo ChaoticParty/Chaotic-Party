@@ -1,11 +1,14 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public abstract class MiniGameManager : MonoBehaviour
 {
     [Tooltip("Liste des joueurs, remplie automatiquement")] public List<PlayerController> players;
+    [SerializeField] [Tooltip("Animator de compteur de debut du minijeu")] private Animator beginAnimator;
     public bool isGameDone;
     protected Dictionary<PlayerController, int> _ranking;
     [SerializeField] private GameObject[] crowns;
@@ -20,6 +23,11 @@ public abstract class MiniGameManager : MonoBehaviour
     {
         
     }
+
+    protected void BeginTimer()
+    {
+        beginAnimator.enabled = true;
+    }
     
     protected void DisplayCrown()
     {
@@ -32,7 +40,10 @@ public abstract class MiniGameManager : MonoBehaviour
 
     protected abstract int GetWinner();
 
-    protected abstract void OnMinigameEnd();
+    protected virtual void OnMinigameEnd()
+    {
+        isMinigamelaunched = false;
+    }
 
     public virtual void StartMiniGame()
     {
