@@ -1,20 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class CerbereSpamController : SpamController
 {
     private StunController _stunController;
     private bool hasClicked = false;
-    [HideInInspector] public bool isMoving = false;
-    private Etat _etat = Etat.NULL;
+    [HideInInspector] public bool isShout = false;
+    [HideInInspector] public Etat etat = Etat.NULL;
+    private CerbereManager cerbereManager;
+    [SerializeField] private float standUpAnimTime = 1f;
 
     protected new void Awake()
     {
         base.Awake();
         _stunController ??= GetComponent<StunController>();
+        cerbereManager = spamManager as CerbereManager;
         player.aJustPressed.AddListener(() => AlternateClick(Etat.A));
         player.bJustPressed.AddListener(() => AlternateClick(Etat.B));
         player.yJustPressed.AddListener(WakuUp);
@@ -23,27 +28,31 @@ public class CerbereSpamController : SpamController
     protected override void Click()
     {
         spamManager.Click(player.index, spamManager.spamValue);
-        //A chaque input fait avancer (incremente une unité dans le minigame controller correspondant a la position du player)
     }
 
-    private void AlternateClick(Etat value) //false = a, true = b
+    private void AlternateClick(Etat value)
     {
-        if (hasClicked || player.isStunned) return;
-        player.isMoving = true;
+        if (hasClicked || !player.CanMove()) return;
+
+        if (etat.Equals(Etat.FALL))
+        {
+            hasClicked = true;
+            StartCoroutine(StandUpPlayer(standUpAnimTime));
+            return;
+        } 
+        
         StartCoroutine(Cooldown());
         
-        if (_etat != value)
+        if (etat != value)
         {
             Click();
-            _etat = value;
+            etat = value;
         }
         else
         {
             FailAlternate();
-            _etat = Etat.NULL;
+            etat = Etat.FALL;
         }
-
-        player.isMoving = false;
     }
 
     private void FailAlternate()
@@ -55,15 +64,34 @@ public class CerbereSpamController : SpamController
 
     private void WakuUp()
     {
-        isMoving = true;
-        isMoving = false;
-        //Crer pour reveil cerbere
+        if (isShout || !player.CanMove()) return;
+        isShout = true;
+        cerbereManager.playerYell.Invoke(transform.position, "Argument");
+        player.ChangeColor(Color.magenta);
+        cerbereManager.PlayerWakeUp();
+        StartCoroutine(WakeUpFeedBack(2));
     }
 
-    public bool IsMoving()
+    
+    #region Feedback Methods
+
+    private IEnumerator StandUpPlayer(float animationTime)
     {
-        return isMoving || player.isStunned;
+        player.ChangeColor(Color.yellow);
+        yield return new WaitForSeconds(animationTime);
+        player.ChangeColor();
+        hasClicked = false;
+        etat = Etat.NULL;
+    } 
+    
+    private IEnumerator WakeUpFeedBack(float animationTime)
+    {
+        yield return new WaitForSeconds(animationTime);
+        isShout = false;
+        player.ChangeColor();
     }
+
+    #endregion
     
     private IEnumerator Cooldown()
     {
@@ -71,9 +99,9 @@ public class CerbereSpamController : SpamController
         yield return new WaitForNextFrameUnit();
         hasClicked = false;
     }
-    
-    private enum Etat
+
+    public enum Etat
     {
-        A,B,NULL
+        A,B,FALL,NULL
     }
 }
