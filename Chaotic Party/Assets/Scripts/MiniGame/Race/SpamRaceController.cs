@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
+using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpamRaceController : SpamController
 {
@@ -10,17 +13,24 @@ public class SpamRaceController : SpamController
     public GameObject car;
     public GameObject raceCar;
     public Sprite launchSprite;
-    private Coroutine _coroutine;
+    public Coroutine _coroutine;
+    private int _clickValue;
+    private SpamRaceManager _spamRaceManager;
+    private TextMeshProUGUI _tmpPrefab;
+    public Transform spamValuePosition;
     
     protected new void Awake()
     {
         base.Awake();
         
-        Debug.Log("index:" + player.index);
         player.xJustPressed.AddListener(player.index == 0 ? Click : () => { ClickOnOtherPlayer(0); });
-        player.yJustPressed.AddListener(player.index == 1 ? Click : () => { ClickOnOtherPlayer(1); });
-        player.bJustPressed.AddListener(player.index == 2 ? Click : () => { ClickOnOtherPlayer(2); });
-        player.aJustPressed.AddListener(player.index == 3 ? Click : () => { ClickOnOtherPlayer(3); });
+        if(spamManager.players.Count >= 2) player.yJustPressed.AddListener(player.index == 1 ? Click : () => { ClickOnOtherPlayer(1); });
+        if(spamManager.players.Count >= 3) player.bJustPressed.AddListener(player.index == 2 ? Click : () => { ClickOnOtherPlayer(2); });
+        if(spamManager.players.Count >= 4) player.aJustPressed.AddListener(player.index == 3 ? Click : () => { ClickOnOtherPlayer(3); });
+        _spamRaceManager = spamManager as SpamRaceManager;
+        float timeBetweenRegister = _spamRaceManager.timeBeforeClickRegister;
+        if(_spamRaceManager.typeAjoutPoints is PointsType.BigPoints or PointsType.VfxBurst) 
+            InvokeRepeating(nameof(SendClicks), timeBetweenRegister, timeBetweenRegister);
     }
 
     public void DeactivatePlayer()
@@ -33,12 +43,53 @@ public class SpamRaceController : SpamController
     {
         if (hasClicked) return;
         StartCoroutine(Cooldown());
-        spamManager.Click(player.index, spamManager.spamValue);
+        switch (_spamRaceManager.typeAjoutPoints)
+        {
+            case PointsType.VfxBurst:
+                _clickValue += (int)spamManager.spamValue;
+                //_spamRaceManager.UpdateClickUi(player.index, spamManager.spamValue, true);
+                break;
+            case PointsType.Continuous:
+                spamManager.Click(player.index, spamManager.spamValue);
+                break;
+            default:
+                _clickValue += (int)spamManager.spamValue;
+                if (_tmpPrefab)
+                {
+                    _tmpPrefab.text = _clickValue.ToString();
+                    _tmpPrefab.color = Color.Lerp(_tmpPrefab.color, Color.red, Time.deltaTime * 5);
+                    //_tmpPrefab.color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
+                    Transform tmpPrefabTransform = _tmpPrefab.transform;
+                    tmpPrefabTransform.localScale += Vector3.one / 10;
+                    tmpPrefabTransform.position += Vector3.up / 3;
+                }
+                else
+                {
+                    _tmpPrefab = Instantiate(_spamRaceManager.tmpPrefab, spamValuePosition.position, quaternion.identity, transform.GetChild(0).GetChild(0));
+                }
+                break;
+        }
+    }
+
+    private void SendClicks()
+    {
+        if(_spamRaceManager.typeAjoutPoints == PointsType.VfxBurst)
+        {
+            spamManager.Click(player.index, _clickValue);
+            _clickValue = 0;
+        }
+        else
+        {
+            spamManager.Click(player.index, _clickValue);
+            _clickValue = 0;
+            if(_tmpPrefab) Destroy(_tmpPrefab);
+            _tmpPrefab = null;
+        }
     }
 
     private void ClickOnOtherPlayer(int otherPlayerIndex)
     {
-        if (hasClicked) return;
+        if (hasClicked || !player.miniGameManager.isMinigamelaunched) return;
         StartCoroutine(Cooldown());
         ThrowObjectCurve throwObjectScript = new GameObject().AddComponent<ThrowObjectCurve>();
         Vector2 pos = transform.position;
