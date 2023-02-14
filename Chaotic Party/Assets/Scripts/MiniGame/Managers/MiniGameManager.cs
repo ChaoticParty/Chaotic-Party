@@ -10,8 +10,8 @@ public abstract class MiniGameManager : MonoBehaviour
     [Tooltip("Liste des joueurs, remplie automatiquement")] public List<PlayerController> players;
     [SerializeField] [Tooltip("Animator de compteur de debut du minijeu")] private Animator beginAnimator;
     [Header("Timer")]
-    [SerializeField] [Tooltip("Durée du minijeu")] private float timer;
-    [SerializeField] [Tooltip("Manager du chrono")] private TimerManager timerManager;
+    [SerializeField] [Tooltip("Durï¿½e du minijeu")] private float timer;
+    [HideInInspector] public TimerManager timerManager;
     public bool isGameDone;
     protected Dictionary<PlayerController, int> _ranking;
     [SerializeField] protected GameObject[] crowns;

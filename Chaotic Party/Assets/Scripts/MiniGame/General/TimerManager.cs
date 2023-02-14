@@ -14,6 +14,7 @@ public class TimerManager : MonoBehaviour
     private void Awake()
     {
         gameManager ??= FindObjectOfType<MiniGameManager>();
+        gameManager.timerManager = this;
     }
 
     public void SetTimer(float timerInSecond)
