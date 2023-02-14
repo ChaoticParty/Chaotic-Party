@@ -12,7 +12,7 @@ public class RulesManager : MiniGameManager
     public Image loadingImage;
     public SpriteRenderer launchButton;
     private MiniGameManager _loadedMiniGameManager;
-    
+
     protected void Start()
     {
         _currentLoadingTime = 0;

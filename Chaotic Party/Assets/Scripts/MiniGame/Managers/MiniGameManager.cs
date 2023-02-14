@@ -10,12 +10,12 @@ public abstract class MiniGameManager : MonoBehaviour
     [Tooltip("Liste des joueurs, remplie automatiquement")] public List<PlayerController> players;
     [SerializeField] [Tooltip("Animator de compteur de debut du minijeu")] private Animator beginAnimator;
     [Header("Timer")]
-    [SerializeField] [Tooltip("DurÃ©e du minijeu")] private float timer;
+    [SerializeField] [Tooltip("Durée du minijeu")] private float timer;
     [SerializeField] [Tooltip("Manager du chrono")] private TimerManager timerManager;
     public bool isGameDone;
     protected Dictionary<PlayerController, int> _ranking;
-    [SerializeField] private GameObject[] crowns;
-    public bool isMinigamelaunched;
+    [SerializeField] protected GameObject[] crowns;
+    [SerializeField] public bool isMinigamelaunched;
 
     public void RegisterPlayer(PlayerController player)
     {
@@ -54,5 +54,36 @@ public abstract class MiniGameManager : MonoBehaviour
     public void LoadRecap()
     {
         SceneManager.LoadScene("RecapScore");
+    }
+
+    public void AddPoints()
+    {
+        PlayersListSO playersList = ReferenceHolder.Instance.players;
+        for (int i = 0; i < players.Count; i++)
+        {
+            playersList.players[i].points += 4 - _ranking[players[i]];
+        }
+    }
+
+    public void SetCurrentRanking()
+    {
+        PlayersListSO playersList = ReferenceHolder.Instance.players;
+        List<PlayerSO> playersData = new(playersList.players);
+        for (int i = 0; i < playersData.Count; i++)
+        {
+            int currentRank = playersData.Count - 1;
+            PlayerSO playerToCheck = playersData[0];
+            foreach (PlayerSO playerData in playersData)
+            {
+                if(playerToCheck == playerData) continue;
+                if (playerToCheck.points > playerData.points)
+                {
+                    currentRank--;
+                }
+            }
+
+            playerToCheck.ranking = currentRank;
+            playersData.RemoveAt(0);
+        }
     }
 }
