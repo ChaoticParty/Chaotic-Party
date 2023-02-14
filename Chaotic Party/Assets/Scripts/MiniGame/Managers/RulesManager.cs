@@ -16,7 +16,8 @@ public class RulesManager : MiniGameManager
     protected void Start()
     {
         _currentLoadingTime = 0;
-        StartMiniGame();
+        isMinigamelaunched = true;
+        //StartMiniGame();
         StartCoroutine(LoadMiniGameScene());
         StartCoroutine(OngoingLoading());
     }
@@ -64,7 +65,7 @@ public class RulesManager : MiniGameManager
 
     public void StartLoadedMinigame()
     {
-        _loadedMiniGameManager.StartMiniGame();
+        _loadedMiniGameManager.LoadMiniGame();
         foreach (PlayerController player in _loadedMiniGameManager.players)
         {
             player.gamepad.A.Enable();

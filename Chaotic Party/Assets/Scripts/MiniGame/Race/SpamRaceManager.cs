@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class SpamRaceManager : SpamManager
 {
     [SerializeField] private GameObject[] cars;
-    public float timer;
+    //public float timer;
     [NonSerialized] public float currentTimer;
     [SerializeField] private Image timerImage;
     [SerializeField] private TextMeshProUGUI winText;
@@ -44,7 +44,11 @@ public class SpamRaceManager : SpamManager
 
     private void ActivateUI(bool activate)
     {
-        transform.GetChild(0).gameObject.SetActive(activate);
+        CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = activate ? 1 : 0;
+        canvasGroup.interactable = activate;
+        canvasGroup.blocksRaycasts = activate;
+        //transform.GetChild(0).gameObject.SetActive(activate);
     }
 
     [ContextMenu("LoadMiniGame")]
@@ -70,6 +74,8 @@ public class SpamRaceManager : SpamManager
 
     public override void FinishTimer()
     {
+        isMinigamelaunched = false;
+        isGameDone = true;
         OnMinigameEnd();
     }
 
@@ -85,7 +91,7 @@ public class SpamRaceManager : SpamManager
 
 
         
-        currentTimer -= Time.deltaTime;
+        /*currentTimer -= Time.deltaTime;
 
         if (currentTimer <= 0)
         {
@@ -102,7 +108,7 @@ public class SpamRaceManager : SpamManager
         else
         {
             timerImage.fillAmount = currentTimer / timer;
-        }
+        }*/
     }
 
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
