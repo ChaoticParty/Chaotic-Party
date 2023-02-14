@@ -68,6 +68,11 @@ public class SpamRaceManager : SpamManager
         }
     }
 
+    public override void FinishTimer()
+    {
+        OnMinigameEnd();
+    }
+
     [ContextMenu("StartMiniGame")]
     public override void StartMiniGame()
     {
