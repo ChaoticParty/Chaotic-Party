@@ -13,7 +13,9 @@ public class CerbereSpamController : SpamController
     [HideInInspector] public bool isShout = false;
     [HideInInspector] public Etat etat = Etat.NULL;
     private CerbereManager cerbereManager;
+    [Header("Temps placeholder, a changer une fois les anims dispo")]
     [SerializeField] private float standUpAnimTime = 1f;
+    [SerializeField] private float wakeUpAnimTime = 1f;
 
     protected new void Awake()
     {
@@ -69,7 +71,7 @@ public class CerbereSpamController : SpamController
         cerbereManager.playerYell.Invoke(transform.position, "Argument");
         player.ChangeColor(Color.magenta);
         cerbereManager.PlayerWakeUp();
-        StartCoroutine(WakeUpFeedBack(2));
+        StartCoroutine(WakeUpFeedBack(wakeUpAnimTime));
     }
 
     

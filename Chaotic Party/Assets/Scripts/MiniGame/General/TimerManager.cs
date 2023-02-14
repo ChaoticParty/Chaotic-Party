@@ -6,38 +6,36 @@ using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
-    public MiniGameManager gameManager;
-    public float[] timers;
+    [SerializeField] private MiniGameManager gameManager;
     [SerializeField] private Image timerImage;
-    [SerializeField] private Image.FillMethod fillMethod;
-    private int timerIndex;
-    private float currentTimer;
+    private float originTime;
+    private float currentTime;
 
     private void Awake()
     {
         gameManager ??= FindObjectOfType<MiniGameManager>();
-        ChangeTimer(0);
     }
 
-    private void ChangeTimer(int followingTimer = 1)
+    public void SetTimer(float timerInSecond)
     {
-        timerIndex += followingTimer;
-        currentTimer = timers[timerIndex];
+        originTime = timerInSecond;
+        currentTime = originTime;
     }
 
     private void Update()
     {
-        if(gameManager.isGameDone) return;
+        if(!gameManager.isMinigamelaunched) return;
         
-        currentTimer -= Time.deltaTime;
+        currentTime -= Time.deltaTime;
 
-        if (currentTimer <= 0)
+        if (currentTime <= 0)
         {
-            gameManager.FinishTimer(timerIndex + 1 == timers.Length);
+            timerImage.fillAmount = 1;
+            gameManager.FinishTimer();
         }
         else
         {
-            timerImage.fillAmount = currentTimer / timers[timerIndex];
+            timerImage.fillAmount = MathF.Abs(currentTime / originTime - 1); //0 l'image est transparante, 1 elle est pleine.
         }
     }
 }

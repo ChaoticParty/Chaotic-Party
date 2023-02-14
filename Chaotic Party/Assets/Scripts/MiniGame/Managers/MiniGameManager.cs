@@ -9,20 +9,20 @@ public abstract class MiniGameManager : MonoBehaviour
 {
     [Tooltip("Liste des joueurs, remplie automatiquement")] public List<PlayerController> players;
     [SerializeField] [Tooltip("Animator de compteur de debut du minijeu")] private Animator beginAnimator;
+    [Header("Timer")]
+    [SerializeField] [Tooltip("Durée du minijeu")] private float timer;
+    [SerializeField] [Tooltip("Manager du chrono")] private TimerManager timerManager;
     public bool isGameDone;
     protected Dictionary<PlayerController, int> _ranking;
     [SerializeField] private GameObject[] crowns;
-    protected bool isMinigamelaunched;
+    public bool isMinigamelaunched;
 
     public void RegisterPlayer(PlayerController player)
     {
         players.Add(player);
     }
 
-    public void FinishTimer(bool gameDone)
-    {
-        
-    }
+    public abstract void FinishTimer();
 
     protected void BeginTimer()
     {
@@ -47,6 +47,7 @@ public abstract class MiniGameManager : MonoBehaviour
 
     public virtual void StartMiniGame()
     {
+        timerManager.SetTimer(timer);
         isMinigamelaunched = true;
     }
 

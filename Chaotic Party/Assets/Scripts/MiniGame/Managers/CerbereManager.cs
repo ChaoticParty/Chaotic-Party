@@ -9,23 +9,27 @@ using Random = UnityEngine.Random;
 
 public class CerbereManager : SpamManager
 {
+    [Header("Setup")]
     [SerializeField] private ParticleSystem rompicheEffect;
     private int winnerIndex;
     private bool[] wasHittedByCerbere; //Tableau de bool, true si a été touché. Repasse a false quand Cerbere se rendort. De 0 à 3, correspondant aux players;
     private float[] walkDestination = new float[]{};
     private Coroutine myCoroutine;
     [HideInInspector] public RompicheState rompicheState;
-    [SerializeField] private float timeBeforeWake = 0;
-    [SerializeField] private float timePassedBeforeWake = 0;
-    [SerializeField] private float xStartValuePos = 0;
-    [SerializeField] private float xEndValuePos = 0;
-    [SerializeField] private float inGameValuePerClick = 0;
-    [SerializeField] private bool isRompiche = true;
+    private bool isRompiche = true;
+    private float timeBeforeWake = 0;
+    private float timePassedBeforeWake = 0;
+    private float xStartValuePos = 0;
+    private float xEndValuePos = 0;
+    private float inGameValuePerClick = 0;
+    [Space]
     [Header("Distance avec Cerbere")]
     [SerializeField] [Tooltip("Valeur indiquant la distance entre les joueurs et cerbere")] private int endValue = 100;
+    [Space]
     [Header("Rompiche")]
     [SerializeField] [Range(0,120)] [Tooltip("Valeur basse du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberRompicheRangeMin;
     [SerializeField] [Range(0,120)] [Tooltip("Valeur haute du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberRompicheRangeMax;
+    [Space]
     [Header("Réveil")]
     [SerializeField] [Tooltip("le temps que met le cerbere pour relever la tête")] private float cerberBeginAnimTime = 1f;
     [SerializeField] [Range(0,120)] [Tooltip("Valeur basse du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberWakeUpTimeRangeMin;
@@ -87,8 +91,6 @@ public class CerbereManager : SpamManager
                 scoreDisplay[i].text = "0";
             }
         }
-        // StartMiniGame();
-        // isMinigamelaunch = true;
     }
 
     private void FixedUpdate()
@@ -279,6 +281,11 @@ public class CerbereManager : SpamManager
                 Debug.Log("Cerbere already wake up");
                 break;
         }
+    }
+
+    public override void FinishTimer()
+    {
+        OnMinigameEnd();
     }
 
     protected override void OnMinigameEnd()
