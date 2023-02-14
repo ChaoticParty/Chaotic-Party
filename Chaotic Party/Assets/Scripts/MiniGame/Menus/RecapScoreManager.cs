@@ -55,6 +55,11 @@ public class RecapScoreManager : MiniGameManager
         return miniGameData.currentMiniGameIndex < miniGameData.chosenMiniGames.Count;
     }
 
+    public override void FinishTimer()
+    {
+        
+    }
+
     protected override int GetWinner()
     {
         return -1;

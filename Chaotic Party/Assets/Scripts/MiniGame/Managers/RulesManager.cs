@@ -73,7 +73,9 @@ public class RulesManager : MiniGameManager
         }
         SceneManager.UnloadSceneAsync(gameObject.scene);
     }
-    
+
+    public override void FinishTimer() { }
+
     protected override int GetWinner()
     {
         return -1;

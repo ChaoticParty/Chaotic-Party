@@ -17,6 +17,11 @@ public abstract class MiniGameManager : MonoBehaviour
     [SerializeField] protected GameObject[] crowns;
     [SerializeField] public bool isMinigamelaunched;
 
+    public virtual void LoadMiniGame()
+    {
+        BeginTimer();
+    }
+
     public void RegisterPlayer(PlayerController player)
     {
         players.Add(player);

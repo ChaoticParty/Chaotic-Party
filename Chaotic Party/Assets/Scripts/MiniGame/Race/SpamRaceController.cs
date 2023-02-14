@@ -52,12 +52,12 @@ public class SpamRaceController : SpamController
             case PointsType.Continuous:
                 spamManager.Click(player.index, spamManager.spamValue);
                 break;
-            default:
+            case PointsType.BigPoints:
                 _clickValue += (int)spamManager.spamValue;
                 if (_tmpPrefab)
                 {
                     _tmpPrefab.text = _clickValue.ToString();
-                    _tmpPrefab.color = Color.Lerp(_tmpPrefab.color, Color.red, Time.deltaTime * 5);
+                    _tmpPrefab.color = Color.Lerp(_tmpPrefab.color, Color.red, Time.deltaTime * 50);
                     //_tmpPrefab.color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
                     Transform tmpPrefabTransform = _tmpPrefab.transform;
                     tmpPrefabTransform.localScale += Vector3.one / 10;
@@ -80,9 +80,9 @@ public class SpamRaceController : SpamController
         }
         else
         {
-            spamManager.Click(player.index, _clickValue);
+            if(!_tmpPrefab) return;
+            StartCoroutine(_spamRaceManager.SendPointToTotal(_tmpPrefab, player.index, _clickValue));
             _clickValue = 0;
-            if(_tmpPrefab) Destroy(_tmpPrefab);
             _tmpPrefab = null;
         }
     }

@@ -40,6 +40,8 @@ public class SpamTestManager : SpamManager
         }
     }
 
+    public override void FinishTimer() { }
+
     protected override void OnMinigameEnd()
     {
         
