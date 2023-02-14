@@ -17,11 +17,16 @@ public abstract class SpamManager : MiniGameManager
     {
         _miniGameManager = this;
     }
+
+    public override void LoadMiniGame()
+    {
+        base.LoadMiniGame();
+        clicksArray = new float[players.Count];
+    }
     
     public override void StartMiniGame()
     {
         base.StartMiniGame();
-        clicksArray = new float[players.Count];
     }
     
     protected override int GetWinner()

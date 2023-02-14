@@ -44,16 +44,13 @@ public class SpamRaceManager : SpamManager
 
     private void ActivateUI(bool activate)
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(activate);
-        }
+        transform.GetChild(0).gameObject.SetActive(activate);
     }
-    
-    [ContextMenu("StartMiniGame")]
-    public override void StartMiniGame()
+
+    [ContextMenu("LoadMiniGame")]
+    public override void LoadMiniGame()
     {
-        base.StartMiniGame();
+        base.LoadMiniGame();
         ActivateUI(true);
         targetGroup.m_Targets = new CinemachineTargetGroup.Target[players.Count];
         for (int i = 0; i < spamTexts.Length; i++)
@@ -69,6 +66,12 @@ public class SpamRaceManager : SpamManager
                 targetGroup.m_Targets[i].weight = 1;
             }
         }
+    }
+
+    [ContextMenu("StartMiniGame")]
+    public override void StartMiniGame()
+    {
+        base.StartMiniGame();
     }
 
     private void Update()
@@ -125,6 +128,26 @@ public class SpamRaceManager : SpamManager
     {
         if (valueToAdd) value += Convert.ToInt32(spamTexts[playerIndex].text.Replace("+", ""));
         spamTexts[playerIndex].text = value.ToString(CultureInfo.CurrentCulture);
+    }
+
+    public IEnumerator SendPointToTotal(TextMeshProUGUI pointsObject, int playerIndex, float value)
+    {
+        Transform pointsTransform = pointsObject.transform;
+        Transform spamTextTransform = spamTexts[playerIndex].transform;
+        while (Vector3.Distance(pointsTransform.position, spamTextTransform.position) > 0.1f)
+        {
+            pointsTransform.position = Vector3.Lerp(pointsTransform.position,
+                spamTextTransform.position, Time.deltaTime * 10);
+            pointsTransform.localScale =
+                Vector3.Lerp(pointsTransform.localScale, Vector3.one / 2, Time.deltaTime * 10);
+            yield return null;
+        }
+        spamTextTransform.localScale = Vector3.one * 2;
+        yield return null;
+        if(pointsObject.gameObject) Destroy(pointsObject.gameObject);
+        Click(playerIndex, value);
+        yield return null;
+        spamTextTransform.localScale = Vector3.one;
     }
 
     protected override int GetWinner()
