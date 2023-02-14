@@ -58,6 +58,11 @@ public class CerbereManager : SpamManager
     private new void Start()
     {
         base.Start();
+    }
+
+    public override void LoadMiniGame()
+    {
+        base.LoadMiniGame();
         rompicheState = RompicheState.NULL;
         if (cerberRompicheRangeMin > cerberRompicheRangeMax)
         {

@@ -764,6 +764,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7466727021374288918, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 1820787240}
     - target: {fileID: 7798021414279382180, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -1780,7 +1784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  beginAnimator: {fileID: 0}
+  beginAnimator: {fileID: 1538398048707536861}
   timer: 0
   timerManager: {fileID: 0}
   isGameDone: 0
@@ -1825,20 +1829,6 @@ MonoBehaviour:
   cerbereLaser:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1820787241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820787237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae948a5b27a657048bc42d6574c80093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  timerImage: {fileID: 0}
 --- !u!1 &1855199174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,9 +2219,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1538398047443832071, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1538398048714404676, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
       propertyPath: _miniGameManager
       value: 
       objectReference: {fileID: 1820787240}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
+--- !u!95 &1538398048707536861 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1538398048714404683, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
+  m_PrefabInstance: {fileID: 1538398048707536860}
+  m_PrefabAsset: {fileID: 0}
