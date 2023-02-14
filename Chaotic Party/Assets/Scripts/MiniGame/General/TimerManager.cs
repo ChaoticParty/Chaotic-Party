@@ -36,7 +36,7 @@ public class TimerManager : MonoBehaviour
         }
         else
         {
-            timerImage.fillAmount = MathF.Abs(currentTime / originTime - 1); //0 l'image est transparante, 1 elle est pleine.
+            timerImage.fillAmount = currentTime / originTime; //0 l'image est transparante, 1 elle est pleine.
         }
     }
 }

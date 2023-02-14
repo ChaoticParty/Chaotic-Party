@@ -10,16 +10,18 @@ public abstract class MiniGameManager : MonoBehaviour
     [Tooltip("Liste des joueurs, remplie automatiquement")] public List<PlayerController> players;
     [SerializeField] [Tooltip("Animator de compteur de debut du minijeu")] private Animator beginAnimator;
     [Header("Timer")]
-    [SerializeField] [Tooltip("Dur�e du minijeu")] private float timer;
+    [SerializeField] [Tooltip("Dur�e du minijeu")] protected float timer;
     [HideInInspector] public TimerManager timerManager;
     public bool isGameDone;
     protected Dictionary<PlayerController, int> _ranking;
     [SerializeField] protected GameObject[] crowns;
     [SerializeField] public bool isMinigamelaunched;
+    private static readonly int Begin = Animator.StringToHash("Begin");
 
     public virtual void LoadMiniGame()
     {
         BeginTimer();
+        timerManager ??= FindObjectOfType<TimerManager>();
     }
 
     public void RegisterPlayer(PlayerController player)
@@ -31,7 +33,7 @@ public abstract class MiniGameManager : MonoBehaviour
 
     protected void BeginTimer()
     {
-        beginAnimator.enabled = true;
+        beginAnimator.SetTrigger(Begin);
     }
     
     protected void DisplayCrown()
