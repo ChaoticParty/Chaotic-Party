@@ -32,6 +32,7 @@ public class RecapScoreManager : MiniGameManager
         }
         foreach (PlayerSO playerSo in playersData)
         {
+            Debug.Log(playerSo.ranking);
             rankToPlayerData[playerSo.ranking] = playerSo;
         }
         for (int i = 0; i < scoreObjects.Count; i++)
@@ -45,6 +46,10 @@ public class RecapScoreManager : MiniGameManager
             {
                 scoreObj.playerName.text = "Joueur" + (rankToPlayerData[i].id + 1);
                 scoreObj.score.text = rankToPlayerData[i].points.ToString();
+                Transform playerTransform = players[playersData[i].ranking].transform;
+                playerTransform.SetParent(scoreObj.sceneObject);
+                playerTransform.localScale = Vector3.one;
+                playerTransform.localPosition = Vector3.zero;
             }
         }
 
@@ -80,6 +85,7 @@ public class RecapScoreManager : MiniGameManager
     [Serializable]
     public struct Score
     {
+        public Transform sceneObject;
         public GameObject obj;
         public TextMeshProUGUI playerName;
         public TextMeshProUGUI score;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -88,22 +89,11 @@ public abstract class MiniGameManager : MonoBehaviour
     public void SetCurrentRanking()
     {
         PlayersListSO playersList = ReferenceHolder.Instance.players;
-        List<PlayerSO> playersData = new(playersList.players);
-        for (int i = 0; i < playersData.Count; i++)
-        {
-            int currentRank = playersData.Count - 1;
-            PlayerSO playerToCheck = playersData[0];
-            foreach (PlayerSO playerData in playersData)
-            {
-                if(playerToCheck == playerData) continue;
-                if (playerToCheck.points > playerData.points)
-                {
-                    currentRank--;
-                }
-            }
 
-            playerToCheck.ranking = currentRank;
-            playersData.RemoveAt(0);
+        List<PlayerSO> playersData = playersList.players.OrderBy(so => so.points).ToList();
+        foreach (PlayerSO playerSo in playersData)
+        {
+            playerSo.ranking = 3 - playersData.IndexOf(playerSo);
         }
     }
 }
