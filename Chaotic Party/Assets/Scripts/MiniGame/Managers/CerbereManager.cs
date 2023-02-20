@@ -60,6 +60,7 @@ public class CerbereManager : SpamManager
         base.Start();
     }
 
+    [ContextMenu("LoadMiniGame")]
     public override void LoadMiniGame()
     {
         base.LoadMiniGame();
