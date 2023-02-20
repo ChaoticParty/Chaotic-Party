@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 public abstract class MiniGameManager : MonoBehaviour
 {
@@ -21,7 +22,18 @@ public abstract class MiniGameManager : MonoBehaviour
     public virtual void LoadMiniGame()
     {
         BeginTimer();
-        timerManager ??= FindObjectOfType<TimerManager>();
+        //timerManager ??= FindSceneTimerManager();
+    }
+
+    private TimerManager FindSceneTimerManager()
+    {
+        TimerManager[] timerManagers = FindObjectsOfType<TimerManager>();
+        foreach (TimerManager manager in timerManagers)
+        {
+            if (manager.gameObject.scene == gameObject.scene) return manager;
+        }
+
+        return null;
     }
 
     public void RegisterPlayer(PlayerController player)
@@ -55,6 +67,7 @@ public abstract class MiniGameManager : MonoBehaviour
     public virtual void StartMiniGame()
     {
         timerManager.SetTimer(timer);
+        Debug.Log("timer mini game manager " + timerManager.currentTime);
         isMinigamelaunched = true;
     }
 
