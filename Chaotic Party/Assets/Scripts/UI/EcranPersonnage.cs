@@ -446,7 +446,6 @@ public class EcranPersonnage : MonoBehaviour
 
     private void VisualRefresh()
     {
-        Debug.Log(enumCusto);
         listCurrentTete.Clear();
         listCurrentCorps.Clear();
         
