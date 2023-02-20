@@ -46,7 +46,7 @@ public class TimerManager : MonoBehaviour
         else
         {
             timerImage.fillAmount = currentTime / originTime; //0 l'image est transparante, 1 elle est pleine.
-            timerFleche.transform.localRotation = Quaternion.Euler(0,0,360 + timerImage.fillAmount * -360); //1 fill = 0° et 0.5 fill = -90°
+            timerFleche.transform.localRotation = Quaternion.Euler(0,0,timerImage.fillAmount * 360); //1 fill = 0° et 0.5 fill = -90°
         }
     }
 }
