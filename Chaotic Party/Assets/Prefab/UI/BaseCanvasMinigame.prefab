@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 1538398047260035702}
   - component: {fileID: 1538398047260035701}
   - component: {fileID: 1538398047260035700}
+  - component: {fileID: 4102298046298983188}
   m_Layer: 5
   m_Name: BaseCanvasMinigame
   m_TagString: Untagged
@@ -184,6 +185,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &4102298046298983188
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538398047260035707}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1538398047512022444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,7 +1264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817593723217745473, guid: c239f3c2bda806c40b0a17d41fa3db90, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1817593723217745478, guid: c239f3c2bda806c40b0a17d41fa3db90, type: 3}
       propertyPath: m_Pivot.x

@@ -11,6 +11,7 @@ public class CerbereManager : SpamManager
 {
     [Header("Setup")]
     [SerializeField] private ParticleSystem rompicheEffect;
+    [SerializeField] private CanvasGroup Hud;
     private int winnerIndex;
     private bool[] wasHittedByCerbere; //Tableau de bool, true si a été touché. Repasse a false quand Cerbere se rendort. De 0 à 3, correspondant aux players;
     private float[] walkDestination = new float[]{};
@@ -97,6 +98,8 @@ public class CerbereManager : SpamManager
                 scoreDisplay[i].text = "0";
             }
         }
+
+        Hud.alpha = 1;
     }
 
     private void FixedUpdate()
@@ -303,6 +306,10 @@ public class CerbereManager : SpamManager
         }
         StopAllCoroutines();
         // StartCoroutine(EndMiniGameAnim()); //TODO enlever une fois les anims preparer
+        
+        _ranking = GetRanking();
+        AddPoints();
+        SetCurrentRanking();
         
         LoadRecap();
         //Gerer la fin du mini jeu

@@ -58,6 +58,7 @@ public abstract class MiniGameManager : MonoBehaviour
     }
 
     protected abstract int GetWinner();
+    protected abstract Dictionary<PlayerController, int> GetRanking();
 
     protected virtual void OnMinigameEnd()
     {
@@ -67,7 +68,6 @@ public abstract class MiniGameManager : MonoBehaviour
     public virtual void StartMiniGame()
     {
         timerManager.SetTimer(timer);
-        Debug.Log("timer mini game manager " + timerManager.currentTime);
         isMinigamelaunched = true;
     }
 

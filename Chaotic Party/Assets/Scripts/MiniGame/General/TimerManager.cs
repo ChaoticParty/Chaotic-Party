@@ -21,28 +21,22 @@ public class TimerManager : MonoBehaviour
 
     public void SetTimer(float timerInSecond)
     {
-        Debug.Log("settimer");
-        Debug.Log(timerInSecond);
         originTime = timerInSecond;
         currentTime = originTime;
-        Debug.Log(currentTime);
     }
 
     private void Update()
     {
-        Debug.Log(currentTime);
         if(!gameManager.isMinigamelaunched) return;
-
-        Debug.Log("update");
-        Debug.Log(currentTime);
-        currentTime = currentTime - Time.deltaTime;
-        Debug.Log(currentTime);
+        
+        currentTime -= Time.deltaTime;
 
         if (currentTime <= 0)
         {
-            timerImage.fillAmount = 1;
+            timerImage.gameObject.SetActive(false);
             timerFleche.transform.localRotation = Quaternion.Euler(0,0,-360);
             gameManager.FinishTimer();
+            gameObject.SetActive(false);
         }
         else
         {

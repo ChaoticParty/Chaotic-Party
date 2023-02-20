@@ -70,6 +70,11 @@ public class RecapScoreManager : MiniGameManager
         return -1;
     }
 
+    protected override Dictionary<PlayerController, int> GetRanking()
+    {
+        return null;
+    }
+
     protected override void OnMinigameEnd() {}
 
     [Serializable]
