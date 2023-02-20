@@ -42,9 +42,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -76,9 +76,1356 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 3702
+        width: 344
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1540db4d3157b4c8d25465b118a716
+      internalID: 34174703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 3755
+        width: 387
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c753306e0ce35e849a5c8572cb9d2c6c
+      internalID: 1742341133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 3739
+        width: 356
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce765c011b52c154d9607db43d45f740
+      internalID: -453722953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 3925
+        width: 62
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e87f0c4bf832a344814136a7057038b
+      internalID: 13549487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 3754
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbf28c1679b9364c96c2c8ca20f609a
+      internalID: 811543420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 3734
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef5372a99f5d8c4b8b1d580bf5bd686
+      internalID: 1676061062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 3145
+        width: 684
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0cca1c12b9f094889e50c1e4e891c3
+      internalID: -1787843030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 3311
+        width: 94
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321df5d875195b64984f1779501f90e6
+      internalID: 524101888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 3311
+        width: 94
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1cec20ea54aab44bd10665475de46e
+      internalID: 1948756038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 3163
+        width: 276
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e404fff7e13765f488aba51c9588cc58
+      internalID: -1555302631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_10
+      rect:
+        serializedVersion: 2
+        x: 1685
+        y: 3165
+        width: 326
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4750e7d1400ecf841acdf7c56a58ce5c
+      internalID: -503031829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_11
+      rect:
+        serializedVersion: 2
+        x: 2123
+        y: 3181
+        width: 292
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415a943a54eca6143bdbd36d7d53b098
+      internalID: -888648783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_12
+      rect:
+        serializedVersion: 2
+        x: 2545
+        y: 3107
+        width: 266
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cdc56b571cd9c84aae4fe848d515e60
+      internalID: 926475839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_13
+      rect:
+        serializedVersion: 2
+        x: 2863
+        y: 3320
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69b745ebb33777c41a9885fd3e0b7be1
+      internalID: 877893027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_14
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 3211
+        width: 310
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 123f4364c7dd47e42a590f75aa66cd4b
+      internalID: -1146069991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_15
+      rect:
+        serializedVersion: 2
+        x: 3395
+        y: 3267
+        width: 490
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442c9bebf57fcdb4f91860f24b274c67
+      internalID: -1875773500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_16
+      rect:
+        serializedVersion: 2
+        x: 3259
+        y: 3237
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25082e168c87fce4293d63ba51c1809c
+      internalID: -43723299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_17
+      rect:
+        serializedVersion: 2
+        x: 2491
+        y: 3059
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0999f6da82303d949bb0906173c75774
+      internalID: 1804755866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_18
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 2011
+        width: 930
+        height: 922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56d4079853155749beae0f97e791f47
+      internalID: 120478932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_19
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 1984
+        width: 942
+        height: 941
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d7b0668abf1c446976e5f1d8b3eed7
+      internalID: 815216518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_20
+      rect:
+        serializedVersion: 2
+        x: 2686
+        y: 2021
+        width: 1133
+        height: 968
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ac99833750a9b4b9ca4937656e8caf
+      internalID: 1206912946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_21
+      rect:
+        serializedVersion: 2
+        x: 2109
+        y: 1942
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7220476a2a5e4fe4389ccd386170d41f
+      internalID: -1498851240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_22
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 1375
+        width: 363
+        height: 538
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9106fe4348f8ec94db636255e97dc1a8
+      internalID: -1739880658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_23
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 1341
+        width: 421
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9652bf97b4c681941867633e8978ba72
+      internalID: -1169366845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_24
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 1910
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ac211812b3fd540b7920a9e7c94d21
+      internalID: -1718645175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_25
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1415
+        width: 428
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec123dae8c56d584bb1533d9b4740866
+      internalID: -1512527438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_26
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 1888
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b30005a89e8e7489b5938f744085ce
+      internalID: 1950515436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_27
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 1381
+        width: 417
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5864ecf765c05c4ab18c74863379c24
+      internalID: 1609136396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_28
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 1826
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee85687cdbdf1347ae1e6b8a789af4a
+      internalID: 2034152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_29
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 1730
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d942858e18c52c4bad33c726c952651
+      internalID: -304644128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_30
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 1445
+        width: 492
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6063a6c33a6c53641896aafcbe58d9ac
+      internalID: 124950659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_31
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1596
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59ac12cadc499b4bbe4cbb5744f817e
+      internalID: -1252140751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_32
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 1474
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b03e1d8e33a8045b2251bf03050499
+      internalID: -535643796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_33
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 1444
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff281cecd79312548a937f43d0f8d358
+      internalID: 518326667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_34
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 1369
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81960f122c6e888429182df25f11e0d8
+      internalID: 640210517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_35
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 1332
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1214b9034cdd0ee4188683952286bafd
+      internalID: 584278758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_36
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 1302
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b944b06f95f06e74dad2aeff140824ee
+      internalID: 1219965254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_37
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 1282
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e32f0650fb80cd499f659f8e08f4e6f
+      internalID: 445752515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_38
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 821
+        width: 416
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3385b6271b6b08d4eb1bcca5148702d5
+      internalID: 1313504721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_39
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 795
+        width: 438
+        height: 463
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9bb92a8acc7c9044927ca015ce99f94
+      internalID: -2109270908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_40
+      rect:
+        serializedVersion: 2
+        x: 2552
+        y: 1210
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8752e234a6fd03418fbbd28443ef891
+      internalID: -427775257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_41
+      rect:
+        serializedVersion: 2
+        x: 3381
+        y: 943
+        width: 296
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6de09b17993b084fbd4eb7c76aa11fa
+      internalID: -2061009864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_42
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 813
+        width: 476
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5482285a65bd9794291d5adcadb229db
+      internalID: 1016571263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_43
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1067
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6f8e9640fe1c7439196bc421b2adfc
+      internalID: -2035408364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_44
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 809
+        width: 440
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30aa46e131bb973459dec0b473c78d39
+      internalID: -1132128438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_45
+      rect:
+        serializedVersion: 2
+        x: 2293
+        y: 875
+        width: 476
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22eb5780b0beabe4bb0361a442edac3e
+      internalID: -1884800982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_46
+      rect:
+        serializedVersion: 2
+        x: 3011
+        y: 949
+        width: 140
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198b1187ae0527b4f9127b37fa5ebe1b
+      internalID: -1262866069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_47
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 990
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c6b84e4be0f1943ad9d39d25d00bb9
+      internalID: 768957821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_48
+      rect:
+        serializedVersion: 2
+        x: 2276
+        y: 779
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc8c82911c56d84bb51ce65770a584b
+      internalID: 192782115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_49
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 357
+        width: 212
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8741da1c6f32ff4db169489a0b1f635
+      internalID: -1018293083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_50
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 365
+        width: 178
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3873987cd27bc004a8e64b37ee2ecd49
+      internalID: -1254534010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_51
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 347
+        width: 214
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b7355fb061cd14882e3c70f65b178c
+      internalID: -36106554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_52
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 435
+        width: 168
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb874eadacbe0e344acb0ab49c11f3f3
+      internalID: -609430735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_53
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 369
+        width: 210
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bacc53a0da6ca0d43a233e776b0c6674
+      internalID: -131902765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_54
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 365
+        width: 166
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fcc185406e27df4ba1b4f3a72897f53
+      internalID: -1820879312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_55
+      rect:
+        serializedVersion: 2
+        x: 1925
+        y: 371
+        width: 186
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09c38b9cd28eb6439a89662b0e5e69e
+      internalID: -1820861002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_56
+      rect:
+        serializedVersion: 2
+        x: 2213
+        y: 319
+        width: 218
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2165bae218068945bddae54a0515ee2
+      internalID: 222063656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_57
+      rect:
+        serializedVersion: 2
+        x: 2535
+        y: 351
+        width: 214
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c969110d056b142877463ab7ee113b
+      internalID: -1482804284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_58
+      rect:
+        serializedVersion: 2
+        x: 2836
+        y: 518
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dba78e619fbe2a44806e90a018fb176
+      internalID: -1787981365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_59
+      rect:
+        serializedVersion: 2
+        x: 2871
+        y: 369
+        width: 212
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23cc89da861d9b947a32363d805c8ad6
+      internalID: 1946739377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_60
+      rect:
+        serializedVersion: 2
+        x: 3288
+        y: 453
+        width: 89
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae7b1a8c5ce91d44873a6f42ea1cce6
+      internalID: -766929462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_61
+      rect:
+        serializedVersion: 2
+        x: 3632
+        y: 389
+        width: 245
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f962dad378dc484489a07945a5cfb405
+      internalID: -1159435338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_DisguiseGoblin_Sprite_62
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 429
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a24c6a517fc1b5c45aa456b86efb8b42
+      internalID: -427543422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +1436,70 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CP_Character_DisguiseGoblin_Sprite_48: 192782115
+      CP_Character_DisguiseGoblin_Sprite_1: 1742341133
+      CP_Character_DisguiseGoblin_Sprite_39: -2109270908
+      CP_Character_DisguiseGoblin_Sprite_41: -2061009864
+      CP_Character_DisguiseGoblin_Sprite_10: -503031829
+      CP_Character_DisguiseGoblin_Sprite_15: -1875773500
+      CP_Character_DisguiseGoblin_Sprite_40: -427775257
+      CP_Character_DisguiseGoblin_Sprite_53: -131902765
+      CP_Character_DisguiseGoblin_Sprite_17: 1804755866
+      CP_Character_DisguiseGoblin_Sprite_37: 445752515
+      CP_Character_DisguiseGoblin_Sprite_5: 1676061062
+      CP_Character_DisguiseGoblin_Sprite_8: 1948756038
+      CP_Character_DisguiseGoblin_Sprite_11: -888648783
+      CP_Character_DisguiseGoblin_Sprite_51: -36106554
+      CP_Character_DisguiseGoblin_Sprite_31: -1252140751
+      CP_Character_DisguiseGoblin_Sprite_19: 815216518
+      CP_Character_DisguiseGoblin_Sprite_38: 1313504721
+      CP_Character_DisguiseGoblin_Sprite_16: -43723299
+      CP_Character_DisguiseGoblin_Sprite_25: -1512527438
+      CP_Character_DisguiseGoblin_Sprite_3: 13549487
+      CP_Character_DisguiseGoblin_Sprite_21: -1498851240
+      CP_Character_DisguiseGoblin_Sprite_44: -1132128438
+      CP_Character_DisguiseGoblin_Sprite_36: 1219965254
+      CP_Character_DisguiseGoblin_Sprite_46: -1262866069
+      CP_Character_DisguiseGoblin_Sprite_56: 222063656
+      CP_Character_DisguiseGoblin_Sprite_59: 1946739377
+      CP_Character_DisguiseGoblin_Sprite_54: -1820879312
+      CP_Character_DisguiseGoblin_Sprite_23: -1169366845
+      CP_Character_DisguiseGoblin_Sprite_49: -1018293083
+      CP_Character_DisguiseGoblin_Sprite_52: -609430735
+      CP_Character_DisguiseGoblin_Sprite_43: -2035408364
+      CP_Character_DisguiseGoblin_Sprite_28: 2034152
+      CP_Character_DisguiseGoblin_Sprite_2: -453722953
+      CP_Character_DisguiseGoblin_Sprite_29: -304644128
+      CP_Character_DisguiseGoblin_Sprite_50: -1254534010
+      CP_Character_DisguiseGoblin_Sprite_47: 768957821
+      CP_Character_DisguiseGoblin_Sprite_30: 124950659
+      CP_Character_DisguiseGoblin_Sprite_20: 1206912946
+      CP_Character_DisguiseGoblin_Sprite_26: 1950515436
+      CP_Character_DisguiseGoblin_Sprite_57: -1482804284
+      CP_Character_DisguiseGoblin_Sprite_42: 1016571263
+      CP_Character_DisguiseGoblin_Sprite_6: -1787843030
+      CP_Character_DisguiseGoblin_Sprite_7: 524101888
+      CP_Character_DisguiseGoblin_Sprite_9: -1555302631
+      CP_Character_DisguiseGoblin_Sprite_61: -1159435338
+      CP_Character_DisguiseGoblin_Sprite_18: 120478932
+      CP_Character_DisguiseGoblin_Sprite_45: -1884800982
+      CP_Character_DisguiseGoblin_Sprite_4: 811543420
+      CP_Character_DisguiseGoblin_Sprite_34: 640210517
+      CP_Character_DisguiseGoblin_Sprite_62: -427543422
+      CP_Character_DisguiseGoblin_Sprite_27: 1609136396
+      CP_Character_DisguiseGoblin_Sprite_60: -766929462
+      CP_Character_DisguiseGoblin_Sprite_12: 926475839
+      CP_Character_DisguiseGoblin_Sprite_32: -535643796
+      CP_Character_DisguiseGoblin_Sprite_35: 584278758
+      CP_Character_DisguiseGoblin_Sprite_55: -1820861002
+      CP_Character_DisguiseGoblin_Sprite_22: -1739880658
+      CP_Character_DisguiseGoblin_Sprite_33: 518326667
+      CP_Character_DisguiseGoblin_Sprite_0: 34174703
+      CP_Character_DisguiseGoblin_Sprite_13: 877893027
+      CP_Character_DisguiseGoblin_Sprite_24: -1718645175
+      CP_Character_DisguiseGoblin_Sprite_14: -1146069991
+      CP_Character_DisguiseGoblin_Sprite_58: -1787981365
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

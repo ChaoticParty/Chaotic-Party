@@ -42,9 +42,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -76,9 +76,432 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2689
+        width: 562
+        height: 718
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b365052e47404404a8b5e30040d9a7b1
+      internalID: -58288571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 2755
+        width: 380
+        height: 688
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d787fcbd1e27b3d4186c2bcac58a4ef1
+      internalID: 1374542169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 2045
+        y: 3137
+        width: 656
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb8bb4a03fcc1d041a3385705566b68e
+      internalID: -1122487752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 3237
+        y: 3137
+        width: 664
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f249deacbfa32e74c90ddd978ba2246e
+      internalID: -1838841876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 1995
+        width: 382
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e5cd0d6b6e1d14482d0f882fb91ad6
+      internalID: 1494045475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 1837
+        width: 568
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1658a83404b22804eb62ab87dad31fee
+      internalID: 1351892518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 1923
+        width: 714
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df1febded3bbbf44a57c926111b82cf
+      internalID: 541959040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 2507
+        y: 1941
+        width: 812
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2898dc00c41fe44b9faa2008237c26
+      internalID: 1984980127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 1941
+        width: 578
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f696ff20cba4c346ae43d96856641bd
+      internalID: 292080043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1101
+        width: 372
+        height: 622
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccba94a4d51302e4c90fe7c5e14243c4
+      internalID: -842169021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_10
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 1149
+        width: 628
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9262f07d452a08e44b277df0e9867e3a
+      internalID: -796064069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_11
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 1133
+        width: 628
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f975ca0aeaf74944bca289fd2614af2
+      internalID: 1516007849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_12
+      rect:
+        serializedVersion: 2
+        x: 2449
+        y: 1165
+        width: 568
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59aba9f40617f8e448e86e397e0f0038
+      internalID: 2044031746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_13
+      rect:
+        serializedVersion: 2
+        x: 3217
+        y: 1021
+        width: 844
+        height: 772
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97fade1934dc124c9c8341fa0750fc1
+      internalID: 1541540585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_14
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 45
+        width: 710
+        height: 772
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94c836d768178644846e820d1d1e148
+      internalID: 1094691144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_15
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 51
+        width: 852
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88c2eaeebd9fd742a187b7328171653
+      internalID: -53270723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_16
+      rect:
+        serializedVersion: 2
+        x: 2726
+        y: 807
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3aae06d8d1a8849b0d54d6cbcbd0eb
+      internalID: -2123029481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_17
+      rect:
+        serializedVersion: 2
+        x: 2147
+        y: 43
+        width: 844
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5f7e1ba30e6294ab338c4687586307
+      internalID: -1600924919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_Character_Face_Goblin_Sprite_18
+      rect:
+        serializedVersion: 2
+        x: 3201
+        y: 35
+        width: 836
+        height: 772
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07bec7a8c29981744825715dfea5e028
+      internalID: -410330201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +512,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CP_Character_Face_Goblin_Sprite_11: 1516007849
+      CP_Character_Face_Goblin_Sprite_8: 292080043
+      CP_Character_Face_Goblin_Sprite_9: -842169021
+      CP_Character_Face_Goblin_Sprite_1: 1374542169
+      CP_Character_Face_Goblin_Sprite_6: 541959040
+      CP_Character_Face_Goblin_Sprite_4: 1494045475
+      CP_Character_Face_Goblin_Sprite_16: -2123029481
+      CP_Character_Face_Goblin_Sprite_15: -53270723
+      CP_Character_Face_Goblin_Sprite_7: 1984980127
+      CP_Character_Face_Goblin_Sprite_10: -796064069
+      CP_Character_Face_Goblin_Sprite_12: 2044031746
+      CP_Character_Face_Goblin_Sprite_18: -410330201
+      CP_Character_Face_Goblin_Sprite_13: 1541540585
+      CP_Character_Face_Goblin_Sprite_2: -1122487752
+      CP_Character_Face_Goblin_Sprite_17: -1600924919
+      CP_Character_Face_Goblin_Sprite_14: 1094691144
+      CP_Character_Face_Goblin_Sprite_3: -1838841876
+      CP_Character_Face_Goblin_Sprite_0: -58288571
+      CP_Character_Face_Goblin_Sprite_5: 1351892518
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
