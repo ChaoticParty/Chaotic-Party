@@ -41,6 +41,8 @@ public class SpamRaceController : SpamController
     
     protected override void Click()
     {
+        if(!_spamRaceManager.isMinigamelaunched) return;
+        
         if (hasClicked) return;
         StartCoroutine(Cooldown());
         switch (_spamRaceManager.typeAjoutPoints)
@@ -71,8 +73,10 @@ public class SpamRaceController : SpamController
         }
     }
 
-    private void SendClicks()
+    public void SendClicks()
     {
+        if(!_spamRaceManager.isMinigamelaunched) return;
+        
         if(_spamRaceManager.typeAjoutPoints == PointsType.VfxBurst)
         {
             spamManager.Click(player.index, _clickValue);

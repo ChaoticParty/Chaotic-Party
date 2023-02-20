@@ -74,6 +74,10 @@ public class SpamRaceManager : SpamManager
 
     public override void FinishTimer()
     {
+        foreach (PlayerController player in players)
+        {
+            player.GetComponent<SpamRaceController>().SendClicks();
+        }
         isMinigamelaunched = false;
         isGameDone = true;
         OnMinigameEnd();
