@@ -15,6 +15,7 @@ public class TimerManager : MonoBehaviour
     private void Awake()
     {
         gameManager ??= FindObjectOfType<MiniGameManager>();
+        Debug.Log(gameManager.gameObject.name);
         gameManager.timerManager = this;
     }
 
@@ -32,7 +33,7 @@ public class TimerManager : MonoBehaviour
         Debug.Log(currentTime);
         if(!gameManager.isMinigamelaunched) return;
 
-        Debug.Log("fixedupdate");
+        Debug.Log("update");
         Debug.Log(currentTime);
         currentTime = currentTime - Time.deltaTime;
         Debug.Log(currentTime);
