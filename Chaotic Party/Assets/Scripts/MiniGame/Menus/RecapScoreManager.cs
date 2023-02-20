@@ -47,6 +47,11 @@ public class RecapScoreManager : MiniGameManager
                 scoreObj.score.text = rankToPlayerData[i].points.ToString();
             }
         }
+
+        foreach (PlayerController player in players)
+        {
+            player.ChangeColor();
+        }
     }
 
     public bool HasNextMiniGame()
