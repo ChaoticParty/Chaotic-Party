@@ -9,26 +9,34 @@ public class TimerManager : MonoBehaviour
     [SerializeField] private MiniGameManager gameManager;
     [SerializeField] private Image timerImage;
     [SerializeField] private Image timerFleche;
-    private float originTime;
-    private float currentTime;
+    [SerializeField] private float originTime;
+    public float currentTime;
 
     private void Awake()
     {
         gameManager ??= FindObjectOfType<MiniGameManager>();
+        Debug.Log(gameManager.gameObject.name);
         gameManager.timerManager = this;
     }
 
     public void SetTimer(float timerInSecond)
     {
+        Debug.Log("settimer");
+        Debug.Log(timerInSecond);
         originTime = timerInSecond;
         currentTime = originTime;
+        Debug.Log(currentTime);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        Debug.Log(currentTime);
         if(!gameManager.isMinigamelaunched) return;
-        
-        currentTime -= Time.deltaTime;
+
+        Debug.Log("update");
+        Debug.Log(currentTime);
+        currentTime = currentTime - Time.deltaTime;
+        Debug.Log(currentTime);
 
         if (currentTime <= 0)
         {
