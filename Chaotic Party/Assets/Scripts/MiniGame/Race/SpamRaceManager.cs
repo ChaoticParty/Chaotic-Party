@@ -12,20 +12,24 @@ using UnityEngine.UI;
 public class SpamRaceManager : SpamManager
 {
     [SerializeField] private GameObject[] cars;
-    public float timer;
+    //public float timer;
     [NonSerialized] public float currentTimer;
     [SerializeField] private Image timerImage;
     [SerializeField] private TextMeshProUGUI winText;
-    [SerializeField] private GameObject[] crowns;
     [SerializeField] private CinemachineVirtualCamera raceCamera;
     [SerializeField] private Transform[] raceCars;
     [SerializeField] private CinemachineTargetGroup targetGroup;
-    private List<Coroutine> _coroutines;
+    private List<Coroutine> _coroutines = new List<Coroutine>();
+    public bool launchFromEditor;
+    public float timeBeforeClickRegister;
+    public PointsType typeAjoutPoints;
+    public TextMeshProUGUI tmpPrefab;
 
     #region Events
 
     [Space, Header("Events")] 
     public UnityEvent<Vector2, string> playerGetsPointsEvent;
+    public UnityEvent<Vector2, string> playerGetsOver500PointsEvent;
     public UnityEvent<Vector2, string> playerLosePointsEvent;
     public UnityEvent<Vector2> playerGets1000PointsEvents;
 
@@ -35,19 +39,22 @@ public class SpamRaceManager : SpamManager
     {
         base.Start();
         ActivateUI(false);
+        currentTimer = timer;
     }
 
     private void ActivateUI(bool activate)
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(activate);
-        }
+        CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = activate ? 1 : 0;
+        canvasGroup.interactable = activate;
+        canvasGroup.blocksRaycasts = activate;
+        //transform.GetChild(0).gameObject.SetActive(activate);
     }
-    
-    public override void StartMiniGame()
+
+    [ContextMenu("LoadMiniGame")]
+    public override void LoadMiniGame()
     {
-        base.StartMiniGame();
+        base.LoadMiniGame();
         ActivateUI(true);
         targetGroup.m_Targets = new CinemachineTargetGroup.Target[players.Count];
         for (int i = 0; i < spamTexts.Length; i++)
@@ -63,21 +70,39 @@ public class SpamRaceManager : SpamManager
                 targetGroup.m_Targets[i].weight = 1;
             }
         }
+    }
 
-        currentTimer = timer;
+    public override void FinishTimer()
+    {
+        foreach (PlayerController player in players)
+        {
+            player.GetComponent<SpamRaceController>().SendClicks();
+        }
+        isMinigamelaunched = false;
+        isGameDone = true;
+        OnMinigameEnd();
+    }
+
+    [ContextMenu("StartMiniGame")]
+    public override void StartMiniGame()
+    {
+        base.StartMiniGame();
     }
 
     private void Update()
     {
         if(!isMinigamelaunched || isGameDone) return;
+
+
         
-        currentTimer -= Time.deltaTime;
+        /*currentTimer -= Time.deltaTime;
 
         if (currentTimer <= 0)
         {
             isGameDone = true;
             winText.text = "Joueur " + (GetWinner() + 1) + " a gagné!";
             //winText.gameObject.SetActive(true);
+            Debug.Log("onend");
             OnMinigameEnd();
 
             
@@ -87,7 +112,7 @@ public class SpamRaceManager : SpamManager
         else
         {
             timerImage.fillAmount = currentTimer / timer;
-        }
+        }*/
     }
 
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
@@ -96,12 +121,15 @@ public class SpamRaceManager : SpamManager
         
         nbClicks++;
         clicksArray[playerIndex] += value;
-        if(spamTexts.Length > playerIndex) spamTexts[playerIndex].text = clicksArray[playerIndex].ToString(CultureInfo.CurrentCulture);
+        if(spamTexts.Length > playerIndex) UpdateClickUi(playerIndex, clicksArray[playerIndex]);
         DisplayCrown();
+        
+        if(value == 0 || typeAjoutPoints == PointsType.BigPoints) return;
         
         string valueToDisplay = value.ToString(CultureInfo.InvariantCulture);
         if (value >= 0) valueToDisplay = "+" + valueToDisplay;
-        if(value >= 0) playerGetsPointsEvent.Invoke(players[playerIndex].transform.position, valueToDisplay);
+        if(value >= 500) playerGetsOver500PointsEvent.Invoke(players[playerIndex].transform.position, valueToDisplay);
+        else if(value >= 0) playerGetsPointsEvent.Invoke(players[playerIndex].transform.position, valueToDisplay);
         else playerLosePointsEvent.Invoke(players[playerIndex].transform.position, valueToDisplay);
         
         if (clicksArray[playerIndex] % 1000 == 0)
@@ -109,6 +137,32 @@ public class SpamRaceManager : SpamManager
             playerGets1000PointsEvents.Invoke(players[playerIndex].transform.position);
             CameraController.Shake();
         }
+    }
+
+    public void UpdateClickUi(int playerIndex, float value, bool valueToAdd = false)
+    {
+        if (valueToAdd) value += Convert.ToInt32(spamTexts[playerIndex].text.Replace("+", ""));
+        spamTexts[playerIndex].text = value.ToString(CultureInfo.CurrentCulture);
+    }
+
+    public IEnumerator SendPointToTotal(TextMeshProUGUI pointsObject, int playerIndex, float value)
+    {
+        Transform pointsTransform = pointsObject.transform;
+        Transform spamTextTransform = spamTexts[playerIndex].transform;
+        while (Vector3.Distance(pointsTransform.position, spamTextTransform.position) > 0.1f)
+        {
+            pointsTransform.position = Vector3.Lerp(pointsTransform.position,
+                spamTextTransform.position, Time.deltaTime * 10);
+            pointsTransform.localScale =
+                Vector3.Lerp(pointsTransform.localScale, Vector3.one / 2, Time.deltaTime * 10);
+            yield return null;
+        }
+        spamTextTransform.localScale = Vector3.one * 2;
+        yield return null;
+        if(pointsObject.gameObject) Destroy(pointsObject.gameObject);
+        Click(playerIndex, value);
+        yield return null;
+        spamTextTransform.localScale = Vector3.one;
     }
 
     protected override int GetWinner()
@@ -129,6 +183,9 @@ public class SpamRaceManager : SpamManager
 
     protected override void OnMinigameEnd()
     {
+        _ranking = GetRanking();
+        AddPoints();
+        SetCurrentRanking();
         GetComponent<PlayableDirector>().Play();
     }
 
@@ -156,7 +213,6 @@ public class SpamRaceManager : SpamManager
 
     public void ReplaceCars()
     {
-        _ranking = GetRanking();
         foreach ((PlayerController key, int value) in _ranking)
         {
             Debug.Log(key.index + " " + value);
@@ -183,6 +239,7 @@ public class SpamRaceManager : SpamManager
         
         foreach (PlayerController player in players)
         {
+            if(!player.gameObject.activeSelf) continue;
             SpamRaceController playerScript = player.GetComponent<SpamRaceController>();
             Transform raceCar = raceCars[players.IndexOf(player)];
             _coroutines.Add(playerScript.Race(raceCar.position + Vector3.right * (5 - _ranking[player]) * 10));
@@ -195,9 +252,9 @@ public class SpamRaceManager : SpamManager
         bool coroutinesDone = false;
         while (!coroutinesDone)
         {
-            foreach (Coroutine coroutine in _coroutines)
+            foreach (PlayerController player in players)
             {
-                if (coroutine != null) coroutinesDone = true;
+                if (player.GetComponent<SpamRaceController>()._coroutine == null) coroutinesDone = true;
                 yield return null;
             }
         }
@@ -206,4 +263,11 @@ public class SpamRaceManager : SpamManager
         
         LoadRecap();
     }
+}
+
+public enum PointsType
+{
+    Continuous,
+    VfxBurst,
+    BigPoints
 }

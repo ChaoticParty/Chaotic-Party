@@ -6,38 +6,42 @@ using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
-    public MiniGameManager gameManager;
-    public float[] timers;
+    [SerializeField] private MiniGameManager gameManager;
     [SerializeField] private Image timerImage;
-    [SerializeField] private Image.FillMethod fillMethod;
-    private int timerIndex;
-    private float currentTimer;
+    [SerializeField] private Image timerFleche;
+    [SerializeField] private float originTime;
+    public float currentTime;
 
     private void Awake()
     {
         gameManager ??= FindObjectOfType<MiniGameManager>();
-        ChangeTimer(0);
+        Debug.Log(gameManager.gameObject.name);
+        gameManager.timerManager = this;
     }
 
-    private void ChangeTimer(int followingTimer = 1)
+    public void SetTimer(float timerInSecond)
     {
-        timerIndex += followingTimer;
-        currentTimer = timers[timerIndex];
+        originTime = timerInSecond;
+        currentTime = originTime;
     }
 
     private void Update()
     {
-        if(gameManager.isGameDone) return;
+        if(!gameManager.isMinigamelaunched) return;
         
-        currentTimer -= Time.deltaTime;
+        currentTime -= Time.deltaTime;
 
-        if (currentTimer <= 0)
+        if (currentTime <= 0)
         {
-            gameManager.FinishTimer(timerIndex + 1 == timers.Length);
+            timerImage.gameObject.SetActive(false);
+            timerFleche.transform.localRotation = Quaternion.Euler(0,0,-360);
+            gameManager.FinishTimer();
+            gameObject.SetActive(false);
         }
         else
         {
-            timerImage.fillAmount = currentTimer / timers[timerIndex];
+            timerImage.fillAmount = currentTime / originTime; //0 l'image est transparante, 1 elle est pleine.
+            timerFleche.transform.localRotation = Quaternion.Euler(0,0,timerImage.fillAmount * 360); //1 fill = 0° et 0.5 fill = -90°
         }
     }
 }

@@ -823,6 +823,7 @@ MonoBehaviour:
   - {fileID: 2144341740}
   - {fileID: 716108471}
   - {fileID: 648730277}
+  isMinigamelaunched: 0
   spamTexts:
   - {fileID: 495307390}
   - {fileID: 2071945094}
@@ -835,14 +836,9 @@ MonoBehaviour:
   - {fileID: 299910238}
   - {fileID: 1060652042}
   - {fileID: 1360502661}
-  timer: 30
+  timer: 5
   timerImage: {fileID: 480699580}
   winText: {fileID: 1092031902}
-  crowns:
-  - {fileID: 351041485}
-  - {fileID: 2144341740}
-  - {fileID: 716108471}
-  - {fileID: 648730277}
   raceCamera: {fileID: 822471808}
   raceCars:
   - {fileID: 3373710522874701757}
@@ -850,6 +846,7 @@ MonoBehaviour:
   - {fileID: 949058913294798672}
   - {fileID: 8592746396314617222}
   targetGroup: {fileID: 950545761}
+  launchFromEditor: 0
   playerGetsPointsEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1934,6 +1931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: {fileID: 11400000, guid: 42d594bc8afb56a42ba27f94141ce02f, type: 2}
+  miniGameData: {fileID: 0}
   oldEventSystem: {fileID: 0}
 --- !u!4 &523591009
 Transform:

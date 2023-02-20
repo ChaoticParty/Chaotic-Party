@@ -28,7 +28,13 @@ public class ThrowObjectCurve : MonoBehaviour
             new Keyframe(duration / 2, maxHeight), new Keyframe(duration, 0, -10, 0) });
         _onEnd = onEnd;
 
-        if (sprite != null) GetComponent<SpriteRenderer>().sprite = sprite;
+        if (sprite != null)
+        {
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            renderer.sprite = sprite;
+            renderer.sortingLayerName = "FX";
+            renderer.sortingOrder = 100;
+        }
         transform.position = startPosition;
         isInit = true;
     }
