@@ -29,6 +29,8 @@ public class HorizontalMovement : MiniGameController
 
     private void FixedUpdate()
     {
+        if (minClamp == maxClamp) return;
+
         Vector3 position = transform.position;
         position = new Vector3(Mathf.Clamp(position.x, minClamp, maxClamp), position.y);
         transform.position = position;
