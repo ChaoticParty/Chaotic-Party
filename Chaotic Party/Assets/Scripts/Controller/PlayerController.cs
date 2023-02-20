@@ -73,9 +73,17 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent<float> leftStickLongPressed = new ();
     
     [NonSerialized] public UnityEvent dPadUp = new ();
+    [NonSerialized] public UnityEvent dPadJustUp = new ();
     [NonSerialized] public UnityEvent dPadDown = new ();
+    [NonSerialized] public UnityEvent dPadJustDown = new ();
     [NonSerialized] public UnityEvent dPadLeft = new ();
+    [NonSerialized] public UnityEvent dPadJustLeft = new ();
     [NonSerialized] public UnityEvent dPadRight = new ();
+    [NonSerialized] public UnityEvent dPadJustRight = new ();
+    [NonSerialized] private bool isDPadMovedUp;
+    [NonSerialized] private bool isDPadMovedDown;
+    [NonSerialized] private bool isDPadMovedLeft;
+    [NonSerialized] private bool isDPadMovedRight;
 
     #endregion
 
@@ -290,22 +298,58 @@ public class PlayerController : MonoBehaviour
         {
             leftStickLongPressed.Invoke(gamepad.leftStickClick.pressDuration);
         }
-        
+
         if(gamepad.dPad.up)
         {
-            dPadUp.Invoke();
+            if (!isDPadMovedUp)
+            {
+                isDPadMovedUp = true;
+                isDPadMovedDown = false;
+                isDPadMovedLeft = false;
+                isDPadMovedRight = false;
+                dPadUp.Invoke();
+            }
         }
         if(gamepad.dPad.down)
         {
-            dPadDown.Invoke();
+            if (!isDPadMovedDown)
+            {
+                isDPadMovedDown = true;
+                isDPadMovedUp = false;
+                isDPadMovedLeft = false;
+                isDPadMovedRight = false;
+                dPadDown.Invoke();
+            }
         }
         if(gamepad.dPad.left)
         {
-            dPadLeft.Invoke();
+            if (!isDPadMovedLeft)
+            {
+                isDPadMovedLeft = true;
+                isDPadMovedUp = false;
+                isDPadMovedDown = false;
+                isDPadMovedRight = false;
+                dPadLeft.Invoke();
+            }
         }
         if(gamepad.dPad.right)
         {
-            dPadRight.Invoke();
+            if (!isDPadMovedRight)
+            {
+                isDPadMovedRight = true;
+                isDPadMovedUp = false;
+                isDPadMovedDown = false;
+                isDPadMovedLeft = false;
+                dPadRight.Invoke();    
+            }
+        }
+
+        if (!gamepad.dPad.inPressedZone)
+        {
+            isDPadMovedUp = false;
+            isDPadMovedDown = false;
+            isDPadMovedLeft = false;
+            isDPadMovedRight = false;
         }
     }
 

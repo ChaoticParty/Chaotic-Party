@@ -11,6 +11,7 @@ public class ImageBuilder : FXBuilder
     {
         sprite = image;
         FXSpawner.Spawn(this, startPosition + position);
+        SetupSprite();
     }
 
     public override void BaseSetup(GameObject gameObject)
@@ -51,7 +52,8 @@ public class ImageBuilder : FXBuilder
         spriteRenderer ??= fxObject.GetComponent<SpriteRenderer>();
         if(sprite) this.sprite = sprite;
         spriteRenderer.sprite = this.sprite;
-        spriteRenderer.sortingLayerName = "FX";
+        spriteRenderer.sortingLayerName = "Player";
+        spriteRenderer.sortingOrder = 100;
     }
 
     public void ChangeSprite(Sprite sprite)

@@ -44,6 +44,7 @@ public class CameraController : MonoBehaviour
 
     public static void Shake(float force)
     {
+        Debug.Log(force);
         _impulseSource.GenerateImpulseWithForce(force);
     }
 }

@@ -12,11 +12,12 @@ public class RulesManager : MiniGameManager
     public Image loadingImage;
     public SpriteRenderer launchButton;
     private MiniGameManager _loadedMiniGameManager;
-    
+
     protected void Start()
     {
         _currentLoadingTime = 0;
-        StartMiniGame();
+        isMinigamelaunched = true;
+        //StartMiniGame();
         StartCoroutine(LoadMiniGameScene());
         StartCoroutine(OngoingLoading());
     }
@@ -64,7 +65,7 @@ public class RulesManager : MiniGameManager
 
     public void StartLoadedMinigame()
     {
-        _loadedMiniGameManager.StartMiniGame();
+        _loadedMiniGameManager.LoadMiniGame();
         foreach (PlayerController player in _loadedMiniGameManager.players)
         {
             player.gamepad.A.Enable();
@@ -73,7 +74,9 @@ public class RulesManager : MiniGameManager
         }
         SceneManager.UnloadSceneAsync(gameObject.scene);
     }
-    
+
+    public override void FinishTimer() { }
+
     protected override int GetWinner()
     {
         return -1;

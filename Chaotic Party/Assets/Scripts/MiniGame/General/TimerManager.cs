@@ -6,38 +6,48 @@ using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
-    public MiniGameManager gameManager;
-    public float[] timers;
+    [SerializeField] private MiniGameManager gameManager;
     [SerializeField] private Image timerImage;
-    [SerializeField] private Image.FillMethod fillMethod;
-    private int timerIndex;
-    private float currentTimer;
+    [SerializeField] private Image timerFleche;
+    [SerializeField] private float originTime;
+    public float currentTime;
 
     private void Awake()
     {
         gameManager ??= FindObjectOfType<MiniGameManager>();
-        ChangeTimer(0);
+        Debug.Log(gameManager.gameObject.name);
+        gameManager.timerManager = this;
     }
 
-    private void ChangeTimer(int followingTimer = 1)
+    public void SetTimer(float timerInSecond)
     {
-        timerIndex += followingTimer;
-        currentTimer = timers[timerIndex];
+        Debug.Log("settimer");
+        Debug.Log(timerInSecond);
+        originTime = timerInSecond;
+        currentTime = originTime;
+        Debug.Log(currentTime);
     }
 
     private void Update()
     {
-        if(gameManager.isGameDone) return;
-        
-        currentTimer -= Time.deltaTime;
+        Debug.Log(currentTime);
+        if(!gameManager.isMinigamelaunched) return;
 
-        if (currentTimer <= 0)
+        Debug.Log("update");
+        Debug.Log(currentTime);
+        currentTime = currentTime - Time.deltaTime;
+        Debug.Log(currentTime);
+
+        if (currentTime <= 0)
         {
-            gameManager.FinishTimer(timerIndex + 1 == timers.Length);
+            timerImage.fillAmount = 1;
+            timerFleche.transform.localRotation = Quaternion.Euler(0,0,-360);
+            gameManager.FinishTimer();
         }
         else
         {
-            timerImage.fillAmount = currentTimer / timers[timerIndex];
+            timerImage.fillAmount = currentTime / originTime; //0 l'image est transparante, 1 elle est pleine.
+            timerFleche.transform.localRotation = Quaternion.Euler(0,0,timerImage.fillAmount * 360); //1 fill = 0° et 0.5 fill = -90°
         }
     }
 }
