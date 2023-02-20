@@ -1794,6 +1794,7 @@ MonoBehaviour:
   spamValue: 10
   versusSpamValue: 0
   rompicheEffect: {fileID: 0}
+  Hud: {fileID: 1538398048707536862}
   rompicheState: 0
   endValue: 500
   cerberRompicheRangeMin: 3
@@ -2236,5 +2237,10 @@ PrefabInstance:
 --- !u!95 &1538398048707536861 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1538398048714404683, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
+  m_PrefabInstance: {fileID: 1538398048707536860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1538398048707536862 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 4102298046298983188, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
   m_PrefabInstance: {fileID: 1538398048707536860}
   m_PrefabAsset: {fileID: 0}

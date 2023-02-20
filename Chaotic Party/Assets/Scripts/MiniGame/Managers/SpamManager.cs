@@ -29,6 +29,28 @@ public abstract class SpamManager : MiniGameManager
         base.StartMiniGame();
     }
     
+    protected override Dictionary<PlayerController, int> GetRanking()
+    {
+        Dictionary<PlayerController, int> ranking = new();
+        for (int i = 0; i < players.Count; i++)
+        {
+            int currentRanking = 0;
+            for (int j = 0; j < players.Count; j++)
+            {
+                if (i != j)
+                {
+                    if (clicksArray[i] < clicksArray[j])
+                    {
+                        currentRanking++;
+                    }
+                }
+            }
+            ranking.Add(players[i], currentRanking);
+        }
+
+        return ranking;
+    }
+    
     protected override int GetWinner()
     {
         int winnerIndex = 0;

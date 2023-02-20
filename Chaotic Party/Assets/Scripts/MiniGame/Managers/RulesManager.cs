@@ -82,6 +82,11 @@ public class RulesManager : MiniGameManager
         return -1;
     }
 
+    protected override Dictionary<PlayerController, int> GetRanking()
+    {
+        return null;
+    }
+
     protected override void OnMinigameEnd() { }
 
     public override void StartMiniGame()

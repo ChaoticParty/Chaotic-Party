@@ -819,9 +819,9 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 2964346414458747896}
-    m_SelectOnLeft: {fileID: 2964346414744073254}
+    m_SelectOnUp: {fileID: 2964346414744073254}
+    m_SelectOnDown: {fileID: 2964346415589395409}
+    m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -843,7 +843,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2964346413771610870}
   m_OnClick:
     m_PersistentCalls:
@@ -1352,9 +1352,9 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 2964346413771610871}
+    m_SelectOnUp: {fileID: 2964346415589395409}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 2964346415589395409}
+    m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -1612,9 +1612,9 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 2964346415589395409}
+    m_SelectOnDown: {fileID: 2964346414458747896}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 2964346413771610871}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1734,9 +1734,9 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 2964346414744073254}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 2964346414458747896}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 2964346414458747896}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1757,7 +1757,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2964346415589395408}
   m_OnClick:
     m_PersistentCalls:
