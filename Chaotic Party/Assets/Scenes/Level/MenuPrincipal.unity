@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2964346413771610870, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2964346414296264578, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -222,6 +226,18 @@ PrefabInstance:
       propertyPath: multiplayerManager
       value: 
       objectReference: {fileID: 805514675}
+    - target: {fileID: 2964346414458747899, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964346414744073249, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964346415589395408, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
 --- !u!1 &30455453 stripped
