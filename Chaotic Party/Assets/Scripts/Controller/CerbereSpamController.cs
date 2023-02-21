@@ -75,7 +75,6 @@ public class CerbereSpamController : SpamController
         player.ChangeBulleText("Hey !!!");
         isShout = true;
         cerbereManager.playerYell.Invoke(transform.position, "Argument");
-        player.ChangeColor(Color.magenta);
         cerbereManager.PlayerWakeUp();
         StartCoroutine(WakeUpFeedBack(wakeUpAnimTime));
     }
@@ -85,10 +84,9 @@ public class CerbereSpamController : SpamController
 
     private IEnumerator StandUpPlayer(float animationTime)
     {
-        player.ChangeColor(Color.yellow);
+        player.ChangeBulleText("Stand Up !!!");
         yield return new WaitForSeconds(animationTime);
         player.ChangeBulleText("A / B");
-        player.ChangeColor();
         hasClicked = false;
         etat = Etat.NULL;
     } 
@@ -98,7 +96,6 @@ public class CerbereSpamController : SpamController
         yield return new WaitForSeconds(animationTime);
         player.ChangeBulleText(etat.Equals(Etat.A) ? "B" : "A");
         isShout = false;
-        player.ChangeColor();
     }
 
     #endregion

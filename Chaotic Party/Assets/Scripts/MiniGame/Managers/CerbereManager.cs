@@ -129,7 +129,6 @@ public class CerbereManager : SpamManager
                     wasHittedByCerbere[i] = true;
                     walkDestination[i] = xStartValuePos;
                     //Feedback
-                    players[i].ChangeColor(Color.red);
                     StartCoroutine(LaserFeedBack(2, laserPlaceHolder[i]));
                     cerbereLaser.Invoke();
                     playerGetBackToStart.Invoke(players[i].transform.position, "Argument");
@@ -214,7 +213,6 @@ public class CerbereManager : SpamManager
         foreach (var players in players)
         {
             players.isStunned = false;
-            players.ChangeColor();
         }
         wasHittedByCerbere = new[] {false, false, false, false};
         isRompiche = true;

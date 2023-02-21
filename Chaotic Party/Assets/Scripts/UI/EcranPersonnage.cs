@@ -25,37 +25,21 @@ public class EcranPersonnage : MonoBehaviour
     [SerializeField] private List<Sprite> listCurrentCorps = new List<Sprite>();
 
     [Header("Reférences Custo")] 
-    [SerializeField] private GameObject indicNavGoblinGO;
-    [SerializeField] private GameObject selectedGoblinGO;
-    [SerializeField] private GameObject indicNavDiablotinGO;
-    [SerializeField] private GameObject selectedDiablotinGO;
-    [SerializeField] private GameObject indicNavPoissonGO;
-    [SerializeField] private GameObject selectedPoissonGO;
-    [SerializeField] private GameObject indicNavChevalierGO;
-    [SerializeField] private GameObject selectedChevalierGO;
+    [SerializeField] private List<GameObject> listIndicNavRace = new List<GameObject>();
+    [SerializeField] private List<GameObject> listIndicSelectedRace = new List<GameObject>();
     [Space]
     [SerializeField] private Image teteIMG;
     [SerializeField] private GameObject indicNavTeteGO;
     [SerializeField] private Image corpsIMG;
     [SerializeField] private GameObject indicNavCorpsGO;
     [Space]
-    [SerializeField] private GameObject indicNavBlancGO;
-    [SerializeField] private GameObject selectedBlancGO;
+    [SerializeField] private List<GameObject> listIndicNavColor = new List<GameObject>();
+    [SerializeField] private List<GameObject> listIndicSelectedColor = new List<GameObject>();
     [SerializeField] private GameObject lockBlancGO;
-    [SerializeField] private GameObject indicNavVertGO;
-    [SerializeField] private GameObject selectedVertGO;
     [SerializeField] private GameObject lockVertGO;
-    [SerializeField] private GameObject indicNavVioletGO;
-    [SerializeField] private GameObject selectedVioletGO;
     [SerializeField] private GameObject lockVioletGO;
-    [SerializeField] private GameObject indicNavRougeGO;
-    [SerializeField] private GameObject selectedRougeGO;
     [SerializeField] private GameObject lockRougeGO;
-    [SerializeField] private GameObject indicNavOrangeGO;
-    [SerializeField] private GameObject selectedOrangeGO;
     [SerializeField] private GameObject lockOrangeGO;
-    [SerializeField] private GameObject indicNavJauneGO;
-    [SerializeField] private GameObject selectedJauneGO;
     [SerializeField] private GameObject lockJauneGO;
     [Space]
     [SerializeField] private GameObject indicNavReadyGO;
@@ -82,6 +66,8 @@ public class EcranPersonnage : MonoBehaviour
 
     private void OnEnable()
     {
+        InitCusto();
+        
         myPlayerController.leftStickJustMovedDown.AddListener(MenuNavigateDown);
         myPlayerController.rightStickMovedDown.AddListener(MenuNavigateDown);
         myPlayerController.dPadDown.AddListener(MenuNavigateDown);
@@ -116,13 +102,13 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.CHEVALIER:
-                        indicNavChevalierGO.SetActive(false);
-                        indicNavDiablotinGO.SetActive(true);
+                        listIndicNavRace[1].SetActive(false);
+                        listIndicNavRace[2].SetActive(true);
                         enumRace = Race.DIABLOTIN;
                         break;
                     case Race.HOMMEPOISSON:
-                        indicNavPoissonGO.SetActive(false);
-                        indicNavGoblinGO.SetActive(true);
+                        listIndicNavRace[3].SetActive(false);
+                        listIndicNavRace[0].SetActive(true);
                         enumRace = Race.GOBLIN;
                         break;
                 }
@@ -134,16 +120,16 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.GOBLIN:
-                        indicNavGoblinGO.SetActive(true);
+                        listIndicNavRace[0].SetActive(true);
                         break;
                     case Race.CHEVALIER:
-                        indicNavChevalierGO.SetActive(true);
+                        listIndicNavRace[1].SetActive(true);
                         break;
                     case Race.DIABLOTIN:
-                        indicNavDiablotinGO.SetActive(true);
+                        listIndicNavRace[2].SetActive(true);
                         break;
                     case Race.HOMMEPOISSON:
-                        indicNavPoissonGO.SetActive(true);
+                        listIndicNavRace[3].SetActive(true);
                         break;
                 }
                 break;
@@ -154,12 +140,10 @@ public class EcranPersonnage : MonoBehaviour
                 break;
             case Custo.COULEUR:
                 enumCusto = Custo.CORPS;
-                indicNavBlancGO.SetActive(false);
-                indicNavVertGO.SetActive(false);
-                indicNavVioletGO.SetActive(false);
-                indicNavRougeGO.SetActive(false);
-                indicNavOrangeGO.SetActive(false);
-                indicNavJauneGO.SetActive(false);
+                foreach (var objects in listIndicNavColor)
+                {
+                    objects.SetActive(false);
+                }
                 
                 indicNavCorpsGO.SetActive(true);
                 break;
@@ -169,22 +153,22 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        indicNavBlancGO.SetActive(true);
+                        listIndicNavColor[0].SetActive(true);
                         break;
                     case ColorEnum.VERT:
-                        indicNavVertGO.SetActive(true);
+                        listIndicNavColor[1].SetActive(true);
                         break;
                     case ColorEnum.VIOLET:
-                        indicNavVioletGO.SetActive(true);
+                        listIndicNavColor[2].SetActive(true);
                         break;
                     case ColorEnum.ROUGE:
-                        indicNavRougeGO.SetActive(true);
+                        listIndicNavColor[3].SetActive(true);
                         break;
                     case ColorEnum.ORANGE:
-                        indicNavOrangeGO.SetActive(true);
+                        listIndicNavColor[4].SetActive(true);
                         break;
                     case ColorEnum.JAUNE:
-                        indicNavJauneGO.SetActive(true);
+                        listIndicNavColor[5].SetActive(true);
                         break;
                 }
                 break;
@@ -205,13 +189,13 @@ public class EcranPersonnage : MonoBehaviour
                     switch (enumRace)
                     {
                         case Race.DIABLOTIN:
-                            indicNavChevalierGO.SetActive(true);
-                            indicNavDiablotinGO.SetActive(false);
+                            listIndicNavRace[1].SetActive(true);
+                            listIndicNavRace[2].SetActive(false);
                             enumRace = Race.CHEVALIER;
                             break;
                         case Race.GOBLIN:
-                            indicNavPoissonGO.SetActive(true);
-                            indicNavGoblinGO.SetActive(false);
+                            listIndicNavRace[3].SetActive(true);
+                            listIndicNavRace[0].SetActive(false);
                             enumRace = Race.HOMMEPOISSON;
                             break;
                     }
@@ -219,8 +203,8 @@ public class EcranPersonnage : MonoBehaviour
                 else
                 {
                     enumCusto = Custo.TETE;
-                    indicNavChevalierGO.SetActive(false);
-                    indicNavPoissonGO.SetActive(false);
+                    listIndicNavRace[1].SetActive(false);
+                    listIndicNavRace[3].SetActive(false);
                     indicNavTeteGO.SetActive(true);    
                 }
                 break;
@@ -235,22 +219,22 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        indicNavBlancGO.SetActive(true);
+                        listIndicNavColor[0].SetActive(true);
                         break;
                     case ColorEnum.VERT:
-                        indicNavVertGO.SetActive(true);
+                        listIndicNavColor[1].SetActive(true);
                         break;
                     case ColorEnum.VIOLET:
-                        indicNavVioletGO.SetActive(true);
+                        listIndicNavColor[2].SetActive(true);
                         break;
                     case ColorEnum.ROUGE:
-                        indicNavRougeGO.SetActive(true);
+                        listIndicNavColor[3].SetActive(true);
                         break;
                     case ColorEnum.ORANGE:
-                        indicNavOrangeGO.SetActive(true);
+                        listIndicNavColor[4].SetActive(true);
                         break;
                     case ColorEnum.JAUNE:
-                        indicNavJauneGO.SetActive(true);
+                        listIndicNavColor[5].SetActive(true);
                         break;
                 }
                 break;
@@ -260,22 +244,22 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        indicNavBlancGO.SetActive(false);
+                        listIndicNavColor[0].SetActive(false);
                         break;
                     case ColorEnum.VERT:
-                        indicNavVertGO.SetActive(false);
+                        listIndicNavColor[1].SetActive(false);
                         break;
                     case ColorEnum.VIOLET:
-                        indicNavVioletGO.SetActive(false);
+                        listIndicNavColor[2].SetActive(false);
                         break;
                     case ColorEnum.ROUGE:
-                        indicNavRougeGO.SetActive(false);
+                        listIndicNavColor[3].SetActive(false);
                         break;
                     case ColorEnum.ORANGE:
-                        indicNavOrangeGO.SetActive(false);
+                        listIndicNavColor[4].SetActive(false);
                         break;
                     case ColorEnum.JAUNE:
-                        indicNavJauneGO.SetActive(false);
+                        listIndicNavColor[5].SetActive(false);
                         break;
                 }
                 break;
@@ -295,13 +279,13 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.GOBLIN:
-                        indicNavGoblinGO.SetActive(false);
-                        indicNavDiablotinGO.SetActive(true);
+                        listIndicNavRace[0].SetActive(false);
+                        listIndicNavRace[2].SetActive(true);
                         enumRace = Race.DIABLOTIN;
                         break;
                     case Race.HOMMEPOISSON:
-                        indicNavPoissonGO.SetActive(false);
-                        indicNavChevalierGO.SetActive(true);
+                        listIndicNavRace[3].SetActive(false);
+                        listIndicNavRace[1].SetActive(true);
                         enumRace = Race.CHEVALIER;
                         break;
                 }
@@ -334,28 +318,28 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        indicNavBlancGO.SetActive(false);
-                        indicNavVertGO.SetActive(true);
+                        listIndicNavColor[0].SetActive(false);
+                        listIndicNavColor[1].SetActive(true);
                         enumColor = ColorEnum.VERT;
                         break;
                     case ColorEnum.VERT:
-                        indicNavVertGO.SetActive(false);
-                        indicNavVioletGO.SetActive(true);
+                        listIndicNavColor[1].SetActive(false);
+                        listIndicNavColor[2].SetActive(true);
                         enumColor = ColorEnum.VIOLET;
                         break;
                     case ColorEnum.VIOLET:
-                        indicNavVioletGO.SetActive(false);
-                        indicNavRougeGO.SetActive(true);
+                        listIndicNavColor[2].SetActive(false);
+                        listIndicNavColor[3].SetActive(true);
                         enumColor = ColorEnum.ROUGE;
                         break;
                     case ColorEnum.ROUGE:
-                        indicNavRougeGO.SetActive(false);
-                        indicNavOrangeGO.SetActive(true);
+                        listIndicNavColor[3].SetActive(false);
+                        listIndicNavColor[4].SetActive(true);
                         enumColor = ColorEnum.ORANGE;
                         break;
                     case ColorEnum.ORANGE:
-                        indicNavOrangeGO.SetActive(false);
-                        indicNavJauneGO.SetActive(true);
+                        listIndicNavColor[4].SetActive(false);
+                        listIndicNavColor[5].SetActive(true);
                         enumColor = ColorEnum.JAUNE;
                         break;
                 }
@@ -376,13 +360,13 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.DIABLOTIN:
-                        indicNavDiablotinGO.SetActive(false);
-                        indicNavGoblinGO.SetActive(true);
+                        listIndicNavRace[2].SetActive(false);
+                        listIndicNavRace[0].SetActive(true);
                         enumRace = Race.GOBLIN;
                         break;
                     case Race.CHEVALIER:
-                        indicNavChevalierGO.SetActive(false);
-                        indicNavPoissonGO.SetActive(true);
+                        listIndicNavRace[1].SetActive(false);
+                        listIndicNavRace[3].SetActive(true);
                         enumRace = Race.HOMMEPOISSON;
                         break;
                 }
@@ -415,28 +399,28 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.VERT:
-                        indicNavVertGO.SetActive(false);
-                        indicNavBlancGO.SetActive(true);
+                        listIndicNavColor[1].SetActive(false);
+                        listIndicNavColor[0].SetActive(true);
                         enumColor = ColorEnum.BLANC;
                         break;
                     case ColorEnum.VIOLET:
-                        indicNavVioletGO.SetActive(false);
-                        indicNavVertGO.SetActive(true);
+                        listIndicNavColor[2].SetActive(false);
+                        listIndicNavColor[1].SetActive(true);
                         enumColor = ColorEnum.VERT;
                         break;
                     case ColorEnum.ROUGE:
-                        indicNavRougeGO.SetActive(false);
-                        indicNavVioletGO.SetActive(true);
+                        listIndicNavColor[3].SetActive(false);
+                        listIndicNavColor[2].SetActive(true);
                         enumColor = ColorEnum.VIOLET;
                         break;
                     case ColorEnum.ORANGE:
-                        indicNavOrangeGO.SetActive(false);
-                        indicNavRougeGO.SetActive(true);
+                        listIndicNavColor[4].SetActive(false);
+                        listIndicNavColor[3].SetActive(true);
                         enumColor = ColorEnum.ROUGE;
                         break;
                     case ColorEnum.JAUNE:
-                        indicNavJauneGO.SetActive(false);
-                        indicNavOrangeGO.SetActive(true);
+                        listIndicNavColor[5].SetActive(false);
+                        listIndicNavColor[4].SetActive(true);
                         enumColor = ColorEnum.ORANGE;
                         break;
                 }
@@ -478,12 +462,35 @@ public class EcranPersonnage : MonoBehaviour
 
     public void InitCusto()
     {
-        indicNavGoblinGO.SetActive(true);
-        selectedGoblinGO.SetActive(true);
+        enumCusto = Custo.RACE;
+        enumRace = Race.GOBLIN;
+        enumColor = ColorEnum.BLANC;
+        
+        foreach (var objects in listIndicNavRace)
+        {
+            objects.SetActive(objects.Equals(listIndicNavRace[0]));
+        }
+        foreach (var objects in listIndicSelectedRace)
+        {
+            objects.SetActive(objects.Equals(listIndicSelectedRace[0]));
+        }
+
         indicNavTeteGO.SetActive(false);
         indicNavCorpsGO.SetActive(false);
-        
-        
+
+        foreach (var objects in listIndicNavColor)
+        {
+            objects.SetActive(false);
+        }
+
+        foreach (var objects in listIndicSelectedColor)
+        {
+            objects.SetActive(false);    
+        }
+
+        indicNavReadyGO.SetActive(false);
+
+
         currentRace = listRaces[0];
         currentRaceIndex = 0;
         currentTeteIndex = 0;
@@ -520,83 +527,74 @@ public class EcranPersonnage : MonoBehaviour
         switch (enumCusto)
         {
             case Custo.RACE:
-                selectedGoblinGO.SetActive(false);
-                selectedDiablotinGO.SetActive(false);
-                selectedChevalierGO.SetActive(false);
-                selectedPoissonGO.SetActive(false);
+                foreach (var objects in listIndicSelectedRace)
+                {
+                    objects.SetActive(false);
+                }
+                
                 switch (enumRace)
                 {
                     case Race.GOBLIN:
                         currentRaceIndex = 0;
-                        selectedGoblinGO.SetActive(true);
                         break;
                     case Race.CHEVALIER:
                         currentRaceIndex = 1;
-                        selectedChevalierGO.SetActive(true);
                         break;
                     case Race.DIABLOTIN:
                         currentRaceIndex = 2;
-                        selectedDiablotinGO.SetActive(true);
                         break;
                     case Race.HOMMEPOISSON:
                         currentRaceIndex = 3;
-                        selectedPoissonGO.SetActive(true);
                         break;
                 }
+                listIndicSelectedRace[currentRaceIndex].SetActive(true);
                 currentRace = listRaces[currentRaceIndex];
                 break;
             case Custo.COULEUR:
-                selectedBlancGO.SetActive(false);
-                selectedVertGO.SetActive(false);
-                selectedVioletGO.SetActive(false);
-                selectedRougeGO.SetActive(false);
-                selectedOrangeGO.SetActive(false);
-                selectedJauneGO.SetActive(false);
+                foreach (var objects in listIndicSelectedColor)
+                {
+                    objects.SetActive(false);
+                }
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
                         if (!lockBlancGO.activeSelf)
                         {
                             currentColorIndex = 0;
-                            selectedBlancGO.SetActive(true);
                         }
                         break;
                     case ColorEnum.VERT:
                         if (!lockVertGO.activeSelf)
                         {
                             currentColorIndex = 1;
-                            selectedVertGO.SetActive(true);
                         }
                         break;
                     case ColorEnum.VIOLET:
                         if (!lockVioletGO.activeSelf)
                         {
                             currentColorIndex = 2;
-                            selectedVioletGO.SetActive(true);
                         }
                         break;
                     case ColorEnum.ROUGE:
                         if (!lockRougeGO.activeSelf)
                         {
                             currentColorIndex = 3;
-                            selectedRougeGO.SetActive(true);
                         }
                         break;
                     case ColorEnum.ORANGE:
                         if (!lockOrangeGO.activeSelf)
                         {
                             currentColorIndex = 4;
-                            selectedOrangeGO.SetActive(true);
                         }
                         break;
                     case ColorEnum.JAUNE:
                         if (!lockJauneGO.activeSelf)
                         {
                             currentColorIndex = 5;
-                            selectedJauneGO.SetActive(true);
                         }
                         break;
                 }
+                listIndicSelectedColor[currentColorIndex].SetActive(true);
                 break;
             case Custo.READY:
                 Ready();
