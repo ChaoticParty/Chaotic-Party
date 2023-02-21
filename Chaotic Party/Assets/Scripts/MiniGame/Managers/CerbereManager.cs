@@ -223,7 +223,7 @@ public class CerbereManager : SpamManager
 
     private IEnumerator ZNumberFeedBack(float timeBefWake)
     {
-        var rompicheEffectMain = rompicheEffect.main;
+        // var rompicheEffectMain = rompicheEffect.main;
         
         //TODO:En commentaire le temps d'avoir ce particle system
         
