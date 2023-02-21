@@ -677,19 +677,11 @@ public class EcranPersonnage : MonoBehaviour
         if (IsLaunchPossible())
         {
             //Apparition bandeau a la smash (placeholder a voir si on garde)
-            // foreach (EcranPersonnage ecranPerso in menuManager.listPersonnages)
-            // {
-            //     if (ecranPerso.gameObject.activeSelf)
-            //     {
-            //         myPlayerController.startPressed.AddListener(LauchGame);   
-            //     }
-            // }
             menuManager.partyBandeauReadyGO.SetActive(true);
         }
         else
         {
             //Disparition bandeau
-            // myPlayerController.startPressed.RemoveAllListeners();
             menuManager.partyBandeauReadyGO.SetActive(false);
         }
     }
