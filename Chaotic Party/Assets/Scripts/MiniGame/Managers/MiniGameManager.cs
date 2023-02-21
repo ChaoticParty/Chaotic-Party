@@ -124,9 +124,13 @@ public abstract class MiniGameManager : MonoBehaviour
 
     protected List<PlayerController> RankingToList()
     {
-        Debug.Log(ranking.Count);
-        List<PlayerController> playerControllers = new List<PlayerController>(ranking.Count);
-        Debug.Log(playerControllers.Count);
+        List<PlayerController> playerControllers = new List<PlayerController>(4);
+
+        // Set taille liste
+        foreach (KeyValuePair<PlayerController,int> _ in ranking)
+        {
+            playerControllers.Add(null);
+        }
         foreach ((PlayerController playerController, int i) in ranking)
         {
             playerControllers[i] = playerController;
@@ -137,12 +141,13 @@ public abstract class MiniGameManager : MonoBehaviour
 
     protected List<PlayerSO> PlayerControllersToPlayerSos(List<PlayerController> playerControllers)
     {
-        List<PlayerSO> orderedPlayerSos = new List<PlayerSO>(playerControllers.Count);
+        List<PlayerSO> orderedPlayerSos = new List<PlayerSO>();
+        
         List<PlayerSO> playerSos = ReferenceHolder.Instance.players.players;
         
         for (int i = 0; i < playerControllers.Count; i++)
         {
-            orderedPlayerSos[i] = playerSos[players.IndexOf(playerControllers[i])];
+            orderedPlayerSos.Add(playerSos[players.IndexOf(playerControllers[i])]);
         }
 
         return orderedPlayerSos;

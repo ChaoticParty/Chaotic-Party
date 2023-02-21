@@ -218,7 +218,6 @@ public class SpamRaceManager : SpamManager
     {
         foreach ((PlayerController key, int value) in ranking)
         {
-            Debug.Log(key.index + " " + value);
             if (value == 0)
             {
                 Transform winnerTransform = key.transform;
@@ -247,7 +246,7 @@ public class SpamRaceManager : SpamManager
             if(!player.gameObject.activeSelf) continue;
             SpamRaceController playerScript = player.GetComponent<SpamRaceController>();
             Transform raceCar = raceCars[players.IndexOf(player)];
-            _coroutines.Add(playerScript.Race(raceCar.position + Vector3.right * (5 - ranking[player]) * 10));
+            _coroutines.Add(playerScript.Race(raceCar.position + Vector3.right * (5 - ranking[player]) * 30));
         }
         StartCoroutine(CheckCoroutines());
     }
@@ -255,16 +254,16 @@ public class SpamRaceManager : SpamManager
     public IEnumerator CheckCoroutines()
     {
         bool coroutinesDone = false;
-        while (!coroutinesDone)
+        /*while (!coroutinesDone)
         {
             foreach (PlayerController player in players)
             {
                 if (player.GetComponent<SpamRaceController>()._coroutine == null) coroutinesDone = true;
                 yield return null;
             }
-        }
+        }*/
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(6);
         
         LoadRecap();
     }

@@ -32,7 +32,6 @@ public class RecapScoreManager : MiniGameManager
         }
         foreach (PlayerSO playerSo in playersData)
         {
-            Debug.Log(playerSo.ranking);
             rankToPlayerData[playerSo.ranking] = playerSo;
         }
         for (int i = 0; i < scoreObjects.Count; i++)

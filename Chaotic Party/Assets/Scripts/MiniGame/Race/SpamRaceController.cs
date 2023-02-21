@@ -112,8 +112,6 @@ public class SpamRaceController : SpamController
 
     public Coroutine Race(Vector2 destination)
     {
-        Debug.Log(player.index);
-        Debug.Log(destination.x);
         _coroutine = StartCoroutine(RaceEnumerator(destination));
         return _coroutine;
     }
@@ -124,7 +122,7 @@ public class SpamRaceController : SpamController
         while ((Vector2)raceCarTransform.position != destination)
         {
             raceCarTransform.position = Vector2.MoveTowards(raceCarTransform.position,
-                destination, Time.deltaTime * 5);
+                destination, Time.deltaTime * 40);
             yield return new WaitForNextFrameUnit();
         }
 
