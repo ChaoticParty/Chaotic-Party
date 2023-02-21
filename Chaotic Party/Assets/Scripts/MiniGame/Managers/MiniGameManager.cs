@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 public abstract class MiniGameManager : MonoBehaviour
@@ -15,7 +16,7 @@ public abstract class MiniGameManager : MonoBehaviour
     [SerializeField] [Tooltip("Dur�e du minijeu")] protected float timer;
     [HideInInspector] public TimerManager timerManager;
     public bool isGameDone;
-    protected Dictionary<PlayerController, int> _ranking;
+    protected Dictionary<PlayerController, int> ranking;
     [SerializeField] protected GameObject[] crowns;
     [SerializeField] public bool isMinigamelaunched;
     private static readonly int Begin = Animator.StringToHash("Begin");
@@ -82,7 +83,7 @@ public abstract class MiniGameManager : MonoBehaviour
         PlayersListSO playersList = ReferenceHolder.Instance.players;
         for (int i = 0; i < players.Count; i++)
         {
-            playersList.players[i].points += 4 - _ranking[players[i]];
+            playersList.players[i].points += 4 - ranking[players[i]];
         }
     }
 
@@ -96,4 +97,71 @@ public abstract class MiniGameManager : MonoBehaviour
             playerSo.ranking = 3 - playersData.IndexOf(playerSo);
         }
     }
+
+    protected void ColoriseObjectsAccordingToPlayers(List<PlayerSO> playerSos, List<SpriteRendererListWrapper> objectsToColorise)
+    {
+        for (int i = 0; i < playerSos.Count; i++)
+        {
+            PlayerSO playerSo = playerSos[i];
+            foreach (SpriteRenderer spriteRenderer in objectsToColorise[i].list)
+            {
+                spriteRenderer.color = Color.Lerp(playerSo.color, Color.gray, 0.5f);
+            }
+        }
+    }
+
+    protected void ColoriseObjectsAccordingToPlayers(List<PlayerSO> playerSos, List<ImageListWrapper> objectsToColorise)
+    {
+        for (int i = 0; i < playerSos.Count; i++)
+        {
+            PlayerSO playerSo = playerSos[i];
+            foreach (Image image in objectsToColorise[i].list)
+            {
+                image.color = playerSo.color;
+            }
+        }
+    }
+
+    protected List<PlayerController> RankingToList()
+    {
+        Debug.Log(ranking.Count);
+        List<PlayerController> playerControllers = new List<PlayerController>(ranking.Count);
+        Debug.Log(playerControllers.Count);
+        foreach ((PlayerController playerController, int i) in ranking)
+        {
+            playerControllers[i] = playerController;
+        }
+
+        return playerControllers;
+    }
+
+    protected List<PlayerSO> PlayerControllersToPlayerSos(List<PlayerController> playerControllers)
+    {
+        List<PlayerSO> orderedPlayerSos = new List<PlayerSO>(playerControllers.Count);
+        List<PlayerSO> playerSos = ReferenceHolder.Instance.players.players;
+        
+        for (int i = 0; i < playerControllers.Count; i++)
+        {
+            orderedPlayerSos[i] = playerSos[players.IndexOf(playerControllers[i])];
+        }
+
+        return orderedPlayerSos;
+    }
+
+    protected List<PlayerSO> GetRankingToPlayerSo()
+    {
+        return PlayerControllersToPlayerSos(RankingToList());
+    }
+}
+
+[Serializable]
+public class SpriteRendererListWrapper
+{
+    public List<SpriteRenderer> list;
+}
+
+[Serializable]
+public class ImageListWrapper
+{
+    public List<Image> list;
 }

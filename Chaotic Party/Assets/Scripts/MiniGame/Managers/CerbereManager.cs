@@ -309,7 +309,7 @@ public class CerbereManager : SpamManager
         StopAllCoroutines();
         // StartCoroutine(EndMiniGameAnim()); //TODO enlever une fois les anims preparer
         
-        _ranking = GetRanking();
+        ranking = GetRanking();
         AddPoints();
         SetCurrentRanking();
         

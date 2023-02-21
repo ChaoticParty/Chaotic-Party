@@ -24,6 +24,8 @@ public class SpamRaceManager : SpamManager
     public float timeBeforeClickRegister;
     public PointsType typeAjoutPoints;
     public TextMeshProUGUI tmpPrefab;
+    public List<SpriteRendererListWrapper> carsToColorise = new();
+    public List<SpriteRendererListWrapper> raceCarsToColorise = new();
 
     #region Events
 
@@ -40,6 +42,7 @@ public class SpamRaceManager : SpamManager
         base.Start();
         ActivateUI(false);
         currentTimer = timer;
+        ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
     }
 
     private void ActivateUI(bool activate)
@@ -183,7 +186,7 @@ public class SpamRaceManager : SpamManager
 
     protected override void OnMinigameEnd()
     {
-        _ranking = GetRanking();
+        ranking = GetRanking();
         AddPoints();
         SetCurrentRanking();
         GetComponent<PlayableDirector>().Play();
@@ -213,7 +216,7 @@ public class SpamRaceManager : SpamManager
 
     public void ReplaceCars()
     {
-        foreach ((PlayerController key, int value) in _ranking)
+        foreach ((PlayerController key, int value) in ranking)
         {
             Debug.Log(key.index + " " + value);
             if (value == 0)
@@ -232,6 +235,8 @@ public class SpamRaceManager : SpamManager
             (transform1 = player.transform).SetParent(raceCar);
             transform1.localPosition = Vector3.zero;
         }
+        
+        ColoriseObjectsAccordingToPlayers(GetRankingToPlayerSo(), raceCarsToColorise);
     }
 
     public void StartRace()
@@ -242,7 +247,7 @@ public class SpamRaceManager : SpamManager
             if(!player.gameObject.activeSelf) continue;
             SpamRaceController playerScript = player.GetComponent<SpamRaceController>();
             Transform raceCar = raceCars[players.IndexOf(player)];
-            _coroutines.Add(playerScript.Race(raceCar.position + Vector3.right * (5 - _ranking[player]) * 10));
+            _coroutines.Add(playerScript.Race(raceCar.position + Vector3.right * (5 - ranking[player]) * 10));
         }
         StartCoroutine(CheckCoroutines());
     }

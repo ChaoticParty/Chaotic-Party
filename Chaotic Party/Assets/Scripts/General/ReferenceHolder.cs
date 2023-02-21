@@ -24,7 +24,6 @@ public class ReferenceHolder : MonoBehaviour
     public PlayersListSO players;
     public MiniGameData miniGameData;
     public GameObject oldEventSystem;
-    public List<PlayerSO> playersSo = new List<PlayerSO>();
 
     private void Awake()
     {
