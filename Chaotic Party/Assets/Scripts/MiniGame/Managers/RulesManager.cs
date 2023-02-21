@@ -19,6 +19,10 @@ public class RulesManager : MiniGameManager
     [SerializeField] private List<string> keyDictRules = new List<string>();
     [SerializeField] private List<GameObject> valueDictRules = new List<GameObject>();
     private Dictionary<string, GameObject> dictRules = new Dictionary<string, GameObject>();
+    [SerializeField] private GameObject rulesCassable;
+    [SerializeField] private List<string> keyDictRulesCassable = new List<string>();
+    [SerializeField] private List<GameObject> valueDictRulesCassable = new List<GameObject>();
+    private Dictionary<string, GameObject> dictRulesCassable = new Dictionary<string, GameObject>();
 
     protected void Start()
     {
@@ -68,9 +72,16 @@ public class RulesManager : MiniGameManager
         {
             dictRules.Add(keyDictRules[i], valueDictRules[i]);
         }
+        for (int i = 0; i < keyDictRulesCassable.Count; i++)
+        {
+            dictRulesCassable.Add(keyDictRulesCassable[i], valueDictRulesCassable[i]);
+        }
 
         Instantiate(dictRules[miniGameData.chosenMiniGames[
             miniGameData.currentMiniGameIndex]], rules.transform);
+        Instantiate(dictRulesCassable[miniGameData.chosenMiniGames[
+            miniGameData.currentMiniGameIndex]], rulesCassable.transform);
+        Debug.Log("fin display rules");
     }
 
     private void SearchForLoadedMinigameManager()
