@@ -37,7 +37,7 @@ public class CerbereSpamController : SpamController
 
     private void AlternateClick(Etat value)
     {
-        if (hasClicked || !player.CanMove()) return;
+        if (hasClicked || !player.CanMove() || !cerbereManager.isMinigamelaunched) return;
 
         if (etat.Equals(Etat.FALL))
         {
@@ -71,7 +71,7 @@ public class CerbereSpamController : SpamController
 
     private void WakuUp()
     {
-        if (isShout || !player.CanMove()) return;
+        if (isShout || !player.CanMove() || !cerbereManager.isMinigamelaunched) return;
         player.ChangeBulleText("Hey !!!");
         isShout = true;
         cerbereManager.playerYell.Invoke(transform.position, "Argument");
