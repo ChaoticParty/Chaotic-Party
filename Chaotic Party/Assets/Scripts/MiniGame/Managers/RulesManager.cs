@@ -13,6 +13,13 @@ public class RulesManager : MiniGameManager
     public SpriteRenderer launchButton;
     private MiniGameManager _loadedMiniGameManager;
 
+    [Space] 
+    [Header("Listes des composants des règles")] 
+    [SerializeField] private GameObject rules;
+    [SerializeField] private List<string> keyDictRules = new List<string>();
+    [SerializeField] private List<GameObject> valueDictRules = new List<GameObject>();
+    private Dictionary<string, GameObject> dictRules = new Dictionary<string, GameObject>();
+
     protected void Start()
     {
         _currentLoadingTime = 0;
@@ -28,6 +35,8 @@ public class RulesManager : MiniGameManager
         MiniGameData miniGameData = ReferenceHolder.Instance.miniGameData;
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(miniGameData.chosenMiniGames[
             miniGameData.currentMiniGameIndex], LoadSceneMode.Additive);
+        
+        DisplayRules(miniGameData);
         
         while (!asyncOperation.isDone)
         {
@@ -51,6 +60,17 @@ public class RulesManager : MiniGameManager
         }
         
         StartLoadedMinigame();
+    }
+
+    private void DisplayRules(MiniGameData miniGameData)
+    {
+        for (int i = 0; i < keyDictRules.Count; i++)
+        {
+            dictRules.Add(keyDictRules[i], valueDictRules[i]);
+        }
+
+        Instantiate(dictRules[miniGameData.chosenMiniGames[
+            miniGameData.currentMiniGameIndex]], rules.transform);
     }
 
     private void SearchForLoadedMinigameManager()
