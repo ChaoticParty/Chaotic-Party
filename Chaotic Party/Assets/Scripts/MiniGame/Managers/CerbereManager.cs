@@ -32,7 +32,7 @@ public class CerbereManager : SpamManager
     [SerializeField] [Range(0,120)] [Tooltip("Valeur haute du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberRompicheRangeMax;
     [Space]
     [Header("Réveil")]
-    [SerializeField] [Tooltip("le temps que met le cerbere pour relever la tête")] private float cerberBeginAnimTime = 1f;
+    [SerializeField] [Tooltip("le temps que met le cerbere pour relever la tête")] private float cerberBeginAnimTime = 1.5f;
     [SerializeField] [Range(0,120)] [Tooltip("Valeur basse du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberWakeUpTimeRangeMin;
     [SerializeField] [Range(0,120)] [Tooltip("Valeur haute du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberWakeUpTimeRangeMax;
     [Space] 
