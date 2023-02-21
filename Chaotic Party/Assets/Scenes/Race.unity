@@ -852,7 +852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   beginAnimator: {fileID: 1084644629}
-  timer: 10
+  timer: 30
   timerManager: {fileID: 0}
   isGameDone: 0
   crowns:
@@ -2012,6 +2012,7 @@ MonoBehaviour:
   players: {fileID: 11400000, guid: 42d594bc8afb56a42ba27f94141ce02f, type: 2}
   miniGameData: {fileID: 0}
   oldEventSystem: {fileID: 0}
+  playersSo: []
 --- !u!4 &523591009
 Transform:
   m_ObjectHideFlags: 0

@@ -30,10 +30,23 @@ public class ReferenceHolder : MonoBehaviour
     {
         miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
+        ResetPlayerData();
+        ResetMiniGameData();
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void ResetPlayerData()
+    {
         foreach (PlayerSO player in players.players)
         {
-            playersSo.Add(player);
+            player.points = 0;
+            player.ranking = 0;
         }
-        DontDestroyOnLoad(gameObject);
+    }
+
+    private void ResetMiniGameData()
+    {
+        //miniGameData.chosenMiniGames = new List<string>();
+        miniGameData.currentMiniGameIndex = 0;
     }
 }
