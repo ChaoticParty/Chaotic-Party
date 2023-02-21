@@ -94,6 +94,7 @@ public class CerbereManager : SpamManager
         {
             if (players[i].gameObject.activeSelf)
             {
+                players[i].ActivateBulle(true);
                 scoreDisplay[i].transform.parent.gameObject.SetActive(true); //TODO avoir la foi de changer ca, c'est moche et pas opti
                 scoreDisplay[i].text = "0";
             }
@@ -135,6 +136,7 @@ public class CerbereManager : SpamManager
                     //
                     players[i].transform.position = new Vector3(xStartValuePos, players[i].transform.position.y,
                         players[i].transform.position.z);
+                    players[i].ChangeBulleText("Fall");
                     scoreDisplay[i].text = "0";
                     players[i].isStunned = true;
                     players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.FALL;

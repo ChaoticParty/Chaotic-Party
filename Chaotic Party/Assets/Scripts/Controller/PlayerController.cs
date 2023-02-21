@@ -1,7 +1,9 @@
 using System;using HinputClasses;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CrownManager))]
 public class PlayerController : MonoBehaviour
@@ -11,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public int index;
     [SerializeField] private TextMeshProUGUI nameObject;
     [SerializeField] private string nameText;
+    [SerializeField] private TextMeshProUGUI bulleText;
+    [SerializeField] private Image bullSpt;
     private PlayerSO _playerSo;
     private CrownManager _crownManager;
 
@@ -444,4 +448,23 @@ public class PlayerController : MonoBehaviour
         head.color = color;
         body.color = color;
     }
+
+    #region Methodes Bulle
+
+    public void ActivateBulle(bool activate)
+    {
+        bullSpt.GameObject().SetActive(activate);
+    }
+
+    public void ChangeBulleText(string text)
+    {
+        bulleText.text = text;
+    }
+
+    public void ChangeBulleImage(Sprite image)
+    {
+        bullSpt.sprite = image;
+    }
+
+    #endregion
 }
