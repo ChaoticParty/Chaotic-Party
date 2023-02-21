@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2252,18 +2252,34 @@ MonoBehaviour:
   - {r: 0.8980392, g: 0.7921569, b: 0.34901962, a: 1}
   listCurrentTete: []
   listCurrentCorps: []
-  indicNavGoblinGO: {fileID: 3952575576016914129}
-  selectedGoblinGO: {fileID: 4930430249594657984}
-  indicNavDiablotinGO: {fileID: 2367199812655088414}
-  selectedDiablotinGO: {fileID: 6081583705067443245}
-  indicNavPoissonGO: {fileID: 4573063291721669370}
-  selectedPoissonGO: {fileID: 1833005614028569024}
-  indicNavChevalierGO: {fileID: 8380673182170252614}
-  selectedChevalierGO: {fileID: 8594019220191535710}
+  listIndicNavRace:
+  - {fileID: 3952575576016914129}
+  - {fileID: 8380673182170252614}
+  - {fileID: 2367199812655088414}
+  - {fileID: 4573063291721669370}
+  listIndicSelectedRace:
+  - {fileID: 4930430249594657984}
+  - {fileID: 8594019220191535710}
+  - {fileID: 6081583705067443245}
+  - {fileID: 1833005614028569024}
   teteIMG: {fileID: 2611529173381635489}
   indicNavTeteGO: {fileID: 6008748530128393579}
   corpsIMG: {fileID: 3137098198949819190}
   indicNavCorpsGO: {fileID: 4350341165790245571}
+  listIndicNavColor:
+  - {fileID: 2215119278346971216}
+  - {fileID: 8207571947198531464}
+  - {fileID: 7268439982075952760}
+  - {fileID: 974914116344838783}
+  - {fileID: 8755962114724697553}
+  - {fileID: 4259061568694777922}
+  listIndicSelectedColor:
+  - {fileID: 4556155388395601161}
+  - {fileID: 8429397449340866642}
+  - {fileID: 7860949613240070358}
+  - {fileID: 5229510067195920333}
+  - {fileID: 4257246186168549630}
+  - {fileID: 8885159250801766736}
   indicNavBlancGO: {fileID: 2215119278346971216}
   selectedBlancGO: {fileID: 4556155388395601161}
   lockBlancGO: {fileID: 8197270260473914925}

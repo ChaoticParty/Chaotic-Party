@@ -488,6 +488,8 @@ MonoBehaviour:
   index: 0
   nameObject: {fileID: 0}
   nameText: 
+  bulleText: {fileID: 0}
+  bullSpt: {fileID: 0}
   head: {fileID: 0}
   body: {fileID: 0}
   isInTheAir: 0
@@ -1133,7 +1135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpButton: 0
-  jumpForce: 5
+  jumpForce: 10
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 1046899395}
@@ -1193,7 +1195,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1846,6 +1848,8 @@ MonoBehaviour:
   index: 0
   nameObject: {fileID: 0}
   nameText: 
+  bulleText: {fileID: 0}
+  bullSpt: {fileID: 0}
   head: {fileID: 0}
   body: {fileID: 0}
   isInTheAir: 0
@@ -2197,12 +2201,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
+  beginAnimator: {fileID: 0}
+  timer: 0
+  timerManager: {fileID: 0}
   isGameDone: 0
   crowns: []
   isMinigamelaunched: 0
   loadingTime: 10
   loadingImage: {fileID: 243897354}
   launchButton: {fileID: 1178782482}
+  rules: {fileID: 1618421594}
+  keyDictRules:
+  - Race
+  - UnDeuxTroisNuit
+  valueDictRules:
+  - {fileID: 6722945441996617642, guid: ffc4d29c399cf294db6f4e9c97607204, type: 3}
+  - {fileID: 6722945441996617642, guid: 047844cf44a500444a50e3df47eb1207, type: 3}
 --- !u!1 &1618421594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2396,7 @@ GameObject:
   - component: {fileID: 1909062143}
   - component: {fileID: 1909062142}
   - component: {fileID: 1909062144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
