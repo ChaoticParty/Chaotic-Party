@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,8 @@ public class MenuManager : MonoBehaviour
     public MultiplayerManager multiplayerManager;
     public PlayersListSO playersListSO;
     private ReferenceHolder _referenceHolder;
+    private GameObject oldEventObject;
+    private bool isClickCheckCoroutineActive = false;
     [Space]
     public string optionsScene;
     public List<ColorEnum> selectColor = new List<ColorEnum>();
@@ -57,6 +60,7 @@ public class MenuManager : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
+        oldEventObject = firstMenuPrincpal;
 
         nbCurrentGamepads = multiplayerManager.GamepadCount();
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
@@ -105,6 +109,22 @@ public class MenuManager : MonoBehaviour
         }
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
         partyPlayerMinGO.SetActive(nbGamepadsLastFrame < 2);
+        
+        if (EventSystem.current.alreadySelecting) return;
+        if (!isClickCheckCoroutineActive) StartCoroutine(CheckMouseClick());
+        if (EventSystem.current.currentSelectedGameObject != null)
+            oldEventObject = EventSystem.current.currentSelectedGameObject;
+    }
+    
+    private IEnumerator CheckMouseClick()
+    {
+        isClickCheckCoroutineActive = true;
+        yield return new WaitForSeconds(0.1f);
+        isClickCheckCoroutineActive = false;
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            EventSystem.current.SetSelectedGameObject(oldEventObject);
+        }
     }
 
     #endregion
