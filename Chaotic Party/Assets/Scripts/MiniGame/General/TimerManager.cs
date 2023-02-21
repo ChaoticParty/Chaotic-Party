@@ -15,7 +15,6 @@ public class TimerManager : MonoBehaviour
     private void Awake()
     {
         gameManager ??= FindObjectOfType<MiniGameManager>();
-        Debug.Log(gameManager.gameObject.name);
         gameManager.timerManager = this;
     }
 

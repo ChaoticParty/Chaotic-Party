@@ -32,7 +32,7 @@ public class CerbereManager : SpamManager
     [SerializeField] [Range(0,120)] [Tooltip("Valeur haute du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberRompicheRangeMax;
     [Space]
     [Header("Réveil")]
-    [SerializeField] [Tooltip("le temps que met le cerbere pour relever la tête")] private float cerberBeginAnimTime = 1f;
+    [SerializeField] [Tooltip("le temps que met le cerbere pour relever la tête")] private float cerberBeginAnimTime = 1.5f;
     [SerializeField] [Range(0,120)] [Tooltip("Valeur basse du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberWakeUpTimeRangeMin;
     [SerializeField] [Range(0,120)] [Tooltip("Valeur haute du random définissant l'intervalle de temps entrenles sommeils du cerbere")] private int cerberWakeUpTimeRangeMax;
     [Space] 
@@ -94,6 +94,7 @@ public class CerbereManager : SpamManager
         {
             if (players[i].gameObject.activeSelf)
             {
+                players[i].ActivateBulle(true);
                 scoreDisplay[i].transform.parent.gameObject.SetActive(true); //TODO avoir la foi de changer ca, c'est moche et pas opti
                 scoreDisplay[i].text = "0";
             }
@@ -135,6 +136,7 @@ public class CerbereManager : SpamManager
                     //
                     players[i].transform.position = new Vector3(xStartValuePos, players[i].transform.position.y,
                         players[i].transform.position.z);
+                    players[i].ChangeBulleText("Fall");
                     scoreDisplay[i].text = "0";
                     players[i].isStunned = true;
                     players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.FALL;
@@ -223,7 +225,7 @@ public class CerbereManager : SpamManager
 
     private IEnumerator ZNumberFeedBack(float timeBefWake)
     {
-        var rompicheEffectMain = rompicheEffect.main;
+        // var rompicheEffectMain = rompicheEffect.main;
         
         //TODO:En commentaire le temps d'avoir ce particle system
         

@@ -24,12 +24,29 @@ public class ReferenceHolder : MonoBehaviour
     public PlayersListSO players;
     public MiniGameData miniGameData;
     public GameObject oldEventSystem;
+    public List<PlayerSO> playersSo = new List<PlayerSO>();
 
     private void Awake()
     {
         miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
-        miniGameData.currentMiniGameIndex = 0;
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
+        ResetPlayerData();
+        ResetMiniGameData();
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void ResetPlayerData()
+    {
+        foreach (PlayerSO player in players.players)
+        {
+            player.points = 0;
+            player.ranking = 0;
+        }
+    }
+
+    private void ResetMiniGameData()
+    {
+        //miniGameData.chosenMiniGames = new List<string>();
+        miniGameData.currentMiniGameIndex = 0;
     }
 }

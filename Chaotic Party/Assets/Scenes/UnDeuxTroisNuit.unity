@@ -311,6 +311,7 @@ MonoBehaviour:
   spamManager: {fileID: 1820787240}
   isShout: 0
   etat: 3
+  bullPlayerFeedback: {fileID: 0}
   standUpAnimTime: 1
   wakeUpAnimTime: 1
 --- !u!114 &194665558
@@ -346,6 +347,7 @@ MonoBehaviour:
   spamManager: {fileID: 1820787240}
   isShout: 0
   etat: 3
+  bullPlayerFeedback: {fileID: 0}
   standUpAnimTime: 1
   wakeUpAnimTime: 1
 --- !u!114 &257379434
@@ -841,6 +843,7 @@ MonoBehaviour:
   spamManager: {fileID: 1820787240}
   isShout: 0
   etat: 3
+  bullPlayerFeedback: {fileID: 0}
   standUpAnimTime: 1
   wakeUpAnimTime: 1
 --- !u!114 &889343521
@@ -993,6 +996,7 @@ MonoBehaviour:
   spamManager: {fileID: 1820787240}
   isShout: 0
   etat: 3
+  bullPlayerFeedback: {fileID: 0}
   standUpAnimTime: 1
   wakeUpAnimTime: 1
 --- !u!114 &1049312346
@@ -1796,10 +1800,10 @@ MonoBehaviour:
   rompicheEffect: {fileID: 0}
   Hud: {fileID: 1538398048707536862}
   rompicheState: 0
-  endValue: 500
+  endValue: 1000
   cerberRompicheRangeMin: 3
-  cerberRompicheRangeMax: 9
-  cerberBeginAnimTime: 1
+  cerberRompicheRangeMax: 7
+  cerberBeginAnimTime: 0.5
   cerberWakeUpTimeRangeMin: 1
   cerberWakeUpTimeRangeMax: 3
   scoreDisplay:
