@@ -24,12 +24,16 @@ public class ReferenceHolder : MonoBehaviour
     public PlayersListSO players;
     public MiniGameData miniGameData;
     public GameObject oldEventSystem;
+    public List<PlayerSO> playersSo = new List<PlayerSO>();
 
     private void Awake()
     {
         miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
-        miniGameData.currentMiniGameIndex = 0;
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
+        foreach (PlayerSO player in players.players)
+        {
+            playersSo.Add(player);
+        }
         DontDestroyOnLoad(gameObject);
     }
 }

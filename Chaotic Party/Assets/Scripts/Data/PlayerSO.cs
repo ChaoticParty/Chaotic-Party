@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "PlayerSO", menuName = "ScriptableObjects/Players", order = 1)]
-public class PlayerSO : ScriptableObject
+public class PlayerSO : ResetOnMainMenu
 {
     #region PlayerInfo
 
@@ -22,4 +23,11 @@ public class PlayerSO : ScriptableObject
     public Color color;
 
     #endregion
+
+    protected override void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        Debug.Log("PlayerSO reset");
+        points = 0;
+        ranking = 0;
+    }
 }
