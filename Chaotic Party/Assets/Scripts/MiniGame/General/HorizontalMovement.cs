@@ -29,7 +29,7 @@ public class HorizontalMovement : MiniGameController
 
     private void FixedUpdate()
     {
-        if (minClamp == maxClamp) return;
+        if (Math.Abs(minClamp - maxClamp) < 0.01) return;
 
         Vector3 position = transform.position;
         position = new Vector3(Mathf.Clamp(position.x, minClamp, maxClamp), position.y);
@@ -38,6 +38,7 @@ public class HorizontalMovement : MiniGameController
 
     private void MoveHorizontally(float x, float y)
     {
+        if(!player.miniGameManager.isMinigamelaunched) return;
         if (!player.CanMove())
         {
             return;
@@ -65,8 +66,5 @@ public class HorizontalMovement : MiniGameController
             }
         }
         _rigidbody2D.velocity = new Vector2(x * speed, _rigidbody2D.velocity.y);
-        Vector3 position = transform.position;
-        position = new Vector3(Mathf.Clamp(position.x, minClamp, maxClamp), position.y);
-        transform.position = position;
     }
 }
