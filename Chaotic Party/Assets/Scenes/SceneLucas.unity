@@ -5785,7 +5785,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250445440}
-  - component: {fileID: 250445441}
   m_Layer: 0
   m_Name: Cars
   m_TagString: Untagged
@@ -5812,26 +5811,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &250445441
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250445439}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c2af1c82fd058844ea3e28c0d344d55c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &264076172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8626,6 +8605,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 891386839}
+  - component: {fileID: 891386841}
+  - component: {fileID: 891386840}
   m_Layer: 0
   m_Name: Voiture1
   m_TagString: Untagged
@@ -8651,6 +8632,42 @@ Transform:
   m_Father: {fileID: 250445440}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &891386840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891386838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Vombrissement_cars
+  speed: 1
+  offsetType: 0
+  animTimeOffset: 0.05
+--- !u!95 &891386841
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891386838}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 877e5e76eaae2ac4d918e25337d4ea9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &909555979
 GameObject:
   m_ObjectHideFlags: 0
@@ -9336,6 +9353,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1164254480}
+  - component: {fileID: 1164254481}
+  - component: {fileID: 1164254482}
   m_Layer: 0
   m_Name: Voiture0
   m_TagString: Untagged
@@ -9361,6 +9380,42 @@ Transform:
   m_Father: {fileID: 250445440}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1164254481
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164254479}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 877e5e76eaae2ac4d918e25337d4ea9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1164254482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164254479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Vombrissement_cars
+  speed: 1
+  offsetType: 0
+  animTimeOffset: 0
 --- !u!1 &1191342080
 GameObject:
   m_ObjectHideFlags: 0
@@ -10394,6 +10449,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1452270783}
+  - component: {fileID: 1452270785}
+  - component: {fileID: 1452270784}
   m_Layer: 0
   m_Name: Voiture2
   m_TagString: Untagged
@@ -10419,6 +10476,42 @@ Transform:
   m_Father: {fileID: 250445440}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1452270784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452270782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Vombrissement_cars
+  speed: 1
+  offsetType: 0
+  animTimeOffset: 0.08
+--- !u!95 &1452270785
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452270782}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 877e5e76eaae2ac4d918e25337d4ea9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &1472592829 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 327861198530446255, guid: 6ea6e4b044b786d4f9ff946b43f48a0f, type: 3}
@@ -12859,6 +12952,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1841080160}
+  - component: {fileID: 1841080162}
+  - component: {fileID: 1841080161}
   m_Layer: 0
   m_Name: Voiture3
   m_TagString: Untagged
@@ -12884,6 +12979,42 @@ Transform:
   m_Father: {fileID: 250445440}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1841080161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841080159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Vombrissement_cars
+  speed: 1
+  offsetType: 0
+  animTimeOffset: 0.02
+--- !u!95 &1841080162
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841080159}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 877e5e76eaae2ac4d918e25337d4ea9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1841097913 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6740934878014375358, guid: 734743c55c0b08349b217bae7bb34391, type: 3}
