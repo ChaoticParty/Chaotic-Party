@@ -129,16 +129,15 @@ public class CerbereManager : SpamManager
                     wasHittedByCerbere[i] = true;
                     walkDestination[i] = xStartValuePos;
                     //Feedback
-                    StartCoroutine(LaserFeedBack(2, laserPlaceHolder[i]));
                     cerbereLaser.Invoke();
                     playerGetBackToStart.Invoke(players[i].transform.position, "Argument");
                     //
                     players[i].transform.position = new Vector3(xStartValuePos, players[i].transform.position.y,
                         players[i].transform.position.z);
-                    players[i].ChangeBulleText("Fall");
+                    players[i].ChangeBulleText("Lasered");
                     scoreDisplay[i].text = "0";
                     players[i].isStunned = true;
-                    players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.FALL;
+                    players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.NULL;
                 }    
             }
             return;

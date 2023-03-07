@@ -9,7 +9,7 @@ public class RecapScoreController : MiniGameController
     private void Start()
     {
         player.startPressed.AddListener(ReturnToMenu);
-        player.aJustPressed.AddListener(NextMiniGame);
+        player.xJustPressed.AddListener(NextMiniGame);
     }
 
     private void NextMiniGame()
