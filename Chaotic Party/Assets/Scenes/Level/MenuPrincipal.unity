@@ -1541,9 +1541,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationName: Rotate
+  animationName: StarStun
   speed: 1
-  animTimeOffset: 0.125
+  offsetType: 1
+  animTimeOffset: 0.5
 --- !u!1 &291989177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,6 +2454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: BaseRotation
   speed: 1
+  offsetType: 0
   animTimeOffset: 0
 --- !u!95 &758062106
 Animator:
@@ -2689,6 +2691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: BaseRotation
   speed: 1
+  offsetType: 0
   animTimeOffset: 1
 --- !u!95 &925080838
 Animator:
@@ -3037,6 +3040,7 @@ GameObject:
   - component: {fileID: 1103076685}
   - component: {fileID: 1103076684}
   - component: {fileID: 1103076686}
+  - component: {fileID: 1103076687}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -3122,6 +3126,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1103076687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103076682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: StarStun
+  speed: 1
+  offsetType: 1
+  animTimeOffset: 0
 --- !u!1 &1220554207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,6 +3318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: BaseRotation
   speed: 1
+  offsetType: 0
   animTimeOffset: 0.5
 --- !u!95 &1294251907
 Animator:
