@@ -37,7 +37,7 @@ MonoBehaviour:
       IncludeAssetDependencies: 1
     AssetBundle: 
     AddressableGroup: 
-  - Enabled: 1
+  - Enabled: 0
     Type: 2
     Asset:
       Path: 
@@ -46,7 +46,7 @@ MonoBehaviour:
     Scene:
       Type: 0
       Value: Assets
-      IncludeAssetDependencies: 0
+      IncludeAssetDependencies: 1
     AssetBundle: 
     AddressableGroup: 
   - Enabled: 1
@@ -59,6 +59,18 @@ MonoBehaviour:
       Type: 0
       Value: 
       IncludeAssetDependencies: 0
+    AssetBundle: 
+    AddressableGroup: 
+  - Enabled: 1
+    Type: 2
+    Asset:
+      Path: 
+      Filter: 
+    Object: {fileID: 0}
+    Scene:
+      Type: 0
+      Value: Assets/Scenes
+      IncludeAssetDependencies: 1
     AssetBundle: 
     AddressableGroup: 
   Exclude: []
