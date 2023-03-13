@@ -207,8 +207,8 @@ public class CerbereManager : SpamManager
         else //Lancement d'une nouvelle boucle de dodo
         {
             // if (!rompicheState.Equals(RompicheState.ZERO)) return;
+            WakeUp();
             rompicheState = RompicheState.NULL;
-            StartCoroutine(WakeUp());
         }
     }
 
@@ -250,45 +250,24 @@ public class CerbereManager : SpamManager
         return false;
     }
 
-    private IEnumerator WakeUp()
+    private void WakeUp()
     {
+        if(rompicheState.Equals(RompicheState.NULL)) return;
+        
         foreach (var animator in cerbereAnimator)
         {
             animator.SetTrigger(WakeUpTrigger);
         }
         bulleAnimator.SetTrigger(LaunchBulleDisappear);
-        
-        // foreach (var spriteRenderer in listTeteCerbere)
-        // {
-        //     spriteRenderer.color = Color.red;
-        // }
-        // yield return new WaitForSeconds(cerberBeginAnimTime);
-        // StartCoroutine(Observe());
-        yield return null;
     }
 
     public IEnumerator Observe()
     {
-        // foreach (var animator in CerbereAnimator)
-        // {
-        //     animator.SetTrigger(ObserveTrigger);
-        // }
-        
-        // foreach (var spriteRenderer in listTeteCerbere)
-        // {
-        //     spriteRenderer.color = Color.black;
-        // }
-        // isRompiche = false;
         yield return new WaitForSeconds(Random.Range(cerberWakeUpTimeRangeMin, cerberWakeUpTimeRangeMax + 1));
         foreach (var lasers in laserPlaceHolder)
         {
             lasers.SetActive(false);
         }
-        // foreach (var animator in cerbereAnimator)
-        // {
-        //     animator.SetBool(UltimoPoderLaser, false);
-        //     animator.SetTrigger(AuDodoTrigger);
-        // }
         foreach (var animEvent in cerbereAnimEvents)
         {
             animEvent.ObserveEnd();
@@ -299,12 +278,12 @@ public class CerbereManager : SpamManager
         }
         wasHittedByCerbere = new[] {false, false, false, false};
         myCoroutine = null;
-        // isRompiche = true;
+        yield return new WaitForSeconds(1);
+        
         timeBeforeWake = Random.Range(cerberRompicheRangeMin, cerberRompicheRangeMax + 1);
         timePassedBeforeWake = timeBeforeWake;
-        LaunchBulleAnim(rompicheState);
         
-        // myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
+        LaunchBulleAnim(rompicheState);
     }
 
     private void LaunchBulleAnim(RompicheState rompicheState)
@@ -333,59 +312,6 @@ public class CerbereManager : SpamManager
         bulleAnimator.SetTrigger(Reset);
     }
 
-    // private IEnumerator ZNumberFeedBack(float timeBefWake)
-    // {
-    //     // var rompicheEffectMain = rompicheEffect.main;
-    //     
-    //     //TODO:En commentaire le temps d'avoir ce particle system
-    //     
-    //     if (timePassedBeforeWake > timeBefWake / 3 * 2)
-    //     {
-    //         rompicheState = RompicheState.TROIS;
-    //         foreach (var spriteRenderer in listTeteCerbere)
-    //         {
-    //             spriteRenderer.color = Color.blue;
-    //         }
-    //         // rompicheEffectMain.maxParticles = 3;
-    //         // rompicheEffectMain.startLifetime = 3;
-    //         // rompicheEffectMain.startSpeed = 1;
-    //         //Rajouter de potentiels fx de real
-    //     }
-    //     else if (timePassedBeforeWake > timeBefWake / 3)
-    //     {
-    //         rompicheState = RompicheState.DEUX;
-    //         foreach (var spriteRenderer in listTeteCerbere)
-    //         {
-    //             spriteRenderer.color = Color.green;
-    //         }
-    //         // rompicheEffectMain.maxParticles = 2;
-    //         // rompicheEffectMain.startLifetime = 2;
-    //         // rompicheEffectMain.startSpeed = 2;
-    //     }
-    //     else
-    //     {
-    //         rompicheState = RompicheState.UN;
-    //         foreach (var spriteRenderer in listTeteCerbere)
-    //         {
-    //             spriteRenderer.color = Color.yellow;
-    //         }
-    //         // rompicheEffectMain.maxParticles = 1;
-    //         // rompicheEffectMain.startLifetime = 1;
-    //         // rompicheEffectMain.startSpeed = 3;
-    //     }
-    //
-    //     yield return new WaitForSeconds(timeBefWake / 3);
-    //
-    //     if (timePassedBeforeWake >= 0)
-    //     {
-    //         myCoroutine = StartCoroutine(ZNumberFeedBack(timeBefWake));
-    //     }
-    //     else
-    //     {
-    //         rompicheState = RompicheState.ZERO;
-    //     }
-    // }
-
     public void PlayerWakeUp()
     {
         // if (myCoroutine != null) StopCoroutine(myCoroutine);
@@ -393,8 +319,8 @@ public class CerbereManager : SpamManager
         {
             case RompicheState.UN:
                 timePassedBeforeWake = 0;
+                WakeUp();
                 rompicheState = RompicheState.NULL;
-                StartCoroutine(WakeUp());
                 break;
             case RompicheState.DEUX:
                 timePassedBeforeWake = timeBeforeWake / 3;

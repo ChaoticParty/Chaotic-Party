@@ -8,7 +8,7 @@ public class CerbereAnimEvent : MonoBehaviour
     [SerializeField] [Tooltip("Manager du cerbere")] private CerbereManager cerbereManager;
     [SerializeField] [Tooltip("Animator du cerbere")] private Animator animator;
     [HideInInspector] public bool isRompiche = true;
-    [HideInInspector] public Coroutine myCoroutine;
+    [HideInInspector] public bool canWakeUpEnd = true;
     [Space]
     [Header("Gameobject du cerbere")]
     [SerializeField] [Tooltip("Tête du cerbere")] private GameObject tete;
@@ -24,12 +24,16 @@ public class CerbereAnimEvent : MonoBehaviour
 
     public void WakeUpEnd()
     {
+        if (!canWakeUpEnd)
+        {
+            canWakeUpEnd = true;
+            return;
+        }
+        
         tete.GetComponent<SpriteRenderer>().sprite = cerbereObserve;
         animator.SetTrigger(ObserveTrigger);
         isRompiche = false;
-        // Debug.Log(myCoroutine);
-        // if (myCoroutine != null) return;
-        // myCoroutine = StartCoroutine(cerbereManager.Observe());
+        canWakeUpEnd = false;
     }
 
     public void ObserveEnd()
