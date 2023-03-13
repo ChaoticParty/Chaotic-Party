@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using Cinemachine;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,28 +12,35 @@ using UnityEngine.UI;
 
 public class SpamRaceManager : SpamManager
 {
+    [FoldoutGroup("Scene Objects")]
+    [FoldoutGroup("Scene Objects/Cars"), SceneObjectsOnly]
     [SerializeField] private GameObject[] cars;
-    //public float timer;
-    [NonSerialized] public float currentTimer;
-    [SerializeField] private Image timerImage;
-    [SerializeField] private TextMeshProUGUI winText;
+    [FoldoutGroup("Scene Objects/Camera"), SceneObjectsOnly]
     [SerializeField] private CinemachineVirtualCamera raceCamera;
+    [FoldoutGroup("Scene Objects/Cars"), SceneObjectsOnly]
     [SerializeField] private Transform[] raceCars;
+    [FoldoutGroup("Scene Objects/Camera"), SceneObjectsOnly]
     [SerializeField] private CinemachineTargetGroup targetGroup;
-    private List<Coroutine> _coroutines = new List<Coroutine>();
-    public bool launchFromEditor;
-    public float timeBeforeClickRegister;
+    [FoldoutGroup("Points Handler")]
+    public float timeBeforeClickRegisters;
+    [FoldoutGroup("Points Handler")]
     public PointsType typeAjoutPoints;
-    public TextMeshProUGUI tmpPrefab;
+    [FoldoutGroup("Scene Objects/Colorisation"), SceneObjectsOnly]
     public List<SpriteRendererListWrapper> carsToColorise = new();
+    [FoldoutGroup("Scene Objects/Colorisation"), SceneObjectsOnly]
     public List<SpriteRendererListWrapper> raceCarsToColorise = new();
+    [FoldoutGroup("Scene Objects/Others"), AssetsOnly]
+    public TextMeshProUGUI tmpPrefab;
 
     #region Events
 
-    [Space, Header("Events")] 
+    [FoldoutGroup("Events")] 
     public UnityEvent<Vector2, string> playerGetsPointsEvent;
+    [FoldoutGroup("Events")] 
     public UnityEvent<Vector2, string> playerGetsOver500PointsEvent;
+    [FoldoutGroup("Events")] 
     public UnityEvent<Vector2, string> playerLosePointsEvent;
+    [FoldoutGroup("Events")] 
     public UnityEvent<Vector2> playerGets1000PointsEvents;
 
     #endregion
@@ -41,7 +49,6 @@ public class SpamRaceManager : SpamManager
     {
         base.Start();
         ActivateUI(false);
-        currentTimer = timer;
         ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
     }
 
@@ -246,7 +253,6 @@ public class SpamRaceManager : SpamManager
             if(!player.gameObject.activeSelf) continue;
             SpamRaceController playerScript = player.GetComponent<SpamRaceController>();
             Transform raceCar = raceCars[players.IndexOf(player)];
-            _coroutines.Add(playerScript.Race(raceCar.position + Vector3.right * (5 - ranking[player]) * 30));
         }
         StartCoroutine(CheckCoroutines());
     }

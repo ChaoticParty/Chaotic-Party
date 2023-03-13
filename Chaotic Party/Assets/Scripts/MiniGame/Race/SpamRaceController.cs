@@ -28,7 +28,7 @@ public class SpamRaceController : SpamController
         if(spamManager.players.Count >= 3) player.bJustPressed.AddListener(player.index == 2 ? Click : () => { ClickOnOtherPlayer(2); });
         if(spamManager.players.Count >= 4) player.aJustPressed.AddListener(player.index == 3 ? Click : () => { ClickOnOtherPlayer(3); });
         _spamRaceManager = spamManager as SpamRaceManager;
-        float timeBetweenRegister = _spamRaceManager.timeBeforeClickRegister;
+        float timeBetweenRegister = _spamRaceManager.timeBeforeClickRegisters;
         if(_spamRaceManager.typeAjoutPoints is PointsType.BigPoints or PointsType.VfxBurst) 
             InvokeRepeating(nameof(SendClicks), timeBetweenRegister, timeBetweenRegister);
     }

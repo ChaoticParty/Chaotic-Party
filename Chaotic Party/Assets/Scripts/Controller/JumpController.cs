@@ -54,7 +54,7 @@ public class JumpController : MiniGameController
 
     private void Jump()
     {
-        Debug.Log(player.CanAct());
+        if(!player.miniGameManager.isMinigamelaunched) return;
         if (player.CanAct())
         {
             Jumping();
