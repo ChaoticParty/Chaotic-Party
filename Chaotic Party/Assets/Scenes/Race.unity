@@ -855,7 +855,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
 --- !u!114 &201751410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,8 +961,6 @@ MonoBehaviour:
   - {fileID: 299910238}
   - {fileID: 1060652042}
   - {fileID: 1360502661}
-  timerImage: {fileID: 480699580}
-  winText: {fileID: 1092031902}
   raceCamera: {fileID: 822471808}
   raceCars:
   - {fileID: 3373710522874701757}
@@ -970,8 +968,7 @@ MonoBehaviour:
   - {fileID: 949058913294798672}
   - {fileID: 8592746396314617222}
   targetGroup: {fileID: 950545761}
-  launchFromEditor: 0
-  timeBeforeClickRegister: 2
+  timeBeforeClickRegisters: 0
   typeAjoutPoints: 2
   tmpPrefab: {fileID: 3123136722139381715, guid: c1d5193bcbafb07428c55000f72d4744, type: 3}
   carsToColorise:
