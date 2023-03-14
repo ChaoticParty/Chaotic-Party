@@ -24,7 +24,7 @@ public class TacleController : MiniGameController
 
     private void Tacled()
     {
-        if (isTacling)
+        if (!player.miniGameManager.isMinigamelaunched || isTacling)
         {
             return;
         }

@@ -4221,13 +4221,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2b02758f5a37f45a910dc2015726d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   players: []
   beginAnimator: {fileID: 0}
   timer: 0
   timerManager: {fileID: 0}
   isGameDone: 0
   crowns: []
-  isMinigamelaunched: 0
+  isMinigamelaunched: 1
   nextMiniGameButton: {fileID: 1815239769}
   scoreObjects:
   - sceneObject: {fileID: 178499215}
