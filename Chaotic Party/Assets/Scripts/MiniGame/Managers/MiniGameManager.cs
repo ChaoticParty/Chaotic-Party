@@ -2,28 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-public abstract class MiniGameManager : MonoBehaviour
+public abstract class MiniGameManager : SerializedMonoBehaviour
 {
     [Tooltip("Liste des joueurs, remplie automatiquement")] public List<PlayerController> players;
     [SerializeField] [Tooltip("Animator de compteur de debut du minijeu")] private Animator beginAnimator;
     [Header("Timer")]
     [SerializeField] [Tooltip("Dur�e du minijeu")] protected float timer;
-    [HideInInspector] public TimerManager timerManager;
+     public TimerManager timerManager;
     public bool isGameDone;
-    protected Dictionary<PlayerController, int> ranking;
+    protected Dictionary<PlayerController, int> ranking = new();
     [SerializeField] protected GameObject[] crowns;
     [SerializeField] public bool isMinigamelaunched;
     private static readonly int Begin = Animator.StringToHash("Begin");
+    [HideInInspector] public UnityEvent onLoadMiniGame;
 
     public virtual void LoadMiniGame()
     {
         BeginTimer();
+        onLoadMiniGame.Invoke();
         //timerManager ??= FindSceneTimerManager();
     }
 
@@ -81,6 +85,7 @@ public abstract class MiniGameManager : MonoBehaviour
     public void AddPoints()
     {
         PlayersListSO playersList = ReferenceHolder.Instance.players;
+        Debug.Log(ranking.Count);
         for (int i = 0; i < players.Count; i++)
         {
             playersList.players[i].points += 4 - ranking[players[i]];
@@ -156,6 +161,11 @@ public abstract class MiniGameManager : MonoBehaviour
     protected List<PlayerSO> GetRankingToPlayerSo()
     {
         return PlayerControllersToPlayerSos(RankingToList());
+    }
+
+    private void OnDisable()
+    {
+        onLoadMiniGame.RemoveAllListeners();
     }
 }
 

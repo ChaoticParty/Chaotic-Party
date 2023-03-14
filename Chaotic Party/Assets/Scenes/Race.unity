@@ -938,6 +938,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22f8805c2dd01d4da8c5f310c64e423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   players: []
   beginAnimator: {fileID: 1084644629}
   timer: 30
@@ -968,9 +977,8 @@ MonoBehaviour:
   - {fileID: 949058913294798672}
   - {fileID: 8592746396314617222}
   targetGroup: {fileID: 950545761}
-  timeBeforeClickRegisters: 0
+  timeBeforeClickRegisters: 2
   typeAjoutPoints: 2
-  tmpPrefab: {fileID: 3123136722139381715, guid: c1d5193bcbafb07428c55000f72d4744, type: 3}
   carsToColorise:
   - list:
     - {fileID: 499484231}
@@ -997,6 +1005,7 @@ MonoBehaviour:
   - list:
     - {fileID: 1253489192}
     - {fileID: 1214567477}
+  tmpPrefab: {fileID: 3123136722139381715, guid: c1d5193bcbafb07428c55000f72d4744, type: 3}
   playerGetsPointsEvent:
     m_PersistentCalls:
       m_Calls:
