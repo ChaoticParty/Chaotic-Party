@@ -143,6 +143,14 @@ public class PhotoMinionManager : MiniGameManager
         isGameDone = true;
         OnMinigameEnd();
     }
+    
+    protected override void OnMinigameEnd()
+    {
+        ranking = GetRanking();
+        AddPoints();
+        SetCurrentRanking();
+        LoadRecap();
+    }
 
     protected override int GetWinner()
     {
@@ -151,6 +159,23 @@ public class PhotoMinionManager : MiniGameManager
 
     protected override Dictionary<PlayerController, int> GetRanking()
     {
-        return null;
+        Dictionary<PlayerController, int> ranking = new();
+        for (int i = 0; i < players.Count; i++)
+        {
+            int currentRanking = 0;
+            for (int j = 0; j < players.Count; j++)
+            {
+                if (i != j)
+                {
+                    if (_scores[i] < _scores[j])
+                    {
+                        currentRanking++;
+                    }
+                }
+            }
+            ranking.Add(players[i], currentRanking);
+        }
+
+        return ranking;
     }
 }

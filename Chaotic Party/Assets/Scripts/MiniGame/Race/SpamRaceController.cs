@@ -29,8 +29,8 @@ public class SpamRaceController : SpamController
         if(spamManager.players.Count >= 4) player.aJustPressed.AddListener(player.index == 3 ? Click : () => { ClickOnOtherPlayer(3); });
         _spamRaceManager = spamManager as SpamRaceManager;
         float timeBetweenRegister = _spamRaceManager.timeBeforeClickRegisters;
-        if(_spamRaceManager.typeAjoutPoints is PointsType.BigPoints or PointsType.VfxBurst) 
-            InvokeRepeating(nameof(SendClicks), timeBetweenRegister, timeBetweenRegister);
+        if(_spamRaceManager.typeAjoutPoints is PointsType.BigPoints or PointsType.VfxBurst)
+            _spamRaceManager.onLoadMiniGame.AddListener(() => InvokeRepeating(nameof(SendClicks), timeBetweenRegister, timeBetweenRegister));
     }
 
     public void DeactivatePlayer()
@@ -77,6 +77,7 @@ public class SpamRaceController : SpamController
     {
         if(!_spamRaceManager.isMinigamelaunched) return;
         
+        
         if(_spamRaceManager.typeAjoutPoints == PointsType.VfxBurst)
         {
             spamManager.Click(player.index, _clickValue);
@@ -112,11 +113,11 @@ public class SpamRaceController : SpamController
 
     public Coroutine Race(Vector2 destination)
     {
-        _coroutine = StartCoroutine(RaceEnumerator(destination));
+        _coroutine = StartCoroutine(RaceCoroutine(destination));
         return _coroutine;
     }
 
-    private IEnumerator RaceEnumerator(Vector2 destination)
+    private IEnumerator RaceCoroutine(Vector2 destination)
     {
         Transform raceCarTransform = raceCar.transform;
         while ((Vector2)raceCarTransform.position != destination)
