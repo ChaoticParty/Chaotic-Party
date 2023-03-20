@@ -958,6 +958,9 @@ MonoBehaviour:
   - {fileID: 716108471}
   - {fileID: 648730277}
   isMinigamelaunched: 0
+  onLoadMiniGame:
+    m_PersistentCalls:
+      m_Calls: []
   spamTexts:
   - {fileID: 495307390}
   - {fileID: 2071945094}
@@ -979,6 +982,42 @@ MonoBehaviour:
   targetGroup: {fileID: 950545761}
   timeBeforeClickRegisters: 2
   typeAjoutPoints: 2
+  points:
+  - points: 100
+    scale: {x: 1, y: 1}
+    color: {r: 0.061502814, g: 1, b: 0, a: 1}
+    rotation: 0
+    effect: {fileID: 7778608788907017981, guid: 07a4251e50fb1ab4ba8b782659778980, type: 3}
+  - points: 200
+    scale: {x: 1.1, y: 1.1}
+    color: {r: 0.5268167, g: 1, b: 0, a: 1}
+    rotation: 10
+    effect: {fileID: 7778608788907017981, guid: 07a4251e50fb1ab4ba8b782659778980, type: 3}
+  - points: 300
+    scale: {x: 1.2, y: 1.2}
+    color: {r: 0.6776141, g: 1, b: 0, a: 1}
+    rotation: -20
+    effect: {fileID: 7778608788907017981, guid: 07a4251e50fb1ab4ba8b782659778980, type: 3}
+  - points: 400
+    scale: {x: 1.3, y: 1.3}
+    color: {r: 1, g: 0.91940284, b: 0, a: 1}
+    rotation: 30
+    effect: {fileID: 7778608788907017981, guid: 07a4251e50fb1ab4ba8b782659778980, type: 3}
+  - points: 500
+    scale: {x: 1.4, y: 1.4}
+    color: {r: 1, g: 0.55600524, b: 0, a: 1}
+    rotation: -40
+    effect: {fileID: 7778608788907017981, guid: 07a4251e50fb1ab4ba8b782659778980, type: 3}
+  - points: 600
+    scale: {x: 1.5, y: 1.5}
+    color: {r: 1, g: 0.37902617, b: 0, a: 1}
+    rotation: 50
+    effect: {fileID: 7778608788907017981, guid: 07a4251e50fb1ab4ba8b782659778980, type: 3}
+  - points: 700
+    scale: {x: 3, y: 3}
+    color: {r: 1, g: 0.060549542, b: 0, a: 1}
+    rotation: 180
+    effect: {fileID: 7778608788907017981, guid: 07a4251e50fb1ab4ba8b782659778980, type: 3}
   carsToColorise:
   - list:
     - {fileID: 499484231}
@@ -1202,6 +1241,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 299910239}
+  - component: {fileID: 299910240}
+  - component: {fileID: 299910241}
   m_Layer: 0
   m_Name: Voiture1
   m_TagString: Untagged
@@ -1227,6 +1268,42 @@ Transform:
   m_Father: {fileID: 1318111725}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &299910240
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299910238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 877e5e76eaae2ac4d918e25337d4ea9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &299910241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299910238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Vombrissement_cars
+  speed: 1
+  offsetType: 2
+  animTimeOffset: 0
 --- !u!1 &326851066
 GameObject:
   m_ObjectHideFlags: 0
@@ -4756,6 +4833,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1060652043}
+  - component: {fileID: 1060652044}
+  - component: {fileID: 1060652045}
   m_Layer: 0
   m_Name: Voiture2
   m_TagString: Untagged
@@ -4781,6 +4860,42 @@ Transform:
   m_Father: {fileID: 1318111725}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1060652044
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060652042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 877e5e76eaae2ac4d918e25337d4ea9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1060652045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060652042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Vombrissement_cars
+  speed: 1
+  offsetType: 2
+  animTimeOffset: 0
 --- !u!212 &1069965676 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 145721298726025533, guid: c30d5bf160a2a1a469d7f185113a0607, type: 3}
@@ -10373,6 +10488,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1360502662}
+  - component: {fileID: 1360502663}
+  - component: {fileID: 1360502664}
   m_Layer: 0
   m_Name: Voiture3
   m_TagString: Untagged
@@ -10398,6 +10515,42 @@ Transform:
   m_Father: {fileID: 1318111725}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1360502663
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360502661}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 877e5e76eaae2ac4d918e25337d4ea9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1360502664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360502661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Vombrissement_cars
+  speed: 1
+  offsetType: 2
+  animTimeOffset: 0
 --- !u!1001 &1379671923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11706,6 +11859,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1854453761}
+  - component: {fileID: 1854453762}
+  - component: {fileID: 1854453763}
   m_Layer: 0
   m_Name: Voiture0
   m_TagString: Untagged
@@ -11731,6 +11886,42 @@ Transform:
   m_Father: {fileID: 1318111725}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1854453762
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854453760}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 877e5e76eaae2ac4d918e25337d4ea9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1854453763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854453760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc316e9b2f8d0944c98ed4c7b6780bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Vombrissement_cars
+  speed: 1
+  offsetType: 2
+  animTimeOffset: 0
 --- !u!1001 &1913484462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13347,10 +13538,6 @@ PrefabInstance:
     - target: {fileID: 5788087512737178738, guid: 6d5b0d80a96f2b24aaf2cbd47296e0cc, type: 3}
       propertyPath: m_RootOrder
       value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5788087512737178738, guid: 6d5b0d80a96f2b24aaf2cbd47296e0cc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8875
       objectReference: {fileID: 0}
     - target: {fileID: 5788087512737178738, guid: 6d5b0d80a96f2b24aaf2cbd47296e0cc, type: 3}
       propertyPath: m_LocalPosition.x

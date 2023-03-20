@@ -58,16 +58,17 @@ public class SpamRaceController : SpamController
                 _clickValue += (int)spamManager.spamValue;
                 if (_tmpPrefab)
                 {
-                    _tmpPrefab.text = _clickValue.ToString();
-                    _tmpPrefab.color = Color.Lerp(_tmpPrefab.color, Color.red, Time.deltaTime * 50);
-                    //_tmpPrefab.color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
-                    Transform tmpPrefabTransform = _tmpPrefab.transform;
-                    tmpPrefabTransform.localScale += Vector3.one / 10;
-                    tmpPrefabTransform.position += Vector3.up / 3;
+                    _spamRaceManager.SetClickText(_tmpPrefab.transform, _tmpPrefab, _clickValue, 
+                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1);
                 }
                 else
                 {
-                    _tmpPrefab = Instantiate(_spamRaceManager.tmpPrefab, spamValuePosition.position, quaternion.identity, transform.GetChild(0).GetChild(0));
+                    _tmpPrefab = Instantiate(_spamRaceManager.tmpPrefab, spamValuePosition.position, 
+                        _spamRaceManager.points[0].GetRotation(), 
+                        transform.GetChild(0).GetChild(0));
+                    _tmpPrefab.transform.localScale = _spamRaceManager.points[0].scale;
+                    _spamRaceManager.SetClickText(_tmpPrefab.transform, _tmpPrefab, _clickValue, 
+                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1);
                 }
                 break;
         }
