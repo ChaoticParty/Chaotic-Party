@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviour
 {
     public MultiplayerManager multiplayerManager;
     public PlayersListSO playersListSO;
+    public List<PlayerController> listUiPlayerControllers;
+    public List<PlayerController> listInGamePlayerControllers;
     private ReferenceHolder _referenceHolder;
     private GameObject oldEventObject;
     private bool isClickCheckCoroutineActive = false;
@@ -20,6 +22,7 @@ public class MenuManager : MonoBehaviour
     public List<ColorEnum> selectColor = new List<ColorEnum>();
     public sbyte readyCount = 0;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
+    public List<Animator> listMaskPersonnagesAnimator = new List<Animator>();
     private sbyte nbCurrentGamepads = 0;
     private sbyte nbGamepadsLastFrame = 0;
     [Space]
