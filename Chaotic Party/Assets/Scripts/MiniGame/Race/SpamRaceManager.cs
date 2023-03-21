@@ -26,7 +26,7 @@ public class SpamRaceManager : SpamManager
     public float timeBeforeClickRegisters;
     [FoldoutGroup("Points Handler")]
     public PointsType typeAjoutPoints;
-    [FoldoutGroup("Points Handler"), OnCollectionChanged(nameof(OnPointsChanged))] 
+    [FoldoutGroup("Points Handler"), OnCollectionChanged(nameof(OnPointsChanged)), ListDrawerSettings(NumberOfItemsPerPage = 5)] 
     public List<Points> points;
     [ButtonGroup("Points Handler/Copy")] 
     private void CopyListToClipboard()
