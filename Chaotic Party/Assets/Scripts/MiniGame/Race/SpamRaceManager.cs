@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cinemachine;
 using Sirenix.OdinInspector;
+#if UNITY_EDITOR
 using Sirenix.Utilities.Editor;
+#endif
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -31,12 +33,16 @@ public class SpamRaceManager : SpamManager
     [ButtonGroup("Points Handler/Copy")] 
     private void CopyListToClipboard()
     {
+#if UNITY_EDITOR
         Clipboard.Copy(points);
+#endif
     }
     [ButtonGroup("Points Handler/Copy")] 
     private void PasteListToClipboard()
     {
+#if UNITY_EDITOR
         Clipboard.TryPaste(out points);
+#endif
     }
     private void OnPointsChanged(List<Points> value)
     {
@@ -72,7 +78,7 @@ public class SpamRaceManager : SpamManager
     {
         base.Start();
         ActivateUI(false);
-        ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
+        //ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
     }
 
     private void ActivateUI(bool activate)
@@ -291,7 +297,7 @@ public class SpamRaceManager : SpamManager
             transform1.localPosition = Vector3.zero;
         }
         
-        ColoriseObjectsAccordingToPlayers(GetRankingToPlayerSo(), raceCarsToColorise);
+        ColoriseCinematicObjects(GetRankingToPlayerSo());
     }
 
     public void StartRace()
@@ -302,6 +308,7 @@ public class SpamRaceManager : SpamManager
             if(!player.gameObject.activeSelf) continue;
             SpamRaceController playerScript = player.GetComponent<SpamRaceController>();
             Transform raceCar = raceCars[players.IndexOf(player)];
+            playerScript.Race(raceCar.position + Vector3.right * (5 - ranking[player]) * 30);
         }
         StartCoroutine(CheckCoroutines());
     }
