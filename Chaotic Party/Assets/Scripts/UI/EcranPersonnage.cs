@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -25,13 +26,14 @@ public class EcranPersonnage : MonoBehaviour
     [SerializeField] private List<Sprite> listCurrentCorps = new List<Sprite>();
 
     [Header("Reférences Custo")] 
+    [SerializeField] private List<Sprite> listSpriteRace = new List<Sprite>(); //Dernier = selectionner
+    [SerializeField] private List<Image> listImageRace = new List<Image>();
     [SerializeField] private List<GameObject> listIndicNavRace = new List<GameObject>();
-    [SerializeField] private List<GameObject> listIndicSelectedRace = new List<GameObject>();
     [Space]
     [SerializeField] private Image teteIMG;
-    [SerializeField] private GameObject indicNavTeteGO;
+    [SerializeField] private List<GameObject> listIndicNavTeteGO = new List<GameObject>();
     [SerializeField] private Image corpsIMG;
-    [SerializeField] private GameObject indicNavCorpsGO;
+    [SerializeField] private List<GameObject> listIndicNavCorpsGO = new List<GameObject>();
     [Space]
     [SerializeField] private List<GameObject> listIndicNavColor = new List<GameObject>();
     [SerializeField] private List<GameObject> listIndicSelectedColor = new List<GameObject>();
@@ -71,6 +73,11 @@ public class EcranPersonnage : MonoBehaviour
     {
         InitCusto();
         
+        AddAllListeners();
+    }
+
+    public void AddAllListeners()
+    {
         myPlayerController.leftStickJustMovedDown.AddListener(MenuNavigateDown);
         myPlayerController.rightStickMovedDown.AddListener(MenuNavigateDown);
         myPlayerController.dPadDown.AddListener(MenuNavigateDown);
@@ -91,6 +98,28 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.aJustPressed.AddListener(ValidateCusto);
         myPlayerController.bLongPressed.AddListener(BackToMain);
     }
+    public void RemoveAllListeners()
+    {
+        myPlayerController.leftStickJustMovedDown.RemoveListener(MenuNavigateDown);
+        myPlayerController.rightStickMovedDown.RemoveListener(MenuNavigateDown);
+        myPlayerController.dPadDown.RemoveListener(MenuNavigateDown);
+        
+        myPlayerController.leftStickJustMovedLeft.RemoveListener(MenuNavigateLeft);
+        myPlayerController.rightStickMovedLeft.RemoveListener(MenuNavigateLeft);
+        myPlayerController.dPadLeft.RemoveListener(MenuNavigateLeft);
+        
+        myPlayerController.leftStickJustMovedRight.RemoveListener(MenuNavigateRight);
+        myPlayerController.rightStickMovedRight.RemoveListener(MenuNavigateRight);
+        myPlayerController.dPadRight.RemoveListener(MenuNavigateRight);
+        
+        myPlayerController.leftStickJustMovedUp.RemoveListener(MenuNavigateUp);
+        myPlayerController.rightStickMovedUp.RemoveListener(MenuNavigateUp);
+        myPlayerController.dPadUp.RemoveListener(MenuNavigateUp);
+        
+        myPlayerController.startPressed.RemoveListener(LauchGame);
+        myPlayerController.aJustPressed.RemoveListener(ValidateCusto);
+        myPlayerController.bLongPressed.RemoveListener(BackToMain);
+    }
 
     private void MenuNavigateUp()
     {
@@ -105,41 +134,50 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.CHEVALIER:
-                        listIndicNavRace[1].SetActive(false);
-                        listIndicNavRace[2].SetActive(true);
+                        listIndicNavRace[1].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[2].transform.rotation = Quaternion.Euler(0,0,-10);
                         enumRace = Race.DIABLOTIN;
                         break;
                     case Race.HOMMEPOISSON:
-                        listIndicNavRace[3].SetActive(false);
-                        listIndicNavRace[0].SetActive(true);
+                        listIndicNavRace[3].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[0].transform.rotation = Quaternion.Euler(0,0,10);
                         enumRace = Race.GOBLIN;
                         break;
                 }
                 break;
             case Custo.TETE:
                 enumCusto = Custo.RACE;
-                indicNavTeteGO.SetActive(false);
+                foreach (var item in listIndicNavTeteGO)
+                {
+                    item.transform.rotation = new Quaternion(0,0,0,0);
+                }
                 SwitchRace();
                 switch (enumRace)
                 {
                     case Race.GOBLIN:
-                        listIndicNavRace[0].SetActive(true);
+                        listIndicNavRace[0].transform.rotation = Quaternion.Euler(0,0,10);
                         break;
                     case Race.CHEVALIER:
-                        listIndicNavRace[1].SetActive(true);
+                        listIndicNavRace[1].transform.rotation = Quaternion.Euler(0,0,-10);
                         break;
                     case Race.DIABLOTIN:
-                        listIndicNavRace[2].SetActive(true);
+                        listIndicNavRace[2].transform.rotation = Quaternion.Euler(0,0,-10);
                         break;
                     case Race.HOMMEPOISSON:
-                        listIndicNavRace[3].SetActive(true);
+                        listIndicNavRace[3].transform.rotation = Quaternion.Euler(0,0,10);
                         break;
                 }
                 break;
             case Custo.CORPS:
                 enumCusto = Custo.TETE;
-                indicNavCorpsGO.SetActive(false);
-                indicNavTeteGO.SetActive(true);
+                foreach (var item in listIndicNavCorpsGO)
+                {
+                    item.transform.rotation = new Quaternion(0,0,0,0);
+                }
+                foreach (var item in listIndicNavTeteGO)
+                {
+                    item.transform.rotation = Quaternion.Euler(0,0,10 * item.transform.localScale.x);
+                }
                 break;
             case Custo.COULEUR:
                 enumCusto = Custo.CORPS;
@@ -148,7 +186,10 @@ public class EcranPersonnage : MonoBehaviour
                     objects.SetActive(false);
                 }
                 
-                indicNavCorpsGO.SetActive(true);
+                foreach (var item in listIndicNavCorpsGO)
+                {
+                    item.transform.rotation = Quaternion.Euler(0,0,10 * item.transform.localScale.x);
+                }
                 break;
             case Custo.READY:
                 enumCusto = Custo.COULEUR;
@@ -192,13 +233,13 @@ public class EcranPersonnage : MonoBehaviour
                     switch (enumRace)
                     {
                         case Race.DIABLOTIN:
-                            listIndicNavRace[1].SetActive(true);
-                            listIndicNavRace[2].SetActive(false);
+                            listIndicNavRace[1].transform.rotation = Quaternion.Euler(0,0,-10);
+                            listIndicNavRace[2].transform.rotation = new Quaternion(0, 0, 0, 0);
                             enumRace = Race.CHEVALIER;
                             break;
                         case Race.GOBLIN:
-                            listIndicNavRace[3].SetActive(true);
-                            listIndicNavRace[0].SetActive(false);
+                            listIndicNavRace[3].transform.rotation = Quaternion.Euler(0,0,10);
+                            listIndicNavRace[0].transform.rotation = new Quaternion(0,0,0,0);
                             enumRace = Race.HOMMEPOISSON;
                             break;
                     }
@@ -206,19 +247,31 @@ public class EcranPersonnage : MonoBehaviour
                 else
                 {
                     enumCusto = Custo.TETE;
-                    listIndicNavRace[1].SetActive(false);
-                    listIndicNavRace[3].SetActive(false);
-                    indicNavTeteGO.SetActive(true);    
+                    listIndicNavRace[1].transform.rotation = new Quaternion(0,0,0,0);
+                    listIndicNavRace[3].transform.rotation = new Quaternion(0,0,0,0);
+                    foreach (var item in listIndicNavTeteGO)
+                    {
+                        item.transform.rotation = Quaternion.Euler(0,0,10 * item.transform.localScale.x);
+                    }  
                 }
                 break;
             case Custo.TETE:
                 enumCusto = Custo.CORPS;
-                indicNavTeteGO.SetActive(false);
-                indicNavCorpsGO.SetActive(true);
+                foreach (var item in listIndicNavTeteGO)
+                {
+                    item.transform.rotation = new Quaternion(0,0,0,0);
+                }
+                foreach (var item in listIndicNavCorpsGO)
+                {
+                    item.transform.rotation = Quaternion.Euler(0,0,10 * item.transform.localScale.x);
+                }
                 break;
             case Custo.CORPS:
                 enumCusto = Custo.COULEUR;
-                indicNavCorpsGO.SetActive(false);
+                foreach (var item in listIndicNavCorpsGO)
+                {
+                    item.transform.rotation = new Quaternion(0,0,0,0);
+                }
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
@@ -282,13 +335,13 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.GOBLIN:
-                        listIndicNavRace[0].SetActive(false);
-                        listIndicNavRace[2].SetActive(true);
+                        listIndicNavRace[0].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[2].transform.rotation = Quaternion.Euler(0,0,-10);
                         enumRace = Race.DIABLOTIN;
                         break;
                     case Race.HOMMEPOISSON:
-                        listIndicNavRace[3].SetActive(false);
-                        listIndicNavRace[1].SetActive(true);
+                        listIndicNavRace[3].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[1].transform.rotation = Quaternion.Euler(0,0,-10);
                         enumRace = Race.CHEVALIER;
                         break;
                 }
@@ -297,11 +350,15 @@ public class EcranPersonnage : MonoBehaviour
                 if (currentTeteIndex == listCurrentTete.Count - 1)
                 {
                     currentTeteIndex = 0;
-                    
                 }
                 else
                 {
                     currentTeteIndex ++;
+                }
+
+                foreach (var item in listIndicNavTeteGO.Where(item => item.transform.rotation.x.Equals(1)))
+                {
+                    StartCoroutine(HandAnim(item));
                 }
                 VisualRefresh();
                 break;
@@ -314,6 +371,11 @@ public class EcranPersonnage : MonoBehaviour
                 else
                 {
                     currentCorpsIndex ++;
+                }
+                
+                foreach (var item in listIndicNavCorpsGO.Where(item => item.transform.rotation.x.Equals(1)))
+                {
+                    StartCoroutine(HandAnim(item));
                 }
                 VisualRefresh();
                 break;
@@ -363,13 +425,13 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.DIABLOTIN:
-                        listIndicNavRace[2].SetActive(false);
-                        listIndicNavRace[0].SetActive(true);
+                        listIndicNavRace[2].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[0].transform.rotation = Quaternion.Euler(0,0,10);
                         enumRace = Race.GOBLIN;
                         break;
                     case Race.CHEVALIER:
-                        listIndicNavRace[1].SetActive(false);
-                        listIndicNavRace[3].SetActive(true);
+                        listIndicNavRace[1].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[3].transform.rotation = Quaternion.Euler(0,0,10);
                         enumRace = Race.HOMMEPOISSON;
                         break;
                 }
@@ -378,11 +440,15 @@ public class EcranPersonnage : MonoBehaviour
                 if (currentTeteIndex == 0)
                 {
                     currentTeteIndex = Convert.ToSByte(listCurrentTete.Count - 1);
-                    
                 }
                 else
                 {
                     currentTeteIndex --;
+                }
+                
+                foreach (var item in listIndicNavTeteGO.Where(item => item.transform.rotation.x.Equals(-1)))
+                {
+                    StartCoroutine(HandAnim(item));
                 }
                 VisualRefresh();
                 break;
@@ -390,11 +456,15 @@ public class EcranPersonnage : MonoBehaviour
                 if (currentCorpsIndex == 0)
                 {
                     currentCorpsIndex = Convert.ToSByte(listCurrentCorps.Count - 1);
-                    
                 }
                 else
                 {
                     currentCorpsIndex --;
+                }
+                
+                foreach (var item in listIndicNavCorpsGO.Where(item => item.transform.rotation.x.Equals(-1)))
+                {
+                    StartCoroutine(HandAnim(item));
                 }
                 VisualRefresh();
                 break;
@@ -456,7 +526,17 @@ public class EcranPersonnage : MonoBehaviour
                 }
             }
         }
-        
+
+        for (int i = 0; i < listImageRace.Count; i++)
+        {
+            if (i.Equals(currentRaceIndex))
+                listImageRace[currentRaceIndex].sprite = listSpriteRace[^1];
+            else
+            {
+                listImageRace[i].sprite = listSpriteRace[i];
+            }
+        }
+
         teteIMG.sprite = listCurrentTete[currentTeteIndex];
         teteIMG.color = listColor[currentColorIndex];
         corpsIMG.sprite = listCurrentCorps[currentCorpsIndex];
@@ -469,17 +549,17 @@ public class EcranPersonnage : MonoBehaviour
         enumRace = Race.GOBLIN;
         enumColor = ColorEnum.BLANC;
         
-        foreach (var objects in listIndicNavRace)
-        {
-            objects.SetActive(objects.Equals(listIndicNavRace[0]));
-        }
-        foreach (var objects in listIndicSelectedRace)
-        {
-            objects.SetActive(objects.Equals(listIndicSelectedRace[0]));
-        }
+        listIndicNavRace[0].transform.rotation = Quaternion.Euler(0,0,10);
 
-        indicNavTeteGO.SetActive(false);
-        indicNavCorpsGO.SetActive(false);
+        foreach (var item in listIndicNavTeteGO)
+        {
+            item.transform.rotation = new Quaternion(0,0,0,0);
+        }  
+        
+        foreach (var item in listIndicNavCorpsGO)
+        {
+            item.transform.rotation = new Quaternion(0,0,0,0);
+        }
 
         foreach (var objects in listIndicNavColor)
         {
@@ -530,11 +610,6 @@ public class EcranPersonnage : MonoBehaviour
         switch (enumCusto)
         {
             case Custo.RACE:
-                foreach (var objects in listIndicSelectedRace)
-                {
-                    objects.SetActive(false);
-                }
-                
                 switch (enumRace)
                 {
                     case Race.GOBLIN:
@@ -550,7 +625,6 @@ public class EcranPersonnage : MonoBehaviour
                         currentRaceIndex = 3;
                         break;
                 }
-                listIndicSelectedRace[currentRaceIndex].SetActive(true);
                 currentRace = listRaces[currentRaceIndex];
                 break;
             case Custo.COULEUR:
@@ -716,6 +790,8 @@ public class EcranPersonnage : MonoBehaviour
         menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listInGamePlayerControllers[playerSOIndex];
         FillSO();
         menuManager.listInGamePlayerControllers[playerSOIndex].SetupSprite(menuManager.playersListSO.players[playerSOIndex]);
+        readyIMG.GetComponent<Button>().interactable = false;
+        RemoveAllListeners();
         menuManager.listInGamePlayerControllers[playerSOIndex].gameObject.SetActive(true);
         menuManager.multiplayerManager.InitMultiplayer();
     }
@@ -724,8 +800,18 @@ public class EcranPersonnage : MonoBehaviour
     {
         menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(BackBurning);
         menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listUiPlayerControllers[playerSOIndex];
+        readyIMG.GetComponent<Button>().interactable = true;
+        AddAllListeners();
         menuManager.multiplayerManager.InitMultiplayer();
         Ready();
+    }
+
+    private IEnumerator HandAnim(GameObject obj)
+    {
+        Quaternion quatTemp = obj.transform.rotation;
+        obj.transform.rotation = new Quaternion(0, 0, 0, 0);
+        yield return new WaitForSeconds(1);
+        obj.transform.rotation = quatTemp;
     }
 }
 

@@ -101,6 +101,7 @@ public class MenuManager : MonoBehaviour
                 if (ecranPersonnage.myPlayerController.gamepad != null)
                 {
                     Debug.Log(ecranPersonnage.myPlayerController.index);
+                    ecranPersonnage.transform.parent.gameObject.SetActive(ecranPersonnage.myPlayerController.gamepad.isConnected); //Gere l'activation du mask du player
                     ecranPersonnage.gameObject.SetActive(ecranPersonnage.myPlayerController.gamepad.isConnected);
                     ecranPersonnage.InitCusto();
                 }

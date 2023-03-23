@@ -257,106 +257,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2964346414744073252, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
   m_PrefabInstance: {fileID: 30455452}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &30455454 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 784966640200531555, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
-  m_PrefabInstance: {fileID: 30455452}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &30455455 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5011524642278975177, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
-  m_PrefabInstance: {fileID: 30455452}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &30455456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2346004960770704709, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
-  m_PrefabInstance: {fileID: 30455452}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &30455457 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 771620141123185725, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
-  m_PrefabInstance: {fileID: 30455452}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &30455458
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30455454}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f1f9fd798d3462744bca7a572e4e51e5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &30455459
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30455455}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f1f9fd798d3462744bca7a572e4e51e5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &30455460
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30455456}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f1f9fd798d3462744bca7a572e4e51e5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &30455461
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30455457}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f1f9fd798d3462744bca7a572e4e51e5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &84186584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1407,7 +1307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 780122187}
-  explosionDelay: 3
+  explosionDelay: 2
 --- !u!114 &1327101360 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
@@ -1836,7 +1736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 780122187}
-  explosionDelay: 3
+  explosionDelay: 2
 --- !u!1001 &1637481033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2014,7 +1914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 780122187}
-  explosionDelay: 3
+  explosionDelay: 2
 --- !u!1 &1714082910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 780122187}
-  explosionDelay: 3
+  explosionDelay: 2
 --- !u!1 &1833436402
 GameObject:
   m_ObjectHideFlags: 0

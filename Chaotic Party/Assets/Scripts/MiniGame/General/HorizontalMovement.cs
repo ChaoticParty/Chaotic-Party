@@ -24,6 +24,10 @@ public class HorizontalMovement : MiniGameController
         watchingRight = new Vector3(1, localScale.y, localScale.z);
         watchingLeft = new Vector3(-1, localScale.y, localScale.z);
         _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
         player.leftStickMoved.AddListener(MoveHorizontally);
     }
 

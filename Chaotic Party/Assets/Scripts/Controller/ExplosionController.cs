@@ -11,6 +11,10 @@ public class ExplosionController : MiniGameController
     private new void Awake()
     {
         base.Awake();
+    }
+
+    private void OnEnable()
+    {
         player.yLongPressed.AddListener(MacronExplosion);
     }
 
@@ -24,7 +28,6 @@ public class ExplosionController : MiniGameController
 
     private void MacronExplosion(float delay)
     {
-        Debug.Log(delay);
         if (delay < explosionDelay) vibrate = true;
         else
         {

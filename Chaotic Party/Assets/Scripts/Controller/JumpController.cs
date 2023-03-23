@@ -26,6 +26,10 @@ public class JumpController : MiniGameController
     {
         base.Awake();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
         UnityEvent buttonEvent = new();
         switch (jumpButton)
         {
