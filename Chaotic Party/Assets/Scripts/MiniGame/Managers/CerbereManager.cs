@@ -15,6 +15,7 @@ public class CerbereManager : SpamManager
     [SerializeField] [Tooltip("Tableau d'animator, de 0 à 3, correspondant aux players")] private Animator[] cerbereAnimator;
     [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cerbereAnimEvents;
     [SerializeField] [Tooltip("Animator de la bulle de cerbere")] private Animator bulleAnimator;
+    [SerializeField] [Tooltip("Animator des nuages de la bulle de cerbere")] private Animator[] nuagesAnimator;
     private int winnerIndex;
     private bool[] wasHittedByCerbere; //Tableau de bool, true si a été touché. Repasse a false quand Cerbere se rendort. De 0 à 3, correspondant aux players;
     private float[] walkDestination = new float[]{};
@@ -68,6 +69,8 @@ public class CerbereManager : SpamManager
     private static readonly int LaunchSecondDisappear = Animator.StringToHash("LaunchSecondDisappear");
     private static readonly int LaunchThirdDisappear = Animator.StringToHash("LaunchThirdDisappear");
     private static readonly int Reset = Animator.StringToHash("Reset");
+    private static readonly int Depop = Animator.StringToHash("Depop");
+    private static readonly int Pop = Animator.StringToHash("Pop");
 
     #endregion
 
@@ -114,6 +117,8 @@ public class CerbereManager : SpamManager
                 scoreDisplay[i].text = "0";
             }
         }
+        
+        bulleAnimator.gameObject.SetActive(true);
 
         Hud.alpha = 1;
     }
@@ -150,6 +155,7 @@ public class CerbereManager : SpamManager
                     wasHittedByCerbere[i] = true;
                     walkDestination[i] = xStartValuePos;
                     //Feedback
+                    cerbereAnimEvents[0].Exclamation();
                     cerbereLaser.Invoke();
                     playerGetBackToStart.Invoke(players[i].transform.position, "Argument");
                     //
@@ -258,6 +264,10 @@ public class CerbereManager : SpamManager
         {
             animator.SetTrigger(WakeUpTrigger);
         }
+        foreach (var animator in nuagesAnimator)
+        {
+            animator.SetTrigger(Depop);
+        }
         bulleAnimator.SetTrigger(LaunchBulleDisappear);
     }
 
@@ -309,6 +319,10 @@ public class CerbereManager : SpamManager
     public void ResetBulleAnim()
     {
         bulleAnimator.speed = 1;
+        foreach (var animator in nuagesAnimator)
+        {
+            animator.SetTrigger(Pop);
+        }
         bulleAnimator.SetTrigger(Reset);
     }
 

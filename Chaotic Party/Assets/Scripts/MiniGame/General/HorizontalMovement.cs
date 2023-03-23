@@ -38,7 +38,10 @@ public class HorizontalMovement : MiniGameController
 
     private void MoveHorizontally(float x, float y)
     {
-        if(!player.miniGameManager.isMinigamelaunched) return;
+        if (player.miniGameManager != null)
+        {
+            if(!player.miniGameManager.isMinigamelaunched) return;
+        }
         if (!player.CanMove())
         {
             return;

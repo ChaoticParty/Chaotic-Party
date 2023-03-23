@@ -12,6 +12,7 @@ public class CerbereAnimEvent : MonoBehaviour
     [Space]
     [Header("Gameobject du cerbere")]
     [SerializeField] [Tooltip("Tête du cerbere")] private GameObject tete;
+    [SerializeField] [Tooltip("Animator du ! du cerbere")] private Animator exclamationAnimator;
     [Space]
     [Header("Sprites du cerbere")]
     [SerializeField] [Tooltip("Sprite du dodo du cerbere")] private Sprite cerbereDodo;
@@ -21,6 +22,7 @@ public class CerbereAnimEvent : MonoBehaviour
     private static readonly int ObserveTrigger = Animator.StringToHash("ObserveTrigger");
     private static readonly int UltimoPoderLaser = Animator.StringToHash("UltimoPoderLaser");
     private static readonly int AuDodoTrigger = Animator.StringToHash("AuDodoTrigger");
+    private static readonly int Property = Animator.StringToHash("!Pop");
 
     public void WakeUpEnd()
     {
@@ -43,5 +45,10 @@ public class CerbereAnimEvent : MonoBehaviour
         animator.SetTrigger(AuDodoTrigger);
         cerbereManager.ResetBulleAnim();
         isRompiche = true;
+    }
+
+    public void Exclamation()
+    {
+        exclamationAnimator.SetTrigger(Property);
     }
 }

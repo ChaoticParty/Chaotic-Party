@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cinemachine;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities.Editor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,8 +26,18 @@ public class SpamRaceManager : SpamManager
     public float timeBeforeClickRegisters;
     [FoldoutGroup("Points Handler")]
     public PointsType typeAjoutPoints;
-    [FoldoutGroup("Points Handler"), OnCollectionChanged(nameof(OnPointsChanged))] 
+    [FoldoutGroup("Points Handler"), OnCollectionChanged(nameof(OnPointsChanged)), ListDrawerSettings(NumberOfItemsPerPage = 5)] 
     public List<Points> points;
+    [ButtonGroup("Points Handler/Copy")] 
+    private void CopyListToClipboard()
+    {
+        Clipboard.Copy(points);
+    }
+    [ButtonGroup("Points Handler/Copy")] 
+    private void PasteListToClipboard()
+    {
+        Clipboard.TryPaste(out points);
+    }
     private void OnPointsChanged(List<Points> value)
     {
         for (int i = 0; i < value.Count; i++)
