@@ -24,10 +24,11 @@ public class TacleController : MiniGameController
 
     private void Tacled()
     {
-        if (!player.miniGameManager.isMinigamelaunched || isTacling)
+        if (player.miniGameManager != null)
         {
-            return;
+            if (!player.miniGameManager.isMinigamelaunched) return;
         }
+        if (!player.CanAct()) return;
         //Lancement de l'anim
         isTacling = true;
         player.isTackling = true;

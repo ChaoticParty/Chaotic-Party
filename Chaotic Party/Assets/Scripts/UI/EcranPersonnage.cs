@@ -57,6 +57,9 @@ public class EcranPersonnage : MonoBehaviour
     private ColorEnum enumColor = ColorEnum.BLANC;
     
     [HideInInspector] public PlayerController myPlayerController;
+    //Id des animations
+    private static readonly int Burning = Animator.StringToHash("Burning");
+    private static readonly int BackBurning = Animator.StringToHash("BackBurning");
 
 
     private void Awake()
@@ -664,7 +667,7 @@ public class EcranPersonnage : MonoBehaviour
         }
         else
         {
-            //Anim du parchemin qui s'ouvre et redscent + peut plus joeur avec son perso
+            //Anim du parchemin qui s'ouvre et redscent + peut plus jouer avec son perso
             menuManager.readyCount--;
             readyIMG.color = Color.white;
             LockColor(isReady);
@@ -672,15 +675,10 @@ public class EcranPersonnage : MonoBehaviour
 
         isReady = !isReady;
         VisualRefresh();
-        if (IsLaunchPossible())
+        menuManager.partyBandeauReadyGO.SetActive(IsLaunchPossible());
+        if (isReady)
         {
-            //Apparition bandeau a la smash (placeholder a voir si on garde)
-            menuManager.partyBandeauReadyGO.SetActive(true);
-        }
-        else
-        {
-            //Disparition bandeau
-            menuManager.partyBandeauReadyGO.SetActive(false);
+            SpawnPlayer();
         }
     }
 
@@ -710,6 +708,24 @@ public class EcranPersonnage : MonoBehaviour
             }
             SceneManager.LoadScene(playSceneIndex);
         }
+    }
+
+    private void SpawnPlayer()
+    {
+        menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(Burning);
+        menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listInGamePlayerControllers[playerSOIndex];
+        FillSO();
+        menuManager.listInGamePlayerControllers[playerSOIndex].SetupSprite(menuManager.playersListSO.players[playerSOIndex]);
+        menuManager.listInGamePlayerControllers[playerSOIndex].gameObject.SetActive(true);
+        menuManager.multiplayerManager.InitMultiplayer();
+    }
+
+    public void SpawnSelectionScreen()
+    {
+        menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(BackBurning);
+        menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listUiPlayerControllers[playerSOIndex];
+        menuManager.multiplayerManager.InitMultiplayer();
+        Ready();
     }
 }
 
