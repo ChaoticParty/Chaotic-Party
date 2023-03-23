@@ -1,0 +1,3296 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: cache
+    m_Hash: 21457895
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: cache_blanc
+      m_Hash: 720390878
+      m_Sprite: {fileID: -4567115170763441493, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4567115170763441493, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: cache_diablotin2
+      m_Hash: 604957820
+      m_Sprite: {fileID: 480910963996900900, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 480910963996900900, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: cache_diablotin1
+      m_Hash: 1023917510
+      m_Sprite: {fileID: -9075057713606290025, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9075057713606290025, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: cache_gris
+      m_Hash: 447914535
+      m_Sprite: {fileID: 3099410345076814485, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3099410345076814485, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: cache_noir
+      m_Hash: 71560472
+      m_Sprite: {fileID: 6848712865202206906, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6848712865202206906, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: cache_chevalier
+      m_Hash: 931785489
+      m_Sprite: {fileID: -8084642536543913988, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8084642536543913988, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Cache_vide
+      m_Hash: 742594176
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 7
+  - m_Name: Torse_Commun
+    m_Hash: 305100489
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Torse_Commun_Neutre
+      m_Hash: 1053219013
+      m_Sprite: {fileID: 5986082199191705122, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5986082199191705122, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Torse_Commun_Face
+      m_Hash: 431464614
+      m_Sprite: {fileID: 8842233507758611960, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8842233507758611960, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Torse_Commun_Tacle
+      m_Hash: 462730380
+      m_Sprite: {fileID: -686479717182627598, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -686479717182627598, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Torse_Commun_Degat_G
+      m_Hash: 691623315
+      m_Sprite: {fileID: 9196397083483187255, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9196397083483187255, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Torse_Commun_Degat_D
+      m_Hash: 808453161
+      m_Sprite: {fileID: -5282924786788900406, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5282924786788900406, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Torse_Commun_Aplatit
+      m_Hash: 688269422
+      m_Sprite: {fileID: -1011467962418160057, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1011467962418160057, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 6
+  - m_Name: Bras_Commun
+    m_Hash: 149614770
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Bras_Commun_Haut_G
+      m_Hash: 194411882
+      m_Sprite: {fileID: 3838641511851397346, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3838641511851397346, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Bras_Commun_Haut_D
+      m_Hash: 312421584
+      m_Sprite: {fileID: -7968773094566440048, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7968773094566440048, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Bras_Commun_Bas_G
+      m_Hash: 920804456
+      m_Sprite: {fileID: -3455392384561752281, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3455392384561752281, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Bras_Commun_Bas_D
+      m_Hash: 803933650
+      m_Sprite: {fileID: -4964115746275799800, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4964115746275799800, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Main_Commun
+    m_Hash: 200128637
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Main_Commun_Neutre1_G
+      m_Hash: 438804653
+      m_Sprite: {fileID: 299173247017991786, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 299173247017991786, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Neutre1_D
+      m_Hash: 53408023
+      m_Sprite: {fileID: -5752230658385225602, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5752230658385225602, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Neutre2_G
+      m_Hash: 409018100
+      m_Sprite: {fileID: -3897795539737483283, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3897795539737483283, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Neutre2_D
+      m_Hash: 23613262
+      m_Sprite: {fileID: -7296949403739994586, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7296949403739994586, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Poing1_G
+      m_Hash: 1058521888
+      m_Sprite: {fileID: -4546630084563391508, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4546630084563391508, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Poing1_D
+      m_Hash: 639537818
+      m_Sprite: {fileID: -7814001064012138824, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7814001064012138824, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Poing2_G
+      m_Hash: 1028750713
+      m_Sprite: {fileID: 6274932502761547390, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6274932502761547390, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Poing2_D
+      m_Hash: 609758403
+      m_Sprite: {fileID: 4644424122607378381, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4644424122607378381, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Ouvert1_G
+      m_Hash: 539000476
+      m_Sprite: {fileID: 4143913634646466606, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4143913634646466606, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Ouvert1_D
+      m_Hash: 959000358
+      m_Sprite: {fileID: 3086966456623407229, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3086966456623407229, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Ouvert2_G
+      m_Hash: 577159365
+      m_Sprite: {fileID: -5787307085332040458, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5787307085332040458, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Ouvert2_D
+      m_Hash: 997167487
+      m_Sprite: {fileID: -8404602724180169988, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8404602724180169988, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Pointer_G
+      m_Hash: 273298680
+      m_Sprite: {fileID: -9175380379689235347, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9175380379689235347, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Pointer_D
+      m_Hash: 155411778
+      m_Sprite: {fileID: -3104212294324261740, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3104212294324261740, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Peace_G
+      m_Hash: 632829868
+      m_Sprite: {fileID: -1552950144855452501, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1552950144855452501, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Peace_D
+      m_Hash: 1018258966
+      m_Sprite: {fileID: -5383562338133362237, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5383562338133362237, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Rock_G
+      m_Hash: 220732005
+      m_Sprite: {fileID: 8735859984796217951, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8735859984796217951, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Rock_D
+      m_Hash: 337726431
+      m_Sprite: {fileID: 1148594356016599741, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1148594356016599741, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Main_Commun_Vide
+      m_Hash: 41657236
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 19
+  - m_Name: Jambe_Commun
+    m_Hash: 141487994
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Jambe_Commun_Neutre_G
+      m_Hash: 976802426
+      m_Sprite: {fileID: 6067244339814448478, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6067244339814448478, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Jambe_Commun_Neutre_D
+      m_Hash: 590447552
+      m_Sprite: {fileID: 1725101739743704377, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1725101739743704377, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Jambe_Commun_Plier_G
+      m_Hash: 202421656
+      m_Sprite: {fileID: 5145653577000950168, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5145653577000950168, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Jambe_Commun_Plier_D
+      m_Hash: 354018338
+      m_Sprite: {fileID: 4166462519903898618, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4166462519903898618, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Jambe_Commun_Tendu_G
+      m_Hash: 277048755
+      m_Sprite: {fileID: 312756635850073013, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 312756635850073013, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Jambe_Commun_Tendu_D
+      m_Hash: 160054281
+      m_Sprite: {fileID: -212500215206140827, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -212500215206140827, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Jambe_Commun_Discret_G
+      m_Hash: 55653086
+      m_Sprite: {fileID: 3048012180841502439, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3048012180841502439, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Jambe_Commun_Discret_
+      m_Hash: 232614262
+      m_Sprite: {fileID: -1799358394882244430, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1799358394882244430, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Jambe_Commun_vide
+      m_Hash: 896436720
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 9
+  - m_Name: Pied_Commun
+    m_Hash: 179084953
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Pied_Commun_Neutre_G
+      m_Hash: 293848363
+      m_Sprite: {fileID: -6232078699555026518, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6232078699555026518, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Neutre_D
+      m_Hash: 143299729
+      m_Sprite: {fileID: 7472121813964314883, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7472121813964314883, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Neutre_Arrondit_G
+      m_Hash: 716578201
+      m_Sprite: {fileID: 723156127962982280, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 723156127962982280, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Neutre_Arrondit_D
+      m_Hash: 868174883
+      m_Sprite: {fileID: 1470683151264395291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1470683151264395291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Plier_G
+      m_Hash: 475402440
+      m_Sprite: {fileID: 5036681260179110755, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5036681260179110755, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Plier_D
+      m_Hash: 90128754
+      m_Sprite: {fileID: 588101376835224067, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 588101376835224067, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Plier_Arrondit_G
+      m_Hash: 1009120043
+      m_Sprite: {fileID: 5382171470035654285, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5382171470035654285, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Plier_Arrondit_D
+      m_Hash: 623682193
+      m_Sprite: {fileID: 4807130877198419562, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4807130877198419562, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Plier_Tendu_G
+      m_Hash: 1018274691
+      m_Sprite: {fileID: 961911523804285793, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 961911523804285793, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Plier_Tendu_D
+      m_Hash: 632877625
+      m_Sprite: {fileID: 2415951051744187268, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2415951051744187268, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Pied_Commun_Vide
+      m_Hash: 842392799
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 11
+  - m_Name: Goblin_Tete
+    m_Hash: 732068278
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Goblin_Tete_Neutre
+      m_Hash: 1019002849
+      m_Sprite: {fileID: -6222206676434807120, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6222206676434807120, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Face
+      m_Hash: 649878220
+      m_Sprite: {fileID: 8844261046013734410, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8844261046013734410, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Degat_G
+      m_Hash: 368626469
+      m_Sprite: {fileID: -3024661387915527387, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3024661387915527387, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Degat_D
+      m_Hash: 217160351
+      m_Sprite: {fileID: 2568192049145128738, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2568192049145128738, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Aplatit
+      m_Hash: 365410008
+      m_Sprite: {fileID: 4140371643715105051, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4140371643715105051, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Nez_Neutre
+      m_Hash: 890550642
+      m_Sprite: {fileID: 8567503381368999993, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8567503381368999993, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Nez_Face
+      m_Hash: 292373674
+      m_Sprite: {fileID: -8910278863990849629, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8910278863990849629, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Nez_Degat_G
+      m_Hash: 1010278877
+      m_Sprite: {fileID: 2363660683200555657, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2363660683200555657, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Nez_Degat_D
+      m_Hash: 624881767
+      m_Sprite: {fileID: -5380200340818160725, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5380200340818160725, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Nez_Aplatit
+      m_Hash: 1007213600
+      m_Sprite: {fileID: -4841531860351043873, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4841531860351043873, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oeil_G
+      m_Hash: 173043104
+      m_Sprite: {fileID: 6463289998895048036, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6463289998895048036, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oeil_Aplatit_G
+      m_Hash: 382620827
+      m_Sprite: {fileID: -6442235410498139660, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6442235410498139660, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oeil_D
+      m_Hash: 324615194
+      m_Sprite: {fileID: -6572613045558951870, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6572613045558951870, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oeil_Aplatit_D
+      m_Hash: 264701217
+      m_Sprite: {fileID: 9104813283209329313, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9104813283209329313, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Puppile1_G
+      m_Hash: 205343653
+      m_Sprite: {fileID: 3274615123186179004, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3274615123186179004, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Puppile2_G
+      m_Hash: 243004924
+      m_Sprite: {fileID: 6201988071543873034, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6201988071543873034, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Puppile3_G
+      m_Hash: 263823307
+      m_Sprite: {fileID: -5443443397451046106, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5443443397451046106, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Puppile4_G
+      m_Hash: 183929166
+      m_Sprite: {fileID: -4174109253127203659, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4174109253127203659, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Puppile1_D
+      m_Hash: 355736095
+      m_Sprite: {fileID: -1437512312240972186, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1437512312240972186, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Puppile2_D
+      m_Hash: 393389126
+      m_Sprite: {fileID: 6284683711031363016, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6284683711031363016, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Puppile3_D
+      m_Hash: 380685937
+      m_Sprite: {fileID: 5389802929292618992, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5389802929292618992, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Puppile4_D
+      m_Hash: 335534324
+      m_Sprite: {fileID: 5824764147606603446, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5824764147606603446, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Arrondit1_Bas_G
+      m_Hash: 950010650
+      m_Sprite: {fileID: 804746300035217603, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 804746300035217603, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Arrondit1_Haut_G
+      m_Hash: 894644005
+      m_Sprite: {fileID: 7980882519748008250, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7980882519748008250, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Arrondit2_Bas_G
+      m_Hash: 155720071
+      m_Sprite: {fileID: 1144356763393613490, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1144356763393613490, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Arrondit2_Haut_G
+      m_Hash: 1004284102
+      m_Sprite: {fileID: -698800034102979006, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -698800034102979006, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Bas_G
+      m_Hash: 906507785
+      m_Sprite: {fileID: 4172556913897903772, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4172556913897903772, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Haut_G
+      m_Hash: 828622542
+      m_Sprite: {fileID: 6546917044506570079, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6546917044506570079, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Arrondit1_Bas_D
+      m_Hash: 564744864
+      m_Sprite: {fileID: 5695005739531386083, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5695005739531386083, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Arrondit1_Haut_D
+      m_Hash: 744128159
+      m_Sprite: {fileID: 7675682774417435091, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7675682774417435091, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Arrondit2_Bas_D
+      m_Hash: 272713789
+      m_Sprite: {fileID: 1515699958261502419, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1515699958261502419, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Arrondit2_Haut_D
+      m_Hash: 584415612
+      m_Sprite: {fileID: -5474837035594100121, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5474837035594100121, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Bas_D
+      m_Hash: 788621235
+      m_Sprite: {fileID: 3130459880105022108, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3130459880105022108, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Haut_D
+      m_Hash: 678074228
+      m_Sprite: {fileID: -1720986096039263768, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1720986096039263768, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oreille_Neutre_G
+      m_Hash: 112637276
+      m_Sprite: {fileID: -9034436114731286798, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9034436114731286798, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oreille_Face
+      m_Hash: 701472578
+      m_Sprite: {fileID: 5970691298395423974, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5970691298395423974, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oreille_Pointu1_G
+      m_Hash: 807083764
+      m_Sprite: {fileID: 2261603203363807436, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2261603203363807436, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oreille_Haut_G
+      m_Hash: 606170558
+      m_Sprite: {fileID: -1175545136283907101, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1175545136283907101, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oreille_Bas_G
+      m_Hash: 781061972
+      m_Sprite: {fileID: -9112415289202929311, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9112415289202929311, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oreille_Degat_G
+      m_Hash: 30604845
+      m_Sprite: {fileID: 2454611273065244380, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2454611273065244380, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Oreille_Neutre_D
+      m_Hash: 532669670
+      m_Sprite: {fileID: -4286778136466594128, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4286778136466594128, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: in_Tete_Oreille_Neutre2_D
+      m_Hash: 3581201
+      m_Sprite: {fileID: 8214850233413291059, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8214850233413291059, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Neutre
+      m_Hash: 409241709
+      m_Sprite: {fileID: 1350360639204338100, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1350360639204338100, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Sad
+      m_Hash: 964003576
+      m_Sprite: {fileID: -7953001916646024525, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7953001916646024525, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Rire1
+      m_Hash: 810297199
+      m_Sprite: {fileID: -6921332620614045309, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6921332620614045309, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Rire2
+      m_Hash: 692418261
+      m_Sprite: {fileID: 4700710485436502065, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4700710485436502065, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Gnia1
+      m_Hash: 830770865
+      m_Sprite: {fileID: -8127379193621968449, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8127379193621968449, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Gnia2
+      m_Hash: 680386315
+      m_Sprite: {fileID: 8088217847028272290, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8088217847028272290, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Enerver1
+      m_Hash: 581429229
+      m_Sprite: {fileID: 1014350683898671754, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1014350683898671754, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Enerver2
+      m_Hash: 1001305687
+      m_Sprite: {fileID: 6246097141513611004, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6246097141513611004, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Langue
+      m_Hash: 907400406
+      m_Sprite: {fileID: -6101760678151956697, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6101760678151956697, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Coup1
+      m_Hash: 979187216
+      m_Sprite: {fileID: 5343899269654329750, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5343899269654329750, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Coup2
+      m_Hash: 592734122
+      m_Sprite: {fileID: -4073095916200761545, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4073095916200761545, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Oooh1
+      m_Hash: 738682350
+      m_Sprite: {fileID: -4479367282943464925, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4479367282943464925, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Oooh2
+      m_Hash: 890123348
+      m_Sprite: {fileID: -2387179058902315984, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2387179058902315984, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Sifflement
+      m_Hash: 708622894
+      m_Sprite: {fileID: -8766747846638075180, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8766747846638075180, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_Bisous
+      m_Hash: 618370508
+      m_Sprite: {fileID: -5546455831929717079, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5546455831929717079, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Bouche_UWU
+      m_Hash: 624585477
+      m_Sprite: {fileID: -1699338991592521435, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1699338991592521435, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Vide
+      m_Hash: 938986028
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 59
+  - m_Name: Devil_Tete
+    m_Hash: 800306502
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Devil_Tete_Neutre
+      m_Hash: 738882194
+      m_Sprite: {fileID: 6116220914461328329, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6116220914461328329, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Face
+      m_Hash: 731600748
+      m_Sprite: {fileID: 3639265557743942607, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3639265557743942607, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Degat_G
+      m_Hash: 472145262
+      m_Sprite: {fileID: -5121978262628691183, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5121978262628691183, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Degat_D
+      m_Hash: 86838484
+      m_Sprite: {fileID: -3161482156687501227, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3161482156687501227, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Aplatit
+      m_Hash: 471539859
+      m_Sprite: {fileID: -2455673365934378437, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2455673365934378437, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Nez_Neutre
+      m_Hash: 564488441
+      m_Sprite: {fileID: 8196527094076704757, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8196527094076704757, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Oeil_G
+      m_Hash: 451322067
+      m_Sprite: {fileID: -2935998976115472869, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2935998976115472869, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Oeil_Aplatit_G
+      m_Hash: 482194322
+      m_Sprite: {fileID: -3646399326419760770, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3646399326419760770, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Oeil_D
+      m_Hash: 66056553
+      m_Sprite: {fileID: -8430705924618416706, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8430705924618416706, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Oeil_Aplatit_D
+      m_Hash: 95740456
+      m_Sprite: {fileID: 849183940475932612, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 849183940475932612, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Puppile1_G
+      m_Hash: 411867694
+      m_Sprite: {fileID: -7784937236536166136, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7784937236536166136, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Puppile2_G
+      m_Hash: 449455223
+      m_Sprite: {fileID: -7974790906043802765, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7974790906043802765, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Puppile3_G
+      m_Hash: 453529152
+      m_Sprite: {fileID: -5040903722834077936, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5040903722834077936, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Puppile4_G
+      m_Hash: 507992261
+      m_Sprite: {fileID: 7360469963826238394, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7360469963826238394, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Puppile1_D
+      m_Hash: 25545620
+      m_Sprite: {fileID: -5650712273438037385, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5650712273438037385, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Puppile2_D
+      m_Hash: 63141325
+      m_Sprite: {fileID: -3572600325398516427, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3572600325398516427, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Puppile3_D
+      m_Hash: 33628154
+      m_Sprite: {fileID: 6848512117168858884, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6848512117168858884, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Puppile4_D
+      m_Hash: 122554751
+      m_Sprite: {fileID: -3881487747305088300, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3881487747305088300, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Arrondit1_Bas_G
+      m_Hash: 273715780
+      m_Sprite: {fileID: 1988420238469977474, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1988420238469977474, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Arrondit1_Haut_G
+      m_Hash: 963158855
+      m_Sprite: {fileID: 5089435828433620291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5089435828433620291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Arrondit2_Bas_G
+      m_Hash: 565741785
+      m_Sprite: {fileID: 5089435828433620291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5089435828433620291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Arrondit2_Haut_G
+      m_Hash: 937927844
+      m_Sprite: {fileID: 5340608561465628242, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5340608561465628242, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Bas_G
+      m_Hash: 1014747392
+      m_Sprite: {fileID: -1898363024770779789, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1898363024770779789, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Haut_G
+      m_Hash: 141888909
+      m_Sprite: {fileID: 6883395965022502776, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6883395965022502776, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Tete_Paupiere_Arrondit1_Bas_D
+      m_Hash: 564744864
+      m_Sprite: {fileID: -6354031977036948446, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6354031977036948446, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Arrondit1_Haut_D
+      m_Hash: 543290109
+      m_Sprite: {fileID: -8999060779726692109, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8999060779726692109, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Arrondit2_Bas_D
+      m_Hash: 951179619
+      m_Sprite: {fileID: -3061480952558947803, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3061480952558947803, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Arrondit2_Haut_D
+      m_Hash: 787412254
+      m_Sprite: {fileID: -6925552880217638279, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6925552880217638279, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Bas_D
+      m_Hash: 628261050
+      m_Sprite: {fileID: -5323840794856070605, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5323840794856070605, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Paupiere_Haut_D
+      m_Hash: 293362743
+      m_Sprite: {fileID: -1182254165787560829, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1182254165787560829, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Corne_G
+      m_Hash: 362774885
+      m_Sprite: {fileID: -913565456923073502, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -913565456923073502, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Corne_D
+      m_Hash: 211210463
+      m_Sprite: {fileID: 4242830460951462693, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4242830460951462693, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Neutre
+      m_Hash: 289475484
+      m_Sprite: {fileID: -1681967625311539791, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1681967625311539791, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Face
+      m_Hash: 247312353
+      m_Sprite: {fileID: 5453933777018499718, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5453933777018499718, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Sad
+      m_Hash: 767842163
+      m_Sprite: {fileID: -5978366497328557650, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5978366497328557650, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Rire1
+      m_Hash: 435114012
+      m_Sprite: {fileID: 9132138990518767674, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9132138990518767674, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Rire2
+      m_Hash: 15073702
+      m_Sprite: {fileID: -6654472603488169144, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6654472603488169144, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Gnia
+      m_Hash: 14656298
+      m_Sprite: {fileID: 6566149400655394396, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6566149400655394396, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Gnia2
+      m_Hash: 19835000
+      m_Sprite: {fileID: -1895520321648721058, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1895520321648721058, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Langue
+      m_Hash: 1060132647
+      m_Sprite: {fileID: 5099746625985917441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5099746625985917441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Coup1
+      m_Hash: 335429987
+      m_Sprite: {fileID: 6895112446559131561, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6895112446559131561, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Coup2
+      m_Hash: 183963865
+      m_Sprite: {fileID: -6299531215310848941, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6299531215310848941, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Oooh1
+      m_Hash: 94638749
+      m_Sprite: {fileID: -3856487635485071618, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3856487635485071618, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Oooh2
+      m_Hash: 481116967
+      m_Sprite: {fileID: 1819459383228059610, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1819459383228059610, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Sifflement
+      m_Hash: 1038009542
+      m_Sprite: {fileID: 6457970839781707688, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6457970839781707688, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_Bisous
+      m_Hash: 771626557
+      m_Sprite: {fileID: 693377578147464189, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 693377578147464189, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Bouche_UWU
+      m_Hash: 831240846
+      m_Sprite: {fileID: -7801885782219020667, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7801885782219020667, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Tete_Vide
+      m_Hash: 986761100
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 48
+  - m_Name: Chevalier_Tete
+    m_Hash: 217884817
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Chevalier_Tete_knight_Neutre
+      m_Hash: 1005551102
+      m_Sprite: {fileID: -1051847777085631406, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1051847777085631406, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_knight_Degat_G
+      m_Hash: 414684434
+      m_Sprite: {fileID: 6222051515007079196, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6222051515007079196, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_knight_Degat_D
+      m_Hash: 29279400
+      m_Sprite: {fileID: 2624628841775853766, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2624628841775853766, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_knight_Aplatit
+      m_Hash: 411625711
+      m_Sprite: {fileID: -7801313128302312261, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7801313128302312261, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_knight_Neutre
+      m_Hash: 596627752
+      m_Sprite: {fileID: 357065393099667673, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 357065393099667673, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_knight_Face
+      m_Hash: 338019902
+      m_Sprite: {fileID: -2130665231789103801, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2130665231789103801, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_knight_Degat_G
+      m_Hash: 933200479
+      m_Sprite: {fileID: 3367269737158659996, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3367269737158659996, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_knight_Degat_D
+      m_Hash: 781636581
+      m_Sprite: {fileID: -7637029995326440773, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7637029995326440773, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_knight_Degat_Aplatit
+      m_Hash: 361888578
+      m_Sprite: {fileID: -6420853315678715668, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6420853315678715668, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Alarme_Neutre
+      m_Hash: 523702689
+      m_Sprite: {fileID: -8299529962623465346, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8299529962623465346, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Alarme_Degat_G
+      m_Hash: 596050203
+      m_Sprite: {fileID: 1218233467299580224, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1218233467299580224, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Alarme_Degat_D
+      m_Hash: 982405281
+      m_Sprite: {fileID: 1970441618246011504, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1970441618246011504, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Alarme_Aplatit
+      m_Hash: 599293158
+      m_Sprite: {fileID: 1803049624986866577, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1803049624986866577, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_UWU_Neutre
+      m_Hash: 262623633
+      m_Sprite: {fileID: -4326921594016822161, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4326921594016822161, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_UWU_Face
+      m_Hash: 577650715
+      m_Sprite: {fileID: -8722826391108382252, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8722826391108382252, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_UWU_Degat_G
+      m_Hash: 97427959
+      m_Sprite: {fileID: -6963624553040364747, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6963624553040364747, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_UWU_Degat_D
+      m_Hash: 482865229
+      m_Sprite: {fileID: -2823446863508904882, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2823446863508904882, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_UWU_Aplatit
+      m_Hash: 99736586
+      m_Sprite: {fileID: 7648054958760132187, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7648054958760132187, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_UWU_Neutre
+      m_Hash: 4392767
+      m_Sprite: {fileID: -4318684622891293657, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4318684622891293657, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_UWU_Face
+      m_Hash: 54198935
+      m_Sprite: {fileID: -6378565276526321396, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6378565276526321396, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_UWU_Degat_G
+      m_Hash: 883936078
+      m_Sprite: {fileID: -5425800026840449616, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5425800026840449616, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_UWU_Degat_D
+      m_Hash: 765893364
+      m_Sprite: {fileID: -8700617295490172212, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8700617295490172212, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_UWU_Aplatit
+      m_Hash: 881899187
+      m_Sprite: {fileID: 4886547034790368933, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4886547034790368933, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Gardien_Neutre
+      m_Hash: 962813356
+      m_Sprite: {fileID: 4589113201211816797, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4589113201211816797, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Gardien_Face
+      m_Hash: 856514144
+      m_Sprite: {fileID: -6498424837787580753, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6498424837787580753, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Gardien_Degat_G
+      m_Hash: 495987178
+      m_Sprite: {fileID: 7985221682024647323, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7985221682024647323, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Gardien_Degat_D
+      m_Hash: 77166672
+      m_Sprite: {fileID: 919290838519502496, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 919290838519502496, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Gardien_Aplatit
+      m_Hash: 498029591
+      m_Sprite: {fileID: -4709005808629687677, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4709005808629687677, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_Gardien_Neutre
+      m_Hash: 374033121
+      m_Sprite: {fileID: -6036928476319402616, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6036928476319402616, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_Gardien_Face
+      m_Hash: 25244706
+      m_Sprite: {fileID: 4524401859792758064, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4524401859792758064, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_Gardien_Degat_G
+      m_Hash: 361905360
+      m_Sprite: {fileID: -4887886645430015146, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4887886645430015146, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_Gardien_Degat_D
+      m_Hash: 211512682
+      m_Sprite: {fileID: 6463322283936572614, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6463322283936572614, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Visiere_Gardien_Aplatit
+      m_Hash: 363675949
+      m_Sprite: {fileID: -6758902258810690939, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6758902258810690939, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Oeil_G
+      m_Hash: 246936878
+      m_Sprite: {fileID: 1072055441854863883, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1072055441854863883, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Oeil_Aplatit_G
+      m_Hash: 58705472
+      m_Sprite: {fileID: -2824907205961756516, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2824907205961756516, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Oeil_D
+      m_Hash: 398369940
+      m_Sprite: {fileID: -4357673623374537610, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4357673623374537610, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Oeil_Aplatit_D
+      m_Hash: 443979770
+      m_Sprite: {fileID: -2865257562520507040, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2865257562520507040, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Puppile1_G
+      m_Hash: 156320247
+      m_Sprite: {fileID: 7497774330345566014, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7497774330345566014, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Puppile2_G
+      m_Hash: 186122158
+      m_Sprite: {fileID: 5572456195331118838, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5572456195331118838, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Puppile3_G
+      m_Hash: 181769625
+      m_Sprite: {fileID: 3364141334083073590, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3364141334083073590, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Puppile4_G
+      m_Hash: 261784348
+      m_Sprite: {fileID: 3704403139345212060, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3704403139345212060, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Puppile1_D
+      m_Hash: 274206797
+      m_Sprite: {fileID: 1552258466005084292, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1552258466005084292, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Puppile2_D
+      m_Hash: 304000532
+      m_Sprite: {fileID: 841688649033163123, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 841688649033163123, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Puppile3_D
+      m_Hash: 333235235
+      m_Sprite: {fileID: -3456871668672504074, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3456871668672504074, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Puppile4_D
+      m_Hash: 378786470
+      m_Sprite: {fileID: -3843726953095893143, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3843726953095893143, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Arrondit1_Bas_G
+      m_Hash: 412477383
+      m_Sprite: {fileID: -8402511417812505197, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8402511417812505197, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Arrondit1_Haut_G
+      m_Hash: 227652776
+      m_Sprite: {fileID: -1808828106509728238, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1808828106509728238, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Arrondit2_Bas_G
+      m_Hash: 696122714
+      m_Sprite: {fileID: -5271841190726746112, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5271841190726746112, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Arrondit2_Haut_G
+      m_Hash: 52343627
+      m_Sprite: {fileID: 3682099018063039872, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3682099018063039872, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Bas_G
+      m_Hash: 599368914
+      m_Sprite: {fileID: -391352238082178952, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -391352238082178952, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Haut_G
+      m_Hash: 548895744
+      m_Sprite: {fileID: 2692984826962002994, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2692984826962002994, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Arrondit1_Bas_D
+      m_Hash: 27047549
+      m_Sprite: {fileID: -5089997182923264611, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5089997182923264611, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Arrondit1_Haut_D
+      m_Hash: 345564434
+      m_Sprite: {fileID: -2543441051948961852, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2543441051948961852, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Arrondit2_Bas_D
+      m_Hash: 812952800
+      m_Sprite: {fileID: 2360921577354117657, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2360921577354117657, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Arrondit2_Haut_D
+      m_Hash: 437773041
+      m_Sprite: {fileID: -8275689024215682128, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8275689024215682128, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Bas_D
+      m_Hash: 984675688
+      m_Sprite: {fileID: 5605407612067553246, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5605407612067553246, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_Paupiere_Haut_D
+      m_Hash: 968764858
+      m_Sprite: {fileID: 182496186825778435, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 182496186825778435, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Tete_knight_Vide
+      m_Hash: 873413735
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 58
+  - m_Name: Poisson_Tete
+    m_Hash: 188353123
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Poisson_Tete_Neutre
+      m_Hash: 312571838
+      m_Sprite: {fileID: 8517871745479561767, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8517871745479561767, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Face
+      m_Hash: 148776824
+      m_Sprite: {fileID: 2888998640451923564, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2888998640451923564, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Degat_G
+      m_Hash: 780311176
+      m_Sprite: {fileID: 3053413732896739518, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3053413732896739518, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Degat_D
+      m_Hash: 931908402
+      m_Sprite: {fileID: 73630126356364182, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 73630126356364182, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Aplatit
+      m_Hash: 784197493
+      m_Sprite: {fileID: -2269873226460050800, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2269873226460050800, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Machoire_Neutre
+      m_Hash: 307552806
+      m_Sprite: {fileID: -3271620058884494746, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3271620058884494746, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Machoire_Face
+      m_Hash: 93332343
+      m_Sprite: {fileID: 9163918924808261672, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9163918924808261672, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Machoire_Degat_G
+      m_Hash: 282489963
+      m_Sprite: {fileID: -5685950060299537643, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5685950060299537643, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Machoire_Degat_D
+      m_Hash: 165619153
+      m_Sprite: {fileID: -8961617393911169641, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8961617393911169641, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Machoire_Aplatit
+      m_Hash: 283707798
+      m_Sprite: {fileID: -5124511819639672945, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5124511819639672945, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Dent_Neutre
+      m_Hash: 1043013361
+      m_Sprite: {fileID: -806938092515070085, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -806938092515070085, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Dent_Face
+      m_Hash: 806540158
+      m_Sprite: {fileID: 3077190038462641298, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3077190038462641298, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Dent_Degat_G
+      m_Hash: 135089376
+      m_Sprite: {fileID: 5017044646061090058, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5017044646061090058, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Dent_Degat_
+      m_Hash: 790347052
+      m_Sprite: {fileID: -4591423543955814605, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4591423543955814605, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Dent_Aplatit
+      m_Hash: 137507101
+      m_Sprite: {fileID: 5285126503638031605, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5285126503638031605, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Oeil_G
+      m_Hash: 609068543
+      m_Sprite: {fileID: 4335274863608285530, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4335274863608285530, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Oeil_D
+      m_Hash: 1027929157
+      m_Sprite: {fileID: 1382152884398887028, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1382152884398887028, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Arrondit1_Bas_G
+      m_Hash: 527941663
+      m_Sprite: {fileID: -6102255488322796638, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6102255488322796638, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Arrondit1_Haut_G
+      m_Hash: 94243945
+      m_Sprite: {fileID: 6212492826442205412, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6212492826442205412, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Arrondit2_Bas_G
+      m_Hash: 782228098
+      m_Sprite: {fileID: 3818496117880214969, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3818496117880214969, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Arrondit2_Haut_G
+      m_Hash: 185666442
+      m_Sprite: {fileID: -4281782363977919137, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4281782363977919137, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Bas_G
+      m_Hash: 899888701
+      m_Sprite: {fileID: 8515835668571232883, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8515835668571232883, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Haut_G
+      m_Hash: 282368379
+      m_Sprite: {fileID: 207463525302364614, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 207463525302364614, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Arrondit1_Bas_D
+      m_Hash: 108958117
+      m_Sprite: {fileID: 7122646845057043000, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7122646845057043000, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Arrondit1_Haut_D
+      m_Hash: 479682003
+      m_Sprite: {fileID: 4039043820464705509, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4039043820464705509, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Arrondit2_Bas_D
+      m_Hash: 932612920
+      m_Sprite: {fileID: 2730898122508017686, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2730898122508017686, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Arrondit2_Haut_D
+      m_Hash: 303585840
+      m_Sprite: {fileID: -5328869067090763881, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5328869067090763881, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Bas_D
+      m_Hash: 749365127
+      m_Sprite: {fileID: -2305672110816559855, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2305672110816559855, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Paupiere_Haut_D
+      m_Hash: 165529793
+      m_Sprite: {fileID: -8778956592840813655, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8778956592840813655, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Tete_Vide
+      m_Hash: 429242264
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 30
+  - m_Name: Costume_Chapeau
+    m_Hash: 189537569
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Goblin_Chapeau_Francais_Beret
+      m_Hash: 368457948
+      m_Sprite: {fileID: -9208132601808059390, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9208132601808059390, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Francais_Moustache
+      m_Hash: 253973171
+      m_Sprite: {fileID: -3415121569341314131, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3415121569341314131, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Sac_Neutre
+      m_Hash: 431679857
+      m_Sprite: {fileID: 1003287048180629374, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1003287048180629374, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Sac_Degat_G
+      m_Hash: 621960759
+      m_Sprite: {fileID: 2652716650207937562, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2652716650207937562, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Sac_Degat_D
+      m_Hash: 1008406413
+      m_Sprite: {fileID: -8107369789850539749, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8107369789850539749, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Princesse_Courone
+      m_Hash: 117596075
+      m_Sprite: {fileID: -2237946951719168441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2237946951719168441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Princesse_Cyle_G
+      m_Hash: 62548111
+      m_Sprite: {fileID: -1561338830905705803, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1561338830905705803, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Princesse_Cyle_D
+      m_Hash: 447953205
+      m_Sprite: {fileID: -2945133864284092194, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2945133864284092194, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Princesse_Oeil_G
+      m_Hash: 694622666
+      m_Sprite: {fileID: 425833136179549353, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 425833136179549353, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Princesse_Oeil_D
+      m_Hash: 812533872
+      m_Sprite: {fileID: -846898102115408391, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -846898102115408391, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Chapeau_Princesse_Boucle
+      m_Hash: 802265467
+      m_Sprite: {fileID: -5482374393193785464, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5482374393193785464, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Dodo_Bave
+      m_Hash: 642762323
+      m_Sprite: {fileID: 2381570399534237836, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2381570399534237836, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Dodo_Chausette_G
+      m_Hash: 682278374
+      m_Sprite: {fileID: -918628528323109167, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -918628528323109167, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Dodo_Chausette_D
+      m_Hash: 832826460
+      m_Sprite: {fileID: 1012120003438253642, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1012120003438253642, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cagole_Cheveux1
+      m_Hash: 523977993
+      m_Sprite: {fileID: -6378013969599420304, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6378013969599420304, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cagole_Cheveux2
+      m_Hash: 103945395
+      m_Sprite: {fileID: 2257496516317694428, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2257496516317694428, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cagole_Cyle_G
+      m_Hash: 34701760
+      m_Sprite: {fileID: 922265746714394892, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 922265746714394892, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cagole_Cyle_D
+      m_Hash: 454611066
+      m_Sprite: {fileID: -5385544203795998095, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5385544203795998095, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cyclope_Corne
+      m_Hash: 357176671
+      m_Sprite: {fileID: -8921070946177042998, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8921070946177042998, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cyclope_Oeil
+      m_Hash: 522974918
+      m_Sprite: {fileID: 6854587934111134295, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6854587934111134295, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cyclope_Aplatit
+      m_Hash: 221812379
+      m_Sprite: {fileID: 1403848287188828464, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1403848287188828464, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cyclope_Puppile1
+      m_Hash: 416321940
+      m_Sprite: {fileID: -4698643701334180261, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4698643701334180261, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cyclope_Puppile2
+      m_Hash: 31047726
+      m_Sprite: {fileID: 3241844729737895727, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3241844729737895727, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cyclope_Puppile3
+      m_Hash: 920580280
+      m_Sprite: {fileID: -8919347565020637100, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8919347565020637100, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Cyclope_Puppile4
+      m_Hash: 683304219
+      m_Sprite: {fileID: 1526007466769854638, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1526007466769854638, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Paupiere_Arrondit1_Bas
+      m_Hash: 160177500
+      m_Sprite: {fileID: 7854440381543268388, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7854440381543268388, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Paupiere_Arrondit1_Haut
+      m_Hash: 513379464
+      m_Sprite: {fileID: 8584832216404915065, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8584832216404915065, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Paupiere_Arrondit2_Bas
+      m_Hash: 237791116
+      m_Sprite: {fileID: -7171576389332936209, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7171576389332936209, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Paupiere_Arrondit2_Haut
+      m_Hash: 403570214
+      m_Sprite: {fileID: 7093409850269465917, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7093409850269465917, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Paupiere_Bas
+      m_Hash: 1054671971
+      m_Sprite: {fileID: -5416517377785685836, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5416517377785685836, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Chapeau_Paupiere_Haut
+      m_Hash: 680063148
+      m_Sprite: {fileID: 1507977557133680402, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1507977557133680402, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Chapeau_knight_Bout1
+      m_Hash: 785900280
+      m_Sprite: {fileID: -3570645370205737319, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3570645370205737319, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Chapeau_knight_Bout2
+      m_Hash: 937341762
+      m_Sprite: {fileID: 5319702200678594679, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5319702200678594679, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Chapeau_knight_Plume
+      m_Hash: 289715457
+      m_Sprite: {fileID: 5810616762366295125, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5810616762366295125, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Chapeau_Gardien_Barbelet1
+      m_Hash: 94885636
+      m_Sprite: {fileID: -6265192599093916717, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6265192599093916717, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Chapeau_Gardien_Barbelet2
+      m_Hash: 481199806
+      m_Sprite: {fileID: 4776216296399865197, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4776216296399865197, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Chapeau_Gardien_Barbelet3
+      m_Hash: 732542504
+      m_Sprite: {fileID: -5828050658750866459, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5828050658750866459, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Nagoire
+      m_Hash: 767720705
+      m_Sprite: {fileID: 1598217019048912566, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1598217019048912566, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Nagoire_Face
+      m_Hash: 364148025
+      m_Sprite: {fileID: -7841359693088314142, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7841359693088314142, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Moustache_G
+      m_Hash: 325913302
+      m_Sprite: {fileID: 2422095378707889737, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2422095378707889737, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Moustache_D
+      m_Hash: 174349164
+      m_Sprite: {fileID: 5851079796165749448, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5851079796165749448, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Gothique_cheveau1
+      m_Hash: 790473461
+      m_Sprite: {fileID: 8402668537939774970, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8402668537939774970, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Gothique_cheveau2
+      m_Hash: 907344719
+      m_Sprite: {fileID: -5088899989189303108, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5088899989189303108, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Gothique_Levre1
+      m_Hash: 54578063
+      m_Sprite: {fileID: -3569651537614552953, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3569651537614552953, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Gothique_Levre2
+      m_Hash: 441031221
+      m_Sprite: {fileID: -3367286761611261048, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3367286761611261048, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Gothique_Maquillage_G
+      m_Hash: 928490400
+      m_Sprite: {fileID: -4825198413533002836, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4825198413533002836, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Gothique_Maquillage_D
+      m_Hash: 777974298
+      m_Sprite: {fileID: -1000006683627436040, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1000006683627436040, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Baudroie_Lanterne
+      m_Hash: 78470740
+      m_Sprite: {fileID: 977657733355971834, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 977657733355971834, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Baudroie_Dent_Neutre
+      m_Hash: 13149217
+      m_Sprite: {fileID: -6637483512704979358, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6637483512704979358, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Baudroie_Dent_Face
+      m_Hash: 890552673
+      m_Sprite: {fileID: 137905492664161155, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 137905492664161155, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Baudroie_Dent_Degat_G
+      m_Hash: 249593230
+      m_Sprite: {fileID: 7224071822875324490, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7224071822875324490, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Baudroie_Dent_Degat_D
+      m_Hash: 401157172
+      m_Sprite: {fileID: -4639302703873538763, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4639302703873538763, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Baudroie_Dent_Aplatit
+      m_Hash: 249495667
+      m_Sprite: {fileID: -2999154925590677722, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2999154925590677722, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Baudroie_Oeil_G
+      m_Hash: 421348956
+      m_Sprite: {fileID: -5175657549135875412, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5175657549135875412, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Baudroie_Oeil_D
+      m_Hash: 1316838
+      m_Sprite: {fileID: 3019838776715395282, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3019838776715395282, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Neutre
+      m_Hash: 17028841
+      m_Sprite: {fileID: -1786529713003564707, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1786529713003564707, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Face
+      m_Hash: 272343055
+      m_Sprite: {fileID: 5056506340016183944, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5056506340016183944, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Degat_G
+      m_Hash: 463404158
+      m_Sprite: {fileID: -5648638563498726544, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5648638563498726544, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Degat_D
+      m_Hash: 43494852
+      m_Sprite: {fileID: 5116768982928508431, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5116768982928508431, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Aplatit
+      m_Hash: 463569283
+      m_Sprite: {fileID: -7837140972259468914, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7837140972259468914, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Machoire_Neutre
+      m_Hash: 938908665
+      m_Sprite: {fileID: 6665353300322315343, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6665353300322315343, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Machoire_Face
+      m_Hash: 971571842
+      m_Sprite: {fileID: 3263462456967790226, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3263462456967790226, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Machoire_Degat_G
+      m_Hash: 111090007
+      m_Sprite: {fileID: 6486150149542341979, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6486150149542341979, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Machoire_Degat_D
+      m_Hash: 529942765
+      m_Sprite: {fileID: 2490118427288399644, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2490118427288399644, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Machoire_Aplatit
+      m_Hash: 111174826
+      m_Sprite: {fileID: -7311895923750862220, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7311895923750862220, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Dent_Neutre
+      m_Hash: 987544534
+      m_Sprite: {fileID: -3534731355969505430, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3534731355969505430, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Dent_Face
+      m_Hash: 371565620
+      m_Sprite: {fileID: -7089323813058940847, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7089323813058940847, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Dent_Degat_G
+      m_Hash: 767757870
+      m_Sprite: {fileID: 5628410488813357151, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5628410488813357151, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Dent_Degat_D
+      m_Hash: 885677972
+      m_Sprite: {fileID: 2499362264109967533, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2499362264109967533, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Dent_Aplatit
+      m_Hash: 771519443
+      m_Sprite: {fileID: 6208841021225707441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6208841021225707441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Nagoire
+      m_Hash: 622116157
+      m_Sprite: {fileID: -7002382708169292031, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7002382708169292031, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Oeil_G
+      m_Hash: 938411176
+      m_Sprite: {fileID: -5434509044646915378, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5434509044646915378, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Chapeau_Requin_Oeil_D
+      m_Hash: 786846994
+      m_Sprite: {fileID: 2420187541684947010, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2420187541684947010, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chapeau_Vide
+      m_Hash: 435605194
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 74
+  - m_Name: Costume_Torse
+    m_Hash: 410140316
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Goblin_Costume_Francais_Neutre
+      m_Hash: 503290219
+      m_Sprite: {fileID: -6600737738161325325, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6600737738161325325, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Francais_Tacle
+      m_Hash: 616154001
+      m_Sprite: {fileID: -5000464959328677300, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5000464959328677300, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Francais_Degat_G
+      m_Hash: 406118973
+      m_Sprite: {fileID: 1955402965141400759, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1955402965141400759, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Francais_Dagt_D
+      m_Hash: 532138344
+      m_Sprite: {fileID: -515075573043234972, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -515075573043234972, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Francais_Aplatit
+      m_Hash: 403414976
+      m_Sprite: {fileID: -5080034002176339006, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5080034002176339006, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Dobby_Neutre
+      m_Hash: 864345232
+      m_Sprite: {fileID: -4909930822216159521, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4909930822216159521, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Dobby_Tacle
+      m_Hash: 737262060
+      m_Sprite: {fileID: 8798575021006509204, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8798575021006509204, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Dobby_Degat_G
+      m_Hash: 846574316
+      m_Sprite: {fileID: -8046153325268718587, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8046153325268718587, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Dobby_Degat_D
+      m_Hash: 729604950
+      m_Sprite: {fileID: 4231446343742970139, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4231446343742970139, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Dobby_Aplatit
+      m_Hash: 843763473
+      m_Sprite: {fileID: 1143449471390969904, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1143449471390969904, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Tuttu_Neutre
+      m_Hash: 285241912
+      m_Sprite: {fileID: 7750860120737360659, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7750860120737360659, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Tuttu_Tacle
+      m_Hash: 388302117
+      m_Sprite: {fileID: -987945327614635349, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -987945327614635349, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Tuttu_Degat_G
+      m_Hash: 714743192
+      m_Sprite: {fileID: -9216743757500444132, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9216743757500444132, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Tuttu_Degat_D
+      m_Hash: 865291298
+      m_Sprite: {fileID: 4879090182403356741, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4879090182403356741, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Tuttu_Aplatit
+      m_Hash: 715481189
+      m_Sprite: {fileID: 4133614846439614703, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4133614846439614703, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Ailes_Neutre
+      m_Hash: 687480945
+      m_Sprite: {fileID: 5797535159572952238, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5797535159572952238, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Ailes_Tacle
+      m_Hash: 835708972
+      m_Sprite: {fileID: 4022222067592547646, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4022222067592547646, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Ailes_Degat_G
+      m_Hash: 635641598
+      m_Sprite: {fileID: -639734247869242526, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -639734247869242526, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Ailes_Degat_D
+      m_Hash: 1021988676
+      m_Sprite: {fileID: -8379064811671227137, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8379064811671227137, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Ailes_Aplatit
+      m_Hash: 635200259
+      m_Sprite: {fileID: 5061290060918236612, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5061290060918236612, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Dodo_Neutre
+      m_Hash: 594031858
+      m_Sprite: {fileID: -5093739747617260037, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5093739747617260037, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Dodo_Tacle
+      m_Hash: 40429468
+      m_Sprite: {fileID: -3046256154127918692, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3046256154127918692, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Dodo_Degat_G
+      m_Hash: 295263856
+      m_Sprite: {fileID: 131101969853894553, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 131101969853894553, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Dodo_Degat_D
+      m_Hash: 143658954
+      m_Sprite: {fileID: -7099603607136768819, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7099603607136768819, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Dodo_Aplatit
+      m_Hash: 296100749
+      m_Sprite: {fileID: -391598479709189713, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -391598479709189713, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Pupute_Neutre
+      m_Hash: 27363271
+      m_Sprite: {fileID: 2994552953305190340, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2994552953305190340, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Pupute_Tacle
+      m_Hash: 866240085
+      m_Sprite: {fileID: -6247492572354270692, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6247492572354270692, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Pupute_Degat_G
+      m_Hash: 130569184
+      m_Sprite: {fileID: 2787398143464281763, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2787398143464281763, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Pupute_Degat_D
+      m_Hash: 515965530
+      m_Sprite: {fileID: 6120946259837718767, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6120946259837718767, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Pupute_Aplatit
+      m_Hash: 133639709
+      m_Sprite: {fileID: -8448583394896495674, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8448583394896495674, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Chemise_Neutre
+      m_Hash: 796588261
+      m_Sprite: {fileID: -4859855112615026505, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4859855112615026505, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Chemise_Tacle
+      m_Hash: 483616040
+      m_Sprite: {fileID: -6551271703023958189, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6551271703023958189, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Chemise_Degat_G
+      m_Hash: 310823291
+      m_Sprite: {fileID: 5533216321885965079, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5533216321885965079, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Chemise_Degat_D
+      m_Hash: 193960129
+      m_Sprite: {fileID: 5276237316727293841, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5276237316727293841, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Chemise_Aplatit
+      m_Hash: 314160262
+      m_Sprite: {fileID: 1317970940141254684, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1317970940141254684, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Blessure_Neutre
+      m_Hash: 307272205
+      m_Sprite: {fileID: -5369827093577030571, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5369827093577030571, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Blessure_Tacle
+      m_Hash: 825179303
+      m_Sprite: {fileID: -670574518925786239, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -670574518925786239, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Blessure_Degat_G
+      m_Hash: 1009420627
+      m_Sprite: {fileID: -7779618387190193780, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7779618387190193780, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Blessure_Degat_D
+      m_Hash: 623106281
+      m_Sprite: {fileID: -6445887230622202653, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6445887230622202653, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Blessure_Aplatit
+      m_Hash: 1008071854
+      m_Sprite: {fileID: -8494195417235978596, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8494195417235978596, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Neutre
+      m_Hash: 615075876
+      m_Sprite: {fileID: 5990952059850051776, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5990952059850051776, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Face
+      m_Hash: 1047375031
+      m_Sprite: {fileID: 8169198914377029291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8169198914377029291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Tacle
+      m_Hash: 834883186
+      m_Sprite: {fileID: -6421653489929794288, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6421653489929794288, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Degat_G
+      m_Hash: 1047455989
+      m_Sprite: {fileID: -5351235829267712340, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5351235829267712340, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Degat_D
+      m_Hash: 661109071
+      m_Sprite: {fileID: 4641379937596676955, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4641379937596676955, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Aplatit
+      m_Hash: 1045533960
+      m_Sprite: {fileID: -1141996126100607880, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1141996126100607880, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_froufrou_Neutre
+      m_Hash: 508096439
+      m_Sprite: {fileID: 4105207121307051001, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4105207121307051001, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_froufrou_Face
+      m_Hash: 241689665
+      m_Sprite: {fileID: -6896290608982546086, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6896290608982546086, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_froufrou_Tacle
+      m_Hash: 623710995
+      m_Sprite: {fileID: 2308715938927026227, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2308715938927026227, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_froufrou_Degat_G
+      m_Hash: 391302068
+      m_Sprite: {fileID: 2764808865027626504, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2764808865027626504, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_froufrou_Degat_D
+      m_Hash: 240884238
+      m_Sprite: {fileID: 859169518608234099, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 859169518608234099, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_froufrou_Aplatit
+      m_Hash: 393066057
+      m_Sprite: {fileID: 921419717621648489, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 921419717621648489, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Tablier_Neutre
+      m_Hash: 504208969
+      m_Sprite: {fileID: 7185240866226958045, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7185240866226958045, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Tablier_Degat_G
+      m_Hash: 232215006
+      m_Sprite: {fileID: -6364136093795244216, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6364136093795244216, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Tablier_Degat_D
+      m_Hash: 350093412
+      m_Sprite: {fileID: 4746659984503911223, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4746659984503911223, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Tablier_Aplatit
+      m_Hash: 233319459
+      m_Sprite: {fileID: -5164457443419197793, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5164457443419197793, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Neutre
+      m_Hash: 254888287
+      m_Sprite: {fileID: 3234913554661224429, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3234913554661224429, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Tacle
+      m_Hash: 42713378
+      m_Sprite: {fileID: 901326017873410017, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 901326017873410017, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Degat_G
+      m_Hash: 970119256
+      m_Sprite: {fileID: -8730337515833358366, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8730337515833358366, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Degat_D
+      m_Hash: 551258594
+      m_Sprite: {fileID: -4827231173526336386, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4827231173526336386, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Aplatit
+      m_Hash: 971875749
+      m_Sprite: {fileID: -7895738032639619559, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7895738032639619559, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Marin_Neutre
+      m_Hash: 241808821
+      m_Sprite: {fileID: -1694825170813324151, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1694825170813324151, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Marin_Tacle
+      m_Hash: 504187785
+      m_Sprite: {fileID: 7273401005890906935, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7273401005890906935, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Marin_Degat_G
+      m_Hash: 961317826
+      m_Sprite: {fileID: 2463369742812989286, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2463369742812989286, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Marin_Degat_D
+      m_Hash: 541448824
+      m_Sprite: {fileID: -2746676134645387806, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2746676134645387806, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Marin_Aplatit
+      m_Hash: 963900991
+      m_Sprite: {fileID: 8134762948414964494, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8134762948414964494, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Marin_Capuche
+      m_Hash: 919545893
+      m_Sprite: {fileID: -2299416063366783880, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2299416063366783880, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Emo_Neutre
+      m_Hash: 604679353
+      m_Sprite: {fileID: -3147380483074042146, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3147380483074042146, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Emo_Tacle
+      m_Hash: 676560397
+      m_Sprite: {fileID: -2894735642453027960, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2894735642453027960, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Emo_Degat_G
+      m_Hash: 806397168
+      m_Sprite: {fileID: -4665553236912338585, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4665553236912338585, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Emo_Degat_D
+      m_Hash: 689567050
+      m_Sprite: {fileID: -4985943289460318374, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4985943289460318374, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Emo_Aplatit
+      m_Hash: 808442125
+      m_Sprite: {fileID: 2999877965951465090, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2999877965951465090, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Plonger_Neutre
+      m_Hash: 70024985
+      m_Sprite: {fileID: 8774152731623313450, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8774152731623313450, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Plonger_Tacle
+      m_Hash: 459915271
+      m_Sprite: {fileID: -8940128532193873316, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8940128532193873316, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Plonger_Degat_G
+      m_Hash: 640033227
+      m_Sprite: {fileID: 3127501934446420057, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3127501934446420057, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Plonger_Degat_D
+      m_Hash: 1060073585
+      m_Sprite: {fileID: -2852731118494922114, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2852731118494922114, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Plonger_Aplatit
+      m_Hash: 639196214
+      m_Sprite: {fileID: 7020650761421968535, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7020650761421968535, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Plonger_Bouteille
+      m_Hash: 745984189
+      m_Sprite: {fileID: 8699312254771239611, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8699312254771239611, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Costume_Torse_vide
+      m_Hash: 334245174
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 79
+  - m_Name: Costume_Epaule
+    m_Hash: 727857644
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Chevalier_Costume_Epaule_G
+      m_Hash: 866956546
+      m_Sprite: {fileID: -2721759316111295814, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2721759316111295814, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Epaule_D
+      m_Hash: 715515064
+      m_Sprite: {fileID: 460469408555650486, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 460469408555650486, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Epaule_Beau_G
+      m_Hash: 119165471
+      m_Sprite: {fileID: 2419815966912290871, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2419815966912290871, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Epaule_Beau_D
+      m_Hash: 504562597
+      m_Sprite: {fileID: 394627664315261114, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 394627664315261114, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Epaule_Light1_G
+      m_Hash: 657525438
+      m_Sprite: {fileID: 1287402928710238612, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1287402928710238612, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Epaule_Light1_D
+      m_Hash: 1043880708
+      m_Sprite: {fileID: -3169025747809747985, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3169025747809747985, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Epaule_Light2_G
+      m_Hash: 628602087
+      m_Sprite: {fileID: 1369604077589679963, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1369604077589679963, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Epaule_Light2_D
+      m_Hash: 1014949213
+      m_Sprite: {fileID: 7297004608910800668, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7297004608910800668, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Costume_Epaule_Vide
+      m_Hash: 267375419
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 9
+  - m_Name: Costume_Main
+    m_Hash: 499164343
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Devil_Main_Costume_Neutre1_G
+      m_Hash: 63330704
+      m_Sprite: {fileID: -7451200858608334322, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7451200858608334322, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Neutre1_D
+      m_Hash: 449775658
+      m_Sprite: {fileID: -1011180963137682528, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1011180963137682528, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Neutre2_G
+      m_Hash: 25225161
+      m_Sprite: {fileID: -2543486642607578887, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2543486642607578887, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Neutre2_D
+      m_Hash: 411678323
+      m_Sprite: {fileID: -58649613166450615, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -58649613166450615, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Ouvert1_G
+      m_Hash: 968984481
+      m_Sprite: {fileID: -2273023094609812728, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2273023094609812728, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Ouvert1_D
+      m_Hash: 550032923
+      m_Sprite: {fileID: -7533770917403463894, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7533770917403463894, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Ouvert2_G
+      m_Hash: 998717944
+      m_Sprite: {fileID: 4935107933885852573, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4935107933885852573, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Ouvert2_D
+      m_Hash: 579758146
+      m_Sprite: {fileID: 7525027159850793887, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7525027159850793887, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Poing2_G
+      m_Hash: 815673839
+      m_Sprite: {fileID: 7464557904708509261, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7464557904708509261, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Poing2_D
+      m_Hash: 697786453
+      m_Sprite: {fileID: -4405173262609060625, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4405173262609060625, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Pointer_G
+      m_Hash: 162254277
+      m_Sprite: {fileID: -7006098715428995250, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7006098715428995250, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Pointer_D
+      m_Hash: 279092351
+      m_Sprite: {fileID: 6761186025013603119, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6761186025013603119, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Peace_G
+      m_Hash: 586765491
+      m_Sprite: {fileID: 8705013436109028669, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8705013436109028669, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Peace_D
+      m_Hash: 1005585673
+      m_Sprite: {fileID: -4701730586227430555, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4701730586227430555, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Rock_G
+      m_Hash: 467906846
+      m_Sprite: {fileID: 7961300888520449796, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7961300888520449796, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Main_Costume_Rock_D
+      m_Hash: 48947364
+      m_Sprite: {fileID: -5177632019138188138, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5177632019138188138, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Neutre1_G
+      m_Hash: 719951614
+      m_Sprite: {fileID: -1914191461536480928, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1914191461536480928, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Neutre1_D
+      m_Hash: 870369092
+      m_Sprite: {fileID: 6099621328493948584, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6099621328493948584, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Neutre2_G
+      m_Hash: 682567847
+      m_Sprite: {fileID: -5682169551486125787, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5682169551486125787, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Neutre2_D
+      m_Hash: 832993565
+      m_Sprite: {fileID: 1981433328853867726, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1981433328853867726, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Poing1_G
+      m_Hash: 565817946
+      m_Sprite: {fileID: -4469281523060536617, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4469281523060536617, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Poing1_D
+      m_Hash: 951116768
+      m_Sprite: {fileID: 6526603844314856153, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6526603844314856153, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Poing2_G
+      m_Hash: 603917315
+      m_Sprite: {fileID: -416544072821922669, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -416544072821922669, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Poing2_D
+      m_Hash: 989224377
+      m_Sprite: {fileID: 7801439837188194925, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7801439837188194925, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Ouvert1_G
+      m_Hash: 284051663
+      m_Sprite: {fileID: 7503807592433253598, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7503807592433253598, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Ouvert1_D
+      m_Hash: 166140277
+      m_Sprite: {fileID: 635159057451284749, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 635159057451284749, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Ouvert2_G
+      m_Hash: 313063062
+      m_Sprite: {fileID: -6201704639747959556, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6201704639747959556, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Ouvert2_D
+      m_Hash: 195143468
+      m_Sprite: {fileID: -7711556560995277998, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7711556560995277998, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Pointer_G
+      m_Hash: 545522347
+      m_Sprite: {fileID: 2014319652540110518, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2014319652540110518, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Pointer_D
+      m_Hash: 965563153
+      m_Sprite: {fileID: 5482510656572137856, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5482510656572137856, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Peace_G
+      m_Hash: 171648318
+      m_Sprite: {fileID: 1078773025725713372, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1078773025725713372, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Peace_D
+      m_Hash: 322073732
+      m_Sprite: {fileID: -7943246846394624966, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7943246846394624966, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Rock_G
+      m_Hash: 69321932
+      m_Sprite: {fileID: 2933405722633583445, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2933405722633583445, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Rock_D
+      m_Hash: 489198966
+      m_Sprite: {fileID: 1008278128077773694, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1008278128077773694, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Neutre1_Gardien_G
+      m_Hash: 449442389
+      m_Sprite: {fileID: -1560362426052378739, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1560362426052378739, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Neutre1_Gardien_D
+      m_Hash: 62956527
+      m_Sprite: {fileID: -1560362426052378739, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1560362426052378739, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Neutre2_Gardien_G
+      m_Hash: 53187668
+      m_Sprite: {fileID: 6943336148132408043, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6943336148132408043, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Neutre2_Gardien_D
+      m_Hash: 438486510
+      m_Sprite: {fileID: -2946124863886031290, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2946124863886031290, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Poing1_Gardien_G
+      m_Hash: 747726595
+      m_Sprite: {fileID: -805209602109734745, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -805209602109734745, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Poing1_Gardien_D
+      m_Hash: 899167929
+      m_Sprite: {fileID: -3386615794802696292, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3386615794802696292, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Poing2_Gardien_G
+      m_Hash: 896729346
+      m_Sprite: {fileID: -8069410890499887657, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8069410890499887657, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Poing2_Gardien_D
+      m_Hash: 746213560
+      m_Sprite: {fileID: -1731540178517351623, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1731540178517351623, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Ouvert1_Gardien_G
+      m_Hash: 104141176
+      m_Sprite: {fileID: -984023074759616928, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -984023074759616928, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Ouvert1_Gardien_D
+      m_Hash: 524042434
+      m_Sprite: {fileID: -8260036208862767045, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8260036208862767045, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Ouvert2_Gardien_G
+      m_Hash: 534214521
+      m_Sprite: {fileID: 7711062702285927041, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7711062702285927041, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Ouvert2_Gardien_D
+      m_Hash: 115222211
+      m_Sprite: {fileID: -6667787925999151806, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6667787925999151806, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Pointer_Gardien_G
+      m_Hash: 575822333
+      m_Sprite: {fileID: 5790205733716898849, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5790205733716898849, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Pointer_Gardien_D
+      m_Hash: 995821639
+      m_Sprite: {fileID: 563289318989625026, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 563289318989625026, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Peace_Gardien_G
+      m_Hash: 114334372
+      m_Sprite: {fileID: 398854043831953679, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 398854043831953679, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Peace_Gardien_D
+      m_Hash: 534367006
+      m_Sprite: {fileID: 913185810662451953, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 913185810662451953, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Rock_Gardien_G
+      m_Hash: 466084837
+      m_Sprite: {fileID: -6059461399455741185, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6059461399455741185, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Main_Costume_Rock_Gardien_D
+      m_Hash: 47100511
+      m_Sprite: {fileID: -1334318973763960984, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1334318973763960984, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Neutre1_G
+      m_Hash: 910299223
+      m_Sprite: {fileID: 5363642448340562393, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5363642448340562393, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Neutre1_D
+      m_Hash: 793461229
+      m_Sprite: {fileID: 9103285879717620325, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9103285879717620325, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Neutre2_G
+      m_Hash: 872721934
+      m_Sprite: {fileID: -3755103325758211562, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3755103325758211562, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Neutre2_D
+      m_Hash: 755892148
+      m_Sprite: {fileID: -5555133131846524854, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5555133131846524854, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Poing1_G
+      m_Hash: 643725579
+      m_Sprite: {fileID: 903716219262794381, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 903716219262794381, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Poing1_D
+      m_Hash: 1062676657
+      m_Sprite: {fileID: -5399123967272387912, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5399123967272387912, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Poing2_G
+      m_Hash: 605603666
+      m_Sprite: {fileID: 93256752734952750, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 93256752734952750, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Poing2_D
+      m_Hash: 1024562920
+      m_Sprite: {fileID: 3865833846513042732, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3865833846513042732, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Ouvert1_G
+      m_Hash: 205901414
+      m_Sprite: {fileID: -7159099998187336956, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7159099998187336956, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Ouvert1_D
+      m_Hash: 357343196
+      m_Sprite: {fileID: -2213046093953056702, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2213046093953056702, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Ouvert2_G
+      m_Hash: 235106367
+      m_Sprite: {fileID: 8241999998896644351, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8241999998896644351, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Ouvert2_D
+      m_Hash: 386539909
+      m_Sprite: {fileID: -702641788807562572, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -702641788807562572, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Pointer_G
+      m_Hash: 1009746946
+      m_Sprite: {fileID: -8391645633476794330, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8391645633476794330, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Pointer_D
+      m_Hash: 623302072
+      m_Sprite: {fileID: 3937460568607706297, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3937460568607706297, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Peace_G
+      m_Hash: 978894917
+      m_Sprite: {fileID: 4595258281521410359, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4595258281521410359, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Peace_D
+      m_Hash: 592548351
+      m_Sprite: {fileID: -408682136238514089, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -408682136238514089, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Rock_G
+      m_Hash: 305878563
+      m_Sprite: {fileID: -5997941839004183984, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5997941839004183984, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Main_Costume_Rock_D
+      m_Hash: 187828121
+      m_Sprite: {fileID: -55087394052466200, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -55087394052466200, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 70
+  - m_Name: Costume_Bras
+    m_Hash: 807161625
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Devil_Bras_Costume_Dodo_Haut_G
+      m_Hash: 307105586
+      m_Sprite: {fileID: 8277757769656422166, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8277757769656422166, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Bras_Costume_Dodo_Haut_D
+      m_Hash: 189226632
+      m_Sprite: {fileID: -4750232877234974502, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4750232877234974502, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Bras_Costume_Dodo_Bas_G
+      m_Hash: 952817793
+      m_Sprite: {fileID: 3494644944970378255, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3494644944970378255, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Bras_Costume_Dodo_Bas_D
+      m_Hash: 566462779
+      m_Sprite: {fileID: 6799696643809521595, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6799696643809521595, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Bras_Costume_Emo_Haut_G
+      m_Hash: 197411037
+      m_Sprite: {fileID: 3952437911639925650, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3952437911639925650, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Bras_Costume_Emo_Haut_D
+      m_Hash: 315429223
+      m_Sprite: {fileID: -7692374679834097857, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7692374679834097857, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Bras_Costume_Emo_Bas_G
+      m_Hash: 28844285
+      m_Sprite: {fileID: 1849258836715822348, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1849258836715822348, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Bras_Costume_Emo_Bas_D
+      m_Hash: 414282055
+      m_Sprite: {fileID: 4659757764268505965, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4659757764268505965, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Costume_Bras_Vide
+      m_Hash: 1036823256
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Baguette
+      m_Hash: 502934558
+      m_Sprite: {fileID: -5201216615019438376, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5201216615019438376, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 10
+  - m_Name: Costume_Bassin
+    m_Hash: 1071610125
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Goblin_Costume_Bassin_Tribal_Neutre
+      m_Hash: 483017030
+      m_Sprite: {fileID: -2281841961868426753, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2281841961868426753, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Bassin_Tribal_Degat_G
+      m_Hash: 489327504
+      m_Sprite: {fileID: 2296553985033427552, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2296553985033427552, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Bassin_Tribal_Degat_D
+      m_Hash: 69458474
+      m_Sprite: {fileID: 2477781281782417581, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2477781281782417581, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Goblin_Costume_Bassin_Tribal_Nombril
+      m_Hash: 568939632
+      m_Sprite: {fileID: -774858362521855557, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -774858362521855557, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Bassin_Neutre
+      m_Hash: 251522531
+      m_Sprite: {fileID: -274707489762373435, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -274707489762373435, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Bassin_Tacle
+      m_Hash: 809087222
+      m_Sprite: {fileID: -7578844239630281110, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7578844239630281110, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Bassin_Degat_G
+      m_Hash: 998566747
+      m_Sprite: {fileID: 4068878025284242167, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4068878025284242167, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Bassin_Degat_D
+      m_Hash: 579713761
+      m_Sprite: {fileID: 67081516455470385, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 67081516455470385, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Costume_Bassin_Aplatit
+      m_Hash: 1002149542
+      m_Sprite: {fileID: -698254316680794758, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -698254316680794758, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Bassin_Slip_Neutre
+      m_Hash: 59875921
+      m_Sprite: {fileID: 7471817269090398143, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7471817269090398143, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Bassin_Slip_Tacle
+      m_Hash: 823934076
+      m_Sprite: {fileID: -7701731516480003087, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7701731516480003087, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Bassin_Slip_Degat_G
+      m_Hash: 518411700
+      m_Sprite: {fileID: 8082447076494869623, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8082447076494869623, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Bassin_Slip_Degat_D
+      m_Hash: 133104654
+      m_Sprite: {fileID: 6281549684999047744, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6281549684999047744, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Bassin_Slip_Aplatit
+      m_Hash: 517548105
+      m_Sprite: {fileID: 2356065612724737929, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2356065612724737929, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Bassin_Neutre
+      m_Hash: 444275550
+      m_Sprite: {fileID: -2714972521905413118, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2714972521905413118, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Bassin_Tacle
+      m_Hash: 681059328
+      m_Sprite: {fileID: -3128303253271910253, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3128303253271910253, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Bassin_Degat_G
+      m_Hash: 234922652
+      m_Sprite: {fileID: 5650305314383857038, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5650305314383857038, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Bassin_Degat_D
+      m_Hash: 386528038
+      m_Sprite: {fileID: 8675558255270934571, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8675558255270934571, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Costume_Bassin_Aplatit
+      m_Hash: 239066977
+      m_Sprite: {fileID: 6532790795731597897, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6532790795731597897, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Bassin_Ceinture
+      m_Hash: 474999653
+      m_Sprite: {fileID: -426430250849385160, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -426430250849385160, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Costume_Bassin_Vide
+      m_Hash: 303992954
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 21
+  - m_Name: Costume_Queu
+    m_Hash: 988856796
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Devil_Queu_Dodo
+      m_Hash: 281750705
+      m_Sprite: {fileID: -5947725400604313712, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5947725400604313712, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Queu_Puppute
+      m_Hash: 103633286
+      m_Sprite: {fileID: -602168819984348471, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -602168819984348471, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Costume_Queu_Vide
+      m_Hash: 5380731
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Queu
+      m_Hash: 170251632
+      m_Sprite: {fileID: 4553875541752818187, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4553875541752818187, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Costume_Jambe
+    m_Hash: 601794321
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Devil_Jambe_Costume_Neutre_G
+      m_Hash: 937144891
+      m_Sprite: {fileID: -8272726881682195728, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8272726881682195728, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Neutre_D
+      m_Hash: 785572737
+      m_Sprite: {fileID: -512668700081436340, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -512668700081436340, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Plier_G
+      m_Hash: 35310098
+      m_Sprite: {fileID: -2484669526721308606, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2484669526721308606, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Plier_D
+      m_Hash: 454269864
+      m_Sprite: {fileID: 3874206171013360789, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3874206171013360789, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Tendu_G
+      m_Hash: 512299577
+      m_Sprite: {fileID: 3180194897993378687, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3180194897993378687, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Tendu_D
+      m_Hash: 125846403
+      m_Sprite: {fileID: 6946786747658382340, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6946786747658382340, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Discret_G
+      m_Hash: 42442936
+      m_Sprite: {fileID: 6874134859487996081, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6874134859487996081, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Discret_
+      m_Hash: 4065591
+      m_Sprite: {fileID: 7713914137143305903, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7713914137143305903, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Dodo_Neutre_G
+      m_Hash: 692977747
+      m_Sprite: {fileID: 5697858108109316366, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5697858108109316366, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Dodo_Neutre_D
+      m_Hash: 809980393
+      m_Sprite: {fileID: -7782387203189729033, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7782387203189729033, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Dodo_Plier_G
+      m_Hash: 859635989
+      m_Sprite: {fileID: -3745343574094341421, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3745343574094341421, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Dodo_Plier_D
+      m_Hash: 708071599
+      m_Sprite: {fileID: 3291282669225135953, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3291282669225135953, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Dodo_Tendu_G
+      m_Hash: 799988030
+      m_Sprite: {fileID: 4865583304939070600, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4865583304939070600, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Dodo_Tendu_D
+      m_Hash: 916949124
+      m_Sprite: {fileID: -8631500118762382043, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8631500118762382043, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Dodo_Discret_G
+      m_Hash: 24173664
+      m_Sprite: {fileID: -8705754699987491013, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8705754699987491013, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Dodo_Discret_
+      m_Hash: 514571103
+      m_Sprite: {fileID: 1446626057368199010, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1446626057368199010, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Puppute_Neutre_G
+      m_Hash: 219166762
+      m_Sprite: {fileID: -9119759748542699705, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9119759748542699705, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Puppute_Neutre_D
+      m_Hash: 337209744
+      m_Sprite: {fileID: -5198465738588181556, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5198465738588181556, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Puppute_Plier_G
+      m_Hash: 1019286899
+      m_Sprite: {fileID: -561748852314357578, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -561748852314357578, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Puppute_Plier_D
+      m_Hash: 633881801
+      m_Sprite: {fileID: 1789067980381112135, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1789067980381112135, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Puppute_Tendu_G
+      m_Hash: 542297432
+      m_Sprite: {fileID: 6034241076524981140, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6034241076524981140, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Puppute_Tendu_D
+      m_Hash: 962305250
+      m_Sprite: {fileID: 7946359856365524285, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7946359856365524285, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Puppute_Discret_G
+      m_Hash: 671960000
+      m_Sprite: {fileID: 5665878396189281237, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5665878396189281237, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Jambe_Costume_Puppute_Discret_
+      m_Hash: 989168422
+      m_Sprite: {fileID: 3285240675994448683, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3285240675994448683, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Jambe_Sangle_G
+      m_Hash: 129419736
+      m_Sprite: {fileID: -5198563059136591120, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5198563059136591120, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Costume_Jambe_Sangle_D
+      m_Hash: 515872866
+      m_Sprite: {fileID: -819410107941148915, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -819410107941148915, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Gardien_Neutre_G
+      m_Hash: 661871458
+      m_Sprite: {fileID: 7288948990306955521, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7288948990306955521, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Gardien_Neutre_D
+      m_Hash: 1048185560
+      m_Sprite: {fileID: -7302427955627629706, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7302427955627629706, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Gardien_Plier_G
+      m_Hash: 367919645
+      m_Sprite: {fileID: 7781446208491800116, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7781446208491800116, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Gardien_Plier_D
+      m_Hash: 216486823
+      m_Sprite: {fileID: -1185522745402437291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1185522745402437291, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Gardien_Tendu_G
+      m_Hash: 159242806
+      m_Sprite: {fileID: -6727955176870597973, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6727955176870597973, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Gardien_Tendu_D
+      m_Hash: 276073356
+      m_Sprite: {fileID: -8914131642687529974, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8914131642687529974, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Gardien_Discret_G
+      m_Hash: 278978817
+      m_Sprite: {fileID: -92858764532718669, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -92858764532718669, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Gardien_Discret_D
+      m_Hash: 162115771
+      m_Sprite: {fileID: 3655814349587774123, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3655814349587774123, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Slip_G
+      m_Hash: 1070516387
+      m_Sprite: {fileID: -2586807161444834841, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2586807161444834841, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Jambe_Costume_Slip_D
+      m_Hash: 650615065
+      m_Sprite: {fileID: -7646379711853661123, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7646379711853661123, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Emo_Neutre_G
+      m_Hash: 877974737
+      m_Sprite: {fileID: -6369071845571601746, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6369071845571601746, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Emo_Neutre_D
+      m_Hash: 761103723
+      m_Sprite: {fileID: -6963851495585322495, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6963851495585322495, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Emo_Plier_G
+      m_Hash: 1000221840
+      m_Sprite: {fileID: 1707255561710794468, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1707255561710794468, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Emo_Plier_D
+      m_Hash: 580353322
+      m_Sprite: {fileID: -2172189520680435593, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2172189520680435593, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Emo_Tendu_G
+      m_Hash: 655226043
+      m_Sprite: {fileID: -4969762261845210717, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4969762261845210717, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Emo_Tendu_D
+      m_Hash: 1040491777
+      m_Sprite: {fileID: 6850581953445354145, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6850581953445354145, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Emo_Discret_G
+      m_Hash: 39527608
+      m_Sprite: {fileID: -8960365670057130182, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8960365670057130182, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Emo_Discret_D
+      m_Hash: 458388738
+      m_Sprite: {fileID: -7298053416023519604, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7298053416023519604, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Plongeur_G
+      m_Hash: 50401863
+      m_Sprite: {fileID: 7529259878743456203, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7529259878743456203, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Jambe_Costume_Plongeur_D
+      m_Hash: 436749309
+      m_Sprite: {fileID: 2053718626396748529, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2053718626396748529, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Costume_Jambe_Vide
+      m_Hash: 642341948
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 47
+  - m_Name: Costume_Pied
+    m_Hash: 1036049503
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Devil_Pied_Costume_Neutre1_G
+      m_Hash: 321580536
+      m_Sprite: {fileID: -3774006312076998038, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3774006312076998038, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Neutre1_D
+      m_Hash: 170114114
+      m_Sprite: {fileID: 1373309715524961544, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1373309715524961544, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Neutre2_G
+      m_Hash: 292311969
+      m_Sprite: {fileID: -4162296841203192211, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4162296841203192211, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Neutre2_D
+      m_Hash: 140837403
+      m_Sprite: {fileID: 1792667350277260743, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1792667350277260743, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Dodo1_G
+      m_Hash: 143880178
+      m_Sprite: {fileID: -7835061153761886962, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7835061153761886962, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Dodo1_D
+      m_Hash: 295321160
+      m_Sprite: {fileID: 828053264255235646, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 828053264255235646, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Dodo2_G
+      m_Hash: 181785003
+      m_Sprite: {fileID: -8515441179420264529, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8515441179420264529, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Dodo2_D
+      m_Hash: 333217809
+      m_Sprite: {fileID: -1785183704868128875, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1785183704868128875, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Pupute1_G
+      m_Hash: 498551954
+      m_Sprite: {fileID: 5570709274604905996, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5570709274604905996, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Pupute1_D
+      m_Hash: 79568168
+      m_Sprite: {fileID: 7742809107149924136, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7742809107149924136, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Pupute2_G
+      m_Hash: 535950027
+      m_Sprite: {fileID: -3543189452956687285, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3543189452956687285, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Pupute2_D
+      m_Hash: 116958065
+      m_Sprite: {fileID: -2962850063948305701, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2962850063948305701, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Sandale_G
+      m_Hash: 488482879
+      m_Sprite: {fileID: -2210171822145997841, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2210171822145997841, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Devil_Pied_Costume_Sandale_D
+      m_Hash: 68483461
+      m_Sprite: {fileID: 6838088047343164950, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6838088047343164950, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Neutre_G
+      m_Hash: 845954538
+      m_Sprite: {fileID: 6731625394776381104, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6731625394776381104, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Neutre_D
+      m_Hash: 728067152
+      m_Sprite: {fileID: 5639748544547637868, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5639748544547637868, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Neutre_Arrondit_G
+      m_Hash: 213695167
+      m_Sprite: {fileID: 3168366629335285097, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3168366629335285097, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Neutre_Arrondit_D
+      m_Hash: 364243717
+      m_Sprite: {fileID: -2806365564522680639, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2806365564522680639, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Plier_G
+      m_Hash: 279298880
+      m_Sprite: {fileID: 6710803412395098829, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6710803412395098829, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Plier_D
+      m_Hash: 162304762
+      m_Sprite: {fileID: -8115611495790040106, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8115611495790040106, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Plier_Arrondit_G
+      m_Hash: 366924900
+      m_Sprite: {fileID: 8445116033882493554, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8445116033882493554, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Plier_Arrondit_D
+      m_Hash: 215451102
+      m_Sprite: {fileID: 2968925646217098180, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2968925646217098180, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Plier_Tendu_G
+      m_Hash: 1023109906
+      m_Sprite: {fileID: -3918061234578407058, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3918061234578407058, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Plier_Tendu_D
+      m_Hash: 636631720
+      m_Sprite: {fileID: 5183455063334557152, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5183455063334557152, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Chaussette_Neutre_G
+      m_Hash: 89074617
+      m_Sprite: {fileID: -4949166243761632410, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4949166243761632410, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Chaussette_Neutre_D
+      m_Hash: 474380803
+      m_Sprite: {fileID: -1667125285271883196, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1667125285271883196, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Neutre_Chaussette_Arrondit_G
+      m_Hash: 962142082
+      m_Sprite: {fileID: -6075148190764350151, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6075148190764350151, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Neutre_Chaussette_Arrondit_D
+      m_Hash: 542133816
+      m_Sprite: {fileID: -78806568235892376, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -78806568235892376, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Chaussette_Plier_G
+      m_Hash: 730357931
+      m_Sprite: {fileID: -3767576287264254482, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3767576287264254482, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Chaussette_Plier_D
+      m_Hash: 847327505
+      m_Sprite: {fileID: 7664335668988430347, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7664335668988430347, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Plier_Chaussette_Arrondit_G
+      m_Hash: 408109638
+      m_Sprite: {fileID: 428262942859784140, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 428262942859784140, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Chaussette_Plier_Arrondit_D
+      m_Hash: 21613313
+      m_Sprite: {fileID: 4047769989974821570, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4047769989974821570, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Chaussette_Plier_Tendu_G
+      m_Hash: 473337543
+      m_Sprite: {fileID: 3900916702292825519, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3900916702292825519, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Chaussette_Plier_Tendu_D
+      m_Hash: 88072061
+      m_Sprite: {fileID: 5544852500958588324, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5544852500958588324, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Gardien_Neutre_G
+      m_Hash: 430619707
+      m_Sprite: {fileID: 6294880939014016281, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6294880939014016281, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Gardien_Neutre_D
+      m_Hash: 10743169
+      m_Sprite: {fileID: -6047311315761269507, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6047311315761269507, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Gardien_Neutre_Arrondit_G
+      m_Hash: 205988125
+      m_Sprite: {fileID: 3274647225261300661, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3274647225261300661, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Gardien_Neutre_Arrondit_D
+      m_Hash: 357462183
+      m_Sprite: {fileID: 7295526471559405282, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7295526471559405282, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Gardien_Plier_G
+      m_Hash: 119098223
+      m_Sprite: {fileID: 6115136007531251470, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6115136007531251470, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Gardien_Plier_D
+      m_Hash: 504371925
+      m_Sprite: {fileID: 9033931502630264648, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9033931502630264648, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Gardien_Plier_Arrondit_G
+      m_Hash: 827199630
+      m_Sprite: {fileID: 7665370022703481146, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7665370022703481146, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Gardien_Plier_Arrondit_D
+      m_Hash: 675758388
+      m_Sprite: {fileID: 929324309204850252, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 929324309204850252, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Plier_Gardien_Tendu_G
+      m_Hash: 566203619
+      m_Sprite: {fileID: 2885997855213738923, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2885997855213738923, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chevalier_Pied_Costume_Plier_Gardien_Tendu_D
+      m_Hash: 951502169
+      m_Sprite: {fileID: 3195978652532789841, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3195978652532789841, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Emo_Neutre_G
+      m_Hash: 1019363490
+      m_Sprite: {fileID: 3610216933292628155, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3610216933292628155, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Emo_Neutre_D
+      m_Hash: 634065176
+      m_Sprite: {fileID: 1430743027742641674, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1430743027742641674, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Emo_Neutre_Arrondit_G
+      m_Hash: 1013275854
+      m_Sprite: {fileID: 7783751765256119823, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7783751765256119823, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Emo_Neutre_Arrondit_D
+      m_Hash: 627838324
+      m_Sprite: {fileID: 2418785738570002396, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2418785738570002396, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Emo_Plier_G
+      m_Hash: 979099554
+      m_Sprite: {fileID: 3038908680761815019, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3038908680761815019, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Emo_Plier_D
+      m_Hash: 592612888
+      m_Sprite: {fileID: 928561489164907916, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 928561489164907916, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Emo_Plier_Arrondit_G
+      m_Hash: 650914401
+      m_Sprite: {fileID: -2239093650955443088, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2239093650955443088, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Emo_Plier_Arrondit_D
+      m_Hash: 1069906907
+      m_Sprite: {fileID: -444541955153815092, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -444541955153815092, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Plier_Emo_Tendu_G
+      m_Hash: 351690255
+      m_Sprite: {fileID: -1308397535498717423, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1308397535498717423, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Plier_Emo_Tendu_D
+      m_Hash: 234819509
+      m_Sprite: {fileID: 5548841830309057838, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5548841830309057838, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Marin_Neutre_G
+      m_Hash: 24925380
+      m_Sprite: {fileID: -2046538749512176126, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2046538749512176126, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Marin_Neutre_D
+      m_Hash: 410322302
+      m_Sprite: {fileID: 4099172986749081790, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4099172986749081790, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Marin_Neutre_Arrondit_G
+      m_Hash: 591641535
+      m_Sprite: {fileID: -5214950197356628811, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5214950197356628811, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Marin_Neutre_Arrondit_D
+      m_Hash: 977988101
+      m_Sprite: {fileID: -608987735624850934, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -608987735624850934, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Marin_Plier_G
+      m_Hash: 484077255
+      m_Sprite: {fileID: 1862067450291800874, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1862067450291800874, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Marin_Plier_D
+      m_Hash: 97730429
+      m_Sprite: {fileID: 6149927380610886037, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6149927380610886037, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Marin_Plier_Arrondit_G
+      m_Hash: 447231410
+      m_Sprite: {fileID: 1851178413082480263, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1851178413082480263, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Marin_Plier_Arrondit_D
+      m_Hash: 60908552
+      m_Sprite: {fileID: 7174569186219401106, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7174569186219401106, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Plier_Marin_Tendu_G
+      m_Hash: 1059525199
+      m_Sprite: {fileID: 4798414693939055254, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4798414693939055254, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Poisson_Pied_Costume_Plier_Marin_Tendu_D
+      m_Hash: 640566261
+      m_Sprite: {fileID: -1791293489003607731, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1791293489003607731, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Costume_Pied_Vide
+      m_Hash: 884472674
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 65
+  - m_Name: Chouchou
+    m_Hash: 530905723
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: ChouChou
+      m_Hash: 1066816837
+      m_Sprite: {fileID: -706084002711627973, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -706084002711627973, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - m_Name: Chouchou_Vide
+      m_Hash: 498788509
+      m_Sprite: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3143388882175024441, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  m_PrimaryLibraryGUID: 
