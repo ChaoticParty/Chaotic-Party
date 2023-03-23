@@ -23,6 +23,19 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
     [SerializeField] public bool isMinigamelaunched;
     private static readonly int Begin = Animator.StringToHash("Begin");
     [HideInInspector] public UnityEvent onLoadMiniGame;
+    [FoldoutGroup("Scene Objects")]
+    [FoldoutGroup("Scene Objects/Colorisation"), SceneObjectsOnly]
+    public List<SpriteRendererListWrapper> miniGameObjectsToColorise = new();
+    [FoldoutGroup("Scene Objects/Colorisation"), SceneObjectsOnly]
+    public List<SpriteRendererListWrapper> cinematicObjectsToColorise = new();
+
+    protected virtual void Start()
+    {
+        if (miniGameObjectsToColorise.Count > 0)
+        {
+            ColoriseMiniGameObjects();
+        }
+    }
 
     public virtual void LoadMiniGame()
     {
@@ -103,6 +116,28 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
         }
     }
 
+    #region Colorisation
+
+    public void ColoriseMiniGameObjects(List<PlayerSO> playerSos)
+    {
+        ColoriseObjectsAccordingToPlayers(playerSos, miniGameObjectsToColorise);
+    }
+
+    public void ColoriseMiniGameObjects()
+    {
+        ColoriseObjectsAccordingToPlayers(PlayerControllersToPlayerSos(players), miniGameObjectsToColorise);
+    }
+
+    public void ColoriseCinematicObjects(List<PlayerSO> playerSos)
+    {
+        ColoriseObjectsAccordingToPlayers(playerSos, cinematicObjectsToColorise);
+    }
+
+    public void ColoriseCinematicObjects()
+    {
+        ColoriseObjectsAccordingToPlayers(PlayerControllersToPlayerSos(players), cinematicObjectsToColorise);
+    }
+
     protected void ColoriseObjectsAccordingToPlayers(List<PlayerSO> playerSos, List<SpriteRendererListWrapper> objectsToColorise)
     {
         for (int i = 0; i < playerSos.Count; i++)
@@ -126,6 +161,8 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
             }
         }
     }
+
+    #endregion
 
     protected List<PlayerController> RankingToList()
     {

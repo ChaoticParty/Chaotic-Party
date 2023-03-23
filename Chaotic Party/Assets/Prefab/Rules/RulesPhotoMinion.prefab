@@ -167,9 +167,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Alternez A et B pour avancer.\nNe vous trompez pas de pieds !\n\nFaites
-    attention au Cerb\xE8re, s'il se r\xE9veille pendant que vous bougez, vous pouvez
-    dire adieu \xE0 votre avanc\xE9e !"
+  m_text: "Sautez avec A, taclez les autres joueurs avec X, emb\xEAtez vous les uns
+    les autres.\n\nPrenez une photo avec l'overlord!\nPlus vous serez proches de
+    lui lorsque la photo est prise, plus vous gagnerez de points !"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: babd2d6c0aa843c4c88e23d2f6cf6c9c, type: 2}
   m_sharedMaterial: {fileID: 8457833345536110924, guid: babd2d6c0aa843c4c88e23d2f6cf6c9c, type: 2}
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5.85
+  m_fontSize: 5.35
   m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -332,7 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3649756619254001277}
   m_Layer: 0
-  m_Name: Rules123Nuit
+  m_Name: RulesPhotoMinion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
