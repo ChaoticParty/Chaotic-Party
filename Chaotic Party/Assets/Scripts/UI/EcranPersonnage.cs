@@ -35,14 +35,12 @@ public class EcranPersonnage : MonoBehaviour
     [SerializeField] private Image corpsIMG;
     [SerializeField] private List<GameObject> listIndicNavCorpsGO = new List<GameObject>();
     [Space]
-    [SerializeField] private List<GameObject> listIndicNavColor = new List<GameObject>();
-    [SerializeField] private List<GameObject> listIndicSelectedColor = new List<GameObject>();
-    [SerializeField] private GameObject lockBlancGO;
-    [SerializeField] private GameObject lockVertGO;
-    [SerializeField] private GameObject lockVioletGO;
-    [SerializeField] private GameObject lockRougeGO;
-    [SerializeField] private GameObject lockOrangeGO;
-    [SerializeField] private GameObject lockJauneGO;
+    [SerializeField] private List<Image> listIndicNavColor = new List<Image>();
+    [SerializeField] private List<Sprite> listBaseColorSpt = new List<Sprite>();
+    [SerializeField] private List<Sprite> listSelectedColorSpt = new List<Sprite>();
+    [SerializeField] private GameObject colorLayout;
+    [SerializeField] private Image bigColor;
+    [SerializeField] private List<Sprite> listBigColorSpt;
     [Space]
     [SerializeField] private GameObject indicNavReadyGO;
 
@@ -183,13 +181,16 @@ public class EcranPersonnage : MonoBehaviour
                 enumCusto = Custo.CORPS;
                 foreach (var objects in listIndicNavColor)
                 {
-                    objects.SetActive(false);
+                    objects.sprite = listBaseColorSpt[listIndicNavColor.IndexOf(objects)];
                 }
                 
                 foreach (var item in listIndicNavCorpsGO)
                 {
                     item.transform.rotation = Quaternion.Euler(0,0,10 * item.transform.localScale.x);
                 }
+                
+                colorLayout.SetActive(false);
+                bigColor.enabled = true;
                 break;
             case Custo.READY:
                 enumCusto = Custo.COULEUR;
@@ -197,24 +198,27 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        listIndicNavColor[0].SetActive(true);
+                        listIndicNavColor[0].sprite = listSelectedColorSpt[0];
                         break;
                     case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(true);
+                        listIndicNavColor[1].sprite = listSelectedColorSpt[1];
                         break;
                     case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(true);
+                        listIndicNavColor[2].sprite = listSelectedColorSpt[2];
                         break;
                     case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(true);
+                        listIndicNavColor[3].sprite = listSelectedColorSpt[3];
                         break;
                     case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(true);
+                        listIndicNavColor[4].sprite = listSelectedColorSpt[4];
                         break;
                     case ColorEnum.JAUNE:
-                        listIndicNavColor[5].SetActive(true);
+                        listIndicNavColor[5].sprite = listSelectedColorSpt[5];
                         break;
                 }
+                
+                colorLayout.SetActive(true);
+                bigColor.enabled = false;
                 break;
         }
     }
@@ -275,49 +279,38 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        listIndicNavColor[0].SetActive(true);
+                        listIndicNavColor[0].sprite = listSelectedColorSpt[0];
                         break;
                     case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(true);
+                        listIndicNavColor[1].sprite = listSelectedColorSpt[1];
                         break;
                     case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(true);
+                        listIndicNavColor[2].sprite = listSelectedColorSpt[2];
                         break;
                     case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(true);
+                        listIndicNavColor[3].sprite = listSelectedColorSpt[3];
                         break;
                     case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(true);
+                        listIndicNavColor[4].sprite = listSelectedColorSpt[4];
                         break;
                     case ColorEnum.JAUNE:
-                        listIndicNavColor[5].SetActive(true);
+                        listIndicNavColor[5].sprite = listSelectedColorSpt[5];
                         break;
                 }
+                
+                colorLayout.SetActive(true);
+                bigColor.enabled = false;
                 break;
             case Custo.COULEUR:
                 enumCusto = Custo.READY;
                 indicNavReadyGO.SetActive(true);
-                switch (enumColor)
+                foreach (var objects in listIndicNavColor)
                 {
-                    case ColorEnum.BLANC:
-                        listIndicNavColor[0].SetActive(false);
-                        break;
-                    case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(false);
-                        break;
-                    case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(false);
-                        break;
-                    case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(false);
-                        break;
-                    case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(false);
-                        break;
-                    case ColorEnum.JAUNE:
-                        listIndicNavColor[5].SetActive(false);
-                        break;
+                    objects.sprite = listBaseColorSpt[listIndicNavColor.IndexOf(objects)];
                 }
+                
+                colorLayout.SetActive(false);
+                bigColor.enabled = true;
                 break;
         }
     }
@@ -383,28 +376,28 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        listIndicNavColor[0].SetActive(false);
-                        listIndicNavColor[1].SetActive(true);
+                        listIndicNavColor[0].sprite = listBaseColorSpt[0];
+                        listIndicNavColor[1].sprite = listSelectedColorSpt[1];
                         enumColor = ColorEnum.VERT;
                         break;
                     case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(false);
-                        listIndicNavColor[2].SetActive(true);
+                        listIndicNavColor[1].sprite = listBaseColorSpt[1];
+                        listIndicNavColor[2].sprite = listSelectedColorSpt[2];
                         enumColor = ColorEnum.VIOLET;
                         break;
                     case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(false);
-                        listIndicNavColor[3].SetActive(true);
+                        listIndicNavColor[2].sprite = listBaseColorSpt[2];
+                        listIndicNavColor[3].sprite = listSelectedColorSpt[3];
                         enumColor = ColorEnum.ROUGE;
                         break;
                     case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(false);
-                        listIndicNavColor[4].SetActive(true);
+                        listIndicNavColor[3].sprite = listBaseColorSpt[3];
+                        listIndicNavColor[4].sprite = listSelectedColorSpt[4];
                         enumColor = ColorEnum.ORANGE;
                         break;
                     case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(false);
-                        listIndicNavColor[5].SetActive(true);
+                        listIndicNavColor[4].sprite = listBaseColorSpt[4];
+                        listIndicNavColor[5].sprite = listSelectedColorSpt[5];
                         enumColor = ColorEnum.JAUNE;
                         break;
                 }
@@ -472,28 +465,28 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(false);
-                        listIndicNavColor[0].SetActive(true);
+                        listIndicNavColor[1].sprite = listBaseColorSpt[1];
+                        listIndicNavColor[0].sprite = listSelectedColorSpt[0];
                         enumColor = ColorEnum.BLANC;
                         break;
                     case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(false);
-                        listIndicNavColor[1].SetActive(true);
+                        listIndicNavColor[2].sprite = listBaseColorSpt[2];
+                        listIndicNavColor[1].sprite = listSelectedColorSpt[1];
                         enumColor = ColorEnum.VERT;
                         break;
                     case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(false);
-                        listIndicNavColor[2].SetActive(true);
+                        listIndicNavColor[3].sprite = listBaseColorSpt[3];
+                        listIndicNavColor[2].sprite = listSelectedColorSpt[2];
                         enumColor = ColorEnum.VIOLET;
                         break;
                     case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(false);
-                        listIndicNavColor[3].SetActive(true);
+                        listIndicNavColor[4].sprite = listBaseColorSpt[4];
+                        listIndicNavColor[3].sprite = listSelectedColorSpt[3];
                         enumColor = ColorEnum.ROUGE;
                         break;
                     case ColorEnum.JAUNE:
-                        listIndicNavColor[5].SetActive(false);
-                        listIndicNavColor[4].SetActive(true);
+                        listIndicNavColor[5].sprite = listBaseColorSpt[5];
+                        listIndicNavColor[4].sprite = listSelectedColorSpt[4];
                         enumColor = ColorEnum.ORANGE;
                         break;
                 }
@@ -536,6 +529,7 @@ public class EcranPersonnage : MonoBehaviour
                 listImageRace[i].sprite = listSpriteRace[i];
             }
         }
+        bigColor.sprite = listBigColorSpt[currentColorIndex];
 
         teteIMG.sprite = listCurrentTete[currentTeteIndex];
         teteIMG.color = listColor[currentColorIndex];
@@ -561,15 +555,8 @@ public class EcranPersonnage : MonoBehaviour
             item.transform.rotation = new Quaternion(0,0,0,0);
         }
 
-        foreach (var objects in listIndicNavColor)
-        {
-            objects.SetActive(false);
-        }
-
-        foreach (var objects in listIndicSelectedColor)
-        {
-            objects.SetActive(false);    
-        }
+        colorLayout.SetActive(false);
+        bigColor.enabled = true;
 
         indicNavReadyGO.SetActive(false);
 
@@ -579,6 +566,22 @@ public class EcranPersonnage : MonoBehaviour
         currentTeteIndex = 0;
         currentCorpsIndex = 0;
         currentColorIndex = 0;
+        
+        if (menuManager.selectColor != null)
+        {
+            if (menuManager.selectColor.Contains(ColorEnum.BLANC))
+            {
+                if (menuManager.selectColor.Contains(ColorEnum.VERT))
+                {
+                    if (menuManager.selectColor.Contains(ColorEnum.VIOLET))
+                    {
+                        currentColorIndex = 3;
+                    }
+                    currentColorIndex = 2;
+                }
+                currentColorIndex = 1;
+            }
+        }
         
         SwitchRace();
         VisualRefresh();
@@ -628,50 +631,33 @@ public class EcranPersonnage : MonoBehaviour
                 currentRace = listRaces[currentRaceIndex];
                 break;
             case Custo.COULEUR:
-                foreach (var objects in listIndicSelectedColor)
-                {
-                    objects.SetActive(false);
-                }
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        if (!lockBlancGO.activeSelf)
-                        {
                             currentColorIndex = 0;
-                        }
+                            bigColor.sprite = listBigColorSpt[0];
                         break;
                     case ColorEnum.VERT:
-                        if (!lockVertGO.activeSelf)
-                        {
                             currentColorIndex = 1;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[1];
+                            break;
                     case ColorEnum.VIOLET:
-                        if (!lockVioletGO.activeSelf)
-                        {
                             currentColorIndex = 2;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[2];
+                            break;
                     case ColorEnum.ROUGE:
-                        if (!lockRougeGO.activeSelf)
-                        {
                             currentColorIndex = 3;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[3];
+                            break;
                     case ColorEnum.ORANGE:
-                        if (!lockOrangeGO.activeSelf)
-                        {
                             currentColorIndex = 4;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[4];
+                            break;
                     case ColorEnum.JAUNE:
-                        if (!lockJauneGO.activeSelf)
-                        {
                             currentColorIndex = 5;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[5];
+                            break;
                 }
-                listIndicSelectedColor[currentColorIndex].SetActive(true);
                 break;
             case Custo.READY:
                 Ready();
@@ -706,27 +692,27 @@ public class EcranPersonnage : MonoBehaviour
         else
             menuManager.selectColor.Remove(enumColor);
         
-        switch (currentColorIndex)
-        {
-            case 0:
-                lockBlancGO.SetActive(!_isReady);
-                break;
-            case 1:
-                lockVertGO.SetActive(!_isReady);
-                break;
-            case 2:
-                lockVioletGO.SetActive(!_isReady);
-                break;
-            case 3:
-                lockRougeGO.SetActive(!_isReady);
-                break;
-            case 4:
-                lockOrangeGO.SetActive(!_isReady);
-                break;
-            case 5:
-                lockJauneGO.SetActive(!_isReady);
-                break;
-        }
+        // switch (currentColorIndex)
+        // {
+        //     case 0:
+        //         lockBlancGO.SetActive(!_isReady);
+        //         break;
+        //     case 1:
+        //         lockVertGO.SetActive(!_isReady);
+        //         break;
+        //     case 2:
+        //         lockVioletGO.SetActive(!_isReady);
+        //         break;
+        //     case 3:
+        //         lockRougeGO.SetActive(!_isReady);
+        //         break;
+        //     case 4:
+        //         lockOrangeGO.SetActive(!_isReady);
+        //         break;
+        //     case 5:
+        //         lockJauneGO.SetActive(!_isReady);
+        //         break;
+        // }
     }
     
     private void Ready()
