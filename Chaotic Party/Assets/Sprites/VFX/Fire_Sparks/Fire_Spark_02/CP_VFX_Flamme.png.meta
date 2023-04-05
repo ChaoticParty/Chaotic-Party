@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9dc182f77bc475745b89566b09a73d68
+guid: 082cdae5af3bfa54380d2a079cb00f7c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CP_Laser_Tete_SpriteSheet_0
+      name: CP_VFX_Flamme_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1536
-        width: 512
-        height: 512
+        y: 1365.3333
+        width: 682.6667
+        height: 682.6667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 969b75cac4f24054099853c3cb13bb40
-      internalID: 1946494957
+      spriteID: aa11de89809769f4e9b0b9fba7b068ea
+      internalID: -153196682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CP_Laser_Tete_SpriteSheet_1
+      name: CP_VFX_Flamme_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1536
-        width: 512
-        height: 512
+        x: 682
+        y: 1365.3333
+        width: 682.6667
+        height: 682.6667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 637063aceb86b7f4cae17e6ca394a43c
-      internalID: -2097736826
+      spriteID: da9e85a2bc8722c4fa568745137556cd
+      internalID: -1147496960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CP_Laser_Tete_SpriteSheet_2
+      name: CP_VFX_Flamme_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1536
-        width: 512
-        height: 512
+        x: 1364
+        y: 1365.3333
+        width: 682.6667
+        height: 682.6667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02ae58dacda8da7418c1ef43a8597a86
-      internalID: 1406048099
+      spriteID: fc44f9d0813468d4f98a0a704c1e0b51
+      internalID: 1857243012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CP_Laser_Tete_SpriteSheet_3
+      name: CP_VFX_Flamme_3
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1536
-        width: 512
-        height: 512
+        x: 682
+        y: 683.3333
+        width: 682.6667
+        height: 682.6667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8d235203eded2e41889ae1ca1dff78b
-      internalID: -1040688758
+      spriteID: b457aa8ffb557cf49ae6a40d51ef561e
+      internalID: 343773520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_VFX_Flamme_4
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 683.3333
+        width: 682.6667
+        height: 682.6667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80e25749212c4f4d90006beabe51b0e
+      internalID: -785558717
       vertices: []
       indices: 
       edges: []
@@ -198,10 +219,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CP_Laser_Tete_SpriteSheet_3: -1040688758
-      CP_Laser_Tete_SpriteSheet_0: 1946494957
-      CP_Laser_Tete_SpriteSheet_2: 1406048099
-      CP_Laser_Tete_SpriteSheet_1: -2097736826
+      CP_VFX_Flamme_0: -153196682
+      CP_VFX_Flamme_4: -785558717
+      CP_VFX_Flamme_2: 1857243012
+      CP_VFX_Flamme_3: 343773520
+      CP_VFX_Flamme_1: -1147496960
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

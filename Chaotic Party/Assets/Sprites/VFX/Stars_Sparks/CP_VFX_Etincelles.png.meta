@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9dc182f77bc475745b89566b09a73d68
+guid: a674a26962896384a860eec4d7af3b2c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CP_Laser_Tete_SpriteSheet_0
+      name: CP_VFX_Etincelles_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1536
-        width: 512
-        height: 512
+        y: 1365.3333
+        width: 682.6667
+        height: 682.6667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 969b75cac4f24054099853c3cb13bb40
-      internalID: 1946494957
+      spriteID: 8db8fd0f6ac00ff44bee828aa9147d5b
+      internalID: -630869680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CP_Laser_Tete_SpriteSheet_1
+      name: CP_VFX_Etincelles_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1536
-        width: 512
-        height: 512
+        x: 682
+        y: 1365.3333
+        width: 682.6667
+        height: 682.6667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 637063aceb86b7f4cae17e6ca394a43c
-      internalID: -2097736826
+      spriteID: b6fa34018fb44ec4094e2e8214238468
+      internalID: 1933722430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CP_Laser_Tete_SpriteSheet_2
+      name: CP_VFX_Etincelles_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1536
-        width: 512
-        height: 512
+        x: 1364
+        y: 1365.3333
+        width: 682.6667
+        height: 682.6667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02ae58dacda8da7418c1ef43a8597a86
-      internalID: 1406048099
+      spriteID: c60baa189c4388f47b9197b2a67250ef
+      internalID: 2012295204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CP_Laser_Tete_SpriteSheet_3
+      name: CP_VFX_Etincelles_3
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1536
-        width: 512
-        height: 512
+        x: 0
+        y: 683.3333
+        width: 682.6667
+        height: 682.6667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8d235203eded2e41889ae1ca1dff78b
-      internalID: -1040688758
+      spriteID: c2d669a73ca02214bb822cd78d38043a
+      internalID: -741871632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_VFX_Etincelles_4
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 683.3333
+        width: 682.6667
+        height: 682.6667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 051433ffb2e475942aa3cff01276db38
+      internalID: 823956888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_VFX_Etincelles_5
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 683.3333
+        width: 682.6667
+        height: 682.6667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce06072b9381db744a5b1a2c55247be2
+      internalID: -1593162188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_VFX_Etincelles_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.333313
+        width: 682.6667
+        height: 682.6667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02661b665b28c546993573d0122cfae
+      internalID: 906992587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CP_VFX_Etincelles_7
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 1.333313
+        width: 682.6667
+        height: 682.6667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06914e2f96c9759428df1333d7e5971d
+      internalID: -1839179402
       vertices: []
       indices: 
       edges: []
@@ -198,10 +282,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CP_Laser_Tete_SpriteSheet_3: -1040688758
-      CP_Laser_Tete_SpriteSheet_0: 1946494957
-      CP_Laser_Tete_SpriteSheet_2: 1406048099
-      CP_Laser_Tete_SpriteSheet_1: -2097736826
+      CP_VFX_Etincelles_3: -741871632
+      CP_VFX_Etincelles_5: -1593162188
+      CP_VFX_Etincelles_0: -630869680
+      CP_VFX_Etincelles_1: 1933722430
+      CP_VFX_Etincelles_2: 2012295204
+      CP_VFX_Etincelles_6: 906992587
+      CP_VFX_Etincelles_4: 823956888
+      CP_VFX_Etincelles_7: -1839179402
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
