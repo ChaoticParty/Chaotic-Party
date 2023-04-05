@@ -70,7 +70,7 @@ public class SetAnimProperties : MonoBehaviour
                 _animator.PlayInFixedTime(animationName, -1, animTimeOffset);
                 break;
         }
-        _animator.speed = speed;
+        _animator.SetFloat("speed", speed);
     }
 }
 
