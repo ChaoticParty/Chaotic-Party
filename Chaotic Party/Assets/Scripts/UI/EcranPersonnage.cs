@@ -12,7 +12,6 @@ public class EcranPersonnage : MonoBehaviour
 {
     public MenuManager menuManager;
     public GameObject actualPanel;
-    public sbyte playSceneIndex = 1;
     [SerializeField] private sbyte playerSOIndex = 0;
 
     private bool isReady = false;
@@ -92,7 +91,6 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.rightStickMovedUp.AddListener(MenuNavigateUp);
         myPlayerController.dPadUp.AddListener(MenuNavigateUp);
         
-        myPlayerController.startPressed.AddListener(LauchGame);
         myPlayerController.aJustPressed.AddListener(ValidateCusto);
         myPlayerController.bLongPressed.AddListener(BackToMain);
     }
@@ -114,7 +112,6 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.rightStickMovedUp.RemoveListener(MenuNavigateUp);
         myPlayerController.dPadUp.RemoveListener(MenuNavigateUp);
         
-        myPlayerController.startPressed.RemoveListener(LauchGame);
         myPlayerController.aJustPressed.RemoveListener(ValidateCusto);
         myPlayerController.bLongPressed.RemoveListener(BackToMain);
     }
@@ -735,38 +732,10 @@ public class EcranPersonnage : MonoBehaviour
 
         isReady = !isReady;
         VisualRefresh();
-        menuManager.partyBandeauReadyGO.SetActive(IsLaunchPossible());
+        menuManager.partyBandeauReadyGO.SetActive(menuManager.IsLaunchPossible());
         if (isReady)
         {
             SpawnPlayer();
-        }
-    }
-
-    private bool IsLaunchPossible()
-    {
-        sbyte playerCountTemp = 0;
-        foreach (EcranPersonnage ecranPersonnage in menuManager.listPersonnages)
-        {
-            if (ecranPersonnage.gameObject.activeSelf)
-            {
-                playerCountTemp++;
-            }
-        }
-        return menuManager.readyCount.Equals(playerCountTemp) /*&& playerCountTemp > 1*/;
-    }
-
-    private void LauchGame()
-    {
-        if (IsLaunchPossible())
-        {
-            foreach (EcranPersonnage ecranPerso in menuManager.listPersonnages)
-            {
-                if (ecranPerso.gameObject.activeSelf)
-                {
-                    ecranPerso.FillSO();    
-                }
-            }
-            SceneManager.LoadScene(playSceneIndex);
         }
     }
 

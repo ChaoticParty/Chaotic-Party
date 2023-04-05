@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
     public string optionsScene;
     public List<ColorEnum> selectColor = new List<ColorEnum>();
     public sbyte readyCount = 0;
+    public sbyte playSceneIndex = 1;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
     public List<Animator> listMaskPersonnagesAnimator = new List<Animator>();
     private sbyte nbCurrentGamepads = 0;
@@ -134,6 +135,37 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #region Class Méthodes
+
+    #region LaunchGame
+    
+    public bool IsLaunchPossible()
+    {
+        sbyte playerCountTemp = 0;
+        foreach (EcranPersonnage ecranPersonnage in listPersonnages)
+        {
+            if (ecranPersonnage.gameObject.activeSelf)
+            {
+                playerCountTemp++;
+            }
+        }
+        return readyCount.Equals(playerCountTemp) /*&& playerCountTemp > 1*/;
+    }
+
+    public void LauchGame()
+    {
+        if (IsLaunchPossible())
+        {
+            foreach (EcranPersonnage ecranPerso in listPersonnages)
+            {
+                if (ecranPerso.gameObject.activeSelf)
+                {
+                    ecranPerso.FillSO();    
+                }
+            }
+            SceneManager.LoadScene(playSceneIndex);
+        }
+    }
+    #endregion
 
     private void PartyClick()
     {
