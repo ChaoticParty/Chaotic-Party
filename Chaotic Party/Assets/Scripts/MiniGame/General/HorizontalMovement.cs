@@ -26,10 +26,17 @@ public class HorizontalMovement : MiniGameController
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void OnEnable()
+    public override void AddListeners()
     {
         player.leftStickMoved.AddListener(MoveHorizontally);
     }
+
+    private void OnEnable()
+    {
+        AddListeners();
+    }
+    
+    
 
     private void FixedUpdate()
     {

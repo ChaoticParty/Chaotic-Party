@@ -25,6 +25,11 @@ public class CerbereSpamController : SpamController
         _stunController ??= GetComponent<StunController>();
         cerbereManager = spamManager as CerbereManager;
         player.ChangeBulleText("A / B");
+        AddListeners();
+    }
+
+    public override void AddListeners()
+    {
         player.aJustPressed.AddListener(() => AlternateClick(Etat.A));
         player.bJustPressed.AddListener(() => AlternateClick(Etat.B));
         player.yJustPressed.AddListener(WakuUp);

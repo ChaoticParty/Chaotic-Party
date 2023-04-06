@@ -23,6 +23,11 @@ public class SpamRaceController : SpamController
     {
         base.Awake();
         
+        AddListeners();
+    }
+
+    public override void AddListeners()
+    {
         player.xJustPressed.AddListener(player.index == 0 ? Click : () => { ClickOnOtherPlayer(0); });
         if(spamManager.players.Count >= 2) player.yJustPressed.AddListener(player.index == 1 ? Click : () => { ClickOnOtherPlayer(1); });
         if(spamManager.players.Count >= 3) player.bJustPressed.AddListener(player.index == 2 ? Click : () => { ClickOnOtherPlayer(2); });
