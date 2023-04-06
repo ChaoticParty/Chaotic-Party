@@ -1,4 +1,6 @@
-using System;using HinputClasses;
+using System;
+using System.Collections.Generic;
+using HinputClasses;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +11,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
+    public List<MiniGameController> miniGameControllers;
     public Gamepad gamepad;
     public int index;
     [SerializeField] private TextMeshProUGUI nameObject;
@@ -107,6 +110,14 @@ public class PlayerController : MonoBehaviour
         if(nameObject) nameObject.text = nameText + (index + 1);
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
         _crownManager ??= GetComponent<CrownManager>();
+    }
+
+    public void AddAllListeners()
+    {
+        foreach (MiniGameController miniGameController in miniGameControllers)
+        {
+            miniGameController.AddListeners();
+        }
     }
 
     private void Update()

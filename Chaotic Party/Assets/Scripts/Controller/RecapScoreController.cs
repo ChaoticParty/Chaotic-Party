@@ -8,8 +8,7 @@ public class RecapScoreController : MiniGameController
 {
     private void Start()
     {
-        player.startPressed.AddListener(ReturnToMenu);
-        player.xJustPressed.AddListener(NextMiniGame);
+        AddListeners();
     }
 
     private void NextMiniGame()
@@ -24,5 +23,11 @@ public class RecapScoreController : MiniGameController
     private void ReturnToMenu()
     {
         SceneManager.LoadScene("MenuPrincipal");
+    }
+
+    public override void AddListeners()
+    {
+        player.startPressed.AddListener(ReturnToMenu);
+        player.xJustPressed.AddListener(NextMiniGame);
     }
 }

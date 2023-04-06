@@ -26,6 +26,10 @@ public class JumpController : MiniGameController
     {
         base.Awake();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    public override void AddListeners()
+    {
         UnityEvent buttonEvent = new();
         switch (jumpButton)
         {
@@ -43,6 +47,11 @@ public class JumpController : MiniGameController
                 break;
         }
         buttonEvent.AddListener(Jump);
+    }
+
+    private void OnEnable()
+    {
+        AddListeners();
     }
 
     private void FixedUpdate()

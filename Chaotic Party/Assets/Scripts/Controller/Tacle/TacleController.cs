@@ -19,7 +19,16 @@ public class TacleController : MiniGameController
         base.Awake();
         Instantiate(tacleChild, transform);
         rigidbody2D = player.GetComponent<Rigidbody2D>();
+    }
+
+    public override void AddListeners()
+    {
         player.xJustPressed.AddListener(Tacled);
+    }
+
+    private void OnEnable()
+    {
+        AddListeners();
     }
 
     private void Tacled()

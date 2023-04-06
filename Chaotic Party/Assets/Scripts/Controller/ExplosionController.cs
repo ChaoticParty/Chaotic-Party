@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExplosionController : MiniGameController
 {
@@ -11,7 +12,17 @@ public class ExplosionController : MiniGameController
     private new void Awake()
     {
         base.Awake();
+    }
+
+    public override void AddListeners()
+    {
         player.yLongPressed.AddListener(MacronExplosion);
+        player.startPressed.AddListener(ReadyClick);
+    }
+
+    private void OnEnable()
+    {
+        AddListeners();
     }
 
     private void FixedUpdate()
@@ -24,13 +35,17 @@ public class ExplosionController : MiniGameController
 
     private void MacronExplosion(float delay)
     {
-        Debug.Log(delay);
         if (delay < explosionDelay) vibrate = true;
         else
         {
             EndExplosionAnimMenu();
             //lancement anim d'explosion
         }
+    }
+
+    private void ReadyClick()
+    {
+        menuManager.LauchGame();
     }
 
     public void EndExplosionAnimMenu()

@@ -21,11 +21,22 @@ public class HorizontalMovement : MiniGameController
         base.Awake();
         playerTransform = player.transform;
         var localScale = playerTransform.localScale;
-        watchingRight = new Vector3(1, localScale.y, localScale.z);
-        watchingLeft = new Vector3(-1, localScale.y, localScale.z);
+        watchingRight = new Vector3(localScale.x, localScale.y, localScale.z);
+        watchingLeft = new Vector3(-localScale.x, localScale.y, localScale.z);
         _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    public override void AddListeners()
+    {
         player.leftStickMoved.AddListener(MoveHorizontally);
     }
+
+    private void OnEnable()
+    {
+        AddListeners();
+    }
+    
+    
 
     private void FixedUpdate()
     {

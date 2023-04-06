@@ -15,6 +15,8 @@ public class StunController : MiniGameController
         _stunTime = defaultStunTime;
     }
 
+    public override void AddListeners() { }
+
     /// <summary>
     /// Fonction qui va stun le joueur portant le script
     /// </summary>
