@@ -14,10 +14,15 @@ public class ExplosionController : MiniGameController
         base.Awake();
     }
 
-    private void OnEnable()
+    public override void AddListeners()
     {
         player.yLongPressed.AddListener(MacronExplosion);
         player.startPressed.AddListener(ReadyClick);
+    }
+
+    private void OnEnable()
+    {
+        AddListeners();
     }
 
     private void FixedUpdate()

@@ -7,6 +7,11 @@ public class Spam : SpamController
     protected new void Awake()
     {
         base.Awake();
+        AddListeners();
+    }
+
+    public override void AddListeners()
+    {
         UnityEvent buttonEvent = new();
         switch (spamButton)
         {

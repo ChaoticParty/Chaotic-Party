@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,10 +11,18 @@ public class PhotoMinionManager : MiniGameManager
 {
     public CanvasGroup uiCanvasGroup;
     public PhotoMinionOverlord overlord;
-    [Range(0, 60)]
+    [Range(0, 500)] 
+    public int pointsGained;
+    [Range(-500, 0)] 
+    public int pointsLost;
+
+    public TimerType typeDeTimer = TimerType.Fixed;
+    [Range(0, 60), ShowIf(nameof(typeDeTimer), TimerType.Random)]
     public float minTimerBetweenPictures;
-    [Range(0, 60)]
+    [Range(0, 60), ShowIf(nameof(typeDeTimer), TimerType.Random)]
     public float maxTimerBetweenPictures;
+    [Range(0, 60), ShowIf(nameof(typeDeTimer), TimerType.Fixed)]
+    public float timerBetweenPictures = 10;
     [Range(0, 100)]
     public float overlordRepositioningChances = 100;
 
@@ -25,9 +34,12 @@ public class PhotoMinionManager : MiniGameManager
 
     private WaitForSecondsRealtime _waitSeconds;
 
+    public OnOverlordTrigger pictureData;
+
     protected void Start()
     {
         ActivateUI(false);
+        pictureData ??= FindObjectOfType<OnOverlordTrigger>();
         //ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
     }
 
@@ -75,14 +87,32 @@ public class PhotoMinionManager : MiniGameManager
     {
         foreach (PlayerController playerController in players)
         {
-            playerController.isStunned = !activate;
-            playerController.isInTheAir = !activate;
+            playerController.enabled = activate;
+            if(activate) playerController.AddAllListeners();
+            //playerController.isStunned = !activate;
+            //playerController.isInTheAir = !activate;
         }
     }
 
     private void SetTimeBeforeNextPicture()
     {
-        SetTimeBeforeNextPicture(minTimerBetweenPictures, maxTimerBetweenPictures);
+        switch (typeDeTimer)
+        {
+            case TimerType.Fixed:
+                SetTimeBeforeNextPicture(timerBetweenPictures);
+                break;
+            case TimerType.Random:
+                SetTimeBeforeNextPicture(minTimerBetweenPictures, maxTimerBetweenPictures);
+                break;
+            default:
+                SetTimeBeforeNextPicture(timerBetweenPictures);
+                break;
+        }
+    }
+
+    private void SetTimeBeforeNextPicture(float time)
+    {
+        _remainingTimeBeforeNextPicture = time;
     }
 
     private void SetTimeBeforeNextPicture(float min, float max)
@@ -126,7 +156,30 @@ public class PhotoMinionManager : MiniGameManager
     {
         for (int i = 0; i < players.Count; i++)
         {
-            _scores[i] += (int)(Mathf.Clamp(20 - overlord.GetPlayerDistance(players[i].transform), 0, 20) * 10);
+            PlayerController player = players[i];
+            if (pictureData.playersTouchingOverlord.Contains(player))
+            {
+                if (player.isHit || player.isStunned)
+                {
+                    // Si le joueur est près de l'overlord et il est stun/poussé
+                    // Perds des points
+                    _scores[i] += pointsLost;
+                }
+                else
+                {
+                    // Si le joueur est près de l'overlord et il n'est ni stun ni poussé
+                    // Gagne des points
+                    _scores[i] += pointsGained;
+                }
+            }
+            else
+            {
+                // Si le joueur n'est pas à côté de l'overlord
+                // Perds des points
+                _scores[i] += pointsLost;
+            }
+            
+            //_scores[i] += (int)(Mathf.Clamp(20 - overlord.GetPlayerDistance(players[i].transform), 0, 20) * 10);
             UpdatePlayerScoreUI(i);
         }
     }
@@ -178,4 +231,10 @@ public class PhotoMinionManager : MiniGameManager
 
         return ranking;
     }
+}
+
+public enum TimerType
+{
+    Fixed,
+    Random
 }
