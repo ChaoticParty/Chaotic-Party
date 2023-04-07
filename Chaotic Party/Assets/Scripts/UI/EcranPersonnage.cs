@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class EcranPersonnage : MonoBehaviour
 {
     public MenuManager menuManager;
+    public SkinSelector skinSelector;
     public GameObject actualPanel;
     [SerializeField] private sbyte playerSOIndex = 0;
 
@@ -21,17 +22,15 @@ public class EcranPersonnage : MonoBehaviour
     public List<Tetes> listTetes = new List<Tetes>();
     public List<Corps> listCorps = new List<Corps>();
     public List<Color> listColor = new List<Color>();
-    [SerializeField] private List<Sprite> listCurrentTete = new List<Sprite>();
-    [SerializeField] private List<Sprite> listCurrentCorps = new List<Sprite>();
+    [SerializeField] private List<SelectedSkin> listCurrentTete = new List<SelectedSkin>();
+    [SerializeField] private List<SelectedSkin> listCurrentCorps = new List<SelectedSkin>();
 
     [Header("Reférences Custo")] 
     [SerializeField] private List<Sprite> listSpriteRace = new List<Sprite>(); //Dernier = selectionner
     [SerializeField] private List<Image> listImageRace = new List<Image>();
     [SerializeField] private List<GameObject> listIndicNavRace = new List<GameObject>();
     [Space]
-    [SerializeField] private Image teteIMG;
     [SerializeField] private List<GameObject> listIndicNavTeteGO = new List<GameObject>();
-    [SerializeField] private Image corpsIMG;
     [SerializeField] private List<GameObject> listIndicNavCorpsGO = new List<GameObject>();
     [Space]
     [SerializeField] private List<Image> listIndicNavColor = new List<Image>();
@@ -527,11 +526,145 @@ public class EcranPersonnage : MonoBehaviour
             }
         }
         bigColor.sprite = listBigColorSpt[currentColorIndex];
+        
+        bigColor.color = currentColorIndex.Equals(4) ? listColor[4] : listColor[0];
 
-        teteIMG.sprite = listCurrentTete[currentTeteIndex];
-        teteIMG.color = listColor[currentColorIndex];
-        corpsIMG.sprite = listCurrentCorps[currentCorpsIndex];
-        corpsIMG.color = listColor[currentColorIndex];
+        SelectedSkin teteTemp = SelectedSkin.GOBLIN_BASE;
+        SelectedSkin corpsTemp = SelectedSkin.GOBLIN_BASE;
+
+        switch (currentRaceIndex)
+        {
+            case 0 :
+                switch (currentTeteIndex)
+                {
+                    case 0 :
+                        teteTemp = SelectedSkin.GOBLIN_BASE;
+                        break;
+                    case 1 :
+                        teteTemp = SelectedSkin.GOBLIN_FRANCAIS;
+                        break;
+                    case 2 :
+                        teteTemp = SelectedSkin.GOBLIN_CARTON;
+                        break;
+                    case 3 :
+                        teteTemp = SelectedSkin.GOBLIN_FEE;
+                        break;
+                }
+                switch (currentCorpsIndex)
+                {
+                    case 0 :
+                        corpsTemp = SelectedSkin.GOBLIN_BASE;
+                        break;
+                    case 1 :
+                        corpsTemp = SelectedSkin.GOBLIN_FRANCAIS;
+                        break;
+                    case 2 :
+                        corpsTemp = SelectedSkin.GOBLIN_CARTON;
+                        break;
+                    case 3 :
+                        corpsTemp = SelectedSkin.GOBLIN_FEE;
+                        break;
+                }
+                break;
+            case 1 :
+                switch (currentTeteIndex)
+                {
+                    case 0 :
+                        teteTemp = SelectedSkin.CHEVALIER_BASE;
+                        break;
+                    case 1 :
+                        teteTemp = SelectedSkin.CHEVALIER_LAMPE;
+                        break;
+                    case 2 :
+                        teteTemp = SelectedSkin.CHEVALIER_UWU;
+                        break;
+                    case 3 :
+                        teteTemp = SelectedSkin.CHEVALIER_COFFRE;
+                        break;
+                }
+                switch (currentCorpsIndex)
+                {
+                    case 0 :
+                        corpsTemp = SelectedSkin.CHEVALIER_BASE;
+                        break;
+                    case 1 :
+                        corpsTemp = SelectedSkin.CHEVALIER_LAMPE;
+                        break;
+                    case 2 :
+                        corpsTemp = SelectedSkin.CHEVALIER_UWU;
+                        break;
+                    case 3 :
+                        corpsTemp = SelectedSkin.CHEVALIER_COFFRE;
+                        break;
+                }
+                break;
+            case 2 :
+                switch (currentTeteIndex)
+                {
+                    case 0 :
+                        teteTemp = SelectedSkin.DIABLOTIN_BASE;
+                        break;
+                    case 1 :
+                        teteTemp = SelectedSkin.DIABLOTIN_DODO;
+                        break;
+                    case 2 :
+                        teteTemp = SelectedSkin.DIABLOTIN_PUTE;
+                        break;
+                    case 3 :
+                        teteTemp = SelectedSkin.DIABLOTIN_CYCLOPE;
+                        break;
+                }
+                switch (currentCorpsIndex)
+                {
+                    case 0 :
+                        corpsTemp = SelectedSkin.DIABLOTIN_BASE;
+                        break;
+                    case 1 :
+                        corpsTemp = SelectedSkin.DIABLOTIN_DODO;
+                        break;
+                    case 2 :
+                        corpsTemp = SelectedSkin.DIABLOTIN_PUTE;
+                        break;
+                    case 3 :
+                        corpsTemp = SelectedSkin.DIABLOTIN_CYCLOPE;
+                        break;
+                }
+                break;
+            case 3 :
+                switch (currentTeteIndex)
+                {
+                    case 0 :
+                        teteTemp = SelectedSkin.HOMMEPOISSON_BASE;
+                        break;
+                    case 1 :
+                        teteTemp = SelectedSkin.HOMMEPOISSON_LANTERNE;
+                        break;
+                    case 2 :
+                        teteTemp = SelectedSkin.HOMMEPOISSON_GOTHIC;
+                        break;
+                    case 3 :
+                        teteTemp = SelectedSkin.HOMMEPOISSON_REQUIN;
+                        break;
+                }
+                switch (currentCorpsIndex)
+                {
+                    case 0 :
+                        corpsTemp = SelectedSkin.HOMMEPOISSON_BASE;
+                        break;
+                    case 1 :
+                        corpsTemp = SelectedSkin.HOMMEPOISSON_LANTERNE;
+                        break;
+                    case 2 :
+                        corpsTemp = SelectedSkin.HOMMEPOISSON_GOTHIC;
+                        break;
+                    case 3 :
+                        corpsTemp = SelectedSkin.HOMMEPOISSON_REQUIN;
+                        break;
+                }
+                break;
+        }
+        
+        skinSelector.SetupSkin(teteTemp, corpsTemp, listColor[currentColorIndex]);
     }
 
     public void InitCusto()
@@ -779,13 +912,13 @@ public struct Races
 [Serializable]
 public struct Tetes
 {
-    public List<Sprite> listTête;
+    public List<SelectedSkin> listTête;
     public string nomTete;
 }
 [Serializable]
 public struct Corps
 {
-    public List<Sprite> listCorps;
+    public List<SelectedSkin> listCorps;
     public string nomCorps;
 }
 

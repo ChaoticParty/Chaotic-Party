@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 4518951441886738144}
   - component: {fileID: 3234178437641088041}
   - component: {fileID: 8490171122682338219}
+  - component: {fileID: 8842843085737721045}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -322,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGameManager: {fileID: 0}
+  skinSelector: {fileID: 8842843085737721045}
   index: 0
   nameObject: {fileID: 7941785568734260775}
   nameText: J
@@ -360,6 +362,19 @@ SortingGroup:
   m_SortingLayerID: 391533363
   m_SortingLayer: 1
   m_SortingOrder: 0
+--- !u!114 &8842843085737721045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518951441886738145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2627cb73d747a4e488a3382538cecabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oui: []
 --- !u!1 &5980701041646339337
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,4 +849,4 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
+    public SkinSelector skinSelector;
     public Gamepad gamepad;
     public int index;
     [SerializeField] private TextMeshProUGUI nameObject;
@@ -432,10 +433,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerSo = playerSo;
         
-        head.sprite = playerSo.head;
-        body.sprite = playerSo.body;
-        head.color = playerSo.color;
-        body.color = playerSo.color;
+        skinSelector.SetupSkin(_playerSo.head, _playerSo.body, _playerSo.color);
     }
 
     public void ChangeColor()
