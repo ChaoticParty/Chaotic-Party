@@ -11,7 +11,6 @@ public class SkinSelector : MonoBehaviour
 
     public void SetupSkin(SelectedSkin tete, SelectedSkin corps, Color color)
     {
-        return;
         foreach (Transform child in skinParent)
         {
             if (child.gameObject.activeSelf)
