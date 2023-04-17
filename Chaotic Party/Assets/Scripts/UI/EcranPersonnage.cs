@@ -877,10 +877,10 @@ public class EcranPersonnage : MonoBehaviour
         menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(Burning);
         menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listInGamePlayerControllers[playerSOIndex];
         FillSO();
+        menuManager.listInGamePlayerControllers[playerSOIndex].gameObject.SetActive(true);
         menuManager.listInGamePlayerControllers[playerSOIndex].SetupSprite(menuManager.playersListSO.players[playerSOIndex]);
         readyIMG.GetComponent<Button>().interactable = false;
         RemoveAllListeners();
-        menuManager.listInGamePlayerControllers[playerSOIndex].gameObject.SetActive(true);
         menuManager.multiplayerManager.InitMultiplayer();
     }
 

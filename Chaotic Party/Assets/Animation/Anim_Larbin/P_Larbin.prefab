@@ -18001,8 +18001,8 @@ MonoBehaviour:
   - {fileID: 4933691275110227186}
   - {fileID: 3799168080920451026}
   m_Bounds:
-    m_Center: {x: -0.68055, y: 0.9665945, z: 0.015000008}
-    m_Extent: {x: 1.1256552, y: 1.2086903, z: 0.0050000027}
+    m_Center: {x: 0.0074800253, y: 0.06911504, z: 0.015000343}
+    m_Extent: {x: 0.9874805, y: 1.2828044, z: 0.0050001144}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -26192,6 +26192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7982402988897709519}
   - component: {fileID: 1105691818737945808}
+  - component: {fileID: 6146686670430890582}
   m_Layer: 0
   m_Name: All_Larbin
   m_TagString: Untagged
@@ -26419,6 +26420,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Library: []
   m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 7695071e3f9e3af4cb9668c55db788a1, type: 3}
+--- !u!95 &6146686670430890582
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083523972268094892}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 163e75ae606bd1b4f81a317425b9b16b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9084414666630113412
 GameObject:
   m_ObjectHideFlags: 0
