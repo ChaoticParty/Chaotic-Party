@@ -11,12 +11,17 @@ public class SpamTrainingRoomController : SpamController
     {
         base.Awake();
         
+        AddListeners();
+    }
+
+    public override void AddListeners()
+    {
         player.xJustPressed.AddListener(player.index == 0 ? Click : () => { ClickOnOtherPlayer(0); });
         player.yJustPressed.AddListener(player.index == 1 ? Click : () => { ClickOnOtherPlayer(1); });
         player.bJustPressed.AddListener(player.index == 2 ? Click : () => { ClickOnOtherPlayer(2); });
         player.aJustPressed.AddListener(player.index == 3 ? Click : () => { ClickOnOtherPlayer(3); });
     }
-    
+
     protected override void Click()
     {
         if (hasClicked) return;

@@ -16,7 +16,6 @@ public class FollowPlatform : SerializedMonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("collision enter");
         if(other.gameObject.CompareTag("Player") && !_playerToParent.ContainsKey(other.transform))
         {
             _playerToParent.Add(other.transform, other.transform.parent);
@@ -26,7 +25,6 @@ public class FollowPlatform : SerializedMonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        Debug.Log("collision exit");
         if(other.gameObject.CompareTag("Player") )
         {
             Transform playerTransform = other.transform;
