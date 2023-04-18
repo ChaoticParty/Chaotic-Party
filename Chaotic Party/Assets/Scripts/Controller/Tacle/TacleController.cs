@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 public class TacleController : MiniGameController
 {
     public GameObject tacleChild;
@@ -42,7 +42,7 @@ public class TacleController : MiniGameController
         isTacling = true;
         player.isTackling = true;
         player.gamepad.leftStick.Disable();
-        rigidbody2D.velocity = forceTacle * player.transform.localScale.x;
+        rigidbody2D.velocity = new Vector3(forceTacle.x * player.transform.localScale.x, forceTacle.y);
         player.gamepad.A.Disable();
         player.gamepad.X.Disable();
         StartCoroutine(ReactivateInput());
