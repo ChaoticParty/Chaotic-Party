@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
     private bool isClickCheckCoroutineActive = false;
     [Space]
     public string optionsScene;
-    public List<ColorEnum> selectColor = new List<ColorEnum>();
+    public List<sbyte> selectColor = new List<sbyte>();
     public sbyte readyCount = 0;
     public sbyte playSceneIndex = 1;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
@@ -44,14 +44,14 @@ public class MenuManager : MonoBehaviour
     [Space]
     public Button minigameBackBTN;
     [Space]
-    public GameObject partyPlayerMinGO;
+    public Animator partyPlayerMinGO;
     public GameObject partyBandeauReadyGO;
     
     #region MonoBehaviour Méthodes
 
     private void Awake()
     {
-        Caching.ClearCache(); // Tester si ça resout le soucis de l'attribution des manettes
+        // Caching.ClearCache(); // Tester si ça resout le soucis de l'attribution des manettes
         _referenceHolder = GameObject.Find("ReferenceHolder").GetComponent<ReferenceHolder>();
         foreach (EcranPersonnage ecranPersonnage in listPersonnages)
         {
@@ -64,11 +64,12 @@ public class MenuManager : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
+
         oldEventObject = firstMenuPrincpal;
 
         nbCurrentGamepads = multiplayerManager.GamepadCount();
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
-        
+
         partyBTN.onClick.AddListener(PartyClick);
         minigameBTN.onClick.AddListener(MinigameClick);
         optionsBTN.onClick.AddListener(OptionsClick);
@@ -111,9 +112,10 @@ public class MenuManager : MonoBehaviour
                     Debug.Log("null");
                 }
             }
+            // partyPlayerMinGO.gameObject.SetActive(nbCurrentGamepads < 2);
+            partyPlayerMinGO.SetTrigger(nbCurrentGamepads < 2 ? "Descend" : "Monte");
         }
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
-        partyPlayerMinGO.SetActive(nbGamepadsLastFrame < 2);
         
         if (EventSystem.current.alreadySelecting) return;
         if (!isClickCheckCoroutineActive) StartCoroutine(CheckMouseClick());
@@ -170,6 +172,7 @@ public class MenuManager : MonoBehaviour
     private void PartyClick()
     {
         PanelChange(panelPrincipal, panelParty);
+        if (nbCurrentGamepads < 2) partyPlayerMinGO.SetTrigger("Descend");
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstParty);
     }
