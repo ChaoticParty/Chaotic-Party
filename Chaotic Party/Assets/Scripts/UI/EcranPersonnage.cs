@@ -44,6 +44,17 @@ public class EcranPersonnage : MonoBehaviour
     [Header("Affichage")] 
     [SerializeField] private Image readyIMG;
     [SerializeField] private Image backIMG;
+    
+    [Header("Animator")] 
+    [SerializeField] private Animator leftStickToLeft;
+    [SerializeField] private Animator leftStickToRight;
+    [SerializeField] private Animator leftBumperClick;
+    [SerializeField] private Animator rightBumperClick;
+    [SerializeField] private Animator leftTriggerClick;
+    [SerializeField] private Animator rightTriggerClick;
+    [SerializeField] private Animator rightStickToLeft;
+    [SerializeField] private Animator rightStickToRight;
+    [SerializeField] private Animator aClick;
     private Races currentRace;
     private sbyte currentRaceIndex = 0; //De -128 à 128
     private sbyte currentTeteIndex = 0;
@@ -150,6 +161,7 @@ public class EcranPersonnage : MonoBehaviour
     private void HeadChangeRight()
     {
         if (isReady) return;
+        rightBumperClick.SetTrigger("Push");
         if (currentTeteIndex == listCurrentTete.Count - 1)
         {
             currentTeteIndex = 0;
@@ -168,6 +180,7 @@ public class EcranPersonnage : MonoBehaviour
     private void HeadChangeLeft()
     {
         if (isReady) return;
+        leftBumperClick.SetTrigger("Push");
         if (currentTeteIndex == 0)
         {
             currentTeteIndex = Convert.ToSByte(listCurrentTete.Count - 1);
@@ -187,6 +200,7 @@ public class EcranPersonnage : MonoBehaviour
     private void BodyChangeRight()
     {
         if (isReady) return;
+        rightTriggerClick.SetTrigger("Push");
         if (currentCorpsIndex == listCurrentCorps.Count - 1)
         {
             currentCorpsIndex = 0;
@@ -206,6 +220,7 @@ public class EcranPersonnage : MonoBehaviour
     private void BodyChangeLeft()
     {
         if (isReady) return;
+        leftTriggerClick.SetTrigger("Push");
         if (currentCorpsIndex == 0)
         {
             currentCorpsIndex = Convert.ToSByte(listCurrentCorps.Count - 1);
@@ -498,9 +513,9 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (!isReady)
         {
+            aClick.SetTrigger("Push");
             //Anim du parchemin qui se ferme et remonte + possibilité au joueur de jouer avec son perso
             menuManager.readyCount++;
-            readyIMG.color = Color.red;
             LockColor(isReady);
             //Faire le check aussi
         }
@@ -508,7 +523,6 @@ public class EcranPersonnage : MonoBehaviour
         {
             //Anim du parchemin qui s'ouvre et redscent + peut plus jouer avec son perso
             menuManager.readyCount--;
-            readyIMG.color = Color.white;
             LockColor(isReady);
         }
 
@@ -523,11 +537,13 @@ public class EcranPersonnage : MonoBehaviour
 
     private void UiCloseAnim()
     {
+        indicNavReadyGO.SetActive(true);
         imageRace.sprite = listSpriteRace[^1];
         colorImage.sprite = bigColor;
     }
     private void UiOpenAnim()
     {
+        indicNavReadyGO.SetActive(false);
         imageRace.sprite = listSpriteRace[currentRaceIndex];
         colorImage.sprite = smallColor;
     }

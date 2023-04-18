@@ -1,2 +1,1452 @@
 fileFormatVersion: 2
 guid: a84f6ae3de8eb1e4f8c807a23dba232d
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Cheval_Rock_Tete_Crie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5741
+      width: 963
+      height: 987
+    spriteID: 061bd1315b4cde24b8795ffb8e4836ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -127, y: 4872}
+  - name: Cheval_Rock_Tete
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4604
+      width: 986
+      height: 1129
+    spriteID: a36548485b4861f4ea251334b176a9a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -86, y: 3782}
+  - name: Cheval_Rock_Queu
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2038
+      y: 6512
+      width: 346
+      height: 764
+    spriteID: 4bcafa1a6aec22f4795f72d0b7e9570b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 426, y: 6191}
+  - name: Cheval_Rock_Jambe_Avant_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2165
+      y: 1871
+      width: 246
+      height: 742
+    spriteID: 4f8c9e5f1e112ba4099e749fefe4c337
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1370, y: 1704}
+  - name: Cheval_Rock_Jambe_Arriere_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1596
+      y: 7253
+      width: 375
+      height: 730
+    spriteID: c9a075ac8bf78a6448ae345f0bc1495b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 257, y: 7086}
+  - name: Cheval_Rock_Torse
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1192
+      y: 2762
+      width: 1078
+      height: 742
+    spriteID: 5e831abca7aa661438f6e83d3cdaa115
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 550, y: 2294}
+  - name: Cheval_Rock_Jambe_Avant_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2164
+      y: 912
+      width: 246
+      height: 742
+    spriteID: 114a606121ade574faae9e8423921d50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1306, y: 705}
+  - name: Cheval_Rock_Jambe_Arriere_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1596
+      y: 6512
+      width: 434
+      height: 733
+    spriteID: 3d403a98e0bd6324ca850695b85a4d69
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 326, y: 6296}
+  - name: Cheval_Harry_Tete_Echarpe
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1192
+      y: 6512
+      width: 396
+      height: 1022
+    spriteID: eac813a274a09864f86082c56d411110
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 577, y: 6236}
+  - name: Cheval_Harry_Tete_Crie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6736
+      width: 963
+      height: 963
+    spriteID: 1733d108524dcad4d8b87d6fd82814be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -127, y: 5843}
+  - name: Cheval_Harry_Tete
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1154
+      width: 986
+      height: 1142
+    spriteID: 5b1479ea655face4f9611a727f73bf61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -86, y: 345}
+  - name: Cheval_Harry_Queu
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2038
+      y: 7284
+      width: 346
+      height: 764
+    spriteID: 77deaeda9b8f44a44b3a39dbff997e8d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 426, y: 6963}
+  - name: Cheval_Harry_Jambe_Avant_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 742
+      width: 246
+      height: 742
+    spriteID: 717fad9a1b217ed408ee3369d400944a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1995, y: 575}
+  - name: Cheval_Harry_Jambe_Arriere_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 5301
+      width: 308
+      height: 730
+    spriteID: b8af04843bd5f3e4e8196138ac999ac3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1030, y: 5134}
+  - name: Cheval_Harry_Torse
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1192
+      y: 3512
+      width: 1078
+      height: 742
+    spriteID: a6a8c99a9b4841c43bc13ffdb7a32ad1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 550, y: 3044}
+  - name: Cheval_Harry_Jambe_Avant_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 1492
+      width: 246
+      height: 742
+    spriteID: cc41c053d80c006489f06e8ceb534882
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1932, y: 1288}
+  - name: Cheval_Harry_Jambe_Arriere_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 3811
+      width: 342
+      height: 737
+    spriteID: 2b46bc98eca83494f9b6c68d1a05cb40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1075, y: 3604}
+  - name: Cheval_yakari_Tete_Crie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1192
+      y: 912
+      width: 964
+      height: 951
+    spriteID: 44752502836192e4581c5bf394a1763a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1064, y: 7}
+  - name: Cheval_yakari_Tete
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2304
+      width: 986
+      height: 1142
+    spriteID: 4004b348110e7954295aa1db8f19ce1b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -86, y: 1495}
+  - name: Cheval_yakari_Queu
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 4
+      width: 346
+      height: 764
+    spriteID: ce691f4315a93ad4c92d8069fdfd04a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 824, y: -317}
+  - name: Cheval_yakari_Jambe_Avant_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 2242
+      width: 246
+      height: 742
+    spriteID: 4c5bdd44fa08ee446bd54118b30362d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1995, y: 2075}
+  - name: Cheval_yakari_Jambe_Arriere_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 6039
+      width: 308
+      height: 730
+    spriteID: f20f172a61e73ab4b96d479d1b9b9b12
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1030, y: 5872}
+  - name: Cheval_yakari_Torse
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1192
+      y: 4262
+      width: 1078
+      height: 742
+    spriteID: 46b0aa3b732231247a1bf204cec9c4d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 550, y: 3794}
+  - name: Cheval_yakari_Jambe_Avant_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 2992
+      width: 246
+      height: 742
+    spriteID: fc1f939ec3081fe4d9e6fbd8f4fa60d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1932, y: 2789}
+  - name: Cheval_yakari_Jambe_Arriere_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 4556
+      width: 334
+      height: 737
+    spriteID: 928c0a8657052364fbd3b234f2ba56a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1073, y: 4350}
+  - name: Cheval_Poney_Tete_Crie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1192
+      y: 1871
+      width: 965
+      height: 883
+    spriteID: a9939b84cb285504286fd8c47ea6da69
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1062, y: 898}
+  - name: Cheval_Poney_Tete
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3454
+      width: 986
+      height: 1142
+    spriteID: 08c96434cd0f9944b903d274ab26fdda
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -86, y: 2645}
+  - name: Cheval_Poney_Queu
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 776
+      width: 346
+      height: 764
+    spriteID: 9fefc3d2333b09c45bae559c1b5f7f12
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 824, y: 455}
+  - name: Cheval_Poney_Jambe_Avant_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 3742
+      width: 246
+      height: 742
+    spriteID: 9274c8fd6f5ec8249b709cc13accbaea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1995, y: 3575}
+  - name: Cheval_Poney_Jambe_Arriere_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 6777
+      width: 308
+      height: 730
+    spriteID: 1be06c3fdc69d9843b83caf61b1c9053
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1030, y: 6610}
+  - name: Cheval_Poney_Torse
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1192
+      y: 5012
+      width: 1078
+      height: 742
+    spriteID: 0d160277289231b44aabf1347cbcd813
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 550, y: 4544}
+  - name: Cheval_Poney_Jambe_Avant_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 4492
+      width: 246
+      height: 742
+    spriteID: 4a6211d0a628fb149afd561064777149
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1932, y: 4289}
+  - name: Cheval_Poney_Jambe_Arriere_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 2320
+      width: 344
+      height: 737
+    spriteID: 99b7c81bbe619444da61412e39180423
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1076, y: 2112}
+  - name: Cheval_Base_Tete_Crie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1192
+      y: 4
+      width: 1236
+      height: 900
+    spriteID: b459506eee07e3445861f8be25244fea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1061, y: -952}
+  - name: Cheval_Base_Tete
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1180
+      height: 1142
+    spriteID: 44e9e15634cceb544bd4c3c0e3dad260
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -86, y: -805}
+  - name: Cheval_Base_Queu
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 1548
+      width: 346
+      height: 764
+    spriteID: f8c85641cf2867b4cb59a76ca53e868b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 824, y: 1227}
+  - name: Cheval_Base_Jambe_Avant_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 5242
+      width: 246
+      height: 742
+    spriteID: 17f42d2a63ee20d41a1d05f0175edce3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1995, y: 5075}
+  - name: Cheval_Base_Jambe_Arriere_Devant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 4
+      width: 308
+      height: 730
+    spriteID: bdc0fabd95d2ec243a21715933d9676b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1384, y: -163}
+  - name: Cheval_Base_Torse
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1192
+      y: 5762
+      width: 1078
+      height: 742
+    spriteID: 275baf54965463240948b7b620211cf4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 550, y: 5294}
+  - name: Cheval_Base_Jambe_Avant_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 5992
+      width: 246
+      height: 742
+    spriteID: 29d9c4e66398b064283a87eb1665af33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1932, y: 5786}
+  - name: Cheval_Base_Jambe_Arriere_Derriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2436
+      y: 3065
+      width: 342
+      height: 738
+    spriteID: 9cf77a92c171a494a95000d2488d8a09
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1074, y: 2858}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Rock
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 1460
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Cheval_Rock_Tete_Crie
+    spriteName: Cheval_Rock_Tete_Crie
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 061bd1315b4cde24b8795ffb8e4836ca
+    layerID: 1501
+    mosaicPosition: {x: 4, y: 5741}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Rock_Tete
+    spriteName: Cheval_Rock_Tete
+    isGroup: 0
+    parentIndex: 0
+    spriteID: a36548485b4861f4ea251334b176a9a6
+    layerID: 1499
+    mosaicPosition: {x: 4, y: 4604}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Rock_Queu
+    spriteName: Cheval_Rock_Queu
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 4bcafa1a6aec22f4795f72d0b7e9570b
+    layerID: 1498
+    mosaicPosition: {x: 2038, y: 6512}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Rock_Jambe_Avant_Devant
+    spriteName: Cheval_Rock_Jambe_Avant_Devant
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 4f8c9e5f1e112ba4099e749fefe4c337
+    layerID: 1503
+    mosaicPosition: {x: 2165, y: 1871}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Rock_Jambe_Arriere_Devant
+    spriteName: Cheval_Rock_Jambe_Arriere_Devant
+    isGroup: 0
+    parentIndex: 0
+    spriteID: c9a075ac8bf78a6448ae345f0bc1495b
+    layerID: 1505
+    mosaicPosition: {x: 1596, y: 7253}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Rock_Torse
+    spriteName: Cheval_Rock_Torse
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 5e831abca7aa661438f6e83d3cdaa115
+    layerID: 1510
+    mosaicPosition: {x: 1192, y: 2762}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Rock_Jambe_Avant_Derriere
+    spriteName: Cheval_Rock_Jambe_Avant_Derriere
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 114a606121ade574faae9e8423921d50
+    layerID: 1507
+    mosaicPosition: {x: 2164, y: 912}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Rock_Jambe_Arriere_Derriere
+    spriteName: Cheval_Rock_Jambe_Arriere_Derriere
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 3d403a98e0bd6324ca850695b85a4d69
+    layerID: 1506
+    mosaicPosition: {x: 1596, y: 6512}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Harry
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 1457
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Cheval_Harry_Tete_Echarpe
+    spriteName: Cheval_Harry_Tete_Echarpe
+    isGroup: 0
+    parentIndex: 9
+    spriteID: eac813a274a09864f86082c56d411110
+    layerID: 1486
+    mosaicPosition: {x: 1192, y: 6512}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Harry_Tete_Crie
+    spriteName: Cheval_Harry_Tete_Crie
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 1733d108524dcad4d8b87d6fd82814be
+    layerID: 1489
+    mosaicPosition: {x: 4, y: 6736}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Harry_Tete
+    spriteName: Cheval_Harry_Tete
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 5b1479ea655face4f9611a727f73bf61
+    layerID: 1485
+    mosaicPosition: {x: 4, y: 1154}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Harry_Queu
+    spriteName: Cheval_Harry_Queu
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 77deaeda9b8f44a44b3a39dbff997e8d
+    layerID: 1484
+    mosaicPosition: {x: 2038, y: 7284}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Harry_Jambe_Avant_Devant
+    spriteName: Cheval_Harry_Jambe_Avant_Devant
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 717fad9a1b217ed408ee3369d400944a
+    layerID: 1490
+    mosaicPosition: {x: 2790, y: 742}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Harry_Jambe_Arriere_Devant
+    spriteName: Cheval_Harry_Jambe_Arriere_Devant
+    isGroup: 0
+    parentIndex: 9
+    spriteID: b8af04843bd5f3e4e8196138ac999ac3
+    layerID: 1493
+    mosaicPosition: {x: 2436, y: 5301}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Harry_Torse
+    spriteName: Cheval_Harry_Torse
+    isGroup: 0
+    parentIndex: 9
+    spriteID: a6a8c99a9b4841c43bc13ffdb7a32ad1
+    layerID: 1488
+    mosaicPosition: {x: 1192, y: 3512}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Harry_Jambe_Avant_Derriere
+    spriteName: Cheval_Harry_Jambe_Avant_Derriere
+    isGroup: 0
+    parentIndex: 9
+    spriteID: cc41c053d80c006489f06e8ceb534882
+    layerID: 1495
+    mosaicPosition: {x: 2790, y: 1492}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Harry_Jambe_Arriere_Derriere
+    spriteName: Cheval_Harry_Jambe_Arriere_Derriere
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 2b46bc98eca83494f9b6c68d1a05cb40
+    layerID: 1494
+    mosaicPosition: {x: 2436, y: 3811}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Yakari
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 1454
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Cheval_yakari_Tete_Crie
+    spriteName: Cheval_yakari_Tete_Crie
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 44752502836192e4581c5bf394a1763a
+    layerID: 1483
+    mosaicPosition: {x: 1192, y: 912}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_yakari_Tete
+    spriteName: Cheval_yakari_Tete
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 4004b348110e7954295aa1db8f19ce1b
+    layerID: 1474
+    mosaicPosition: {x: 4, y: 2304}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_yakari_Queu
+    spriteName: Cheval_yakari_Queu
+    isGroup: 0
+    parentIndex: 19
+    spriteID: ce691f4315a93ad4c92d8069fdfd04a6
+    layerID: 1473
+    mosaicPosition: {x: 2436, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_yakari_Jambe_Avant_Devant
+    spriteName: Cheval_yakari_Jambe_Avant_Devant
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 4c5bdd44fa08ee446bd54118b30362d3
+    layerID: 1476
+    mosaicPosition: {x: 2790, y: 2242}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_yakari_Jambe_Arriere_Devant
+    spriteName: Cheval_yakari_Jambe_Arriere_Devant
+    isGroup: 0
+    parentIndex: 19
+    spriteID: f20f172a61e73ab4b96d479d1b9b9b12
+    layerID: 1478
+    mosaicPosition: {x: 2436, y: 6039}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_yakari_Torse
+    spriteName: Cheval_yakari_Torse
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 46b0aa3b732231247a1bf204cec9c4d2
+    layerID: 1453
+    mosaicPosition: {x: 1192, y: 4262}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_yakari_Jambe_Avant_Derriere
+    spriteName: Cheval_yakari_Jambe_Avant_Derriere
+    isGroup: 0
+    parentIndex: 19
+    spriteID: fc1f939ec3081fe4d9e6fbd8f4fa60d7
+    layerID: 1480
+    mosaicPosition: {x: 2790, y: 2992}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_yakari_Jambe_Arriere_Derriere
+    spriteName: Cheval_yakari_Jambe_Arriere_Derriere
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 928c0a8657052364fbd3b234f2ba56a0
+    layerID: 1479
+    mosaicPosition: {x: 2436, y: 4556}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Poney
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 1451
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Cheval_Poney_Tete_Crie
+    spriteName: Cheval_Poney_Tete_Crie
+    isGroup: 0
+    parentIndex: 28
+    spriteID: a9939b84cb285504286fd8c47ea6da69
+    layerID: 1462
+    mosaicPosition: {x: 1192, y: 1871}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Poney_Tete
+    spriteName: Cheval_Poney_Tete
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 08c96434cd0f9944b903d274ab26fdda
+    layerID: 1463
+    mosaicPosition: {x: 4, y: 3454}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Poney_Queu
+    spriteName: Cheval_Poney_Queu
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 9fefc3d2333b09c45bae559c1b5f7f12
+    layerID: 1464
+    mosaicPosition: {x: 2436, y: 776}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Poney_Jambe_Avant_Devant
+    spriteName: Cheval_Poney_Jambe_Avant_Devant
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 9274c8fd6f5ec8249b709cc13accbaea
+    layerID: 1468
+    mosaicPosition: {x: 2790, y: 3742}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Poney_Jambe_Arriere_Devant
+    spriteName: Cheval_Poney_Jambe_Arriere_Devant
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 1be06c3fdc69d9843b83caf61b1c9053
+    layerID: 1465
+    mosaicPosition: {x: 2436, y: 6777}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Poney_Torse
+    spriteName: Cheval_Poney_Torse
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 0d160277289231b44aabf1347cbcd813
+    layerID: 1450
+    mosaicPosition: {x: 1192, y: 5012}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Poney_Jambe_Avant_Derriere
+    spriteName: Cheval_Poney_Jambe_Avant_Derriere
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 4a6211d0a628fb149afd561064777149
+    layerID: 1471
+    mosaicPosition: {x: 2790, y: 4492}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Poney_Jambe_Arriere_Derriere
+    spriteName: Cheval_Poney_Jambe_Arriere_Derriere
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 99b7c81bbe619444da61412e39180423
+    layerID: 1469
+    mosaicPosition: {x: 2436, y: 2320}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 1448
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Cheval_Base_Tete_Crie
+    spriteName: Cheval_Base_Tete_Crie
+    isGroup: 0
+    parentIndex: 37
+    spriteID: b459506eee07e3445861f8be25244fea
+    layerID: 1439
+    mosaicPosition: {x: 1192, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Base_Tete
+    spriteName: Cheval_Base_Tete
+    isGroup: 0
+    parentIndex: 37
+    spriteID: 44e9e15634cceb544bd4c3c0e3dad260
+    layerID: 1435
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Base_Queu
+    spriteName: Cheval_Base_Queu
+    isGroup: 0
+    parentIndex: 37
+    spriteID: f8c85641cf2867b4cb59a76ca53e868b
+    layerID: 1438
+    mosaicPosition: {x: 2436, y: 1548}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Base_Jambe_Avant_Devant
+    spriteName: Cheval_Base_Jambe_Avant_Devant
+    isGroup: 0
+    parentIndex: 37
+    spriteID: 17f42d2a63ee20d41a1d05f0175edce3
+    layerID: 1436
+    mosaicPosition: {x: 2790, y: 5242}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Base_Jambe_Arriere_Devant
+    spriteName: Cheval_Base_Jambe_Arriere_Devant
+    isGroup: 0
+    parentIndex: 37
+    spriteID: bdc0fabd95d2ec243a21715933d9676b
+    layerID: 1437
+    mosaicPosition: {x: 2790, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Base_Torse
+    spriteName: Cheval_Base_Torse
+    isGroup: 0
+    parentIndex: 37
+    spriteID: 275baf54965463240948b7b620211cf4
+    layerID: 1442
+    mosaicPosition: {x: 1192, y: 5762}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Base_Jambe_Avant_Derriere
+    spriteName: Cheval_Base_Jambe_Avant_Derriere
+    isGroup: 0
+    parentIndex: 37
+    spriteID: 29d9c4e66398b064283a87eb1665af33
+    layerID: 1444
+    mosaicPosition: {x: 2790, y: 5992}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cheval_Base_Jambe_Arriere_Derriere
+    spriteName: Cheval_Base_Jambe_Arriere_Derriere
+    isGroup: 0
+    parentIndex: 37
+    spriteID: 9cf77a92c171a494a95000d2488d8a09
+    layerID: 1446
+    mosaicPosition: {x: 2436, y: 3065}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

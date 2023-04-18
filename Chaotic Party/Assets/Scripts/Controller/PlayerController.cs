@@ -389,7 +389,7 @@ public class PlayerController : MonoBehaviour
         
         if (gamepad.leftTrigger.justPressed)
         {
-            rightTriggerClick.Invoke();
+            leftTriggerClick.Invoke();
         }
         if (gamepad.rightTrigger.justPressed)
         {
