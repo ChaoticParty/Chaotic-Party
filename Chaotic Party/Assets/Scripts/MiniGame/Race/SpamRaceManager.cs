@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using Cinemachine;
+using Sirenix.OdinInspector;
+#if UNITY_EDITOR
+using Sirenix.Utilities.Editor;
+#endif
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,28 +15,61 @@ using UnityEngine.UI;
 
 public class SpamRaceManager : SpamManager
 {
+    [FoldoutGroup("Scene Objects")]
+    [FoldoutGroup("Scene Objects/Cars"), SceneObjectsOnly]
     [SerializeField] private GameObject[] cars;
-    //public float timer;
-    [NonSerialized] public float currentTimer;
-    [SerializeField] private Image timerImage;
-    [SerializeField] private TextMeshProUGUI winText;
+    [FoldoutGroup("Scene Objects/Camera"), SceneObjectsOnly]
     [SerializeField] private CinemachineVirtualCamera raceCamera;
+    [FoldoutGroup("Scene Objects/Cars"), SceneObjectsOnly]
     [SerializeField] private Transform[] raceCars;
+    [FoldoutGroup("Scene Objects/Camera"), SceneObjectsOnly]
     [SerializeField] private CinemachineTargetGroup targetGroup;
-    private List<Coroutine> _coroutines = new List<Coroutine>();
-    public bool launchFromEditor;
-    public float timeBeforeClickRegister;
+    [FoldoutGroup("Points Handler")]
+    public float timeBeforeClickRegisters;
+    [FoldoutGroup("Points Handler")]
     public PointsType typeAjoutPoints;
-    public TextMeshProUGUI tmpPrefab;
+    [FoldoutGroup("Points Handler"), OnCollectionChanged(nameof(OnPointsChanged)), ListDrawerSettings(NumberOfItemsPerPage = 5)] 
+    public List<Points> points;
+    [ButtonGroup("Points Handler/Copy")] 
+    private void CopyListToClipboard()
+    {
+#if UNITY_EDITOR
+        Clipboard.Copy(points);
+#endif
+    }
+    [ButtonGroup("Points Handler/Copy")] 
+    private void PasteListToClipboard()
+    {
+#if UNITY_EDITOR
+        Clipboard.TryPaste(out points);
+#endif
+    }
+    private void OnPointsChanged(List<Points> value)
+    {
+        for (int i = 0; i < value.Count; i++)
+        {
+            Points p = value[i];
+            p.points = (i + 1) * 100;
+        }
+
+        points = value;
+    }
+    [FoldoutGroup("Scene Objects/Colorisation"), SceneObjectsOnly]
     public List<SpriteRendererListWrapper> carsToColorise = new();
+    [FoldoutGroup("Scene Objects/Colorisation"), SceneObjectsOnly]
     public List<SpriteRendererListWrapper> raceCarsToColorise = new();
+    [FoldoutGroup("Scene Objects/Others"), AssetsOnly]
+    public TextMeshProUGUI tmpPrefab;
 
     #region Events
 
-    [Space, Header("Events")] 
+    [FoldoutGroup("Events")] 
     public UnityEvent<Vector2, string> playerGetsPointsEvent;
+    [FoldoutGroup("Events")] 
     public UnityEvent<Vector2, string> playerGetsOver500PointsEvent;
+    [FoldoutGroup("Events")] 
     public UnityEvent<Vector2, string> playerLosePointsEvent;
+    [FoldoutGroup("Events")] 
     public UnityEvent<Vector2> playerGets1000PointsEvents;
 
     #endregion
@@ -41,8 +78,7 @@ public class SpamRaceManager : SpamManager
     {
         base.Start();
         ActivateUI(false);
-        currentTimer = timer;
-        ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
+        //ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
     }
 
     private void ActivateUI(bool activate)
@@ -54,7 +90,7 @@ public class SpamRaceManager : SpamManager
         //transform.GetChild(0).gameObject.SetActive(activate);
     }
 
-    [ContextMenu("LoadMiniGame")]
+    [ContextMenu("LoadMiniGame"), Button]
     public override void LoadMiniGame()
     {
         base.LoadMiniGame();
@@ -118,6 +154,26 @@ public class SpamRaceManager : SpamManager
         }*/
     }
 
+    public void SetClickText(Transform textTransform, TextMeshProUGUI text, int value, int index)
+    {
+        Points point = index < points.Count ? points[index] : points[^1];
+        SetClickText(textTransform, text, value, point);
+    }
+
+    public void SetClickText(Transform textTransform, TextMeshProUGUI text, int value, Points point)
+    {
+        text.text = value.ToString();
+        text.color = point.color;
+        //_tmpPrefab.color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
+        Transform tmpPrefabTransform = textTransform.transform;
+        tmpPrefabTransform.localScale = point.scale;
+        tmpPrefabTransform.position += Vector3.up / 3;
+        tmpPrefabTransform.rotation = point.GetRotation();
+        Debug.Log(tmpPrefabTransform.rotation.eulerAngles.z);
+        if (point.effect)
+            Instantiate(point.effect, tmpPrefabTransform.position, Quaternion.identity, tmpPrefabTransform);
+    }
+
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
     {
         if(!isMinigamelaunched || playerIndex >= players.Count) return;
@@ -127,7 +183,13 @@ public class SpamRaceManager : SpamManager
         if(spamTexts.Length > playerIndex) UpdateClickUi(playerIndex, clicksArray[playerIndex]);
         DisplayCrown();
         
-        if(value == 0 || typeAjoutPoints == PointsType.BigPoints) return;
+        if(value == 0) return;
+
+        if (typeAjoutPoints == PointsType.BigPoints)
+        {
+            
+            return;
+        }
         
         string valueToDisplay = value.ToString(CultureInfo.InvariantCulture);
         if (value >= 0) valueToDisplay = "+" + valueToDisplay;
@@ -235,7 +297,7 @@ public class SpamRaceManager : SpamManager
             transform1.localPosition = Vector3.zero;
         }
         
-        ColoriseObjectsAccordingToPlayers(GetRankingToPlayerSo(), raceCarsToColorise);
+        ColoriseCinematicObjects(GetRankingToPlayerSo());
     }
 
     public void StartRace()
@@ -246,7 +308,7 @@ public class SpamRaceManager : SpamManager
             if(!player.gameObject.activeSelf) continue;
             SpamRaceController playerScript = player.GetComponent<SpamRaceController>();
             Transform raceCar = raceCars[players.IndexOf(player)];
-            _coroutines.Add(playerScript.Race(raceCar.position + Vector3.right * (5 - ranking[player]) * 30));
+            playerScript.Race(raceCar.position + Vector3.right * (5 - ranking[player]) * 30);
         }
         StartCoroutine(CheckCoroutines());
     }

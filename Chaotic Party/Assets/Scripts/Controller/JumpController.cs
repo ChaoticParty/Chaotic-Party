@@ -26,6 +26,10 @@ public class JumpController : MiniGameController
     {
         base.Awake();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    public override void AddListeners()
+    {
         UnityEvent buttonEvent = new();
         switch (jumpButton)
         {
@@ -45,6 +49,11 @@ public class JumpController : MiniGameController
         buttonEvent.AddListener(Jump);
     }
 
+    private void OnEnable()
+    {
+        AddListeners();
+    }
+
     private void FixedUpdate()
     {
         isJumping = !Physics2D.BoxCast(footObject.position, _raycastSize, 0, _downVector,
@@ -54,7 +63,10 @@ public class JumpController : MiniGameController
 
     private void Jump()
     {
-        Debug.Log(player.CanAct());
+        if (player.miniGameManager != null)
+        {
+            if(!player.miniGameManager.isMinigamelaunched) return;
+        }
         if (player.CanAct())
         {
             Jumping();

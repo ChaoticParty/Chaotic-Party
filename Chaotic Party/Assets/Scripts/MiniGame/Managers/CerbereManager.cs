@@ -10,14 +10,18 @@ using Random = UnityEngine.Random;
 public class CerbereManager : SpamManager
 {
     [Header("Setup")]
-    [SerializeField] private ParticleSystem rompicheEffect;
+    // [SerializeField] private ParticleSystem rompicheEffect;
     [SerializeField] private CanvasGroup Hud;
+    [SerializeField] [Tooltip("Tableau d'animator, de 0 à 3, correspondant aux players")] private Animator[] cerbereAnimator;
+    [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cerbereAnimEvents;
+    [SerializeField] [Tooltip("Animator de la bulle de cerbere")] private Animator bulleAnimator;
+    [SerializeField] [Tooltip("Animator des nuages de la bulle de cerbere")] private Animator[] nuagesAnimator;
     private int winnerIndex;
     private bool[] wasHittedByCerbere; //Tableau de bool, true si a été touché. Repasse a false quand Cerbere se rendort. De 0 à 3, correspondant aux players;
     private float[] walkDestination = new float[]{};
     private Coroutine myCoroutine;
     [HideInInspector] public RompicheState rompicheState;
-    private bool isRompiche = true;
+    // private bool isRompiche = true;
     private float timeBeforeWake = 0;
     private float timePassedBeforeWake = 0;
     private float xStartValuePos = 0;
@@ -53,6 +57,20 @@ public class CerbereManager : SpamManager
     public UnityEvent<Vector2, string> playerGetBackToStart;
     public UnityEvent<Vector2, string> playerYell;
     public UnityEvent cerbereLaser;
+    
+    //Id des param d'animator
+    private static readonly int WakeUpTrigger = Animator.StringToHash("WakeUpTrigger");
+    private static readonly int ObserveTrigger = Animator.StringToHash("ObserveTrigger");
+    private static readonly int UltimoPoderLaser = Animator.StringToHash("UltimoPoderLaser");
+    private static readonly int AuDodoTrigger = Animator.StringToHash("AuDodoTrigger");
+    
+    private static readonly int LaunchBulleDisappear = Animator.StringToHash("LaunchBulleDisappear");
+    private static readonly int LaunchFirstDisappear = Animator.StringToHash("LaunchFirstDisappear");
+    private static readonly int LaunchSecondDisappear = Animator.StringToHash("LaunchSecondDisappear");
+    private static readonly int LaunchThirdDisappear = Animator.StringToHash("LaunchThirdDisappear");
+    private static readonly int Reset = Animator.StringToHash("Reset");
+    private static readonly int Depop = Animator.StringToHash("Depop");
+    private static readonly int Pop = Animator.StringToHash("Pop");
 
     #endregion
 
@@ -99,6 +117,8 @@ public class CerbereManager : SpamManager
                 scoreDisplay[i].text = "0";
             }
         }
+        
+        bulleAnimator.gameObject.SetActive(true);
 
         Hud.alpha = 1;
     }
@@ -118,17 +138,24 @@ public class CerbereManager : SpamManager
             if (walkDestination[i] - players[i].transform.position.x <= 0.01f)
                 players[i].transform.position = new Vector3(walkDestination[i], players[i].transform.position.y, players[i].transform.position.z);
         }
-        if (!isRompiche)
+
+        foreach (var animEvent in cerbereAnimEvents)
         {
+            if (animEvent.isRompiche) continue;
+
+            if (myCoroutine == null) myCoroutine = StartCoroutine(Observe());
+            
             for (int i = 0; i < players.Count; i++)
             {
                 if ((players[i].GetComponent<CerbereSpamController>().isShout || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false))
                 {
                     clicksArray[i] = 0;
+                    cerbereAnimator[i].SetBool(UltimoPoderLaser, true);
                     laserPlaceHolder[i].SetActive(true);
                     wasHittedByCerbere[i] = true;
                     walkDestination[i] = xStartValuePos;
                     //Feedback
+                    cerbereAnimEvents[0].Exclamation();
                     cerbereLaser.Invoke();
                     playerGetBackToStart.Invoke(players[i].transform.position, "Argument");
                     //
@@ -140,25 +167,62 @@ public class CerbereManager : SpamManager
                     players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.NULL;
                 }    
             }
-            return;
         }
+        // if (!isRompiche)
+        // {
+        //     // for (int i = 0; i < players.Count; i++)
+        //     // {
+        //     //     if ((players[i].GetComponent<CerbereSpamController>().isShout || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false))
+        //     //     {
+        //     //         clicksArray[i] = 0;
+        //     //         cerbereAnimator[i].SetBool(UltimoPoderLaser, true);
+        //     //         laserPlaceHolder[i].SetActive(true);
+        //     //         wasHittedByCerbere[i] = true;
+        //     //         walkDestination[i] = xStartValuePos;
+        //     //         //Feedback
+        //     //         cerbereLaser.Invoke();
+        //     //         playerGetBackToStart.Invoke(players[i].transform.position, "Argument");
+        //     //         //
+        //     //         players[i].transform.position = new Vector3(xStartValuePos, players[i].transform.position.y,
+        //     //             players[i].transform.position.z);
+        //     //         players[i].ChangeBulleText("Lasered");
+        //     //         scoreDisplay[i].text = "0";
+        //     //         players[i].isStunned = true;
+        //     //         players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.NULL;
+        //     //     }    
+        //     // }
+        //     // return;
+        // }
         if (timePassedBeforeWake >= 0) //Décrémentation temps avant reveille Cerbere
         {
             timePassedBeforeWake -= Time.deltaTime;
+            if (timePassedBeforeWake > timeBeforeWake / 3 * 2)
+            {
+                rompicheState = RompicheState.TROIS;
+            }
+            else if (timePassedBeforeWake > timeBeforeWake / 3)
+            {
+                rompicheState = RompicheState.DEUX;
+            }
+            else
+            {
+                rompicheState = RompicheState.UN;
+            }
             //Animation (les z du dodo qui decrementent ?)
         }
         else //Lancement d'une nouvelle boucle de dodo
         {
-            if (!rompicheState.Equals(RompicheState.ZERO)) return;
+            // if (!rompicheState.Equals(RompicheState.ZERO)) return;
+            WakeUp();
             rompicheState = RompicheState.NULL;
-            StartCoroutine(WakeUp());
         }
     }
 
     public override void StartMiniGame()
     {
         base.StartMiniGame();
-        StartCoroutine(ZNumberFeedBack(timeBeforeWake));
+        LaunchBulleAnim(rompicheState);
+        // StartCoroutine(ZNumberFeedBack(timeBeforeWake));
     }
 
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
@@ -192,98 +256,95 @@ public class CerbereManager : SpamManager
         return false;
     }
 
-    private IEnumerator WakeUp()
+    private void WakeUp()
     {
-        foreach (var spriteRenderer in listTeteCerbere)
+        if(rompicheState.Equals(RompicheState.NULL)) return;
+        
+        foreach (var animator in cerbereAnimator)
         {
-            spriteRenderer.color = Color.red;
+            animator.SetTrigger(WakeUpTrigger);
         }
-        yield return new WaitForSeconds(cerberBeginAnimTime);
-        foreach (var spriteRenderer in listTeteCerbere)
+        foreach (var animator in nuagesAnimator)
         {
-            spriteRenderer.color = Color.black;
+            animator.SetTrigger(Depop);
         }
-        isRompiche = false;
+        bulleAnimator.SetTrigger(LaunchBulleDisappear);
+    }
+
+    public IEnumerator Observe()
+    {
         yield return new WaitForSeconds(Random.Range(cerberWakeUpTimeRangeMin, cerberWakeUpTimeRangeMax + 1));
         foreach (var lasers in laserPlaceHolder)
         {
             lasers.SetActive(false);
+        }
+        foreach (var animEvent in cerbereAnimEvents)
+        {
+            animEvent.ObserveEnd();
         }
         foreach (var players in players)
         {
             players.isStunned = false;
         }
         wasHittedByCerbere = new[] {false, false, false, false};
-        isRompiche = true;
+        myCoroutine = null;
+        yield return new WaitForSeconds(1);
+        
         timeBeforeWake = Random.Range(cerberRompicheRangeMin, cerberRompicheRangeMax + 1);
         timePassedBeforeWake = timeBeforeWake;
-        myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
+        
+        LaunchBulleAnim(rompicheState);
     }
 
-    private IEnumerator ZNumberFeedBack(float timeBefWake)
+    private void LaunchBulleAnim(RompicheState rompicheState)
     {
-        // var rompicheEffectMain = rompicheEffect.main;
-        
-        //TODO:En commentaire le temps d'avoir ce particle system
-        
-        if (timePassedBeforeWake > timeBefWake / 3 * 2)
+        bulleAnimator.speed = 3 / timeBeforeWake;
+        switch (rompicheState)
         {
-            rompicheState = RompicheState.TROIS;
-            foreach (var spriteRenderer in listTeteCerbere)
-            {
-                spriteRenderer.color = Color.blue;
-            }
-            // rompicheEffectMain.maxParticles = 3;
-            //Rajouter de potentiels fx de real
+            case RompicheState.DEUX:
+                this.rompicheState = RompicheState.UN;
+                bulleAnimator.SetTrigger(LaunchThirdDisappear);
+                break;
+            case RompicheState.TROIS:
+                this.rompicheState = RompicheState.DEUX;
+                bulleAnimator.SetTrigger(LaunchSecondDisappear);
+                break;
+            case RompicheState.NULL:
+                this.rompicheState = RompicheState.TROIS;
+                bulleAnimator.SetTrigger(LaunchFirstDisappear);
+                break;
         }
-        else if (timePassedBeforeWake > timeBefWake / 3)
-        {
-            rompicheState = RompicheState.DEUX;
-            foreach (var spriteRenderer in listTeteCerbere)
-            {
-                spriteRenderer.color = Color.green;
-            }
-            // rompicheEffectMain.maxParticles = 2;
-        }
-        else
-        {
-            rompicheState = RompicheState.UN;
-            foreach (var spriteRenderer in listTeteCerbere)
-            {
-                spriteRenderer.color = Color.yellow;
-            }
-            // rompicheEffectMain.maxParticles = 1;
-        }
+    }
 
-        yield return new WaitForSeconds(timeBefWake / 3);
-
-        if (timePassedBeforeWake >= 0)
+    public void ResetBulleAnim()
+    {
+        bulleAnimator.speed = 1;
+        foreach (var animator in nuagesAnimator)
         {
-            myCoroutine = StartCoroutine(ZNumberFeedBack(timeBefWake));
+            animator.SetTrigger(Pop);
         }
-        else
-        {
-            rompicheState = RompicheState.ZERO;
-        }
+        bulleAnimator.SetTrigger(Reset);
     }
 
     public void PlayerWakeUp()
     {
-        if (myCoroutine != null) StopCoroutine(myCoroutine);
+        // if (myCoroutine != null) StopCoroutine(myCoroutine);
         switch (rompicheState)
         {
             case RompicheState.UN:
                 timePassedBeforeWake = 0;
+                WakeUp();
                 rompicheState = RompicheState.NULL;
-                StartCoroutine(WakeUp());
                 break;
             case RompicheState.DEUX:
                 timePassedBeforeWake = timeBeforeWake / 3;
-                myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
+                LaunchBulleAnim(rompicheState);
+                // myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
                 break;
             case RompicheState.TROIS:
                 timePassedBeforeWake = timeBeforeWake / 3 * 2;
-                myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
+                LaunchBulleAnim(rompicheState);
+                // myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
                 break;
             case RompicheState.NULL:
                 Debug.Log("Cerbere already wake up");

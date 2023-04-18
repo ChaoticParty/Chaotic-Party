@@ -41,6 +41,7 @@ public class MultiplayerManager : MonoBehaviour
             {
                 gamepad.Disable();
                 if(player) player.gameObject.SetActive(false);
+                if(player && isInMenu) player.transform.parent.gameObject.SetActive(false);
             }
         }
     }

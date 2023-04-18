@@ -23,14 +23,19 @@ public class SpamRaceController : SpamController
     {
         base.Awake();
         
+        AddListeners();
+    }
+
+    public override void AddListeners()
+    {
         player.xJustPressed.AddListener(player.index == 0 ? Click : () => { ClickOnOtherPlayer(0); });
         if(spamManager.players.Count >= 2) player.yJustPressed.AddListener(player.index == 1 ? Click : () => { ClickOnOtherPlayer(1); });
         if(spamManager.players.Count >= 3) player.bJustPressed.AddListener(player.index == 2 ? Click : () => { ClickOnOtherPlayer(2); });
         if(spamManager.players.Count >= 4) player.aJustPressed.AddListener(player.index == 3 ? Click : () => { ClickOnOtherPlayer(3); });
         _spamRaceManager = spamManager as SpamRaceManager;
-        float timeBetweenRegister = _spamRaceManager.timeBeforeClickRegister;
-        if(_spamRaceManager.typeAjoutPoints is PointsType.BigPoints or PointsType.VfxBurst) 
-            InvokeRepeating(nameof(SendClicks), timeBetweenRegister, timeBetweenRegister);
+        float timeBetweenRegister = _spamRaceManager.timeBeforeClickRegisters;
+        if(_spamRaceManager.typeAjoutPoints is PointsType.BigPoints or PointsType.VfxBurst)
+            _spamRaceManager.onLoadMiniGame.AddListener(() => InvokeRepeating(nameof(SendClicks), timeBetweenRegister, timeBetweenRegister));
     }
 
     public void DeactivatePlayer()
@@ -58,16 +63,17 @@ public class SpamRaceController : SpamController
                 _clickValue += (int)spamManager.spamValue;
                 if (_tmpPrefab)
                 {
-                    _tmpPrefab.text = _clickValue.ToString();
-                    _tmpPrefab.color = Color.Lerp(_tmpPrefab.color, Color.red, Time.deltaTime * 50);
-                    //_tmpPrefab.color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
-                    Transform tmpPrefabTransform = _tmpPrefab.transform;
-                    tmpPrefabTransform.localScale += Vector3.one / 10;
-                    tmpPrefabTransform.position += Vector3.up / 3;
+                    _spamRaceManager.SetClickText(_tmpPrefab.transform, _tmpPrefab, _clickValue, 
+                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1);
                 }
                 else
                 {
-                    _tmpPrefab = Instantiate(_spamRaceManager.tmpPrefab, spamValuePosition.position, quaternion.identity, transform.GetChild(0).GetChild(0));
+                    _tmpPrefab = Instantiate(_spamRaceManager.tmpPrefab, spamValuePosition.position, 
+                        _spamRaceManager.points[0].GetRotation(), 
+                        transform.GetChild(0).GetChild(0));
+                    _tmpPrefab.transform.localScale = _spamRaceManager.points[0].scale;
+                    _spamRaceManager.SetClickText(_tmpPrefab.transform, _tmpPrefab, _clickValue, 
+                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1);
                 }
                 break;
         }
@@ -76,6 +82,7 @@ public class SpamRaceController : SpamController
     public void SendClicks()
     {
         if(!_spamRaceManager.isMinigamelaunched) return;
+        
         
         if(_spamRaceManager.typeAjoutPoints == PointsType.VfxBurst)
         {
@@ -112,11 +119,11 @@ public class SpamRaceController : SpamController
 
     public Coroutine Race(Vector2 destination)
     {
-        _coroutine = StartCoroutine(RaceEnumerator(destination));
+        _coroutine = StartCoroutine(RaceCoroutine(destination));
         return _coroutine;
     }
 
-    private IEnumerator RaceEnumerator(Vector2 destination)
+    private IEnumerator RaceCoroutine(Vector2 destination)
     {
         Transform raceCarTransform = raceCar.transform;
         while ((Vector2)raceCarTransform.position != destination)

@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviour
 {
     public MultiplayerManager multiplayerManager;
     public PlayersListSO playersListSO;
+    public List<PlayerController> listUiPlayerControllers;
+    public List<PlayerController> listInGamePlayerControllers;
     private ReferenceHolder _referenceHolder;
     private GameObject oldEventObject;
     private bool isClickCheckCoroutineActive = false;
@@ -19,7 +21,9 @@ public class MenuManager : MonoBehaviour
     public string optionsScene;
     public List<ColorEnum> selectColor = new List<ColorEnum>();
     public sbyte readyCount = 0;
+    public sbyte playSceneIndex = 1;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
+    public List<Animator> listMaskPersonnagesAnimator = new List<Animator>();
     private sbyte nbCurrentGamepads = 0;
     private sbyte nbGamepadsLastFrame = 0;
     [Space]
@@ -98,6 +102,7 @@ public class MenuManager : MonoBehaviour
                 if (ecranPersonnage.myPlayerController.gamepad != null)
                 {
                     Debug.Log(ecranPersonnage.myPlayerController.index);
+                    ecranPersonnage.transform.parent.gameObject.SetActive(ecranPersonnage.myPlayerController.gamepad.isConnected); //Gere l'activation du mask du player
                     ecranPersonnage.gameObject.SetActive(ecranPersonnage.myPlayerController.gamepad.isConnected);
                     ecranPersonnage.InitCusto();
                 }
@@ -130,6 +135,37 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #region Class Méthodes
+
+    #region LaunchGame
+    
+    public bool IsLaunchPossible()
+    {
+        sbyte playerCountTemp = 0;
+        foreach (EcranPersonnage ecranPersonnage in listPersonnages)
+        {
+            if (ecranPersonnage.gameObject.activeSelf)
+            {
+                playerCountTemp++;
+            }
+        }
+        return readyCount.Equals(playerCountTemp) /*&& playerCountTemp > 1*/;
+    }
+
+    public void LauchGame()
+    {
+        if (IsLaunchPossible())
+        {
+            foreach (EcranPersonnage ecranPerso in listPersonnages)
+            {
+                if (ecranPerso.gameObject.activeSelf)
+                {
+                    ecranPerso.FillSO();    
+                }
+            }
+            SceneManager.LoadScene(playSceneIndex);
+        }
+    }
+    #endregion
 
     private void PartyClick()
     {

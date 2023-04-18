@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -11,7 +12,6 @@ public class EcranPersonnage : MonoBehaviour
 {
     public MenuManager menuManager;
     public GameObject actualPanel;
-    public sbyte playSceneIndex = 1;
     [SerializeField] private sbyte playerSOIndex = 0;
 
     private bool isReady = false;
@@ -25,22 +25,21 @@ public class EcranPersonnage : MonoBehaviour
     [SerializeField] private List<Sprite> listCurrentCorps = new List<Sprite>();
 
     [Header("Reférences Custo")] 
+    [SerializeField] private List<Sprite> listSpriteRace = new List<Sprite>(); //Dernier = selectionner
+    [SerializeField] private List<Image> listImageRace = new List<Image>();
     [SerializeField] private List<GameObject> listIndicNavRace = new List<GameObject>();
-    [SerializeField] private List<GameObject> listIndicSelectedRace = new List<GameObject>();
     [Space]
     [SerializeField] private Image teteIMG;
-    [SerializeField] private GameObject indicNavTeteGO;
+    [SerializeField] private List<GameObject> listIndicNavTeteGO = new List<GameObject>();
     [SerializeField] private Image corpsIMG;
-    [SerializeField] private GameObject indicNavCorpsGO;
+    [SerializeField] private List<GameObject> listIndicNavCorpsGO = new List<GameObject>();
     [Space]
-    [SerializeField] private List<GameObject> listIndicNavColor = new List<GameObject>();
-    [SerializeField] private List<GameObject> listIndicSelectedColor = new List<GameObject>();
-    [SerializeField] private GameObject lockBlancGO;
-    [SerializeField] private GameObject lockVertGO;
-    [SerializeField] private GameObject lockVioletGO;
-    [SerializeField] private GameObject lockRougeGO;
-    [SerializeField] private GameObject lockOrangeGO;
-    [SerializeField] private GameObject lockJauneGO;
+    [SerializeField] private List<Image> listIndicNavColor = new List<Image>();
+    [SerializeField] private List<Sprite> listBaseColorSpt = new List<Sprite>();
+    [SerializeField] private List<Sprite> listSelectedColorSpt = new List<Sprite>();
+    [SerializeField] private GameObject colorLayout;
+    [SerializeField] private Image bigColor;
+    [SerializeField] private List<Sprite> listBigColorSpt;
     [Space]
     [SerializeField] private GameObject indicNavReadyGO;
 
@@ -57,6 +56,9 @@ public class EcranPersonnage : MonoBehaviour
     private ColorEnum enumColor = ColorEnum.BLANC;
     
     [HideInInspector] public PlayerController myPlayerController;
+    //Id des animations
+    private static readonly int Burning = Animator.StringToHash("Burning");
+    private static readonly int BackBurning = Animator.StringToHash("BackBurning");
 
 
     private void Awake()
@@ -68,6 +70,11 @@ public class EcranPersonnage : MonoBehaviour
     {
         InitCusto();
         
+        AddAllListeners();
+    }
+
+    public void AddAllListeners()
+    {
         myPlayerController.leftStickJustMovedDown.AddListener(MenuNavigateDown);
         myPlayerController.rightStickMovedDown.AddListener(MenuNavigateDown);
         myPlayerController.dPadDown.AddListener(MenuNavigateDown);
@@ -84,9 +91,29 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.rightStickMovedUp.AddListener(MenuNavigateUp);
         myPlayerController.dPadUp.AddListener(MenuNavigateUp);
         
-        myPlayerController.startPressed.AddListener(LauchGame);
         myPlayerController.aJustPressed.AddListener(ValidateCusto);
         myPlayerController.bLongPressed.AddListener(BackToMain);
+    }
+    public void RemoveAllListeners()
+    {
+        myPlayerController.leftStickJustMovedDown.RemoveListener(MenuNavigateDown);
+        myPlayerController.rightStickMovedDown.RemoveListener(MenuNavigateDown);
+        myPlayerController.dPadDown.RemoveListener(MenuNavigateDown);
+        
+        myPlayerController.leftStickJustMovedLeft.RemoveListener(MenuNavigateLeft);
+        myPlayerController.rightStickMovedLeft.RemoveListener(MenuNavigateLeft);
+        myPlayerController.dPadLeft.RemoveListener(MenuNavigateLeft);
+        
+        myPlayerController.leftStickJustMovedRight.RemoveListener(MenuNavigateRight);
+        myPlayerController.rightStickMovedRight.RemoveListener(MenuNavigateRight);
+        myPlayerController.dPadRight.RemoveListener(MenuNavigateRight);
+        
+        myPlayerController.leftStickJustMovedUp.RemoveListener(MenuNavigateUp);
+        myPlayerController.rightStickMovedUp.RemoveListener(MenuNavigateUp);
+        myPlayerController.dPadUp.RemoveListener(MenuNavigateUp);
+        
+        myPlayerController.aJustPressed.RemoveListener(ValidateCusto);
+        myPlayerController.bLongPressed.RemoveListener(BackToMain);
     }
 
     private void MenuNavigateUp()
@@ -102,50 +129,65 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.CHEVALIER:
-                        listIndicNavRace[1].SetActive(false);
-                        listIndicNavRace[2].SetActive(true);
+                        listIndicNavRace[1].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[2].transform.rotation = Quaternion.Euler(0,0,-10);
                         enumRace = Race.DIABLOTIN;
                         break;
                     case Race.HOMMEPOISSON:
-                        listIndicNavRace[3].SetActive(false);
-                        listIndicNavRace[0].SetActive(true);
+                        listIndicNavRace[3].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[0].transform.rotation = Quaternion.Euler(0,0,10);
                         enumRace = Race.GOBLIN;
                         break;
                 }
                 break;
             case Custo.TETE:
                 enumCusto = Custo.RACE;
-                indicNavTeteGO.SetActive(false);
+                foreach (var item in listIndicNavTeteGO)
+                {
+                    item.transform.rotation = new Quaternion(0,0,0,0);
+                }
                 SwitchRace();
                 switch (enumRace)
                 {
                     case Race.GOBLIN:
-                        listIndicNavRace[0].SetActive(true);
+                        listIndicNavRace[0].transform.rotation = Quaternion.Euler(0,0,10);
                         break;
                     case Race.CHEVALIER:
-                        listIndicNavRace[1].SetActive(true);
+                        listIndicNavRace[1].transform.rotation = Quaternion.Euler(0,0,-10);
                         break;
                     case Race.DIABLOTIN:
-                        listIndicNavRace[2].SetActive(true);
+                        listIndicNavRace[2].transform.rotation = Quaternion.Euler(0,0,-10);
                         break;
                     case Race.HOMMEPOISSON:
-                        listIndicNavRace[3].SetActive(true);
+                        listIndicNavRace[3].transform.rotation = Quaternion.Euler(0,0,10);
                         break;
                 }
                 break;
             case Custo.CORPS:
                 enumCusto = Custo.TETE;
-                indicNavCorpsGO.SetActive(false);
-                indicNavTeteGO.SetActive(true);
+                foreach (var item in listIndicNavCorpsGO)
+                {
+                    item.transform.rotation = new Quaternion(0,0,0,0);
+                }
+                foreach (var item in listIndicNavTeteGO)
+                {
+                    item.transform.rotation = Quaternion.Euler(0,0,10 * item.transform.localScale.x);
+                }
                 break;
             case Custo.COULEUR:
                 enumCusto = Custo.CORPS;
                 foreach (var objects in listIndicNavColor)
                 {
-                    objects.SetActive(false);
+                    objects.sprite = listBaseColorSpt[listIndicNavColor.IndexOf(objects)];
                 }
                 
-                indicNavCorpsGO.SetActive(true);
+                foreach (var item in listIndicNavCorpsGO)
+                {
+                    item.transform.rotation = Quaternion.Euler(0,0,10 * item.transform.localScale.x);
+                }
+                
+                colorLayout.SetActive(false);
+                bigColor.enabled = true;
                 break;
             case Custo.READY:
                 enumCusto = Custo.COULEUR;
@@ -153,24 +195,27 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        listIndicNavColor[0].SetActive(true);
+                        listIndicNavColor[0].sprite = listSelectedColorSpt[0];
                         break;
                     case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(true);
+                        listIndicNavColor[1].sprite = listSelectedColorSpt[1];
                         break;
                     case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(true);
+                        listIndicNavColor[2].sprite = listSelectedColorSpt[2];
                         break;
                     case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(true);
+                        listIndicNavColor[3].sprite = listSelectedColorSpt[3];
                         break;
                     case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(true);
+                        listIndicNavColor[4].sprite = listSelectedColorSpt[4];
                         break;
                     case ColorEnum.JAUNE:
-                        listIndicNavColor[5].SetActive(true);
+                        listIndicNavColor[5].sprite = listSelectedColorSpt[5];
                         break;
                 }
+                
+                colorLayout.SetActive(true);
+                bigColor.enabled = false;
                 break;
         }
     }
@@ -189,13 +234,13 @@ public class EcranPersonnage : MonoBehaviour
                     switch (enumRace)
                     {
                         case Race.DIABLOTIN:
-                            listIndicNavRace[1].SetActive(true);
-                            listIndicNavRace[2].SetActive(false);
+                            listIndicNavRace[1].transform.rotation = Quaternion.Euler(0,0,-10);
+                            listIndicNavRace[2].transform.rotation = new Quaternion(0, 0, 0, 0);
                             enumRace = Race.CHEVALIER;
                             break;
                         case Race.GOBLIN:
-                            listIndicNavRace[3].SetActive(true);
-                            listIndicNavRace[0].SetActive(false);
+                            listIndicNavRace[3].transform.rotation = Quaternion.Euler(0,0,10);
+                            listIndicNavRace[0].transform.rotation = new Quaternion(0,0,0,0);
                             enumRace = Race.HOMMEPOISSON;
                             break;
                     }
@@ -203,65 +248,66 @@ public class EcranPersonnage : MonoBehaviour
                 else
                 {
                     enumCusto = Custo.TETE;
-                    listIndicNavRace[1].SetActive(false);
-                    listIndicNavRace[3].SetActive(false);
-                    indicNavTeteGO.SetActive(true);    
+                    listIndicNavRace[1].transform.rotation = new Quaternion(0,0,0,0);
+                    listIndicNavRace[3].transform.rotation = new Quaternion(0,0,0,0);
+                    foreach (var item in listIndicNavTeteGO)
+                    {
+                        item.transform.rotation = Quaternion.Euler(0,0,10 * item.transform.localScale.x);
+                    }  
                 }
                 break;
             case Custo.TETE:
                 enumCusto = Custo.CORPS;
-                indicNavTeteGO.SetActive(false);
-                indicNavCorpsGO.SetActive(true);
+                foreach (var item in listIndicNavTeteGO)
+                {
+                    item.transform.rotation = new Quaternion(0,0,0,0);
+                }
+                foreach (var item in listIndicNavCorpsGO)
+                {
+                    item.transform.rotation = Quaternion.Euler(0,0,10 * item.transform.localScale.x);
+                }
                 break;
             case Custo.CORPS:
                 enumCusto = Custo.COULEUR;
-                indicNavCorpsGO.SetActive(false);
+                foreach (var item in listIndicNavCorpsGO)
+                {
+                    item.transform.rotation = new Quaternion(0,0,0,0);
+                }
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        listIndicNavColor[0].SetActive(true);
+                        listIndicNavColor[0].sprite = listSelectedColorSpt[0];
                         break;
                     case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(true);
+                        listIndicNavColor[1].sprite = listSelectedColorSpt[1];
                         break;
                     case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(true);
+                        listIndicNavColor[2].sprite = listSelectedColorSpt[2];
                         break;
                     case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(true);
+                        listIndicNavColor[3].sprite = listSelectedColorSpt[3];
                         break;
                     case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(true);
+                        listIndicNavColor[4].sprite = listSelectedColorSpt[4];
                         break;
                     case ColorEnum.JAUNE:
-                        listIndicNavColor[5].SetActive(true);
+                        listIndicNavColor[5].sprite = listSelectedColorSpt[5];
                         break;
                 }
+                
+                colorLayout.SetActive(true);
+                bigColor.enabled = false;
                 break;
             case Custo.COULEUR:
                 enumCusto = Custo.READY;
                 indicNavReadyGO.SetActive(true);
-                switch (enumColor)
+                foreach (var objects in listIndicNavColor)
                 {
-                    case ColorEnum.BLANC:
-                        listIndicNavColor[0].SetActive(false);
-                        break;
-                    case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(false);
-                        break;
-                    case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(false);
-                        break;
-                    case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(false);
-                        break;
-                    case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(false);
-                        break;
-                    case ColorEnum.JAUNE:
-                        listIndicNavColor[5].SetActive(false);
-                        break;
+                    objects.sprite = listBaseColorSpt[listIndicNavColor.IndexOf(objects)];
                 }
+                
+                colorLayout.SetActive(false);
+                bigColor.enabled = true;
                 break;
         }
     }
@@ -279,13 +325,13 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.GOBLIN:
-                        listIndicNavRace[0].SetActive(false);
-                        listIndicNavRace[2].SetActive(true);
+                        listIndicNavRace[0].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[2].transform.rotation = Quaternion.Euler(0,0,-10);
                         enumRace = Race.DIABLOTIN;
                         break;
                     case Race.HOMMEPOISSON:
-                        listIndicNavRace[3].SetActive(false);
-                        listIndicNavRace[1].SetActive(true);
+                        listIndicNavRace[3].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[1].transform.rotation = Quaternion.Euler(0,0,-10);
                         enumRace = Race.CHEVALIER;
                         break;
                 }
@@ -294,11 +340,15 @@ public class EcranPersonnage : MonoBehaviour
                 if (currentTeteIndex == listCurrentTete.Count - 1)
                 {
                     currentTeteIndex = 0;
-                    
                 }
                 else
                 {
                     currentTeteIndex ++;
+                }
+
+                foreach (var item in listIndicNavTeteGO.Where(item => item.transform.rotation.x.Equals(1)))
+                {
+                    StartCoroutine(HandAnim(item));
                 }
                 VisualRefresh();
                 break;
@@ -312,34 +362,39 @@ public class EcranPersonnage : MonoBehaviour
                 {
                     currentCorpsIndex ++;
                 }
+                
+                foreach (var item in listIndicNavCorpsGO.Where(item => item.transform.rotation.x.Equals(1)))
+                {
+                    StartCoroutine(HandAnim(item));
+                }
                 VisualRefresh();
                 break;
             case Custo.COULEUR:
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        listIndicNavColor[0].SetActive(false);
-                        listIndicNavColor[1].SetActive(true);
+                        listIndicNavColor[0].sprite = listBaseColorSpt[0];
+                        listIndicNavColor[1].sprite = listSelectedColorSpt[1];
                         enumColor = ColorEnum.VERT;
                         break;
                     case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(false);
-                        listIndicNavColor[2].SetActive(true);
+                        listIndicNavColor[1].sprite = listBaseColorSpt[1];
+                        listIndicNavColor[2].sprite = listSelectedColorSpt[2];
                         enumColor = ColorEnum.VIOLET;
                         break;
                     case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(false);
-                        listIndicNavColor[3].SetActive(true);
+                        listIndicNavColor[2].sprite = listBaseColorSpt[2];
+                        listIndicNavColor[3].sprite = listSelectedColorSpt[3];
                         enumColor = ColorEnum.ROUGE;
                         break;
                     case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(false);
-                        listIndicNavColor[4].SetActive(true);
+                        listIndicNavColor[3].sprite = listBaseColorSpt[3];
+                        listIndicNavColor[4].sprite = listSelectedColorSpt[4];
                         enumColor = ColorEnum.ORANGE;
                         break;
                     case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(false);
-                        listIndicNavColor[5].SetActive(true);
+                        listIndicNavColor[4].sprite = listBaseColorSpt[4];
+                        listIndicNavColor[5].sprite = listSelectedColorSpt[5];
                         enumColor = ColorEnum.JAUNE;
                         break;
                 }
@@ -360,13 +415,13 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumRace)
                 {
                     case Race.DIABLOTIN:
-                        listIndicNavRace[2].SetActive(false);
-                        listIndicNavRace[0].SetActive(true);
+                        listIndicNavRace[2].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[0].transform.rotation = Quaternion.Euler(0,0,10);
                         enumRace = Race.GOBLIN;
                         break;
                     case Race.CHEVALIER:
-                        listIndicNavRace[1].SetActive(false);
-                        listIndicNavRace[3].SetActive(true);
+                        listIndicNavRace[1].transform.rotation = new Quaternion(0,0,0,0);
+                        listIndicNavRace[3].transform.rotation = Quaternion.Euler(0,0,10);
                         enumRace = Race.HOMMEPOISSON;
                         break;
                 }
@@ -375,11 +430,15 @@ public class EcranPersonnage : MonoBehaviour
                 if (currentTeteIndex == 0)
                 {
                     currentTeteIndex = Convert.ToSByte(listCurrentTete.Count - 1);
-                    
                 }
                 else
                 {
                     currentTeteIndex --;
+                }
+                
+                foreach (var item in listIndicNavTeteGO.Where(item => item.transform.rotation.x.Equals(-1)))
+                {
+                    StartCoroutine(HandAnim(item));
                 }
                 VisualRefresh();
                 break;
@@ -387,11 +446,15 @@ public class EcranPersonnage : MonoBehaviour
                 if (currentCorpsIndex == 0)
                 {
                     currentCorpsIndex = Convert.ToSByte(listCurrentCorps.Count - 1);
-                    
                 }
                 else
                 {
                     currentCorpsIndex --;
+                }
+                
+                foreach (var item in listIndicNavCorpsGO.Where(item => item.transform.rotation.x.Equals(-1)))
+                {
+                    StartCoroutine(HandAnim(item));
                 }
                 VisualRefresh();
                 break;
@@ -399,28 +462,28 @@ public class EcranPersonnage : MonoBehaviour
                 switch (enumColor)
                 {
                     case ColorEnum.VERT:
-                        listIndicNavColor[1].SetActive(false);
-                        listIndicNavColor[0].SetActive(true);
+                        listIndicNavColor[1].sprite = listBaseColorSpt[1];
+                        listIndicNavColor[0].sprite = listSelectedColorSpt[0];
                         enumColor = ColorEnum.BLANC;
                         break;
                     case ColorEnum.VIOLET:
-                        listIndicNavColor[2].SetActive(false);
-                        listIndicNavColor[1].SetActive(true);
+                        listIndicNavColor[2].sprite = listBaseColorSpt[2];
+                        listIndicNavColor[1].sprite = listSelectedColorSpt[1];
                         enumColor = ColorEnum.VERT;
                         break;
                     case ColorEnum.ROUGE:
-                        listIndicNavColor[3].SetActive(false);
-                        listIndicNavColor[2].SetActive(true);
+                        listIndicNavColor[3].sprite = listBaseColorSpt[3];
+                        listIndicNavColor[2].sprite = listSelectedColorSpt[2];
                         enumColor = ColorEnum.VIOLET;
                         break;
                     case ColorEnum.ORANGE:
-                        listIndicNavColor[4].SetActive(false);
-                        listIndicNavColor[3].SetActive(true);
+                        listIndicNavColor[4].sprite = listBaseColorSpt[4];
+                        listIndicNavColor[3].sprite = listSelectedColorSpt[3];
                         enumColor = ColorEnum.ROUGE;
                         break;
                     case ColorEnum.JAUNE:
-                        listIndicNavColor[5].SetActive(false);
-                        listIndicNavColor[4].SetActive(true);
+                        listIndicNavColor[5].sprite = listBaseColorSpt[5];
+                        listIndicNavColor[4].sprite = listSelectedColorSpt[4];
                         enumColor = ColorEnum.ORANGE;
                         break;
                 }
@@ -453,7 +516,18 @@ public class EcranPersonnage : MonoBehaviour
                 }
             }
         }
-        
+
+        for (int i = 0; i < listImageRace.Count; i++)
+        {
+            if (i.Equals(currentRaceIndex))
+                listImageRace[currentRaceIndex].sprite = listSpriteRace[^1];
+            else
+            {
+                listImageRace[i].sprite = listSpriteRace[i];
+            }
+        }
+        bigColor.sprite = listBigColorSpt[currentColorIndex];
+
         teteIMG.sprite = listCurrentTete[currentTeteIndex];
         teteIMG.color = listColor[currentColorIndex];
         corpsIMG.sprite = listCurrentCorps[currentCorpsIndex];
@@ -466,27 +540,20 @@ public class EcranPersonnage : MonoBehaviour
         enumRace = Race.GOBLIN;
         enumColor = ColorEnum.BLANC;
         
-        foreach (var objects in listIndicNavRace)
+        listIndicNavRace[0].transform.rotation = Quaternion.Euler(0,0,10);
+
+        foreach (var item in listIndicNavTeteGO)
         {
-            objects.SetActive(objects.Equals(listIndicNavRace[0]));
-        }
-        foreach (var objects in listIndicSelectedRace)
+            item.transform.rotation = new Quaternion(0,0,0,0);
+        }  
+        
+        foreach (var item in listIndicNavCorpsGO)
         {
-            objects.SetActive(objects.Equals(listIndicSelectedRace[0]));
+            item.transform.rotation = new Quaternion(0,0,0,0);
         }
 
-        indicNavTeteGO.SetActive(false);
-        indicNavCorpsGO.SetActive(false);
-
-        foreach (var objects in listIndicNavColor)
-        {
-            objects.SetActive(false);
-        }
-
-        foreach (var objects in listIndicSelectedColor)
-        {
-            objects.SetActive(false);    
-        }
+        colorLayout.SetActive(false);
+        bigColor.enabled = true;
 
         indicNavReadyGO.SetActive(false);
 
@@ -496,6 +563,22 @@ public class EcranPersonnage : MonoBehaviour
         currentTeteIndex = 0;
         currentCorpsIndex = 0;
         currentColorIndex = 0;
+        
+        if (menuManager.selectColor != null)
+        {
+            if (menuManager.selectColor.Contains(ColorEnum.BLANC))
+            {
+                if (menuManager.selectColor.Contains(ColorEnum.VERT))
+                {
+                    if (menuManager.selectColor.Contains(ColorEnum.VIOLET))
+                    {
+                        currentColorIndex = 3;
+                    }
+                    currentColorIndex = 2;
+                }
+                currentColorIndex = 1;
+            }
+        }
         
         SwitchRace();
         VisualRefresh();
@@ -527,11 +610,6 @@ public class EcranPersonnage : MonoBehaviour
         switch (enumCusto)
         {
             case Custo.RACE:
-                foreach (var objects in listIndicSelectedRace)
-                {
-                    objects.SetActive(false);
-                }
-                
                 switch (enumRace)
                 {
                     case Race.GOBLIN:
@@ -547,54 +625,36 @@ public class EcranPersonnage : MonoBehaviour
                         currentRaceIndex = 3;
                         break;
                 }
-                listIndicSelectedRace[currentRaceIndex].SetActive(true);
                 currentRace = listRaces[currentRaceIndex];
                 break;
             case Custo.COULEUR:
-                foreach (var objects in listIndicSelectedColor)
-                {
-                    objects.SetActive(false);
-                }
                 switch (enumColor)
                 {
                     case ColorEnum.BLANC:
-                        if (!lockBlancGO.activeSelf)
-                        {
                             currentColorIndex = 0;
-                        }
+                            bigColor.sprite = listBigColorSpt[0];
                         break;
                     case ColorEnum.VERT:
-                        if (!lockVertGO.activeSelf)
-                        {
                             currentColorIndex = 1;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[1];
+                            break;
                     case ColorEnum.VIOLET:
-                        if (!lockVioletGO.activeSelf)
-                        {
                             currentColorIndex = 2;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[2];
+                            break;
                     case ColorEnum.ROUGE:
-                        if (!lockRougeGO.activeSelf)
-                        {
                             currentColorIndex = 3;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[3];
+                            break;
                     case ColorEnum.ORANGE:
-                        if (!lockOrangeGO.activeSelf)
-                        {
                             currentColorIndex = 4;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[4];
+                            break;
                     case ColorEnum.JAUNE:
-                        if (!lockJauneGO.activeSelf)
-                        {
                             currentColorIndex = 5;
-                        }
-                        break;
+                            bigColor.sprite = listBigColorSpt[5];
+                            break;
                 }
-                listIndicSelectedColor[currentColorIndex].SetActive(true);
                 break;
             case Custo.READY:
                 Ready();
@@ -629,27 +689,27 @@ public class EcranPersonnage : MonoBehaviour
         else
             menuManager.selectColor.Remove(enumColor);
         
-        switch (currentColorIndex)
-        {
-            case 0:
-                lockBlancGO.SetActive(!_isReady);
-                break;
-            case 1:
-                lockVertGO.SetActive(!_isReady);
-                break;
-            case 2:
-                lockVioletGO.SetActive(!_isReady);
-                break;
-            case 3:
-                lockRougeGO.SetActive(!_isReady);
-                break;
-            case 4:
-                lockOrangeGO.SetActive(!_isReady);
-                break;
-            case 5:
-                lockJauneGO.SetActive(!_isReady);
-                break;
-        }
+        // switch (currentColorIndex)
+        // {
+        //     case 0:
+        //         lockBlancGO.SetActive(!_isReady);
+        //         break;
+        //     case 1:
+        //         lockVertGO.SetActive(!_isReady);
+        //         break;
+        //     case 2:
+        //         lockVioletGO.SetActive(!_isReady);
+        //         break;
+        //     case 3:
+        //         lockRougeGO.SetActive(!_isReady);
+        //         break;
+        //     case 4:
+        //         lockOrangeGO.SetActive(!_isReady);
+        //         break;
+        //     case 5:
+        //         lockJauneGO.SetActive(!_isReady);
+        //         break;
+        // }
     }
     
     private void Ready()
@@ -664,7 +724,7 @@ public class EcranPersonnage : MonoBehaviour
         }
         else
         {
-            //Anim du parchemin qui s'ouvre et redscent + peut plus joeur avec son perso
+            //Anim du parchemin qui s'ouvre et redscent + peut plus jouer avec son perso
             menuManager.readyCount--;
             readyIMG.color = Color.white;
             LockColor(isReady);
@@ -672,44 +732,41 @@ public class EcranPersonnage : MonoBehaviour
 
         isReady = !isReady;
         VisualRefresh();
-        if (IsLaunchPossible())
+        menuManager.partyBandeauReadyGO.SetActive(menuManager.IsLaunchPossible());
+        if (isReady)
         {
-            //Apparition bandeau a la smash (placeholder a voir si on garde)
-            menuManager.partyBandeauReadyGO.SetActive(true);
-        }
-        else
-        {
-            //Disparition bandeau
-            menuManager.partyBandeauReadyGO.SetActive(false);
+            SpawnPlayer();
         }
     }
 
-    private bool IsLaunchPossible()
+    private void SpawnPlayer()
     {
-        sbyte playerCountTemp = 0;
-        foreach (EcranPersonnage ecranPersonnage in menuManager.listPersonnages)
-        {
-            if (ecranPersonnage.gameObject.activeSelf)
-            {
-                playerCountTemp++;
-            }
-        }
-        return menuManager.readyCount.Equals(playerCountTemp) /*&& playerCountTemp > 1*/;
+        menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(Burning);
+        menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listInGamePlayerControllers[playerSOIndex];
+        FillSO();
+        menuManager.listInGamePlayerControllers[playerSOIndex].SetupSprite(menuManager.playersListSO.players[playerSOIndex]);
+        readyIMG.GetComponent<Button>().interactable = false;
+        RemoveAllListeners();
+        menuManager.listInGamePlayerControllers[playerSOIndex].gameObject.SetActive(true);
+        menuManager.multiplayerManager.InitMultiplayer();
     }
 
-    private void LauchGame()
+    public void SpawnSelectionScreen()
     {
-        if (IsLaunchPossible())
-        {
-            foreach (EcranPersonnage ecranPerso in menuManager.listPersonnages)
-            {
-                if (ecranPerso.gameObject.activeSelf)
-                {
-                    ecranPerso.FillSO();    
-                }
-            }
-            SceneManager.LoadScene(playSceneIndex);
-        }
+        menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(BackBurning);
+        menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listUiPlayerControllers[playerSOIndex];
+        readyIMG.GetComponent<Button>().interactable = true;
+        AddAllListeners();
+        menuManager.multiplayerManager.InitMultiplayer();
+        Ready();
+    }
+
+    private IEnumerator HandAnim(GameObject obj)
+    {
+        Quaternion quatTemp = obj.transform.rotation;
+        obj.transform.rotation = new Quaternion(0, 0, 0, 0);
+        yield return new WaitForSeconds(1);
+        obj.transform.rotation = quatTemp;
     }
 }
 

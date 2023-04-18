@@ -21,15 +21,26 @@ public class HorizontalMovement : MiniGameController
         base.Awake();
         playerTransform = player.transform;
         var localScale = playerTransform.localScale;
-        watchingRight = new Vector3(1, localScale.y, localScale.z);
-        watchingLeft = new Vector3(-1, localScale.y, localScale.z);
+        watchingRight = new Vector3(localScale.x, localScale.y, localScale.z);
+        watchingLeft = new Vector3(-localScale.x, localScale.y, localScale.z);
         _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    public override void AddListeners()
+    {
         player.leftStickMoved.AddListener(MoveHorizontally);
     }
 
+    private void OnEnable()
+    {
+        AddListeners();
+    }
+    
+    
+
     private void FixedUpdate()
     {
-        if (minClamp == maxClamp) return;
+        if (Math.Abs(minClamp - maxClamp) < 0.01) return;
 
         Vector3 position = transform.position;
         position = new Vector3(Mathf.Clamp(position.x, minClamp, maxClamp), position.y);
@@ -38,6 +49,10 @@ public class HorizontalMovement : MiniGameController
 
     private void MoveHorizontally(float x, float y)
     {
+        if (player.miniGameManager != null)
+        {
+            if(!player.miniGameManager.isMinigamelaunched) return;
+        }
         if (!player.CanMove())
         {
             return;
@@ -65,8 +80,5 @@ public class HorizontalMovement : MiniGameController
             }
         }
         _rigidbody2D.velocity = new Vector2(x * speed, _rigidbody2D.velocity.y);
-        Vector3 position = transform.position;
-        position = new Vector3(Mathf.Clamp(position.x, minClamp, maxClamp), position.y);
-        transform.position = position;
     }
 }

@@ -12,20 +12,18 @@ public class RulesManager : MiniGameManager
     public Image loadingImage;
     public SpriteRenderer launchButton;
     private MiniGameManager _loadedMiniGameManager;
+    private AudioListener _audioListener;
 
     [Space] 
     [Header("Listes des composants des règles")] 
     [SerializeField] private GameObject rules;
-    [SerializeField] private List<string> keyDictRules = new List<string>();
-    [SerializeField] private List<GameObject> valueDictRules = new List<GameObject>();
-    private Dictionary<string, GameObject> dictRules = new Dictionary<string, GameObject>();
+    [SerializeField] private Dictionary<string, GameObject> dictRules = new Dictionary<string, GameObject>();
     [SerializeField] private GameObject rulesCassable;
-    [SerializeField] private List<string> keyDictRulesCassable = new List<string>();
-    [SerializeField] private List<GameObject> valueDictRulesCassable = new List<GameObject>();
-    private Dictionary<string, GameObject> dictRulesCassable = new Dictionary<string, GameObject>();
+    [SerializeField] private Dictionary<string, GameObject> dictRulesCassable = new Dictionary<string, GameObject>();
 
     protected void Start()
     {
+        _audioListener ??= FindObjectOfType<AudioListener>();
         _currentLoadingTime = 0;
         isMinigamelaunched = true;
         //StartMiniGame();
@@ -48,6 +46,7 @@ public class RulesManager : MiniGameManager
             yield return null;
         }
         
+        Destroy(_audioListener);
         SearchForLoadedMinigameManager();
 
         launchButton.color = Color.white;
@@ -68,15 +67,6 @@ public class RulesManager : MiniGameManager
 
     private void DisplayRules(MiniGameData miniGameData)
     {
-        for (int i = 0; i < keyDictRules.Count; i++)
-        {
-            dictRules.Add(keyDictRules[i], valueDictRules[i]);
-        }
-        for (int i = 0; i < keyDictRulesCassable.Count; i++)
-        {
-            dictRulesCassable.Add(keyDictRulesCassable[i], valueDictRulesCassable[i]);
-        }
-
         Instantiate(dictRules[miniGameData.chosenMiniGames[
             miniGameData.currentMiniGameIndex]], rules.transform);
         Instantiate(dictRulesCassable[miniGameData.chosenMiniGames[
