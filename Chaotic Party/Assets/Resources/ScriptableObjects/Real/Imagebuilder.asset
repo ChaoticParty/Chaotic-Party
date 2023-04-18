@@ -28,6 +28,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotationMultiplier: 1
+  startPosition: {x: 0, y: 0}
   xPositionCurve:
     serializedVersion: 2
     m_Curve: []
@@ -45,3 +46,5 @@ MonoBehaviour:
   onEndEvent:
     m_PersistentCalls:
       m_Calls: []
+  sprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}

@@ -18,8 +18,8 @@ public class PlayerSO : ScriptableObject
     #region Customisation
 
     [Header("Customisation")] 
-    public Sprite head;
-    public Sprite body;
+    public SelectedSkin head;
+    public SelectedSkin body;
     public Color color;
 
     #endregion
