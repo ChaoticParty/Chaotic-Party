@@ -57,6 +57,7 @@ public class CerbereManager : SpamManager
     public UnityEvent<Vector2, string> playerGetBackToStart;
     public UnityEvent<Vector2, string> playerYell;
     public UnityEvent cerbereLaser;
+    public UnityEvent cerbereSee;
     
     //Id des param d'animator
     private static readonly int WakeUpTrigger = Animator.StringToHash("WakeUpTrigger");
@@ -149,6 +150,7 @@ public class CerbereManager : SpamManager
             {
                 if ((players[i].GetComponent<CerbereSpamController>().isShout || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false))
                 {
+                    cerbereSee.Invoke();
                     clicksArray[i] = 0;
                     cerbereAnimator[i].SetBool(UltimoPoderLaser, true);
                     laserPlaceHolder[i].SetActive(true);
@@ -168,31 +170,6 @@ public class CerbereManager : SpamManager
                 }    
             }
         }
-        // if (!isRompiche)
-        // {
-        //     // for (int i = 0; i < players.Count; i++)
-        //     // {
-        //     //     if ((players[i].GetComponent<CerbereSpamController>().isShout || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false))
-        //     //     {
-        //     //         clicksArray[i] = 0;
-        //     //         cerbereAnimator[i].SetBool(UltimoPoderLaser, true);
-        //     //         laserPlaceHolder[i].SetActive(true);
-        //     //         wasHittedByCerbere[i] = true;
-        //     //         walkDestination[i] = xStartValuePos;
-        //     //         //Feedback
-        //     //         cerbereLaser.Invoke();
-        //     //         playerGetBackToStart.Invoke(players[i].transform.position, "Argument");
-        //     //         //
-        //     //         players[i].transform.position = new Vector3(xStartValuePos, players[i].transform.position.y,
-        //     //             players[i].transform.position.z);
-        //     //         players[i].ChangeBulleText("Lasered");
-        //     //         scoreDisplay[i].text = "0";
-        //     //         players[i].isStunned = true;
-        //     //         players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.NULL;
-        //     //     }    
-        //     // }
-        //     // return;
-        // }
         if (timePassedBeforeWake >= 0) //Décrémentation temps avant reveille Cerbere
         {
             timePassedBeforeWake -= Time.deltaTime;
