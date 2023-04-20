@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
     private bool isClickCheckCoroutineActive = false;
     [Space]
     public string optionsScene;
-    public List<sbyte> selectColor = new List<sbyte>();
+    public Dictionary<sbyte, sbyte> selectColor = new Dictionary<sbyte, sbyte>();
     public sbyte readyCount = 0;
     public sbyte playSceneIndex = 1;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
@@ -46,6 +46,11 @@ public class MenuManager : MonoBehaviour
     [Space]
     public Animator partyPlayerMinGO;
     public GameObject partyBandeauReadyGO;
+    [Space]
+    [Header("Animator")]
+    [SerializeField] private Animator transitionAnim;
+    [SerializeField] private Animator startGameAnim;
+    public Animator backAnim;
     
     #region MonoBehaviour Méthodes
 
@@ -96,7 +101,6 @@ public class MenuManager : MonoBehaviour
         if (!nbCurrentGamepads.Equals(nbGamepadsLastFrame))
         {
             multiplayerManager.InitMultiplayer();
-            Debug.Log("InitFinis");
             foreach (EcranPersonnage ecranPersonnage in listPersonnages)
             {
                 Debug.Log(ecranPersonnage.myPlayerController);
@@ -112,7 +116,7 @@ public class MenuManager : MonoBehaviour
                     Debug.Log("null");
                 }
             }
-            // partyPlayerMinGO.gameObject.SetActive(nbCurrentGamepads < 2);
+            partyBandeauReadyGO.SetActive(IsLaunchPossible());
             partyPlayerMinGO.SetTrigger(nbCurrentGamepads < 2 ? "Descend" : "Monte");
         }
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
@@ -157,6 +161,7 @@ public class MenuManager : MonoBehaviour
     {
         if (IsLaunchPossible())
         {
+            startGameAnim.SetTrigger("Push");
             foreach (EcranPersonnage ecranPerso in listPersonnages)
             {
                 if (ecranPerso.gameObject.activeSelf)
@@ -168,6 +173,11 @@ public class MenuManager : MonoBehaviour
         }
     }
     #endregion
+
+    public void TransitionAnimLaunch(bool goBigger)
+    {
+        transitionAnim.SetTrigger(goBigger ? "Plus" : "Moins" );
+    }
 
     private void PartyClick()
     {

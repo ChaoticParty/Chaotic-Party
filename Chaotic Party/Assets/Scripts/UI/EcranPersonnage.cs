@@ -96,7 +96,7 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.rightStickJustMovedRight.AddListener(ColorChangeRight);
         
         myPlayerController.aJustPressed.AddListener(Ready);
-        myPlayerController.bLongPressed.AddListener(BackToMain);
+        myPlayerController.bJustPressed.AddListener(BackToMain); //TODO remplacer par select quand on aura le sprite
     }
     public void RemoveAllListeners()
     {
@@ -111,11 +111,11 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.leftTriggerClick.RemoveListener(BodyChangeLeft);
         myPlayerController.rightTriggerClick.RemoveListener(BodyChangeRight);
         
-        myPlayerController.rightStickMovedLeft.RemoveListener(ColorChangeLeft);
-        myPlayerController.rightStickMovedRight.RemoveListener(ColorChangeRight);
+        myPlayerController.rightStickJustMovedLeft.RemoveListener(ColorChangeLeft);
+        myPlayerController.rightStickJustMovedRight.RemoveListener(ColorChangeRight);
         
         myPlayerController.aJustPressed.RemoveListener(Ready);
-        myPlayerController.bLongPressed.RemoveListener(BackToMain);
+        myPlayerController.bJustPressed.RemoveListener(BackToMain);
     }
 
     private void RaceChangeRight(float x = 0, float y = 0)
@@ -125,6 +125,7 @@ public class EcranPersonnage : MonoBehaviour
     private void RaceChangeRight()
     {
         if (isReady) return;
+        leftStickToRight.SetTrigger("Push");
         currentTeteIndex = 0;
         currentCorpsIndex = 0;
         if (currentRaceIndex == listRaces.Count - 1)
@@ -144,6 +145,7 @@ public class EcranPersonnage : MonoBehaviour
     private void RaceChangeLeft()
     {
         if (isReady) return;
+        leftStickToLeft.SetTrigger("Push");
         currentTeteIndex = 0;
         currentCorpsIndex = 0;
         if (currentRaceIndex == 0)
@@ -245,13 +247,29 @@ public class EcranPersonnage : MonoBehaviour
     private void ColorChangeRight()
     {
         if (isReady) return;
+        rightStickToRight.SetTrigger("Push");
         if (currentColorIndex == listColor.Count - 1)
         {
             currentColorIndex = 0;
+            while (!IsColorDispo(currentColorIndex))
+            {
+                currentColorIndex++;
+            }
         }
         else
         {
             currentColorIndex ++;
+            while (!IsColorDispo(currentColorIndex))
+            {
+                if (currentColorIndex == listColor.Count - 1)
+                {
+                    currentColorIndex = 0;
+                }
+                else
+                {
+                    currentColorIndex++;
+                }
+            }
         }
         VisualRefresh();
     }
@@ -262,13 +280,30 @@ public class EcranPersonnage : MonoBehaviour
     private void ColorChangeLeft()
     {
         if (isReady) return;
+        rightStickToLeft.SetTrigger("Push");
+        
         if (currentColorIndex == 0)
         {
             currentColorIndex = Convert.ToSByte(listColor.Count - 1);
+            while (!IsColorDispo(currentColorIndex))
+            {
+                currentColorIndex--;
+            }
         }
         else
         {
             currentColorIndex --;
+            while (!IsColorDispo(currentColorIndex))
+            {
+                if (currentColorIndex == 0)
+                {
+                    currentColorIndex = Convert.ToSByte(listColor.Count - 1);
+                }
+                else
+                {
+                    currentColorIndex--;
+                }
+            }
         }
         VisualRefresh();
     }
@@ -465,11 +500,11 @@ public class EcranPersonnage : MonoBehaviour
         
         if (menuManager.selectColor != null)
         {
-            if (menuManager.selectColor.Contains(0))
+            if (menuManager.selectColor.ContainsValue(0))
             {
-                if (menuManager.selectColor.Contains(1))
+                if (menuManager.selectColor.ContainsValue(1))
                 {
-                    if (menuManager.selectColor.Contains(2))
+                    if (menuManager.selectColor.ContainsValue(2))
                     {
                         currentColorIndex = 3;
                     }
@@ -482,16 +517,11 @@ public class EcranPersonnage : MonoBehaviour
         VisualRefresh();
     }
 
-    private void BackToMain(float t)
+    private void BackToMain()
     {
-        //Anim du retour qui se complète
-        backIMG.color = Color.red;
-        if (t > 2)
-        {
-            menuManager.Back(actualPanel);
-            EventSystem.current.SetSelectedGameObject(menuManager.partyBTN.gameObject);
-        }
-        //Ajout d'un panel de confirmation ou tt le monde y a acces ?
+        menuManager.backAnim.SetTrigger("Push");
+        menuManager.Back(actualPanel);
+        EventSystem.current.SetSelectedGameObject(menuManager.partyBTN.gameObject);
     }
 
     public void FillSO()
@@ -504,9 +534,14 @@ public class EcranPersonnage : MonoBehaviour
     public void LockColor(bool _isReady)
     {
         if (!_isReady)
-            menuManager.selectColor.Add(currentColorIndex);
+            menuManager.selectColor.Add(playerSOIndex, currentColorIndex);
         else
-            menuManager.selectColor.Remove(currentColorIndex);
+            menuManager.selectColor.Remove(playerSOIndex);
+    }
+
+    private bool IsColorDispo(sbyte colorIndex)
+    {
+        return !menuManager.selectColor.ContainsValue(colorIndex);
     }
     
     private void Ready()
@@ -516,15 +551,14 @@ public class EcranPersonnage : MonoBehaviour
             aClick.SetTrigger("Push");
             //Anim du parchemin qui se ferme et remonte + possibilité au joueur de jouer avec son perso
             menuManager.readyCount++;
-            LockColor(isReady);
             //Faire le check aussi
         }
         else
         {
             //Anim du parchemin qui s'ouvre et redscent + peut plus jouer avec son perso
             menuManager.readyCount--;
-            LockColor(isReady);
         }
+        LockColor(isReady);
 
         isReady = !isReady;
         VisualRefresh();

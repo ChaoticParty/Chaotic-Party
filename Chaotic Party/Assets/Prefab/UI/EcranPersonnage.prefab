@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 7875188087023168740}
   - component: {fileID: 9196498460532860149}
   - component: {fileID: 5928721164851370652}
+  - component: {fileID: 4380240610306020095}
   m_Layer: 5
   m_Name: InputRight
   m_TagString: Untagged
@@ -153,6 +154,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &4380240610306020095
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790643766465907645}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d400234cff87c441be0bac736ee34d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &921486763937570983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,14 +1392,14 @@ MonoBehaviour:
   indicNavReadyGO: {fileID: 921486763937570983}
   readyIMG: {fileID: 3390334942863000538}
   backIMG: {fileID: 0}
-  leftStickToLeft: {fileID: 0}
-  leftStickToRight: {fileID: 0}
+  leftStickToLeft: {fileID: 1993677268259734923}
+  leftStickToRight: {fileID: 1599961178330469108}
   leftBumperClick: {fileID: 424122603836321390}
   rightBumperClick: {fileID: 2312095528833283146}
   leftTriggerClick: {fileID: 209155171395685168}
   rightTriggerClick: {fileID: 410455604113017400}
-  rightStickToLeft: {fileID: 0}
-  rightStickToRight: {fileID: 0}
+  rightStickToLeft: {fileID: 3790956362929515903}
+  rightStickToRight: {fileID: 4380240610306020095}
   aClick: {fileID: 5327247403413115727}
   myPlayerController: {fileID: 0}
 --- !u!114 &2427349045169927206
@@ -1625,6 +1646,7 @@ GameObject:
   - component: {fileID: 1920205529247441818}
   - component: {fileID: 3209179269462619297}
   - component: {fileID: 6722522408223940227}
+  - component: {fileID: 3790956362929515903}
   m_Layer: 5
   m_Name: InputLeft
   m_TagString: Untagged
@@ -1690,6 +1712,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &3790956362929515903
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7463376751494998672}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d400234cff87c441be0bac736ee34d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7565238003043967127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1743,7 @@ GameObject:
   - component: {fileID: 698252533033702647}
   - component: {fileID: 3638793455324509598}
   - component: {fileID: 6852623140432708936}
+  - component: {fileID: 1599961178330469108}
   m_Layer: 5
   m_Name: InputRight
   m_TagString: Untagged
@@ -1766,6 +1809,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1599961178330469108
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7565238003043967127}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d400234cff87c441be0bac736ee34d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7622976144265208115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1975,7 @@ GameObject:
   - component: {fileID: 1778049860828458615}
   - component: {fileID: 4563529529722120428}
   - component: {fileID: 4824386739020761938}
+  - component: {fileID: 1993677268259734923}
   m_Layer: 5
   m_Name: InputLeft
   m_TagString: Untagged
@@ -1977,6 +2041,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1993677268259734923
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8640281793519085420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d400234cff87c441be0bac736ee34d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8829015975042097557
 GameObject:
   m_ObjectHideFlags: 0

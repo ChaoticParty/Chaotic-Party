@@ -45,6 +45,7 @@ public class ExplosionController : MiniGameController
 
     private void ReadyClick()
     {
+        // menuManager.TransitionAnimLaunch(true); //TODO montrer ca aux autres et voir si ca les inspirent
         menuManager.LauchGame();
     }
 
