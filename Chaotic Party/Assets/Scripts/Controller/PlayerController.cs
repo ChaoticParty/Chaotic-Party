@@ -93,6 +93,12 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] private bool isDPadMovedLeft;
     [NonSerialized] private bool isDPadMovedRight;
 
+    [NonSerialized] public UnityEvent leftBumperClick = new();
+    [NonSerialized] public UnityEvent rightBumperClick = new();
+    
+    [NonSerialized] public UnityEvent leftTriggerClick = new();
+    [NonSerialized] public UnityEvent rightTriggerClick = new();
+
     #endregion
 
     #region PlayerStateBooleans
@@ -132,6 +138,10 @@ public class PlayerController : MonoBehaviour
         if (gamepad.back.justPressed)
         {
             selectPressed.Invoke();
+        }
+        if(gamepad.A.justPressed)
+        {
+            aJustPressed.Invoke();
         }
         if(gamepad.A.justPressed)
         {
@@ -367,6 +377,24 @@ public class PlayerController : MonoBehaviour
             isDPadMovedLeft = false;
             isDPadMovedRight = false;
         }
+        
+        if (gamepad.leftBumper.justPressed)
+        {
+            leftBumperClick.Invoke();
+        }
+        if (gamepad.rightBumper.justPressed)
+        {
+            rightBumperClick.Invoke();
+        }
+        
+        if (gamepad.leftTrigger.justPressed)
+        {
+            leftTriggerClick.Invoke();
+        }
+        if (gamepad.rightTrigger.justPressed)
+        {
+            rightTriggerClick.Invoke();
+        }
     }
 
     private void OnDisable()
@@ -413,6 +441,10 @@ public class PlayerController : MonoBehaviour
         dPadDown.RemoveAllListeners();
         dPadLeft.RemoveAllListeners();
         dPadRight.RemoveAllListeners();
+        leftBumperClick.RemoveAllListeners();
+        rightBumperClick.RemoveAllListeners();
+        leftTriggerClick.RemoveAllListeners();
+        rightTriggerClick.RemoveAllListeners();
     }
 
     public bool IsDoingSomething()
