@@ -9,6 +9,8 @@ public class PhotoMinionOverlord : MonoBehaviour
 {
     public Transform head;
     public List<Transform> positions = new();
+    public List<GameObject> projecteurs = new();
+    public int currentIndex;
     private Transform _currentPosition;
     public Animator beforePictureAnimator;
     public CinemachineVirtualCamera vCam;
@@ -27,14 +29,22 @@ public class PhotoMinionOverlord : MonoBehaviour
     {
         if(positions.Count <= 1) return;
         
-        Transform nextPosition = positions[Random.Range(0, positions.Count)];
+        projecteurs[currentIndex].SetActive(false);
+
+        int nextIndex = Random.Range(0, positions.Count);
+        Transform nextPosition = positions[nextIndex];
+        currentIndex = nextIndex;
         if(isPositionDifferent)
         {
             while (nextPosition == _currentPosition)
             {
-                nextPosition = positions[Random.Range(0, positions.Count)];
+                nextIndex = Random.Range(0, positions.Count);
+                nextPosition = positions[nextIndex];
+                currentIndex = nextIndex;
             }
         }
+        
+        projecteurs[currentIndex].SetActive(true);
 
         _currentPosition = nextPosition;
         // Set valeurs du transform
