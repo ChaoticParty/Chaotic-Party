@@ -48,7 +48,32 @@ public class SkinSelector : MonoBehaviour
                 cp.color = color;
             }
         }
-    }
+    } //Pour tout le player
+    public void SetupSkin(SelectedSkin tete, Color color)
+    {
+        foreach (Transform child in skinParent)
+        {
+            if (child.gameObject.activeSelf)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+        
+        foreach (SkinValues sv in headSkinValues)
+        {
+            if (!sv.selectedSkin.Equals(tete)) continue;
+            
+            foreach (GameObject ap in sv.activatedPart)
+            {
+                ap.SetActive(true);
+            }
+
+            foreach (SpriteRenderer cp in sv.coloredPart)
+            {
+                cp.color = color;
+            }
+        }
+    } //Pour seulement la tête du player
 }
 
 public enum SelectedSkin

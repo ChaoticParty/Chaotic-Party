@@ -154,7 +154,7 @@ public class MenuManager : MonoBehaviour
                 playerCountTemp++;
             }
         }
-        return readyCount.Equals(playerCountTemp) /*&& playerCountTemp > 1*/;
+        return readyCount.Equals(playerCountTemp) && !playerCountTemp.Equals(0) /*&& playerCountTemp > 1*/;
     }
 
     public void LauchGame()
@@ -181,10 +181,26 @@ public class MenuManager : MonoBehaviour
 
     private void PartyClick()
     {
+        ResetSelectedPerso();
         PanelChange(panelPrincipal, panelParty);
         if (nbCurrentGamepads < 2) partyPlayerMinGO.SetTrigger("Descend");
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstParty);
+    }
+
+    private void ResetSelectedPerso()
+    {
+        selectColor.Clear();
+        readyCount = 0;
+        partyBandeauReadyGO.SetActive(false);
+        for (int i = 0; i < multiplayerManager.players.Count; i++)
+        {
+            multiplayerManager.players[i] = listUiPlayerControllers[i];
+        }
+        foreach (var playerController in listInGamePlayerControllers)
+        {
+            playerController.gameObject.SetActive(false);
+        }
     }
 
     private void MinigameClick()

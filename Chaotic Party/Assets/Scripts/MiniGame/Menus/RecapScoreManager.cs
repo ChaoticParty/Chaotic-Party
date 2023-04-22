@@ -52,10 +52,10 @@ public class RecapScoreManager : MiniGameManager
             }
         }
 
-        foreach (PlayerController player in players)
-        {
-            player.ChangeColor();
-        }
+        // foreach (PlayerController player in players)
+        // {
+        //     player.ChangeColor();
+        // }
     }
 
     public bool HasNextMiniGame()

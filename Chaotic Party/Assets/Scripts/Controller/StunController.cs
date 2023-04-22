@@ -34,7 +34,7 @@ public class StunController : MiniGameController
         player.isStunned = true;
         DesactivateInput();
         if(player.GetComponent<Rigidbody2D>() != null) player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        player.ChangeColor(Color.grey);
+        //player.ChangeColor(Color.grey);
         StartCoroutine(StopStun());
     }
 
@@ -61,7 +61,7 @@ public class StunController : MiniGameController
 
         Debug.Log("player is no more stunned");
         _stunTime = defaultStunTime;
-        player.ChangeColor();
+        //player.ChangeColor();
         ReactivateInput();
         player.isStunned = false;
         //Voir comment on gere avec les anims

@@ -2170,6 +2170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ca1eafc06f9054f8296ec0f2a903d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1039535631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1336493702446623293, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1052453124 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7474561050885149008, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
@@ -2453,6 +2458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 780122187}
+  actualPanel: {fileID: 1039535631}
   explosionDelay: 2
 --- !u!114 &1240165812 stripped
 MonoBehaviour:
@@ -3236,6 +3242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 780122187}
+  actualPanel: {fileID: 1039535631}
   explosionDelay: 2
 --- !u!114 &1595603464 stripped
 MonoBehaviour:
@@ -3429,6 +3436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 780122187}
+  actualPanel: {fileID: 1039535631}
   explosionDelay: 2
 --- !u!114 &1637481045 stripped
 MonoBehaviour:
@@ -3733,6 +3741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 780122187}
+  actualPanel: {fileID: 1039535631}
   explosionDelay: 2
 --- !u!114 &1735875128 stripped
 MonoBehaviour:

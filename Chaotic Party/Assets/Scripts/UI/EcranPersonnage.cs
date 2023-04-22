@@ -480,6 +480,7 @@ public class EcranPersonnage : MonoBehaviour
 
     public void InitCusto()
     {
+        isReady = false;
         foreach (var item in listIndicNavTeteGO)
         {
             item.transform.rotation = new Quaternion(0,0,0,0);
@@ -589,10 +590,11 @@ public class EcranPersonnage : MonoBehaviour
         menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listInGamePlayerControllers[playerSOIndex];
         FillSO();
         menuManager.listInGamePlayerControllers[playerSOIndex].gameObject.SetActive(true);
+        menuManager.listInGamePlayerControllers[playerSOIndex].ActivateBulle(true);
+        menuManager.listInGamePlayerControllers[playerSOIndex].ChangeBulleText("Y");
         menuManager.listInGamePlayerControllers[playerSOIndex].transform.position = Camera.main.ScreenToWorldPoint(transform.position);
         menuManager.listInGamePlayerControllers[playerSOIndex].transform.localScale = new Vector3(1,1,1);
         menuManager.listInGamePlayerControllers[playerSOIndex].SetupSprite(menuManager.playersListSO.players[playerSOIndex]);
-        readyIMG.GetComponent<Button>().interactable = false;
         RemoveAllListeners();
         menuManager.multiplayerManager.InitMultiplayer();
     }
@@ -602,7 +604,6 @@ public class EcranPersonnage : MonoBehaviour
         UiOpenAnim();
         menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(BackBurning);
         menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listUiPlayerControllers[playerSOIndex];
-        readyIMG.GetComponent<Button>().interactable = true;
         AddAllListeners();
         menuManager.multiplayerManager.InitMultiplayer();
         Ready();
