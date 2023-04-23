@@ -431,7 +431,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToHit:
   - {fileID: 1618421594}
-  - {fileID: 0}
   - {fileID: 1963718249}
   hitForce: {x: 100, y: 100}
   animator: {fileID: 749345228}
@@ -1158,6 +1157,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 176249502798959432, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 249420729451186166, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -1254,6 +1257,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5078286038875422094, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5151419881578293552, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -1274,6 +1281,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 391533363
       objectReference: {fileID: 0}
+    - target: {fileID: 6601269315104911731, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7634396555278298209, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1293,6 +1304,10 @@ PrefabInstance:
     - target: {fileID: 8460743237652645562, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_SortingLayerID
       value: 391533363
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675626829205789086, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8746610100179668256, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_SortingLayer
@@ -1980,6 +1995,7 @@ MonoBehaviour:
   nameText: 
   bulleText: {fileID: 0}
   bullSpt: {fileID: 0}
+  _playerSo: {fileID: 0}
   head: {fileID: 0}
   body: {fileID: 0}
   isInTheAir: 0

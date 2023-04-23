@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string nameText;
     [SerializeField] private TextMeshProUGUI bulleText;
     [SerializeField] private Image bullSpt;
-    private PlayerSO _playerSo;
+    [HideInInspector] public PlayerSO _playerSo;
     private CrownManager _crownManager;
 
     #region Sprites

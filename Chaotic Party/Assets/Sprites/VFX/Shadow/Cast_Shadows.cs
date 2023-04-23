@@ -15,7 +15,7 @@ public class Cast_Shadows : MonoBehaviour
     //L'objet servant de pied du joueur
     private Transform _footObject;
     //Le character controller du player
-    private CharacterController _player;
+    private PlayerController _player;
     
     //Au commencement
     private void Start()
@@ -23,7 +23,7 @@ public class Cast_Shadows : MonoBehaviour
         //Attribuer la variable _footObject à la variable située dans le script JumpController
         _footObject = GetComponent<JumpController>().footObject;
         
-        _player = GetComponent<CharacterController>();
+        _player = GetComponent<PlayerController>();
     }
 /// <summary>
 /// Lancement du raycast
@@ -49,7 +49,7 @@ public class Cast_Shadows : MonoBehaviour
     }
 private void Update()
 {
-    if (_player.isGrounded)
+    if (!_player.isInTheAir)
         {
             return;
         }

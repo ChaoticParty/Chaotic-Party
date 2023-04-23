@@ -246,6 +246,7 @@ MonoBehaviour:
   nameText: J
   bulleText: {fileID: 3669297902482868039}
   bullSpt: {fileID: 676744567669225}
+  _playerSo: {fileID: 0}
   head: {fileID: 0}
   body: {fileID: 0}
   isInTheAir: 0
@@ -1106,6 +1107,7 @@ GameObject:
   - component: {fileID: 8664629835000057650}
   - component: {fileID: 3315106764274365197}
   - component: {fileID: 4230945861914446115}
+  - component: {fileID: 2660233147361871122}
   m_Layer: 0
   m_Name: PlayerName
   m_TagString: Untagged
@@ -1172,6 +1174,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 5
+--- !u!114 &2660233147361871122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980701041646339337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b25c2f0fee6ea40907bd3aa2fba8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToCopy: {fileID: 4518951441886738147}
 --- !u!1 &6370416397999886958
 GameObject:
   m_ObjectHideFlags: 0
