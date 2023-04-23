@@ -7,11 +7,20 @@ public class HitRules : HitController
     public List<GameObject> objectsToHit;
     public Vector2 hitForce;
     private bool _wasHit;
+    public Animator animator;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        animator ??= GetComponent<Animator>();
+    }
 
     public override void Hited(GameObject hitter)
     {
         if(_wasHit) return;
         _wasHit = true;
+        
+        animator.SetTrigger("Fall");
         
         float xScale = hitter.transform.localScale.x;
         //Lancement de l'anim de hit
