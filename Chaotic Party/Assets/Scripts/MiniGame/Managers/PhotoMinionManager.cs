@@ -5,6 +5,7 @@ using Cinemachine;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class PhotoMinionManager : MiniGameManager
@@ -39,6 +40,10 @@ public class PhotoMinionManager : MiniGameManager
 
     public OnOverlordTrigger pictureData;
 
+    public List<Image> polaroids;
+    public Sprite pictureTaken;
+    private int _picIndex;
+
     protected void Start()
     {
         ActivateUI(false);
@@ -53,6 +58,12 @@ public class PhotoMinionManager : MiniGameManager
         uiCanvasGroup.alpha = activate ? 1 : 0;
         uiCanvasGroup.interactable = activate;
         uiCanvasGroup.blocksRaycasts = activate;
+    }
+
+    public override void StartMiniGame()
+    {
+        timer += 0.01f;
+        base.StartMiniGame();
     }
 
     [ContextMenu("LoadMiniGame")]
@@ -152,7 +163,9 @@ public class PhotoMinionManager : MiniGameManager
         
         // Après un certain temps
         yield return _waitSeconds;
-        
+
+        polaroids[_picIndex].sprite = pictureTaken;
+        _picIndex++;
         // Désactive l'image blanche
         picImage.SetActive(false);
         

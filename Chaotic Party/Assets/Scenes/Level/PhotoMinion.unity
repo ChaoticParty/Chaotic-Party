@@ -29876,6 +29876,14 @@ MonoBehaviour:
   - {fileID: 550539526}
   - {fileID: 25977713}
   pictureData: {fileID: 0}
+  polaroids:
+  - {fileID: 1467626646}
+  - {fileID: 440583596}
+  - {fileID: 1198871718}
+  - {fileID: 1232211943}
+  - {fileID: 1669014320}
+  - {fileID: 1849064325}
+  pictureTaken: {fileID: 21300000, guid: f8b501edb3febf24ead1a28c4fc899e4, type: 3}
 --- !u!1 &2134868662
 GameObject:
   m_ObjectHideFlags: 0
@@ -30100,7 +30108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.size
-      value: 44
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: positions.Array.data[0]
@@ -30441,49 +30449,53 @@ PrefabInstance:
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[32]
       value: 
-      objectReference: {fileID: 769436979}
+      objectReference: {fileID: 788068304}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[33]
       value: 
-      objectReference: {fileID: 1357863346}
+      objectReference: {fileID: 769436979}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[34]
       value: 
-      objectReference: {fileID: 738512546}
+      objectReference: {fileID: 1357863346}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[35]
       value: 
-      objectReference: {fileID: 166117096}
+      objectReference: {fileID: 738512546}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[36]
       value: 
-      objectReference: {fileID: 568314323}
+      objectReference: {fileID: 166117096}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[37]
       value: 
-      objectReference: {fileID: 2015024680}
+      objectReference: {fileID: 568314323}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[38]
       value: 
-      objectReference: {fileID: 1374967176}
+      objectReference: {fileID: 2015024680}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[39]
       value: 
-      objectReference: {fileID: 846377834}
+      objectReference: {fileID: 1374967176}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[40]
       value: 
-      objectReference: {fileID: 447271285}
+      objectReference: {fileID: 846377834}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[41]
       value: 
-      objectReference: {fileID: 2108036209}
+      objectReference: {fileID: 447271285}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[42]
       value: 
-      objectReference: {fileID: 765806163}
+      objectReference: {fileID: 2108036209}
     - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
       propertyPath: projecteurs.Array.data[43]
+      value: 
+      objectReference: {fileID: 765806163}
+    - target: {fileID: 2023687871262369705, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
+      propertyPath: projecteurs.Array.data[44]
       value: 
       objectReference: {fileID: 863842887}
     - target: {fileID: 2023687871262369706, guid: d6288cdda18c54a488d396df87aab54c, type: 3}
