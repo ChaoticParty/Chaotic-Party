@@ -1,0 +1,2006 @@
+fileFormatVersion: 2
+guid: bc7441a72f2dac74f9e5445d8f6490f8
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: paupiere supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2853
+      y: 4178
+      width: 459
+      height: 366
+    spriteID: 34b6960793caaa341af221d67d1de990
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1617, y: 3527}
+  - name: paupiere inferieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6100
+      y: 4467
+      width: 424
+      height: 310
+    spriteID: d55bb0f1abdc4d54a9575bb1d2d658b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4827, y: 3909}
+  - name: 'coupe de cheveux avant '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3305
+      width: 1093
+      height: 1598
+    spriteID: c329acbd3d67676439bce464df9b6e2d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -898, y: 3162}
+  - name: pupille avant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7886
+      y: 4672
+      width: 86
+      height: 86
+    spriteID: 3fd8b54e7f3875c41bc20fc5e19e0932
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6368, y: 3964}
+  - name: oeil tete applatie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 986
+      y: 6022
+      width: 399
+      height: 400
+    spriteID: a6271c3e550529a47a0cd5bb51a54c07
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -289, y: 5444}
+  - name: machoire supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 4178
+      width: 753
+      height: 619
+    spriteID: 13da5592e5248254d8f03e1ca1ffb600
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 785, y: 3959}
+  - name: dents machoire haute
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6959
+      y: 3641
+      width: 686
+      height: 353
+    spriteID: eeffbd188720c9f4183e31e9c2a1e553
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6222, y: 3510}
+  - name: machoire basse
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 3144
+      width: 846
+      height: 1026
+    spriteID: c864414e6eaeced43b3bd37b10708455
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 566, y: 2929}
+  - name: paupiere supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3320
+      y: 4178
+      width: 459
+      height: 366
+    spriteID: 5258aab14b7238f49aaa0e46a97a7d85
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2495, y: 3530}
+  - name: paupiere inferieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6997
+      y: 4178
+      width: 424
+      height: 310
+    spriteID: de36a765fe155ff41b9ed628393f3ffa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6135, y: 3623}
+  - name: pupille arriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6625
+      y: 4549
+      width: 97
+      height: 189
+    spriteID: e6be56914f940744cbc68d8e0cbe7c26
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5761, y: 3887}
+  - name: oeil arriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 4805
+      width: 353
+      height: 353
+    spriteID: 6c5d17b4a907d26439f3414fae6da942
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 590, y: 4197}
+  - name: coupe de cheveux arriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 986
+      y: 4911
+      width: 400
+      height: 666
+    spriteID: e947bb633740749489313b34c3c79a79
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 265, y: 4579}
+  - name: paupiere supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3787
+      y: 4178
+      width: 459
+      height: 366
+    spriteID: 6c01c1a215e1b454a9e3cc39f524c957
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1422, y: -3160}
+  - name: paupiere inferieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7429
+      y: 4178
+      width: 424
+      height: 310
+    spriteID: c002d9d8665697f40859bfe9b03f9672
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5027, y: -3067}
+  - name: oreilles
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5947
+      y: 3144
+      width: 1004
+      height: 548
+    spriteID: 477181af103d0284f835e1a704958ddc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3991, y: -4166}
+  - name: oeil avant
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7653
+      y: 3641
+      width: 429
+      height: 429
+    spriteID: 4c42fc8a626979e40bcfd1d9ca260cdf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5264, y: -3616}
+  - name: machoire supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2207
+      y: 4178
+      width: 638
+      height: 533
+    spriteID: ff885448301751d418ea7b706713f249
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 359, y: -2877}
+  - name: tete
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5080
+      y: 3144
+      width: 859
+      height: 895
+    spriteID: 25a509dbbc44a084e81a9eaec94eaca3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3121, y: -3799}
+  - name: paupiere supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5676
+      y: 4178
+      width: 416
+      height: 373
+    spriteID: 65b9ff56a89a3ea4a94ea90b4efcf09b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3791, y: -3142}
+  - name: paupiere inferieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7792
+      y: 2759
+      width: 388
+      height: 367
+    spriteID: 52c608b5d0df6444eb4c2c3594485147
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5946, y: -4478}
+  - name: oeil arriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 986
+      y: 5585
+      width: 429
+      height: 429
+    spriteID: 1a138edc38aa8b145b14527a20923c52
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -883, y: -1657}
+  - name: paupiere supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5188
+      y: 4178
+      width: 480
+      height: 331
+    spriteID: cb5e539ef08e6c644ad23dc044bb891a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3048, y: 1970}
+  - name: paupiere inferieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7429
+      y: 4496
+      width: 449
+      height: 285
+    spriteID: 320b9dd8c3d7cc84793b71f43257d0f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5270, y: 2419}
+  - name: paupiere supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4254
+      y: 4178
+      width: 459
+      height: 366
+    spriteID: f27964357726ebc4db4b5fedbd8a8e11
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1543, y: 2059}
+  - name: paupiere inferieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4926
+      y: 1292
+      width: 424
+      height: 310
+    spriteID: ac7cbda437c3ace49b420536ccd2283e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2178, y: -734}
+  - name: yeux
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6959
+      y: 3144
+      width: 1008
+      height: 489
+    spriteID: 96011510dd4d87f45abf3c0bc28649dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4796, y: 1102}
+  - name: museau
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5947
+      y: 3700
+      width: 850
+      height: 465
+    spriteID: 81ade43714451b947a3bccba52a8e454
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3806, y: 1869}
+  - name: bouche
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7792
+      y: 2292
+      width: 339
+      height: 459
+    spriteID: 642efc2c74a46a340a2d7de256d59b0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4744, y: 474}
+  - name: machoire morsure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2300
+      y: 3144
+      width: 982
+      height: 859
+    spriteID: a243bef306492be40a97d37f4a8e0f0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -23, y: 1416}
+  - name: tete
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3290
+      y: 3144
+      width: 982
+      height: 825
+    spriteID: acd47c57a21c44d4fb916bc923b5b6e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 967, y: 1264}
+  - name: dent
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7886
+      y: 4496
+      width: 113
+      height: 168
+    spriteID: 04419fd17eaf00f4e95620829d298cf7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5433, y: 2762}
+  - name: dent
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6730
+      y: 4549
+      width: 108
+      height: 167
+    spriteID: 8df030a4a13e2ee4bb6d48b0e65d91c9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4129, y: 2808}
+  - name: dent
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 8007
+      y: 4496
+      width: 126
+      height: 150
+    spriteID: 0fa4a489f658dfd47850e1d84f9d16e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5287, y: 2700}
+  - name: oreille gauche
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6100
+      y: 4178
+      width: 517
+      height: 281
+    spriteID: 50104015074152b42ab901773de78e9e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3020, y: 1896}
+  - name: oreille droite
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7803
+      width: 599
+      height: 363
+    spriteID: 9dc7b7376294a0f48968f7d4bffeebc7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1842, y: 5508}
+  - name: paupiere supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6625
+      y: 4178
+      width: 364
+      height: 363
+    spriteID: 97d4c922ea8b60043a76bc491d430602
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5456, y: -1031}
+  - name: paupiere inferieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7861
+      y: 4178
+      width: 327
+      height: 281
+    spriteID: 8a14150308dff264aa750d693370881a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6655, y: -1031}
+  - name: paupiere supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4721
+      y: 4178
+      width: 459
+      height: 366
+    spriteID: 7981bca2abd710a43a15cd9b901287bc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3149, y: -1181}
+  - name: paupiere inferieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5358
+      y: 1292
+      width: 424
+      height: 310
+    spriteID: 78ed701b0aeda334e842734a9931edb9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3749, y: -3974}
+  - name: pupille
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 611
+      y: 7803
+      width: 733
+      height: 238
+    spriteID: 34cbb6249aab7934abc3105cdf4aca56
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -599, y: 2515}
+  - name: machoire haute
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5368
+      y: 2292
+      width: 1212
+      height: 806
+    spriteID: 7613620b5f09811469aed21f2d0106b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4480, y: -2373}
+  - name: piercing
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6588
+      y: 2292
+      width: 1196
+      height: 764
+    spriteID: 50237b6f534d4e048b5473843b95acc4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5432, y: -3208}
+  - name: yeux
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 2292
+      width: 2264
+      height: 844
+    spriteID: edbe02bbcbe6b3a46ae882ec55120f89
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 247, y: -2512}
+  - name: oreilles
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4280
+      y: 3144
+      width: 792
+      height: 980
+    spriteID: c5c283698a082ce47a8f01f7fae9514e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2874, y: -2296}
+  - name: tete
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6538
+      width: 1187
+      height: 1257
+    spriteID: 62787d242d188da408968c79d3175dc0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1181, y: 1850}
+  - name: cou caniche
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4926
+      y: 4
+      width: 3241
+      height: 636
+    spriteID: 9f2a49a944bc16946a499887ee6e2266
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3451, y: -22}
+  - name: cou lchihuahua
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4926
+      y: 648
+      width: 3241
+      height: 636
+    spriteID: 8e35cd4a96e9a724ebb360eddda12ae9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2037, y: -1055}
+  - name: cou dobberman
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1446
+      y: 1648
+      width: 3241
+      height: 636
+    spriteID: 15850a0a2fe44f64fb9283421e0ce4e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -406, y: -3106}
+  - name: cou carlin
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4695
+      y: 1648
+      width: 3241
+      height: 636
+    spriteID: db7c3bc8ee6915f4b95901ec45b04bf4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2167, y: -5087}
+  - name: collier
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1648
+      width: 1434
+      height: 1649
+    spriteID: d64c411b619efaa46a0c3077f19d900a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -5318, y: -3347}
+  - name: pattes avants
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3046
+      y: 4
+      width: 1872
+      height: 1415
+    spriteID: 9d6a227f2cc76f9488d1a3a08ce1f6dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -928, y: -2905}
+  - name: pattes arriere
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3718
+      y: 2292
+      width: 1642
+      height: 709
+    spriteID: 101c26495f913c14e9b06ae7f91262d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1771, y: -806}
+  - name: corps
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 3034
+      height: 1636
+    spriteID: 3ccd4a12d3bc096429cf196aab63e21d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -4144, y: -3282}
+  - name: queues
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4911
+      width: 974
+      height: 1619
+    spriteID: 6f29f9beeebd4164ebe2c483146d9d9a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -7010, y: 1330}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: tetes chiens
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 0587d303b8c6b0a48b8c225e544aeba9
+    layerID: 285
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: tete caniche rambo
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 0e43d25662a648e4b997fc32a482365a
+    layerID: 83
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupieres oeil avant
+    spriteName: 
+    isGroup: 1
+    parentIndex: 1
+    spriteID: c26276a9f9811e64a97dd504b1d5dffb
+    layerID: 257
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupiere supperieure
+    spriteName: paupiere supperieure
+    isGroup: 0
+    parentIndex: 2
+    spriteID: 34b6960793caaa341af221d67d1de990
+    layerID: 81
+    mosaicPosition: {x: 2853, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupiere inferieure
+    spriteName: paupiere inferieure
+    isGroup: 0
+    parentIndex: 2
+    spriteID: d55bb0f1abdc4d54a9575bb1d2d658b3
+    layerID: 256
+    mosaicPosition: {x: 6100, y: 4467}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'coupe de cheveux avant '
+    spriteName: 'coupe de cheveux avant '
+    isGroup: 0
+    parentIndex: 1
+    spriteID: c329acbd3d67676439bce464df9b6e2d
+    layerID: 76
+    mosaicPosition: {x: 4, y: 3305}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: pupille avant
+    spriteName: pupille avant
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 3fd8b54e7f3875c41bc20fc5e19e0932
+    layerID: 65
+    mosaicPosition: {x: 7886, y: 4672}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oeil tete applatie
+    spriteName: oeil tete applatie
+    isGroup: 0
+    parentIndex: 1
+    spriteID: a6271c3e550529a47a0cd5bb51a54c07
+    layerID: 62
+    mosaicPosition: {x: 986, y: 6022}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: machoire supperieure
+    spriteName: machoire supperieure
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 13da5592e5248254d8f03e1ca1ffb600
+    layerID: 57
+    mosaicPosition: {x: 1446, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: dents machoire haute
+    spriteName: dents machoire haute
+    isGroup: 0
+    parentIndex: 1
+    spriteID: eeffbd188720c9f4183e31e9c2a1e553
+    layerID: 255
+    mosaicPosition: {x: 6959, y: 3641}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: machoire basse
+    spriteName: machoire basse
+    isGroup: 0
+    parentIndex: 1
+    spriteID: c864414e6eaeced43b3bd37b10708455
+    layerID: 43
+    mosaicPosition: {x: 1446, y: 3144}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupieres oeil arriere
+    spriteName: 
+    isGroup: 1
+    parentIndex: 1
+    spriteID: 0c55fed7789d63f4a8f4522248dad456
+    layerID: 262
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupiere supperieure
+    spriteName: paupiere supperieure
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 5258aab14b7238f49aaa0e46a97a7d85
+    layerID: 261
+    mosaicPosition: {x: 3320, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupiere inferieure
+    spriteName: paupiere inferieure
+    isGroup: 0
+    parentIndex: 11
+    spriteID: de36a765fe155ff41b9ed628393f3ffa
+    layerID: 260
+    mosaicPosition: {x: 6997, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: pupille arriere
+    spriteName: pupille arriere
+    isGroup: 0
+    parentIndex: 1
+    spriteID: e6be56914f940744cbc68d8e0cbe7c26
+    layerID: 66
+    mosaicPosition: {x: 6625, y: 4549}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oeil arriere
+    spriteName: oeil arriere
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 6c5d17b4a907d26439f3414fae6da942
+    layerID: 38
+    mosaicPosition: {x: 1446, y: 4805}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: coupe de cheveux arriere
+    spriteName: coupe de cheveux arriere
+    isGroup: 0
+    parentIndex: 1
+    spriteID: e947bb633740749489313b34c3c79a79
+    layerID: 33
+    mosaicPosition: {x: 986, y: 4911}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: carlin
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 5c03fc9287f862f42b0aeea04f5db94b
+    layerID: 224
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupieres oeil avant
+    spriteName: 
+    isGroup: 1
+    parentIndex: 17
+    spriteID: 1da91e7ca3bde064c8d8c34f4c249d15
+    layerID: 266
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupiere supperieure
+    spriteName: paupiere supperieure
+    isGroup: 0
+    parentIndex: 18
+    spriteID: 6c01c1a215e1b454a9e3cc39f524c957
+    layerID: 265
+    mosaicPosition: {x: 3787, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupiere inferieure
+    spriteName: paupiere inferieure
+    isGroup: 0
+    parentIndex: 18
+    spriteID: c002d9d8665697f40859bfe9b03f9672
+    layerID: 264
+    mosaicPosition: {x: 7429, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oreilles
+    spriteName: oreilles
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 477181af103d0284f835e1a704958ddc
+    layerID: 218
+    mosaicPosition: {x: 5947, y: 3144}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oeil avant
+    spriteName: oeil avant
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 4c42fc8a626979e40bcfd1d9ca260cdf
+    layerID: 212
+    mosaicPosition: {x: 7653, y: 3641}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: machoire supperieure
+    spriteName: machoire supperieure
+    isGroup: 0
+    parentIndex: 17
+    spriteID: ff885448301751d418ea7b706713f249
+    layerID: 222
+    mosaicPosition: {x: 2207, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: tete
+    spriteName: tete
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 25a509dbbc44a084e81a9eaec94eaca3
+    layerID: 202
+    mosaicPosition: {x: 5080, y: 3144}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupieres oeil arriere
+    spriteName: 
+    isGroup: 1
+    parentIndex: 17
+    spriteID: 2431b5c93a4a6a940bd1d9bd7a6a6bfb
+    layerID: 270
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupiere supperieure
+    spriteName: paupiere supperieure
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 65b9ff56a89a3ea4a94ea90b4efcf09b
+    layerID: 269
+    mosaicPosition: {x: 5676, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupiere inferieure
+    spriteName: paupiere inferieure
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 52c608b5d0df6444eb4c2c3594485147
+    layerID: 268
+    mosaicPosition: {x: 7792, y: 2759}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oeil arriere
+    spriteName: oeil arriere
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 1a138edc38aa8b145b14527a20923c52
+    layerID: 198
+    mosaicPosition: {x: 986, y: 5585}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: chihuahua
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 75c502b59cd59594ab0ad9bba8b650da
+    layerID: 190
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupieres oeil avant
+    spriteName: 
+    isGroup: 1
+    parentIndex: 29
+    spriteID: 6defa2ecd4b41b140abaa977a4422c96
+    layerID: 274
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupiere supperieure
+    spriteName: paupiere supperieure
+    isGroup: 0
+    parentIndex: 30
+    spriteID: cb5e539ef08e6c644ad23dc044bb891a
+    layerID: 276
+    mosaicPosition: {x: 5188, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupiere inferieure
+    spriteName: paupiere inferieure
+    isGroup: 0
+    parentIndex: 30
+    spriteID: 320b9dd8c3d7cc84793b71f43257d0f1
+    layerID: 275
+    mosaicPosition: {x: 7429, y: 4496}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupiere supperieure
+    spriteName: paupiere supperieure
+    isGroup: 0
+    parentIndex: 30
+    spriteID: f27964357726ebc4db4b5fedbd8a8e11
+    layerID: 273
+    mosaicPosition: {x: 4254, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupiere inferieure
+    spriteName: paupiere inferieure
+    isGroup: 0
+    parentIndex: 30
+    spriteID: ac7cbda437c3ace49b420536ccd2283e
+    layerID: 272
+    mosaicPosition: {x: 4926, y: 1292}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: yeux
+    spriteName: yeux
+    isGroup: 0
+    parentIndex: 29
+    spriteID: 96011510dd4d87f45abf3c0bc28649dd
+    layerID: 189
+    mosaicPosition: {x: 6959, y: 3144}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: museau
+    spriteName: museau
+    isGroup: 0
+    parentIndex: 29
+    spriteID: 81ade43714451b947a3bccba52a8e454
+    layerID: 183
+    mosaicPosition: {x: 5947, y: 3700}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: bouche
+    spriteName: bouche
+    isGroup: 0
+    parentIndex: 29
+    spriteID: 642efc2c74a46a340a2d7de256d59b0d
+    layerID: 170
+    mosaicPosition: {x: 7792, y: 2292}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: machoire morsure
+    spriteName: machoire morsure
+    isGroup: 0
+    parentIndex: 29
+    spriteID: a243bef306492be40a97d37f4a8e0f0d
+    layerID: 166
+    mosaicPosition: {x: 2300, y: 3144}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: tete
+    spriteName: tete
+    isGroup: 0
+    parentIndex: 29
+    spriteID: acd47c57a21c44d4fb916bc923b5b6e3
+    layerID: 187
+    mosaicPosition: {x: 3290, y: 3144}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: dents
+    spriteName: 
+    isGroup: 1
+    parentIndex: 29
+    spriteID: 3658d2214c95d6f40bf6ae747e0656c5
+    layerID: 175
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: dent
+    spriteName: dent
+    isGroup: 0
+    parentIndex: 40
+    spriteID: 04419fd17eaf00f4e95620829d298cf7
+    layerID: 278
+    mosaicPosition: {x: 7886, y: 4496}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: dent
+    spriteName: dent
+    isGroup: 0
+    parentIndex: 40
+    spriteID: 8df030a4a13e2ee4bb6d48b0e65d91c9
+    layerID: 277
+    mosaicPosition: {x: 6730, y: 4549}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: dent
+    spriteName: dent
+    isGroup: 0
+    parentIndex: 40
+    spriteID: 0fa4a489f658dfd47850e1d84f9d16e6
+    layerID: 174
+    mosaicPosition: {x: 8007, y: 4496}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oreilles
+    spriteName: 
+    isGroup: 1
+    parentIndex: 29
+    spriteID: 8b9ecab2c3f146a4b904d8597f11d3a3
+    layerID: 279
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: oreille gauche
+    spriteName: oreille gauche
+    isGroup: 0
+    parentIndex: 44
+    spriteID: 50104015074152b42ab901773de78e9e
+    layerID: 157
+    mosaicPosition: {x: 6100, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oreille droite
+    spriteName: oreille droite
+    isGroup: 0
+    parentIndex: 44
+    spriteID: 9dc7b7376294a0f48968f7d4bffeebc7
+    layerID: 153
+    mosaicPosition: {x: 4, y: 7803}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: chien egypte
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 473ee80e13544374ea83c9438794fc69
+    layerID: 149
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupieres oeil avant
+    spriteName: 
+    isGroup: 1
+    parentIndex: 47
+    spriteID: 6b64e373294b9c34aa743f3f402b7ddb
+    layerID: 309
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupiere supperieure
+    spriteName: paupiere supperieure
+    isGroup: 0
+    parentIndex: 48
+    spriteID: 97d4c922ea8b60043a76bc491d430602
+    layerID: 308
+    mosaicPosition: {x: 6625, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupiere inferieure
+    spriteName: paupiere inferieure
+    isGroup: 0
+    parentIndex: 48
+    spriteID: 8a14150308dff264aa750d693370881a
+    layerID: 307
+    mosaicPosition: {x: 7861, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupieres oeil avant
+    spriteName: 
+    isGroup: 1
+    parentIndex: 47
+    spriteID: 54de610bfea138348b367e1dde250f03
+    layerID: 305
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: paupiere supperieure
+    spriteName: paupiere supperieure
+    isGroup: 0
+    parentIndex: 51
+    spriteID: 7981bca2abd710a43a15cd9b901287bc
+    layerID: 304
+    mosaicPosition: {x: 4721, y: 4178}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: paupiere inferieure
+    spriteName: paupiere inferieure
+    isGroup: 0
+    parentIndex: 51
+    spriteID: 78ed701b0aeda334e842734a9931edb9
+    layerID: 303
+    mosaicPosition: {x: 5358, y: 1292}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: pupille
+    spriteName: pupille
+    isGroup: 0
+    parentIndex: 47
+    spriteID: 34cbb6249aab7934abc3105cdf4aca56
+    layerID: 148
+    mosaicPosition: {x: 611, y: 7803}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: machoire haute
+    spriteName: machoire haute
+    isGroup: 0
+    parentIndex: 47
+    spriteID: 7613620b5f09811469aed21f2d0106b4
+    layerID: 311
+    mosaicPosition: {x: 5368, y: 2292}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: piercing
+    spriteName: piercing
+    isGroup: 0
+    parentIndex: 47
+    spriteID: 50237b6f534d4e048b5473843b95acc4
+    layerID: 134
+    mosaicPosition: {x: 6588, y: 2292}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: yeux
+    spriteName: yeux
+    isGroup: 0
+    parentIndex: 47
+    spriteID: edbe02bbcbe6b3a46ae882ec55120f89
+    layerID: 145
+    mosaicPosition: {x: 1446, y: 2292}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oreilles
+    spriteName: oreilles
+    isGroup: 0
+    parentIndex: 47
+    spriteID: c5c283698a082ce47a8f01f7fae9514e
+    layerID: 123
+    mosaicPosition: {x: 4280, y: 3144}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: tete
+    spriteName: tete
+    isGroup: 0
+    parentIndex: 47
+    spriteID: 62787d242d188da408968c79d3175dc0
+    layerID: 106
+    mosaicPosition: {x: 4, y: 6538}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: cou chien
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 725ad2846fd7237438abd2d1ad1e544e
+    layerID: 251
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: cou caniche
+    spriteName: cou caniche
+    isGroup: 0
+    parentIndex: 60
+    spriteID: 9f2a49a944bc16946a499887ee6e2266
+    layerID: 249
+    mosaicPosition: {x: 4926, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: cou lchihuahua
+    spriteName: cou lchihuahua
+    isGroup: 0
+    parentIndex: 60
+    spriteID: 8e35cd4a96e9a724ebb360eddda12ae9
+    layerID: 243
+    mosaicPosition: {x: 4926, y: 648}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: cou dobberman
+    spriteName: cou dobberman
+    isGroup: 0
+    parentIndex: 60
+    spriteID: 15850a0a2fe44f64fb9283421e0ce4e8
+    layerID: 237
+    mosaicPosition: {x: 1446, y: 1648}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: cou carlin
+    spriteName: cou carlin
+    isGroup: 0
+    parentIndex: 60
+    spriteID: db7c3bc8ee6915f4b95901ec45b04bf4
+    layerID: 231
+    mosaicPosition: {x: 4695, y: 1648}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: collier
+    spriteName: collier
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d64c411b619efaa46a0c3077f19d900a
+    layerID: 295
+    mosaicPosition: {x: 4, y: 1648}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: pattes chiens
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 87f174e250751ae4abd900efb3f2767d
+    layerID: 287
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: pattes avants
+    spriteName: pattes avants
+    isGroup: 0
+    parentIndex: 66
+    spriteID: 9d6a227f2cc76f9488d1a3a08ce1f6dd
+    layerID: 27
+    mosaicPosition: {x: 3046, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: pattes arriere
+    spriteName: pattes arriere
+    isGroup: 0
+    parentIndex: 66
+    spriteID: 101c26495f913c14e9b06ae7f91262d5
+    layerID: 22
+    mosaicPosition: {x: 3718, y: 2292}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: corps
+    spriteName: corps
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3ccd4a12d3bc096429cf196aab63e21d
+    layerID: 9
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: queues
+    spriteName: queues
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6f29f9beeebd4164ebe2c483146d9d9a
+    layerID: 4
+    mosaicPosition: {x: 4, y: 4911}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Calque 0
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: aea6938695077f547876f8407731b7ed
+    layerID: 310
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

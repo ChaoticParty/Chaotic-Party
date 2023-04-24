@@ -9,7 +9,7 @@ public abstract class MiniGameController : MonoBehaviour
     protected void Awake()
     {
         player ??= GetComponent<PlayerController>();
-        player.miniGameControllers.Add(this);
+        player?.miniGameControllers.Add(this);
     }
 
     public abstract void AddListeners();

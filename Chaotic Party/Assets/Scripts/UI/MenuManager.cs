@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
     private bool isClickCheckCoroutineActive = false;
     [Space]
     public string optionsScene;
-    public List<ColorEnum> selectColor = new List<ColorEnum>();
+    public Dictionary<sbyte, sbyte> selectColor = new Dictionary<sbyte, sbyte>();
     public sbyte readyCount = 0;
     public sbyte playSceneIndex = 1;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
@@ -44,14 +44,19 @@ public class MenuManager : MonoBehaviour
     [Space]
     public Button minigameBackBTN;
     [Space]
-    public GameObject partyPlayerMinGO;
+    public Animator partyPlayerMinGO;
     public GameObject partyBandeauReadyGO;
+    [Space]
+    [Header("Animator")]
+    [SerializeField] private Animator transitionAnim;
+    [SerializeField] private Animator startGameAnim;
+    public Animator backAnim;
     
     #region MonoBehaviour Méthodes
 
     private void Awake()
     {
-        Caching.ClearCache(); // Tester si ça resout le soucis de l'attribution des manettes
+        // Caching.ClearCache(); // Tester si ça resout le soucis de l'attribution des manettes
         _referenceHolder = GameObject.Find("ReferenceHolder").GetComponent<ReferenceHolder>();
         foreach (EcranPersonnage ecranPersonnage in listPersonnages)
         {
@@ -64,11 +69,12 @@ public class MenuManager : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
+
         oldEventObject = firstMenuPrincpal;
 
         nbCurrentGamepads = multiplayerManager.GamepadCount();
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
-        
+
         partyBTN.onClick.AddListener(PartyClick);
         minigameBTN.onClick.AddListener(MinigameClick);
         optionsBTN.onClick.AddListener(OptionsClick);
@@ -95,7 +101,6 @@ public class MenuManager : MonoBehaviour
         if (!nbCurrentGamepads.Equals(nbGamepadsLastFrame))
         {
             multiplayerManager.InitMultiplayer();
-            Debug.Log("InitFinis");
             foreach (EcranPersonnage ecranPersonnage in listPersonnages)
             {
                 Debug.Log(ecranPersonnage.myPlayerController);
@@ -111,9 +116,10 @@ public class MenuManager : MonoBehaviour
                     Debug.Log("null");
                 }
             }
+            partyBandeauReadyGO.SetActive(IsLaunchPossible());
+            partyPlayerMinGO.SetTrigger(nbCurrentGamepads < 2 ? "Descend" : "Monte");
         }
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
-        partyPlayerMinGO.SetActive(nbGamepadsLastFrame < 2);
         
         if (EventSystem.current.alreadySelecting) return;
         if (!isClickCheckCoroutineActive) StartCoroutine(CheckMouseClick());
@@ -148,13 +154,14 @@ public class MenuManager : MonoBehaviour
                 playerCountTemp++;
             }
         }
-        return readyCount.Equals(playerCountTemp) /*&& playerCountTemp > 1*/;
+        return readyCount.Equals(playerCountTemp) && !playerCountTemp.Equals(0) /*&& playerCountTemp > 1*/;
     }
 
     public void LauchGame()
     {
         if (IsLaunchPossible())
         {
+            startGameAnim.SetTrigger("Push");
             foreach (EcranPersonnage ecranPerso in listPersonnages)
             {
                 if (ecranPerso.gameObject.activeSelf)
@@ -167,11 +174,33 @@ public class MenuManager : MonoBehaviour
     }
     #endregion
 
+    public void TransitionAnimLaunch(bool goBigger)
+    {
+        transitionAnim.SetTrigger(goBigger ? "Plus" : "Moins" );
+    }
+
     private void PartyClick()
     {
+        ResetSelectedPerso();
         PanelChange(panelPrincipal, panelParty);
+        if (nbCurrentGamepads < 2) partyPlayerMinGO.SetTrigger("Descend");
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstParty);
+    }
+
+    private void ResetSelectedPerso()
+    {
+        selectColor.Clear();
+        readyCount = 0;
+        partyBandeauReadyGO.SetActive(false);
+        for (int i = 0; i < multiplayerManager.players.Count; i++)
+        {
+            multiplayerManager.players[i] = listUiPlayerControllers[i];
+        }
+        foreach (var playerController in listInGamePlayerControllers)
+        {
+            playerController.gameObject.SetActive(false);
+        }
     }
 
     private void MinigameClick()

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class HitController : MiniGameController
 {
     protected Rigidbody2D myRigidbody;
-    protected new void Awake()
+    protected virtual void Awake()
     {
         base.Awake();
         myRigidbody = gameObject.GetComponent<Rigidbody2D>();

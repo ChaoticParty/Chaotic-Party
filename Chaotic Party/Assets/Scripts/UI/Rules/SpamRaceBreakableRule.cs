@@ -24,8 +24,8 @@ public class SpamRaceBreakableRule : BreakableUI
             {
                 Debug.Log("set sprites");
                 //TODO: Changer le sprite avec le bon système de sprite après inté
-                spamRaceRuleData[i].head.sprite = _miniGameManager.players[i].head.sprite;
-                spamRaceRuleData[i].head.color = _miniGameManager.players[i].head.color;
+                spamRaceRuleData[i].head.SetupSkin(_multiplayerManager.players[i]._playerSo.head, 
+                    _multiplayerManager.players[i]._playerSo.color);
             }
         }
     }
@@ -35,6 +35,6 @@ public class SpamRaceBreakableRule : BreakableUI
 public struct SpamRaceRuleData
 {
     public GameObject parent;
-    public Image head;
+    public SkinSelector head;
     public Image button;
 }
