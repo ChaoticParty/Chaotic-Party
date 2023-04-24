@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
     public SkinSelector skinSelector;
+    public Animator animator;
     public List<MiniGameController> miniGameControllers;
     public Gamepad gamepad;
     public int index;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent<float> yLongPressed = new ();
     
     [NonSerialized] public UnityEvent<float, float> rightStickMoved = new ();
+    [NonSerialized] public UnityEvent rightStickNotMoving = new ();
     [NonSerialized] public UnityEvent<float, float> rightStickMovedUp = new ();
     [NonSerialized] public UnityEvent<float, float> rightStickMovedDown = new ();
     [NonSerialized] public UnityEvent<float, float> rightStickMovedLeft = new ();
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent<float> rightStickLongPressed = new ();
     
     [NonSerialized] public UnityEvent<float, float> leftStickMoved = new (); //Déplacement avec joystick gauche
+    [NonSerialized] public UnityEvent leftStickNotMoving = new ();
     [NonSerialized] public UnityEvent<float, float> leftStickMovedUp = new ();
     [NonSerialized] public UnityEvent<float, float> leftStickMovedDown = new ();
     [NonSerialized] public UnityEvent<float, float> leftStickMovedLeft = new ();
@@ -241,6 +244,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             isRightStickMoved = false;
+            rightStickNotMoving.Invoke();
         }
         if(gamepad.rightStickClick.pressed)
         {
@@ -315,6 +319,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             isLeftStickMoved = false;
+            leftStickNotMoving.Invoke();
         }
         if(gamepad.leftStickClick.pressed)
         {
@@ -395,6 +400,20 @@ public class PlayerController : MonoBehaviour
         {
             rightTriggerClick.Invoke();
         }
+
+        if (isMoving)
+        {
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
+    }
+
+    public void MetCheval()
+    {
+        animator.SetTrigger("MetCheval");
     }
 
     private void OnDisable()

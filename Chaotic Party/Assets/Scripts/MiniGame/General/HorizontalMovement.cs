@@ -29,6 +29,7 @@ public class HorizontalMovement : MiniGameController
     public override void AddListeners()
     {
         player.leftStickMoved.AddListener(MoveHorizontally);
+        player.leftStickNotMoving.AddListener(() => { player.isMoving = false; });
     }
 
     private void OnEnable()
@@ -57,6 +58,8 @@ public class HorizontalMovement : MiniGameController
         {
             return;
         }
+
+        player.isMoving = true;
 
         switch (x)
         {
