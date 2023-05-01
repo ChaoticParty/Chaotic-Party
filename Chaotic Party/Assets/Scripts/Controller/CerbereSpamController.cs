@@ -18,6 +18,8 @@ public class CerbereSpamController : SpamController
     [SerializeField] private TextMeshProUGUI bullPlayerFeedback;
     [SerializeField] private float standUpAnimTime = 1f;
     [SerializeField] private float wakeUpAnimTime = 1f;
+    //Event
+    public UnityEvent playerFall;
 
     protected new void Awake()
     {
@@ -69,6 +71,7 @@ public class CerbereSpamController : SpamController
     private void FailAlternate()
     {
         //Anim de chute
+        playerFall.Invoke();
         player.ChangeBulleText("Fall");
         _stunController.Stun();
         //Reactivation a la fin de l'anim de chute, voir comment on gere avec le stun controller

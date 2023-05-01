@@ -11,6 +11,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
+    public SkinSelector skinSelector;
+    public Animator animator;
     public List<MiniGameController> miniGameControllers;
     public Gamepad gamepad;
     public int index;
@@ -18,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string nameText;
     [SerializeField] private TextMeshProUGUI bulleText;
     [SerializeField] private Image bullSpt;
-    private PlayerSO _playerSo;
+    [HideInInspector] public PlayerSO _playerSo;
     private CrownManager _crownManager;
 
     #region Sprites
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent<float> yLongPressed = new ();
     
     [NonSerialized] public UnityEvent<float, float> rightStickMoved = new ();
+    [NonSerialized] public UnityEvent rightStickNotMoving = new ();
     [NonSerialized] public UnityEvent<float, float> rightStickMovedUp = new ();
     [NonSerialized] public UnityEvent<float, float> rightStickMovedDown = new ();
     [NonSerialized] public UnityEvent<float, float> rightStickMovedLeft = new ();
@@ -62,6 +65,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent<float> rightStickLongPressed = new ();
     
     [NonSerialized] public UnityEvent<float, float> leftStickMoved = new (); //Déplacement avec joystick gauche
+    [NonSerialized] public UnityEvent leftStickNotMoving = new ();
     [NonSerialized] public UnityEvent<float, float> leftStickMovedUp = new ();
     [NonSerialized] public UnityEvent<float, float> leftStickMovedDown = new ();
     [NonSerialized] public UnityEvent<float, float> leftStickMovedLeft = new ();
@@ -91,6 +95,12 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] private bool isDPadMovedDown;
     [NonSerialized] private bool isDPadMovedLeft;
     [NonSerialized] private bool isDPadMovedRight;
+
+    [NonSerialized] public UnityEvent leftBumperClick = new();
+    [NonSerialized] public UnityEvent rightBumperClick = new();
+    
+    [NonSerialized] public UnityEvent leftTriggerClick = new();
+    [NonSerialized] public UnityEvent rightTriggerClick = new();
 
     #endregion
 
@@ -131,6 +141,10 @@ public class PlayerController : MonoBehaviour
         if (gamepad.back.justPressed)
         {
             selectPressed.Invoke();
+        }
+        if(gamepad.A.justPressed)
+        {
+            aJustPressed.Invoke();
         }
         if(gamepad.A.justPressed)
         {
@@ -230,6 +244,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             isRightStickMoved = false;
+            rightStickNotMoving.Invoke();
         }
         if(gamepad.rightStickClick.pressed)
         {
@@ -304,6 +319,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             isLeftStickMoved = false;
+            leftStickNotMoving.Invoke();
         }
         if(gamepad.leftStickClick.pressed)
         {
@@ -366,6 +382,38 @@ public class PlayerController : MonoBehaviour
             isDPadMovedLeft = false;
             isDPadMovedRight = false;
         }
+        
+        if (gamepad.leftBumper.justPressed)
+        {
+            leftBumperClick.Invoke();
+        }
+        if (gamepad.rightBumper.justPressed)
+        {
+            rightBumperClick.Invoke();
+        }
+        
+        if (gamepad.leftTrigger.justPressed)
+        {
+            leftTriggerClick.Invoke();
+        }
+        if (gamepad.rightTrigger.justPressed)
+        {
+            rightTriggerClick.Invoke();
+        }
+
+        if (isMoving)
+        {
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
+    }
+
+    public void MetCheval()
+    {
+        animator.SetTrigger("MetCheval");
     }
 
     private void OnDisable()
@@ -412,6 +460,10 @@ public class PlayerController : MonoBehaviour
         dPadDown.RemoveAllListeners();
         dPadLeft.RemoveAllListeners();
         dPadRight.RemoveAllListeners();
+        leftBumperClick.RemoveAllListeners();
+        rightBumperClick.RemoveAllListeners();
+        leftTriggerClick.RemoveAllListeners();
+        rightTriggerClick.RemoveAllListeners();
     }
 
     public bool IsDoingSomething()
@@ -443,10 +495,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerSo = playerSo;
         
-        head.sprite = playerSo.head;
-        body.sprite = playerSo.body;
-        head.color = playerSo.color;
-        body.color = playerSo.color;
+        skinSelector.SetupSkin(_playerSo.head, _playerSo.body, _playerSo.color);
     }
 
     public void ChangeColor()

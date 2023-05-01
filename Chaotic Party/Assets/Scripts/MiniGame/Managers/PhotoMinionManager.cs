@@ -5,6 +5,7 @@ using Cinemachine;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class PhotoMinionManager : MiniGameManager
@@ -23,6 +24,9 @@ public class PhotoMinionManager : MiniGameManager
     public float maxTimerBetweenPictures;
     [Range(0, 60), ShowIf(nameof(typeDeTimer), TimerType.Fixed)]
     public float timerBetweenPictures = 10;
+    [Range(0, 10)] 
+    public float launchAnimTime = 3;
+    private bool _animLaunched;
     [Range(0, 100)]
     public float overlordRepositioningChances = 100;
 
@@ -36,10 +40,16 @@ public class PhotoMinionManager : MiniGameManager
 
     public OnOverlordTrigger pictureData;
 
+    public List<Image> polaroids;
+    public Sprite pictureTaken;
+    private int _picIndex;
+
     protected void Start()
     {
         ActivateUI(false);
         pictureData ??= FindObjectOfType<OnOverlordTrigger>();
+        overlord.ChangePosition(false);
+        overlord.PlaceCameraOnOverlord();
         //ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
     }
 
@@ -48,6 +58,12 @@ public class PhotoMinionManager : MiniGameManager
         uiCanvasGroup.alpha = activate ? 1 : 0;
         uiCanvasGroup.interactable = activate;
         uiCanvasGroup.blocksRaycasts = activate;
+    }
+
+    public override void StartMiniGame()
+    {
+        timer += 0.01f;
+        base.StartMiniGame();
     }
 
     [ContextMenu("LoadMiniGame")]
@@ -75,11 +91,18 @@ public class PhotoMinionManager : MiniGameManager
         if (!isMinigamelaunched) return;
 
         _remainingTimeBeforeNextPicture -= Time.deltaTime;
+        if (!_animLaunched && _remainingTimeBeforeNextPicture <= launchAnimTime)
+        {
+            _animLaunched = true;
+            overlord.StartAnimationBeforePicture();
+        }
         if (_remainingTimeBeforeNextPicture <= 0)
         {
+            overlord.StopAnimationBeforePicture();
             ActivatePlayerInput(false);
             SetTimeBeforeNextPicture();
             TakePicture();
+            _animLaunched = false;
         }
     }
 
@@ -135,17 +158,30 @@ public class PhotoMinionManager : MiniGameManager
         
         // Active l'image blanche pour simuler la prise de photo, puis comptabilisation des scores et déplacement de l'overlord
         picImage.SetActive(true);
+        overlord.Focus();
         AddPlayerScores();
-        if(overlordRepositioningChances >= Random.Range(0, 100)) overlord.ChangePosition();
         
         // Après un certain temps
         yield return _waitSeconds;
-        
+
+        polaroids[_picIndex].sprite = pictureTaken;
+        _picIndex++;
         // Désactive l'image blanche
         picImage.SetActive(false);
         
         // Après un certain temps
         yield return _waitSeconds;
+
+        overlord.RemoveCameraFromOverlord();
+        overlord.Unfocus();
+        
+        // Après un certain temps
+        yield return _waitSeconds;
+        if(overlordRepositioningChances >= Random.Range(0, 100)) overlord.ChangePosition();
+        yield return _waitSeconds;
+        yield return _waitSeconds;
+        
+        overlord.PlaceCameraOnOverlord();
         
         // Remet le temps normal et active les input players
         Time.timeScale = 1;

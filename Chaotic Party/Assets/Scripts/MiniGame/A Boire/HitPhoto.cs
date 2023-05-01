@@ -17,7 +17,8 @@ public class HitPhoto : HitController
         player.gamepad.Y.Disable();
         player.gamepad.leftStick.Disable();
         player.gamepad.X.Disable();
-        myRigidbody.AddForce(hitForce * gameObject.transform.localScale); //Propulsion
+        Debug.Log("add force");
+        myRigidbody.AddForce(new Vector3(hitForce.x * hitter.transform.localScale.x, hitForce.y)); //Propulsion
         StartCoroutine(ReactivateInput());
         //Reactivation des valeurs du gamepad
     }

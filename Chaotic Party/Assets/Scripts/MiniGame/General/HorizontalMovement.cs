@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 public class HorizontalMovement : MiniGameController
 {
     public float speed = 5;
@@ -29,6 +29,7 @@ public class HorizontalMovement : MiniGameController
     public override void AddListeners()
     {
         player.leftStickMoved.AddListener(MoveHorizontally);
+        player.leftStickNotMoving.AddListener(() => { player.isMoving = false; });
     }
 
     private void OnEnable()
@@ -57,6 +58,8 @@ public class HorizontalMovement : MiniGameController
         {
             return;
         }
+
+        player.isMoving = true;
 
         switch (x)
         {
