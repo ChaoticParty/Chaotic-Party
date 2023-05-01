@@ -240,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniGameManager: {fileID: 0}
   skinSelector: {fileID: 8842843085737721045}
-  animator: {fileID: 5030215890424459703}
+  animator: {fileID: 8908520717863090521}
   miniGameControllers: []
   index: 0
   nameObject: {fileID: 7941785568734260775}
@@ -2312,11 +2312,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6138934024058254029, guid: 79d765ba1ece64f44862f5806eedccd7, type: 3}
   m_PrefabInstance: {fileID: 1189935767593360353}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &5030215890424459703 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6146686670430890582, guid: 79d765ba1ece64f44862f5806eedccd7, type: 3}
-  m_PrefabInstance: {fileID: 1189935767593360353}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5050977875350767290 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6240632128888692059, guid: 79d765ba1ece64f44862f5806eedccd7, type: 3}
@@ -2865,6 +2860,11 @@ GameObject:
 --- !u!1 &8828472222549523175 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7639944384982065414, guid: 79d765ba1ece64f44862f5806eedccd7, type: 3}
+  m_PrefabInstance: {fileID: 1189935767593360353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8908520717863090521 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7719992342349931192, guid: 79d765ba1ece64f44862f5806eedccd7, type: 3}
   m_PrefabInstance: {fileID: 1189935767593360353}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8961017329716199621 stripped

@@ -401,9 +401,14 @@ public class PlayerController : MonoBehaviour
             rightTriggerClick.Invoke();
         }
 
+        if(!animator) return;
+        
         if (isMoving)
         {
-            animator.SetBool("IsWalking", true);
+            if(!isInTheAir)
+            {
+                animator.SetBool("IsWalking", true);
+            }
         }
         else
         {
@@ -414,6 +419,26 @@ public class PlayerController : MonoBehaviour
     public void MetCheval()
     {
         animator.SetTrigger("MetCheval");
+    }
+
+    public void Jump()
+    {
+        animator.SetBool("Jump", true);
+    }
+
+    public void StopJumping()
+    {
+        animator.SetBool("Jump", false);
+    }
+
+    public void Fall()
+    {
+        animator.SetBool("Fall", true);
+    }
+
+    public void StopFalling()
+    {
+        animator.SetBool("Fall", false);
     }
 
     private void OnDisable()

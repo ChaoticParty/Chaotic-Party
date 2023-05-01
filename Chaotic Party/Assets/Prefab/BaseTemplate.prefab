@@ -271,6 +271,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2199129531497343190}
     m_Modifications:
+    - target: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2967807461383801630}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -321,6 +325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+--- !u!95 &2967807461383801630 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8908520717863090521, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+  m_PrefabInstance: {fileID: 5948878309334381127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7798021414279382180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4518951441886738147, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
