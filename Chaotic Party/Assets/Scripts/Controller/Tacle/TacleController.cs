@@ -45,6 +45,7 @@ public class TacleController : MiniGameController
         rigidbody2D.velocity = new Vector3(forceTacle.x * player.transform.localScale.x, forceTacle.y);
         player.gamepad.A.Disable();
         player.gamepad.X.Disable();
+        player.StartTacle();
         StartCoroutine(ReactivateInput());
         //Remettre isTacling a false et reactiver les touches A et stick gauche a la fin de l'anim
     }
@@ -58,5 +59,6 @@ public class TacleController : MiniGameController
         isTacling = false;
         player.isTackling = false;
         rigidbody2D.velocity = Vector2.zero;
+        player.StopTacle();
     }
 }

@@ -49,6 +49,7 @@ public class SpamRaceController : SpamController
         if(!_spamRaceManager.isMinigamelaunched) return;
         
         if (hasClicked) return;
+        player.MetCheval();
         StartCoroutine(Cooldown());
         switch (_spamRaceManager.typeAjoutPoints)
         {
@@ -117,13 +118,14 @@ public class SpamRaceController : SpamController
         hasClicked = false;
     }
 
-    public Coroutine Race(Vector2 destination)
+    public Coroutine Race(Vector2 destination, bool winner)
     {
-        _coroutine = StartCoroutine(RaceCoroutine(destination));
+        _coroutine = StartCoroutine(RaceCoroutine(destination, winner));
+        player.Conduit();
         return _coroutine;
     }
 
-    private IEnumerator RaceCoroutine(Vector2 destination)
+    private IEnumerator RaceCoroutine(Vector2 destination, bool winner)
     {
         Transform raceCarTransform = raceCar.transform;
         while ((Vector2)raceCarTransform.position != destination)
@@ -133,6 +135,8 @@ public class SpamRaceController : SpamController
             yield return new WaitForNextFrameUnit();
         }
 
+        if(winner) player.VictoryAnimation();
+        else player.ConduitDefaite();
         _coroutine = null;
     }
 }

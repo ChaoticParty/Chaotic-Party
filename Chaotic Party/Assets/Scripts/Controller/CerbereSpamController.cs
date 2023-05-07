@@ -50,6 +50,7 @@ public class CerbereSpamController : SpamController
         {
             hasClicked = true;
             StartCoroutine(StandUpPlayer(standUpAnimTime));
+            player.Releve();
             return;
         } 
         
@@ -59,6 +60,7 @@ public class CerbereSpamController : SpamController
         {
             Click();
             player.ChangeBulleText(value.Equals(Etat.A) ? "B" : "A");
+            player.MarcheDiscretement(value.Equals(Etat.A) ? 1 : 0);
             etat = value;
         }
         else
@@ -71,6 +73,7 @@ public class CerbereSpamController : SpamController
     private void FailAlternate()
     {
         //Anim de chute
+        player.Chute();
         playerFall.Invoke();
         player.ChangeBulleText("Fall");
         _stunController.Stun();

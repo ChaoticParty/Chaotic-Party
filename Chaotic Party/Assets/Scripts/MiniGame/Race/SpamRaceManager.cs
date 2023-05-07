@@ -308,7 +308,7 @@ public class SpamRaceManager : SpamManager
             if(!player.gameObject.activeSelf) continue;
             SpamRaceController playerScript = player.GetComponent<SpamRaceController>();
             Transform raceCar = raceCars[players.IndexOf(player)];
-            playerScript.Race(raceCar.position + Vector3.right * (5 - ranking[player]) * 30);
+            playerScript.Race(raceCar.position + Vector3.right * (5 - ranking[player]) * 30, ranking[player] == 0);
         }
         StartCoroutine(CheckCoroutines());
     }
