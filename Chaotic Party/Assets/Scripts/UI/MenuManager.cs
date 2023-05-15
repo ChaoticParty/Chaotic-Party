@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
@@ -50,7 +51,14 @@ public class MenuManager : MonoBehaviour
     [Header("Animator")]
     [SerializeField] private Animator transitionAnim;
     [SerializeField] private Animator startGameAnim;
+    [Header("BackBtnGestion")]
     public Animator backAnim;
+    public Animator backTrembleAnim;
+    public RectTransform partyBackMask;
+    [HideInInspector] public float maxWeightPartyBackmask = 0;
+    public float currentBackBtnTime = 0;
+    public float backBtnTimeMax = 2;
+    public (int, bool) isPressingBack = (-1, false);
     
     #region MonoBehaviour Méthodes
 
@@ -63,6 +71,9 @@ public class MenuManager : MonoBehaviour
             ecranPersonnage.myPlayerController ??= ecranPersonnage.gameObject.GetComponent<PlayerController>();
         }
         playersListSO ??= ReferenceHolder.Instance.players;
+        
+        maxWeightPartyBackmask = partyBackMask.sizeDelta.x;
+        partyBackMask.sizeDelta = new Vector2(0, partyBackMask.sizeDelta.y);
     }
 
     private void OnEnable()
