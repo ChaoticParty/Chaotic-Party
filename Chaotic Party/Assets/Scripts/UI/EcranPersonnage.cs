@@ -334,6 +334,33 @@ public class EcranPersonnage : MonoBehaviour
             }
         }
 
+        if (!IsColorDispo(currentColorIndex))
+        {
+            if (currentColorIndex == listColor.Count - 1)
+            {
+                currentColorIndex = 0;
+                while (!IsColorDispo(currentColorIndex))
+                {
+                    currentColorIndex++;
+                }
+            }
+            else
+            {
+                currentColorIndex ++;
+                while (!IsColorDispo(currentColorIndex))
+                {
+                    if (currentColorIndex == listColor.Count - 1)
+                    {
+                        currentColorIndex = 0;
+                    }
+                    else
+                    {
+                        currentColorIndex++;
+                    }
+                }
+            }
+        }
+
         imageRace.sprite = listSpriteRace[currentRaceIndex];
         
         colorImage.color = listColor[currentColorIndex];
@@ -542,7 +569,13 @@ public class EcranPersonnage : MonoBehaviour
 
     private bool IsColorDispo(sbyte colorIndex)
     {
-        return !menuManager.selectColor.ContainsValue(colorIndex);
+        if (menuManager.selectColor.ContainsValue(colorIndex) && !menuManager.selectColor.ContainsKey(playerSOIndex))
+        {
+            return false;
+        }
+
+        return true;
+        // return !menuManager.selectColor.ContainsValue(colorIndex);
     }
     
     private void Ready()
@@ -562,7 +595,10 @@ public class EcranPersonnage : MonoBehaviour
         LockColor(isReady);
 
         isReady = !isReady;
-        VisualRefresh();
+        foreach (EcranPersonnage ecranPersonnage in menuManager.listPersonnages)
+        {
+            ecranPersonnage.VisualRefresh();
+        }
         menuManager.partyBandeauReadyGO.SetActive(menuManager.IsLaunchPossible());
         if (isReady)
         {

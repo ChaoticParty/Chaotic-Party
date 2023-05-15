@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
     public SkinSelector skinSelector;
-    public Animator animator;
     public List<MiniGameController> miniGameControllers;
     public Gamepad gamepad;
     public int index;
@@ -112,6 +111,23 @@ public class PlayerController : MonoBehaviour
     public bool isPausing;
     public bool isStunned;
     public bool isMoving;
+
+    #endregion
+
+    #region Animation
+    
+    public Animator animator;
+    private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    private static readonly int Tacle = Animator.StringToHash("Tacle");
+    private static readonly int Cheval = Animator.StringToHash("MetCheval");
+    private static readonly int Jump1 = Animator.StringToHash("Jump");
+    private static readonly int Fall1 = Animator.StringToHash("Fall");
+    private static readonly int Conduire = Animator.StringToHash("Conduire");
+    private static readonly int ConduireDefaite = Animator.StringToHash("ConduireDefaite");
+    private static readonly int Victoire = Animator.StringToHash("Victoire");
+    private static readonly int MarcheDiscrete = Animator.StringToHash("MarcheDiscrete");
+    private static readonly int Chute1 = Animator.StringToHash("Chute");
+    private static readonly int Relever = Animator.StringToHash("Relever");
 
     #endregion
 
@@ -407,38 +423,78 @@ public class PlayerController : MonoBehaviour
         {
             if(!isInTheAir)
             {
-                animator.SetBool("IsWalking", true);
+                animator.SetBool(IsWalking, true);
             }
         }
         else
         {
-            animator.SetBool("IsWalking", false);
+            animator.SetBool(IsWalking, false);
         }
+    }
+
+    public void MarcheDiscretement(int value)
+    {
+        animator.SetInteger(MarcheDiscrete, value);
+    }
+
+    public void Chute()
+    {
+        animator.SetTrigger(Chute1);
+    }
+
+    public void Releve()
+    {
+        animator.SetTrigger(Relever);
+    }
+
+    public void StartTacle()
+    {
+        animator.SetBool(Tacle, true);
+    }
+
+    public void StopTacle()
+    {
+        animator.SetBool(Tacle, false);
     }
 
     public void MetCheval()
     {
-        animator.SetTrigger("MetCheval");
+        animator.SetTrigger(Cheval);
+    }
+
+    public void Conduit()
+    {
+        animator.SetTrigger(Conduire);
+    }
+
+    public void ConduitDefaite()
+    {
+        animator.SetTrigger(ConduireDefaite);
     }
 
     public void Jump()
     {
-        animator.SetBool("Jump", true);
+        animator.SetBool(Jump1, true);
     }
 
     public void StopJumping()
     {
-        animator.SetBool("Jump", false);
+        animator.SetBool(Jump1, false);
     }
 
     public void Fall()
     {
-        animator.SetBool("Fall", true);
+        animator.SetBool(Fall1, true);
     }
 
     public void StopFalling()
     {
-        animator.SetBool("Fall", false);
+        animator.SetBool(Fall1, false);
+    }
+
+    public void VictoryAnimation()
+    {
+        animator.SetBool(Victoire, true);
     }
 
     private void OnDisable()
