@@ -22,6 +22,7 @@ public class MenuManager : MonoBehaviour
     public Dictionary<sbyte, sbyte> selectColor = new Dictionary<sbyte, sbyte>();
     public sbyte readyCount = 0;
     public sbyte playSceneIndex = 1;
+    public MiniGameData miniGameData;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
     public List<Animator> listMaskPersonnagesAnimator = new List<Animator>();
     private sbyte nbCurrentGamepads = 0;
@@ -169,6 +170,7 @@ public class MenuManager : MonoBehaviour
                     ecranPerso.FillSO();    
                 }
             }
+            miniGameData.RandomiseMiniGames();
             SceneManager.LoadScene(playSceneIndex);
         }
     }
