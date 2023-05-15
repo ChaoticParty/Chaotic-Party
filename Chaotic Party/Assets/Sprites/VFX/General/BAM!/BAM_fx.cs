@@ -6,10 +6,12 @@ using UnityEngine;
 public class BAM_fx : MonoBehaviour
 {
     public Animator bamAnimator;
+    public CP_OnomatopeChoice script;
     
     [Button("BAM")]
     public void BAM()
     {
+        script.BAM();
         bamAnimator.SetTrigger("BAM");
     }
 }
