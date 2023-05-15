@@ -505,7 +505,7 @@ MonoBehaviour:
     SerializationNodes: []
   players: []
   beginAnimator: {fileID: 1084644629}
-  timer: 30
+  timer: 10
   timerManager: {fileID: 0}
   isGameDone: 0
   crowns:
@@ -3018,6 +3018,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 401168745674120755, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7472121813964314883, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - target: {fileID: 529741609249119139, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5986082199191705122, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 669405173506086296, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 7.5
@@ -3290,6 +3298,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3724503200306979010, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1725101739743704377, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 3781326472468371472, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3374,6 +3386,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5424685869170791412, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6067244339814448478, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 5459365780600411017, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Color.a
       value: 0.8
@@ -3402,10 +3418,18 @@ PrefabInstance:
       propertyPath: miniGameManager
       value: 
       objectReference: {fileID: 201751413}
+    - target: {fileID: 5971148001827546708, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5752230658385225602, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 6013808197492800902, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_SortingLayerID
       value: -221097199
       objectReference: {fileID: 0}
+    - target: {fileID: 6454539632491797151, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3838641511851397346, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 6528069219830392269, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3441,6 +3465,18 @@ PrefabInstance:
     - target: {fileID: 6711982894074980448, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849077356822590744, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Bounds.m_Center.x
+      value: 0.013720155
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849077356822590744, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Bounds.m_Center.y
+      value: 0.020923853
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849077356822590744, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 1.2590765
       objectReference: {fileID: 0}
     - target: {fileID: 6980543187531002665, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_RootOrder
@@ -3498,6 +3534,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7607099850387717594, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7968773094566440048, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 7634396555278298209, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3526,6 +3566,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8183051497114316663, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6232078699555026518, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 8204989393249634393, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1
