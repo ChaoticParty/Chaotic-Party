@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent<float> yLongPressed = new ();
     
     [NonSerialized] public UnityEvent<float, float> rightStickMoved = new ();
+    [NonSerialized] public UnityEvent rightStickNotMoving = new ();
     [NonSerialized] public UnityEvent<float, float> rightStickMovedUp = new ();
     [NonSerialized] public UnityEvent<float, float> rightStickMovedDown = new ();
     [NonSerialized] public UnityEvent<float, float> rightStickMovedLeft = new ();
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent<float> rightStickLongPressed = new ();
     
     [NonSerialized] public UnityEvent<float, float> leftStickMoved = new (); //Déplacement avec joystick gauche
+    [NonSerialized] public UnityEvent leftStickNotMoving = new ();
     [NonSerialized] public UnityEvent<float, float> leftStickMovedUp = new ();
     [NonSerialized] public UnityEvent<float, float> leftStickMovedDown = new ();
     [NonSerialized] public UnityEvent<float, float> leftStickMovedLeft = new ();
@@ -109,6 +111,23 @@ public class PlayerController : MonoBehaviour
     public bool isPausing;
     public bool isStunned;
     public bool isMoving;
+
+    #endregion
+
+    #region Animation
+    
+    public Animator animator;
+    private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    private static readonly int Tacle = Animator.StringToHash("Tacle");
+    private static readonly int Cheval = Animator.StringToHash("MetCheval");
+    private static readonly int Jump1 = Animator.StringToHash("Jump");
+    private static readonly int Fall1 = Animator.StringToHash("Fall");
+    private static readonly int Conduire = Animator.StringToHash("Conduire");
+    private static readonly int ConduireDefaite = Animator.StringToHash("ConduireDefaite");
+    private static readonly int Victoire = Animator.StringToHash("Victoire");
+    private static readonly int MarcheDiscrete = Animator.StringToHash("MarcheDiscrete");
+    private static readonly int Chute1 = Animator.StringToHash("Chute");
+    private static readonly int Relever = Animator.StringToHash("Relever");
 
     #endregion
 
@@ -241,6 +260,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             isRightStickMoved = false;
+            rightStickNotMoving.Invoke();
         }
         if(gamepad.rightStickClick.pressed)
         {
@@ -315,6 +335,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             isLeftStickMoved = false;
+            leftStickNotMoving.Invoke();
         }
         if(gamepad.leftStickClick.pressed)
         {
@@ -395,6 +416,85 @@ public class PlayerController : MonoBehaviour
         {
             rightTriggerClick.Invoke();
         }
+
+        if(!animator) return;
+        
+        if (isMoving)
+        {
+            if(!isInTheAir)
+            {
+                animator.SetBool(IsWalking, true);
+            }
+        }
+        else
+        {
+            animator.SetBool(IsWalking, false);
+        }
+    }
+
+    public void MarcheDiscretement(int value)
+    {
+        animator.SetInteger(MarcheDiscrete, value);
+    }
+
+    public void Chute()
+    {
+        animator.SetTrigger(Chute1);
+    }
+
+    public void Releve()
+    {
+        animator.SetTrigger(Relever);
+    }
+
+    public void StartTacle()
+    {
+        animator.SetBool(Tacle, true);
+    }
+
+    public void StopTacle()
+    {
+        animator.SetBool(Tacle, false);
+    }
+
+    public void MetCheval()
+    {
+        animator.SetTrigger(Cheval);
+    }
+
+    public void Conduit()
+    {
+        animator.SetTrigger(Conduire);
+    }
+
+    public void ConduitDefaite()
+    {
+        animator.SetTrigger(ConduireDefaite);
+    }
+
+    public void Jump()
+    {
+        animator.SetBool(Jump1, true);
+    }
+
+    public void StopJumping()
+    {
+        animator.SetBool(Jump1, false);
+    }
+
+    public void Fall()
+    {
+        animator.SetBool(Fall1, true);
+    }
+
+    public void StopFalling()
+    {
+        animator.SetBool(Fall1, false);
+    }
+
+    public void VictoryAnimation()
+    {
+        animator.SetBool(Victoire, true);
     }
 
     private void OnDisable()

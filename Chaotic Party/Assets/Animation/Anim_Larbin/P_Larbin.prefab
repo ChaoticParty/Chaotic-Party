@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8075062236332150376
 Transform:
   m_ObjectHideFlags: 0
@@ -103,8 +103,8 @@ MonoBehaviour:
   - {fileID: 8518667671494520256}
   - {fileID: 4933691275110227186}
   m_Bounds:
-    m_Center: {x: 0.013720274, y: 0.020917892, z: 0.015000008}
-    m_Extent: {x: 0.95372033, y: 1.2590804, z: 0.005000003}
+    m_Center: {x: 0.013720751, y: 0.020920992, z: 0.010000005}
+    m_Extent: {x: 0.95371985, y: 1.2590774, z: 4.656613e-10}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1030,7 +1030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5580806592063553671
 Transform:
   m_ObjectHideFlags: 0
@@ -2688,7 +2688,7 @@ MonoBehaviour:
     m_Extent: {x: 2.0800023, y: 0.6799205, z: 0.009999998}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
-  m_AutoRebind: 0
+  m_AutoRebind: 1
 --- !u!114 &7421772502434687732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2719,7 +2719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8745398496948910090
 Transform:
   m_ObjectHideFlags: 0
@@ -3176,7 +3176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3785805428111786602}
   m_Layer: 0
-  m_Name: "Rig_Chevalier_Paupi\xE8re_Bas_D"
+  m_Name: Rig_Chevalier_Paupiere_Bas_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3400,7 +3400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6443180931927228705
 Transform:
   m_ObjectHideFlags: 0
@@ -4003,7 +4003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6949031267257521201}
   m_Layer: 0
-  m_Name: "Rig_Gob_Paupi\xE8re_Bas_D"
+  m_Name: Rig_Gob_Paupiere_Bas_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5114,7 +5114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5778127396535612463}
   m_Layer: 0
-  m_Name: "Rig_Devil_Costume_Paupi\xE8re_Bas"
+  m_Name: Rig_Devil_Costume_Paupiere_Bas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5647,8 +5647,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834584163025017001}
   m_LocalRotation: {x: 0, y: 0, z: 0.33527732, w: 0.94211954}
-  m_LocalPosition: {x: 1.0819364, y: -0.00000041131415, z: 0.01}
-  m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1}
+  m_LocalPosition: {x: 1.0819306, y: -0.000004539578, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8715392649617932475}
@@ -5736,7 +5736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &371941587886700356
 Transform:
   m_ObjectHideFlags: 0
@@ -5850,7 +5850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3693202097998742916}
   m_Layer: 0
-  m_Name: "Rig_Devil_Costume_Paupi\xE8re_Haut"
+  m_Name: Rig_Devil_Costume_Paupiere_Haut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5881,7 +5881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313212721758695206}
   m_Layer: 0
-  m_Name: "Rig_Gob_Paupi\xE8re_Bas_G"
+  m_Name: Rig_Gob_Paupiere_Bas_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6507,7 +6507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1623339423155883063}
   m_Layer: 0
-  m_Name: "Rig_Devil_Paupi\xE8re_Haut_D"
+  m_Name: Rig_Devil_Paupiere_Haut_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6853,7 +6853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8673445079792509297
 Transform:
   m_ObjectHideFlags: 0
@@ -7770,7 +7770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8438389177946336411
 Transform:
   m_ObjectHideFlags: 0
@@ -10247,7 +10247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145306151663104244}
   m_Layer: 0
-  m_Name: "Rig_Chevalier_Paupi\xE8re_Haut_D"
+  m_Name: Rig_Chevalier_Paupiere_Haut_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11440,8 +11440,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 4933691275110227186}
   m_Bounds:
-    m_Center: {x: -0.001124382, y: 0.06559813, z: 0.010000005}
-    m_Extent: {x: 0.67888033, y: 0.83560014, z: 0}
+    m_Center: {x: -0.0011244416, y: 0.06559807, z: 0.010000005}
+    m_Extent: {x: 0.67888016, y: 0.8355999, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -13066,7 +13066,7 @@ MonoBehaviour:
     m_Extent: {x: 2.123942, y: 0.35997456, z: 0.06356171}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
-  m_AutoRebind: 0
+  m_AutoRebind: 1
 --- !u!114 &3979847555192317329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13095,7 +13095,7 @@ GameObject:
   - component: {fileID: 2645072228637643290}
   - component: {fileID: 2189636942203368726}
   m_Layer: 0
-  m_Name: son_Paupiere_Haut_D
+  m_Name: Poisson_Paupiere_Haut_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13981,7 +13981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3316757461094498832}
   m_Layer: 0
-  m_Name: "Rig_Devil_Paupi\xE8re_Bas_G"
+  m_Name: Rig_Devil_Paupiere_Bas_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14632,7 +14632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2519926897149285760
 Transform:
   m_ObjectHideFlags: 0
@@ -15756,7 +15756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8406972654424649902}
   m_Layer: 0
-  m_Name: "Rig_Poisson_Paupi\xE8re_Bas_G"
+  m_Name: Rig_Poisson_Paupiere_Bas_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16184,7 +16184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7328050571056596794}
   m_Layer: 0
-  m_Name: "Rig_Gob_Paupi\xE8re_Haut_G"
+  m_Name: Rig_Gob_Paupiere_Haut_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16338,7 +16338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2804411111155184072}
   m_Layer: 0
-  m_Name: "Rig_Chevalier_Paupi\xE8re_Bas_G"
+  m_Name: Rig_Chevalier_Paupiere_Bas_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16377,7 +16377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &410235632977983159
 Transform:
   m_ObjectHideFlags: 0
@@ -16461,8 +16461,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 4487887942332172691}
   m_Bounds:
-    m_Center: {x: 0.069999576, y: 0.07000193, z: 0.03999999}
-    m_Extent: {x: 0.9199999, y: 0.56000006, z: 0}
+    m_Center: {x: 0.07000095, y: 0.07000953, z: 0.030000001}
+    m_Extent: {x: 0.9199997, y: 0.5599998, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -16613,7 +16613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3548139842054046447}
   m_Layer: 0
-  m_Name: "Rig_Chevalier_Paupi\xE8re_Haut_G"
+  m_Name: Rig_Chevalier_Paupiere_Haut_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16644,7 +16644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238203038303180403}
   m_Layer: 0
-  m_Name: "Rig_Poisson_Paupi\xE8re_Bas_D"
+  m_Name: Rig_Poisson_Paupiere_Bas_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17723,7 +17723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1815257998788552293
 Transform:
   m_ObjectHideFlags: 0
@@ -17915,7 +17915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3743367893276206393
 Transform:
   m_ObjectHideFlags: 0
@@ -17995,17 +17995,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 3799168080920451026}
+  m_RootBone: {fileID: 4933691275110227186}
   m_BoneTransforms:
   - {fileID: 8518667671494520256}
   - {fileID: 4933691275110227186}
-  - {fileID: 3799168080920451026}
   m_Bounds:
-    m_Center: {x: 0.0074800253, y: 0.06911504, z: 0.015000343}
-    m_Extent: {x: 0.9874805, y: 1.2828044, z: 0.0050001144}
+    m_Center: {x: 0.0074825883, y: 0.06912768, z: 0.010000005}
+    m_Extent: {x: 0.9874821, y: 1.2827904, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
-  m_AutoRebind: 0
+  m_AutoRebind: 1
 --- !u!114 &7390747595250107010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20950,7 +20949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3276670428920691545}
   m_Layer: 0
-  m_Name: "Rig_Devil_Paupi\xE8re_Bas_D"
+  m_Name: Rig_Devil_Paupiere_Bas_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21508,7 +21507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6732386264446300392
 Transform:
   m_ObjectHideFlags: 0
@@ -23623,7 +23622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7323114340391903448
 Transform:
   m_ObjectHideFlags: 0
@@ -23738,7 +23737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3939546711822039614}
   m_Layer: 0
-  m_Name: "Rig_Devil_Paupi\xE8re_Haut_G"
+  m_Name: Rig_Devil_Paupiere_Haut_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23809,7 +23808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2330345702180315631
 Transform:
   m_ObjectHideFlags: 0
@@ -23955,7 +23954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3782228030835138169}
   m_Layer: 0
-  m_Name: "Rig_Poisson_Paupi\xE8re_Haut_D"
+  m_Name: Rig_Poisson_Paupiere_Haut_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26067,7 +26066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5400842184336307215}
   m_Layer: 0
-  m_Name: "Rig_Poisson_Paupi\xE8re_Haut_G"
+  m_Name: Rig_Poisson_Paupiere_Haut_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26160,7 +26159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8814044211652589786}
   m_Layer: 0
-  m_Name: "Rig_Gob_Paupi\xE8re_Haut_D"
+  m_Name: Rig_Gob_Paupiere_Haut_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26192,7 +26191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7982402988897709519}
   - component: {fileID: 1105691818737945808}
-  - component: {fileID: 6146686670430890582}
+  - component: {fileID: 7719992342349931192}
   m_Layer: 0
   m_Name: All_Larbin
   m_TagString: Untagged
@@ -26208,7 +26207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9083523972268094892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1657414, y: -8.563987, z: 0.2326636}
+  m_LocalPosition: {x: -0.3, y: -8.563987, z: 0.2326636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26420,7 +26419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Library: []
   m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 7695071e3f9e3af4cb9668c55db788a1, type: 3}
---- !u!95 &6146686670430890582
+--- !u!95 &7719992342349931192
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -26700,7 +26699,7 @@ MonoBehaviour:
     m_Extent: {x: 2.0800028, y: 0.6798799, z: 0.009999998}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
-  m_AutoRebind: 0
+  m_AutoRebind: 1
 --- !u!114 &8905421115344614870
 MonoBehaviour:
   m_ObjectHideFlags: 0
