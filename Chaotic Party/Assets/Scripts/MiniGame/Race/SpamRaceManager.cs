@@ -154,13 +154,13 @@ public class SpamRaceManager : SpamManager
         }*/
     }
 
-    public void SetClickText(Transform textTransform, TextMeshProUGUI text, int value, int index)
+    public void SetClickText(Transform textTransform, TextMeshProUGUI text, int value, int index, out GameObject effect)
     {
         Points point = index < points.Count ? points[index] : points[^1];
-        SetClickText(textTransform, text, value, point);
+        SetClickText(textTransform, text, value, point, out effect);
     }
 
-    public void SetClickText(Transform textTransform, TextMeshProUGUI text, int value, Points point)
+    public void SetClickText(Transform textTransform, TextMeshProUGUI text, int value, Points point, out GameObject effect)
     {
         text.text = value.ToString();
         text.color = point.color;
@@ -169,9 +169,14 @@ public class SpamRaceManager : SpamManager
         tmpPrefabTransform.localScale = point.scale;
         tmpPrefabTransform.position += Vector3.up / 3;
         tmpPrefabTransform.rotation = point.GetRotation();
-        Debug.Log(tmpPrefabTransform.rotation.eulerAngles.z);
+        
         if (point.effect)
-            Instantiate(point.effect, tmpPrefabTransform.position, Quaternion.identity, tmpPrefabTransform);
+        {
+            effect = Instantiate(point.effect, tmpPrefabTransform.position, Quaternion.identity, tmpPrefabTransform);
+            return;
+        }
+
+        effect = null;
     }
 
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)

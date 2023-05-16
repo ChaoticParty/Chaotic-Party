@@ -17,6 +17,7 @@ public class SpamRaceController : SpamController
     private int _clickValue;
     private SpamRaceManager _spamRaceManager;
     private TextMeshProUGUI _tmpPrefab;
+    private GameObject _effect;
     public Transform spamValuePosition;
     
     protected new void Awake()
@@ -62,10 +63,13 @@ public class SpamRaceController : SpamController
                 break;
             case PointsType.BigPoints:
                 _clickValue += (int)spamManager.spamValue;
+                
+                if(_effect) Destroy(_effect);
+                
                 if (_tmpPrefab)
                 {
                     _spamRaceManager.SetClickText(_tmpPrefab.transform, _tmpPrefab, _clickValue, 
-                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1);
+                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1, out _effect);
                 }
                 else
                 {
@@ -74,7 +78,7 @@ public class SpamRaceController : SpamController
                         transform.GetChild(0).GetChild(0));
                     _tmpPrefab.transform.localScale = _spamRaceManager.points[0].scale;
                     _spamRaceManager.SetClickText(_tmpPrefab.transform, _tmpPrefab, _clickValue, 
-                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1);
+                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1, out _effect);
                 }
                 break;
         }
