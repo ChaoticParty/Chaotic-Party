@@ -66,6 +66,8 @@ public class EcranPersonnage : MonoBehaviour
     private static readonly int Burning = Animator.StringToHash("Burning");
     private static readonly int BackBurning = Animator.StringToHash("BackBurning");
 
+    private Coroutine backBtnCoroutine = null;
+
 
     private void Awake()
     {
@@ -77,6 +79,11 @@ public class EcranPersonnage : MonoBehaviour
         InitCusto();
         
         AddAllListeners();
+    }
+    
+    private void OnDisable()
+    {
+        BackToMainReleased();
     }
 
     public void AddAllListeners()
@@ -96,7 +103,8 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.rightStickJustMovedRight.AddListener(ColorChangeRight);
         
         myPlayerController.aJustPressed.AddListener(Ready);
-        myPlayerController.bJustPressed.AddListener(BackToMain); //TODO remplacer par select quand on aura le sprite
+        myPlayerController.bJustPressed.AddListener(LauchBackToMain);
+        myPlayerController.bJustReleased.AddListener(BackToMainReleased);
     }
     public void RemoveAllListeners()
     {
@@ -115,7 +123,8 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.rightStickJustMovedRight.RemoveListener(ColorChangeRight);
         
         myPlayerController.aJustPressed.RemoveListener(Ready);
-        myPlayerController.bJustPressed.RemoveListener(BackToMain);
+        myPlayerController.bJustPressed.RemoveListener(LauchBackToMain);
+        myPlayerController.bJustReleased.RemoveListener(BackToMainReleased);
     }
 
     private void RaceChangeRight(float x = 0, float y = 0)
@@ -545,11 +554,49 @@ public class EcranPersonnage : MonoBehaviour
         VisualRefresh();
     }
 
-    private void BackToMain()
+    private void LauchBackToMain()
     {
-        menuManager.backAnim.SetTrigger("Push");
-        menuManager.Back(actualPanel);
-        EventSystem.current.SetSelectedGameObject(menuManager.partyBTN.gameObject);
+        menuManager.backTrembleAnim.SetTrigger("Tremble");
+        backBtnCoroutine = StartCoroutine(BackToMain());
+    }
+
+    private IEnumerator BackToMain()
+    {
+        if (menuManager.isPressingBack.Item2)
+        {
+            if (!menuManager.isPressingBack.Item1.Equals(playerSOIndex)) yield break;
+        }
+        menuManager.isPressingBack = (playerSOIndex, true);
+        
+        if (menuManager.currentBackBtnTime >= menuManager.backBtnTimeMax)
+        {
+            BackToMainReleased();
+            menuManager.partyBackMask.sizeDelta = new Vector2(menuManager.maxWeightPartyBackmask, menuManager.partyBackMask.sizeDelta.y);
+            menuManager.backAnim.SetTrigger("Push");
+            menuManager.Back(actualPanel);
+            EventSystem.current.SetSelectedGameObject(menuManager.partyBTN.gameObject);
+        }
+        else
+        {
+            menuManager.partyBackMask.sizeDelta = new Vector2(menuManager.currentBackBtnTime / menuManager.backBtnTimeMax * menuManager.maxWeightPartyBackmask, menuManager.partyBackMask.sizeDelta.y);
+        }
+
+        menuManager.currentBackBtnTime += Time.deltaTime;
+
+        yield return null;
+        
+        backBtnCoroutine = StartCoroutine(BackToMain());
+    }
+
+    private void BackToMainReleased()
+    {
+        if (backBtnCoroutine != null) StopCoroutine(backBtnCoroutine);
+        
+        menuManager.backTrembleAnim.SetTrigger("Idle");
+        backBtnCoroutine = null;
+        menuManager.currentBackBtnTime = 0;
+        menuManager.isPressingBack = (-1, false);
+        menuManager.partyBackMask.sizeDelta = new Vector2(0, menuManager.partyBackMask.sizeDelta.y);
     }
 
     public void FillSO()
@@ -575,7 +622,6 @@ public class EcranPersonnage : MonoBehaviour
         }
 
         return true;
-        // return !menuManager.selectColor.ContainsValue(colorIndex);
     }
     
     private void Ready()
