@@ -2405,6 +2405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1220554209}
   - component: {fileID: 1220554208}
+  - component: {fileID: 1220554210}
   m_Layer: 0
   m_Name: ReferenceHolder
   m_TagString: Untagged
@@ -2425,8 +2426,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: {fileID: 11400000, guid: 42d594bc8afb56a42ba27f94141ce02f, type: 2}
-  miniGameData: {fileID: 0}
+  miniGameData: {fileID: 11400000, guid: c0c22e91ab58e574aae5adf900d5fff4, type: 2}
   oldEventSystem: {fileID: 0}
+  transitionSetter: {fileID: 1220554210}
 --- !u!4 &1220554209
 Transform:
   m_ObjectHideFlags: 0
@@ -2442,6 +2444,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220554210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220554207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab2b3ae1b8cf9743bb21b11f773512f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionControllers:
+  - {fileID: 7578703578150387650, guid: b5b8dd3110e380a4db7931121822aa08, type: 3}
 --- !u!114 &1240165807 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
