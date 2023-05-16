@@ -1339,13 +1339,13 @@ MonoBehaviour:
   actualPanel: {fileID: 0}
   playerSOIndex: 0
   listRaces:
-  - nomRace: Gogoleblin
+  - nomRace: Gogoblin
   - nomRace: Sauve-Garde
   - nomRace: Diabolo
   - nomRace: Homme-Poisseux
   listTetes:
   - "listT\xEAte": 00000000010000000200000003000000
-    nomTete: Gogoleblin
+    nomTete: Gogoblin
   - "listT\xEAte": 04000000050000000600000007000000
     nomTete: Sauve-Garde
   - "listT\xEAte": 08000000090000000a0000000b000000
@@ -1354,7 +1354,7 @@ MonoBehaviour:
     nomTete: Homme-Poisseux
   listCorps:
   - listCorps: 00000000010000000200000003000000
-    nomCorps: Gogoleblin
+    nomCorps: Gogoblin
   - listCorps: 04000000050000000600000007000000
     nomCorps: Sauve-Garde
   - listCorps: 08000000090000000a0000000b000000
@@ -1422,6 +1422,7 @@ MonoBehaviour:
   nameText: 
   bulleText: {fileID: 0}
   bullSpt: {fileID: 0}
+  _playerSo: {fileID: 0}
   head: {fileID: 0}
   body: {fileID: 0}
   isInTheAir: 0
@@ -1430,6 +1431,7 @@ MonoBehaviour:
   isPausing: 0
   isStunned: 0
   isMoving: 0
+  animator: {fileID: 0}
 --- !u!114 &445500006458493546
 MonoBehaviour:
   m_ObjectHideFlags: 0
