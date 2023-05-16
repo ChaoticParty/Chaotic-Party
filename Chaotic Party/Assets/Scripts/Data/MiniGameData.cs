@@ -9,4 +9,16 @@ public class MiniGameData : ScriptableObject
     public List<string> miniGames;
     public List<string> chosenMiniGames;
     public int currentMiniGameIndex;
+
+    public void RandomiseMiniGames()
+    {
+        List<string> miniGamesTemp = new(miniGames);
+        chosenMiniGames = new();
+        for (int i = 0; i < miniGames.Count; i++)
+        {
+            int rnd = Random.Range(0, miniGamesTemp.Count);
+            chosenMiniGames.Add(miniGamesTemp[rnd]);
+            miniGamesTemp.RemoveAt(rnd);
+        }
+    }
 }

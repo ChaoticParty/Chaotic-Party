@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent bJustPressed = new ();
     [NonSerialized] public UnityEvent xJustPressed = new ();
     [NonSerialized] public UnityEvent yJustPressed = new ();
+    
+    [NonSerialized] public UnityEvent bJustReleased = new ();
 
     [NonSerialized] public UnityEvent<float> aLongPressed = new ();
     [NonSerialized] public UnityEvent<float> bLongPressed = new ();
@@ -177,6 +179,11 @@ public class PlayerController : MonoBehaviour
         if(gamepad.Y.justPressed)
         {
             yJustPressed.Invoke();
+        }
+
+        if (gamepad.B.justReleased)
+        {
+            bJustReleased.Invoke();
         }
         
         if(gamepad.A.longPress.pressed)
@@ -513,6 +520,7 @@ public class PlayerController : MonoBehaviour
         bLongPressed.RemoveAllListeners();
         xLongPressed.RemoveAllListeners();
         yLongPressed.RemoveAllListeners();
+        bJustReleased.RemoveAllListeners();
         rightStickMoved.RemoveAllListeners();
         rightStickJustMoved.RemoveAllListeners();
         rightStickMovedDown.RemoveAllListeners();
