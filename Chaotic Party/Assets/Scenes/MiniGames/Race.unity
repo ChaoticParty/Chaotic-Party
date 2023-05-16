@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 201751415}
   - component: {fileID: 201751416}
   - component: {fileID: 201751417}
+  - component: {fileID: 201751418}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -793,6 +794,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &201751418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201751408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8a1f3da496fc6489ef8a4583288ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &205471002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1118,7 +1131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058426768293031352, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2287666974087335226, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
       propertyPath: m_RootOrder
@@ -1172,6 +1185,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2287666974537010877, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c41005c129ba4d66911b75229fd70b45, type: 2}
     - target: {fileID: 2287666974537010879, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2410,7 +2427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058426768293031352, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2287666974087335226, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
       propertyPath: m_RootOrder
@@ -2460,6 +2477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PointsDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 2287666974537010877, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c41005c129ba4d66911b75229fd70b45, type: 2}
     - target: {fileID: 2287666975206711041, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3362,6 +3383,10 @@ PrefabInstance:
       propertyPath: m_fontSizeMin
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4375329125508602976, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c41005c129ba4d66911b75229fd70b45, type: 2}
     - target: {fileID: 4375329125508602976, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -10602,7 +10627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058426768293031352, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2287666974087335226, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
       propertyPath: m_RootOrder
@@ -10652,6 +10677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PointsDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 2287666974537010877, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c41005c129ba4d66911b75229fd70b45, type: 2}
     - target: {fileID: 2287666975206711041, guid: 4b750b3a9dd4f364b8ddc5f86c3a90a1, type: 3}
       propertyPath: m_Sprite
       value: 
