@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class ReferenceHolder : MonoBehaviour
 {
@@ -24,9 +20,11 @@ public class ReferenceHolder : MonoBehaviour
     public PlayersListSO players;
     public MiniGameData miniGameData;
     public GameObject oldEventSystem;
+    public TransitionSetter transitionSetter;
 
     private void Awake()
     {
+        Debug.Log("Referenceholder awake");
         miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
         ResetPlayerData();
