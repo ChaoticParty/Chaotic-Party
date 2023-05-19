@@ -164,7 +164,9 @@ public class CerbereManager : SpamManager
             
             for (int i = 0; i < players.Count; i++)
             {
-                if ((players[i].GetComponent<CerbereSpamController>().isShout || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false))
+                if ((players[i].GetComponent<CerbereSpamController>().isShout 
+                    || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false) 
+                    || (players[i].GetComponent<CerbereSpamController>().isUping && wasHittedByCerbere[i].Equals(false)))
                 {
                     cerbereSee.Invoke();
                     clicksArray[i] = 0;

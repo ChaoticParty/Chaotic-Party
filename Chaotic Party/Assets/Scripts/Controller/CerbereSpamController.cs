@@ -12,6 +12,7 @@ public class CerbereSpamController : SpamController
     private StunController _stunController;
     private bool hasClicked = false;
     [HideInInspector] public bool isShout = false;
+    [HideInInspector] public bool isUping = false;
     [HideInInspector] public Etat etat = Etat.NULL;
     private CerbereManager cerbereManager;
     [Header("Temps placeholder, a changer une fois les anims dispo")]
@@ -49,13 +50,14 @@ public class CerbereSpamController : SpamController
         if (etat.Equals(Etat.FALL))
         {
             hasClicked = true;
+            isUping = true;
             StartCoroutine(StandUpPlayer(standUpAnimTime));
             player.Releve();
             return;
-        } 
+        }
         
         StartCoroutine(Cooldown());
-        
+
         if (etat != value)
         {
             Click();
@@ -97,6 +99,7 @@ public class CerbereSpamController : SpamController
     {
         player.ChangeBulleText("Stand Up !!!");
         yield return new WaitForSeconds(animationTime);
+        isUping = false;
         player.ChangeBulleText("A / B");
         hasClicked = false;
         etat = Etat.NULL;

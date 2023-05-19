@@ -239,6 +239,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c0c22e91ab58e574aae5adf900d5fff4, type: 2}
     - target: {fileID: 2964346414296264589, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 805514676}
+    - target: {fileID: 2964346414296264589, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: playSceneIndex
       value: 2
       objectReference: {fileID: 0}
@@ -315,6 +319,16 @@ PrefabInstance:
 --- !u!1 &30455453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2964346414744073252, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &30455454 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 270694571644547156, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &30455455 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3983741804702384615, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
   m_PrefabInstance: {fileID: 30455452}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &84186584
@@ -1604,6 +1618,11 @@ PrefabInstance:
       objectReference: {fileID: 638555068}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec1484272d299e4381c9feffa1285d5, type: 3}
+--- !u!1 &642733744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2225164157323613916, guid: dec1484272d299e4381c9feffa1285d5, type: 3}
+  m_PrefabInstance: {fileID: 642733743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &644906642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,12 +2191,59 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6986914079221512674, guid: dec1484272d299e4381c9feffa1285d5, type: 3}
   m_PrefabInstance: {fileID: 642733743}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 642733744}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89ca1eafc06f9054f8296ec0f2a903d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &805514676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642733744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b5042db3fc44941b6b57393223a191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playEvent:
+  - id: PartyClick
+    soundEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30455454}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - id: QuitGameClick
+    soundEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30455455}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  stopEvent: []
+  loopEvent: []
 --- !u!1 &1039535631 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1336493702446623293, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}

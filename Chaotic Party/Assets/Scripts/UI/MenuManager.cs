@@ -12,6 +12,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     public MultiplayerManager multiplayerManager;
+    public SoundManager soundManager;
     public PlayersListSO playersListSO;
     public List<PlayerController> listUiPlayerControllers;
     public List<PlayerController> listInGamePlayerControllers;
@@ -194,6 +195,7 @@ public class MenuManager : MonoBehaviour
 
     private void PartyClick()
     {
+        soundManager.EventPlay("PartyClick");
         ResetSelectedPerso();
         PanelChange(panelPrincipal, panelParty);
         if (nbCurrentGamepads < 2) partyPlayerMinGO.SetTrigger("Descend");
@@ -232,6 +234,7 @@ public class MenuManager : MonoBehaviour
 
     private void QuitClick()
     {
+        soundManager.EventPlay("QuitGameClick");
         Application.Quit();
     }
 
