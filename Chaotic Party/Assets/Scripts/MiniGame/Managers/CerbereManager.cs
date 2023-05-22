@@ -9,8 +9,11 @@ using Random = UnityEngine.Random;
 
 public class CerbereManager : SpamManager
 {
+    [Header("CheapSetup")] //Workaround pour avoir le cerbere éveillé dès le début
+    [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cheapCerbereAnimEvents;
+    [SerializeField] [Tooltip("Gameobject cheap du cerbere")] private GameObject cheapCerbere;
+    [SerializeField] [Tooltip("Gameobject du cerbere")] private GameObject trueCerbere;
     [Header("Setup")]
-    // [SerializeField] private ParticleSystem rompicheEffect;
     [SerializeField] private CanvasGroup Hud;
     [SerializeField] [Tooltip("Tableau d'animator, de 0 à 3, correspondant aux players")] private Animator[] cerbereAnimator;
     [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cerbereAnimEvents;
@@ -23,7 +26,7 @@ public class CerbereManager : SpamManager
     [HideInInspector] public RompicheState rompicheState;
     // private bool isRompiche = true;
     private float timeBeforeWake = 0;
-    private float timePassedBeforeWake = 0;
+    [SerializeField] private float timePassedBeforeWake = 0;
     private float xStartValuePos = 0;
     private float xEndValuePos = 0;
     private float inGameValuePerClick = 0;
@@ -80,9 +83,22 @@ public class CerbereManager : SpamManager
         base.Start();
     }
 
+    private IEnumerator CheapCerbereAnimLaunch() //Workaround pour avoir le cerbere éveillé dès le début
+    {
+        yield return new WaitForSeconds(2);
+        foreach (var animEvent in cheapCerbereAnimEvents)
+        {
+            animEvent.CheapObserveEnd();
+        }
+        yield return new WaitForSeconds(0.33f);
+        trueCerbere.SetActive(true);
+        cheapCerbere.SetActive(false);
+    }
+
     [ContextMenu("LoadMiniGame")]
     public override void LoadMiniGame()
     {
+        StartCoroutine(CheapCerbereAnimLaunch());
         base.LoadMiniGame();
         rompicheState = RompicheState.NULL;
         if (cerberRompicheRangeMin > cerberRompicheRangeMax)
@@ -96,7 +112,7 @@ public class CerbereManager : SpamManager
         wasHittedByCerbere = new[] {false, false, false, false};
         
         xStartValuePos = players[0].transform.position.x;
-        xEndValuePos = listTeteCerbere[0].transform.position.x - 1; //Le -1 est un padding pour que l'arrivée soit devant cerbere et pas dessus, a changer en fonction
+        xEndValuePos = listTeteCerbere[0].transform.position.x - 2; //Le -1 est un padding pour que l'arrivée soit devant cerbere et pas dessus, a changer en fonction
         
         float distance = xEndValuePos - xStartValuePos;
         float valueForOneClick = endValue / spamValue;
@@ -148,7 +164,9 @@ public class CerbereManager : SpamManager
             
             for (int i = 0; i < players.Count; i++)
             {
-                if ((players[i].GetComponent<CerbereSpamController>().isShout || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false))
+                if ((players[i].GetComponent<CerbereSpamController>().isShout 
+                    || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false) 
+                    || (players[i].GetComponent<CerbereSpamController>().isUping && wasHittedByCerbere[i].Equals(false)))
                 {
                     cerbereSee.Invoke();
                     clicksArray[i] = 0;
@@ -185,11 +203,9 @@ public class CerbereManager : SpamManager
             {
                 rompicheState = RompicheState.UN;
             }
-            //Animation (les z du dodo qui decrementent ?)
         }
         else //Lancement d'une nouvelle boucle de dodo
         {
-            // if (!rompicheState.Equals(RompicheState.ZERO)) return;
             WakeUp();
             rompicheState = RompicheState.NULL;
         }
@@ -199,12 +215,10 @@ public class CerbereManager : SpamManager
     {
         base.StartMiniGame();
         LaunchBulleAnim(rompicheState);
-        // StartCoroutine(ZNumberFeedBack(timeBeforeWake));
     }
 
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
     {
-        //BUG Si on descactive les input avec le stun et qu'on r'appui, tt les inputs sont compté et nous "tp" a la fin, Envoyer une action dans le stun ? (peut etre plus d'actu)
         if (!isMinigamelaunched) return;
         walkDestination[playerIndex] += inGameValuePerClick;
         clicksArray[playerIndex] += Mathf.RoundToInt(spamValue);
@@ -265,11 +279,12 @@ public class CerbereManager : SpamManager
         }
         wasHittedByCerbere = new[] {false, false, false, false};
         myCoroutine = null;
-        yield return new WaitForSeconds(1);
+        
+        yield return new WaitForSeconds(0.33f);
         
         timeBeforeWake = Random.Range(cerberRompicheRangeMin, cerberRompicheRangeMax + 1);
         timePassedBeforeWake = timeBeforeWake;
-        
+
         LaunchBulleAnim(rompicheState);
     }
 
