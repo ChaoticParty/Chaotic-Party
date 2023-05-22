@@ -220,6 +220,7 @@ public class MenuManager : MonoBehaviour
 
     private void MinigameClick()
     {
+        soundManager.EventPlay("MiniGameClick");
         PanelChange(panelPrincipal, panelMinigame);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstMinigame);
@@ -227,6 +228,7 @@ public class MenuManager : MonoBehaviour
 
     private void OptionsClick()
     {
+        soundManager.EventPlay("OptionsClick");
         _referenceHolder.oldEventSystem = EventSystem.current.gameObject;
         EventSystem.current.gameObject.SetActive(false);
         SceneManager.LoadSceneAsync(optionsScene, LoadSceneMode.Additive);

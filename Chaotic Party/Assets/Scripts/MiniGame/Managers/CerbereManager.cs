@@ -173,14 +173,11 @@ public class CerbereManager : SpamManager
                     cerbereAnimator[i].SetBool(UltimoPoderLaser, true);
                     laserPlaceHolder[i].SetActive(true);
                     wasHittedByCerbere[i] = true;
-                    walkDestination[i] = xStartValuePos;
+                    StartCoroutine(DelayedPlayerGoBack(i));
+                    // walkDestination[i] = xStartValuePos;
                     //Feedback
                     cerbereAnimEvents[0].Exclamation();
                     cerbereLaser.Invoke();
-                    playerGetBackToStart.Invoke(players[i].transform.position, "Argument");
-                    //
-                    players[i].transform.position = new Vector3(xStartValuePos, players[i].transform.position.y,
-                        players[i].transform.position.z);
                     players[i].ChangeBulleText("Lasered");
                     scoreDisplay[i].text = "0";
                     players[i].isStunned = true;
@@ -286,6 +283,15 @@ public class CerbereManager : SpamManager
         timePassedBeforeWake = timeBeforeWake;
 
         LaunchBulleAnim(rompicheState);
+    }
+
+    private IEnumerator DelayedPlayerGoBack(int index)
+    {
+        yield return new WaitForSeconds(0.3f);
+        walkDestination[index] = xStartValuePos;
+        playerGetBackToStart.Invoke(players[index].transform.position, "Argument");
+        players[index].transform.position = new Vector3(xStartValuePos, players[index].transform.position.y,
+            players[index].transform.position.z);
     }
 
     private void LaunchBulleAnim(RompicheState rompicheState)

@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
             soundEvent.soundEvent.Invoke();
             return;
         }
+        Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
     }
     public void EventStop(string id)
     {
@@ -26,6 +27,7 @@ public class SoundManager : MonoBehaviour
             soundEvent.soundEvent.Invoke();
             return;
         }
+        Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
     }
     public void EventLoop(string id)
     {
@@ -34,6 +36,12 @@ public class SoundManager : MonoBehaviour
             soundEvent.soundEvent.Invoke();
             return;
         }
+        Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
+    }
+
+    public void PlaySelfSound()
+    {
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     [Serializable]
