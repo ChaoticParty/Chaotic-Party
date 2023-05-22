@@ -307,7 +307,7 @@ public class SpamRaceManager : SpamManager
 
     public void StartRace()
     {
-        
+        raceCamera.Priority = 200;
         foreach (PlayerController player in players)
         {
             if(!player.gameObject.activeSelf) continue;
