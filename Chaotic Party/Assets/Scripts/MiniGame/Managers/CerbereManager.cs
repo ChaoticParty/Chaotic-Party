@@ -204,6 +204,7 @@ public class CerbereManager : SpamManager
         else //Lancement d'une nouvelle boucle de dodo
         {
             WakeUp();
+            
             rompicheState = RompicheState.NULL;
         }
     }
@@ -269,6 +270,11 @@ public class CerbereManager : SpamManager
         foreach (var animEvent in cerbereAnimEvents)
         {
             animEvent.ObserveEnd();
+            
+        }
+        foreach (var animator in nuagesAnimator)
+        {
+            animator.ResetTrigger(Depop);
         }
         foreach (var players in players)
         {
@@ -330,8 +336,8 @@ public class CerbereManager : SpamManager
         switch (rompicheState)
         {
             case RompicheState.UN:
-                timePassedBeforeWake = 0;
                 WakeUp();
+                timePassedBeforeWake = 0;
                 rompicheState = RompicheState.NULL;
                 break;
             case RompicheState.DEUX:

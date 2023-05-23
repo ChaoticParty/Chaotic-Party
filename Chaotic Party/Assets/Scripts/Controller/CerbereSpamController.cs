@@ -17,7 +17,7 @@ public class CerbereSpamController : SpamController
     private CerbereManager cerbereManager;
     [Header("Temps placeholder, a changer une fois les anims dispo")]
     [SerializeField] private TextMeshProUGUI bullPlayerFeedback;
-    [SerializeField] private float standUpAnimTime = 1f;
+    [SerializeField] private float standUpAnimTime = 0.75f;
     [SerializeField] private float wakeUpAnimTime = 1f;
     //Event
     public UnityEvent playerFall;
@@ -27,7 +27,7 @@ public class CerbereSpamController : SpamController
         base.Awake();
         _stunController ??= GetComponent<StunController>();
         cerbereManager = spamManager as CerbereManager;
-        player.ChangeBulleText("A / B");
+        player.ChangeBulleText("A | B");
         AddListeners();
     }
 
@@ -100,7 +100,7 @@ public class CerbereSpamController : SpamController
         player.ChangeBulleText("Stand Up !!!");
         yield return new WaitForSeconds(animationTime);
         isUping = false;
-        player.ChangeBulleText("A / B");
+        player.ChangeBulleText("A | B");
         hasClicked = false;
         etat = Etat.NULL;
     } 
