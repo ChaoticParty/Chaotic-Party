@@ -687,11 +687,97 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  projecteurs: []
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  projecteurs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentIndex: 0
   beforePictureAnimator: {fileID: 775162493}
   vCam: {fileID: 0}
   baseOrthoSize: 0
+  animator: {fileID: 575713282869634399}
 --- !u!1001 &6400253344965395540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -847,6 +933,10 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Center.y
       value: 0.00928843
       objectReference: {fileID: 0}
+    - target: {fileID: 6119124419809640274, guid: a24b73fc248061a45a0267b574eb54e7, type: 3}
+      propertyPath: unityEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2023687871262369705}
     - target: {fileID: 6910708794018020379, guid: a24b73fc248061a45a0267b574eb54e7, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: 0.01999998
@@ -989,6 +1079,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24b73fc248061a45a0267b574eb54e7, type: 3}
+--- !u!95 &575713282869634399 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6858732299458978059, guid: a24b73fc248061a45a0267b574eb54e7, type: 3}
+  m_PrefabInstance: {fileID: 6400253344965395540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2973266653658181607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8183443791955651507, guid: a24b73fc248061a45a0267b574eb54e7, type: 3}
