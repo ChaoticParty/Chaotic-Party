@@ -135,6 +135,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         leftStickToRight.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         currentTeteIndex = 0;
         currentCorpsIndex = 0;
         if (currentRaceIndex == listRaces.Count - 1)
@@ -155,6 +156,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         leftStickToLeft.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         currentTeteIndex = 0;
         currentCorpsIndex = 0;
         if (currentRaceIndex == 0)
@@ -173,6 +175,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         rightBumperClick.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         if (currentTeteIndex == listCurrentTete.Count - 1)
         {
             currentTeteIndex = 0;
@@ -192,6 +195,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         leftBumperClick.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         if (currentTeteIndex == 0)
         {
             currentTeteIndex = Convert.ToSByte(listCurrentTete.Count - 1);
@@ -212,6 +216,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         rightTriggerClick.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         if (currentCorpsIndex == listCurrentCorps.Count - 1)
         {
             currentCorpsIndex = 0;
@@ -232,6 +237,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         leftTriggerClick.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         if (currentCorpsIndex == 0)
         {
             currentCorpsIndex = Convert.ToSByte(listCurrentCorps.Count - 1);
@@ -257,6 +263,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         rightStickToRight.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         if (currentColorIndex == listColor.Count - 1)
         {
             currentColorIndex = 0;
@@ -290,6 +297,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         rightStickToLeft.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         
         if (currentColorIndex == 0)
         {
@@ -648,6 +656,7 @@ public class EcranPersonnage : MonoBehaviour
         menuManager.partyBandeauReadyGO.SetActive(menuManager.IsLaunchPossible());
         if (isReady)
         {
+            menuManager.soundManager.EventPlay("J"+ (playerSOIndex + 1) +"RenderYeah");
             SpawnPlayer();
         }
     }

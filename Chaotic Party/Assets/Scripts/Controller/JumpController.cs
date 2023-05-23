@@ -7,12 +7,14 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider2D))]
 public class JumpController : MiniGameController
 {
+    [SerializeField] private AudioClip jumpSoundClip;
     private Rigidbody2D _rigidbody2D;
     public SpamButton jumpButton = SpamButton.A;
     public float jumpForce = 5;
     public bool canFootStool;
     public bool isJumping;
     [NotNull] public Transform footObject;
+    private Collider2D _collider2D;
 
     #region CodeVariables
 
@@ -26,6 +28,7 @@ public class JumpController : MiniGameController
     {
         base.Awake();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _collider2D = GetComponent<Collider2D>();
     }
 
     public override void AddListeners()
@@ -90,13 +93,13 @@ public class JumpController : MiniGameController
         }
         else
         {
-            Collider2D otherPlayerCollider = Physics2D.BoxCast((Vector2)footObject.position + _downVector * 0.2f, _raycastSize, 0, _upVector,
+            Collider2D playerCollider = Physics2D.BoxCast((Vector2)footObject.position + _downVector * 0.2f, _raycastSize, 0, _upVector,
                 0.1f, LayerMask.GetMask("Player")).collider;
-            if (isJumping && canFootStool && otherPlayerCollider)
+            if (isJumping && canFootStool && playerCollider && playerCollider != _collider2D)
             {
                 _rigidbody2D.velocity = Vector2.zero;
                 Jumping();
-                if (otherPlayerCollider.TryGetComponent(out StunController stunScript))
+                if (playerCollider.TryGetComponent(out StunController stunScript))
                 {
                     stunScript.Stun();
                 }
@@ -107,6 +110,11 @@ public class JumpController : MiniGameController
     private void Jumping()
     {
         //_rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        if (jumpSoundClip != null)
+        {
+            gameObject.GetComponent<AudioSource>().clip = jumpSoundClip;
+            player.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
+        }
         _rigidbody2D.velocity = new Vector2(0, jumpForce);
         player.Jump();
     }
