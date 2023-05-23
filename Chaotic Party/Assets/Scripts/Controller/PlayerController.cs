@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
+    public SoundManager soundManager;
     public SkinSelector skinSelector;
     public List<MiniGameController> miniGameControllers;
     public Gamepad gamepad;
@@ -137,6 +138,7 @@ public class PlayerController : MonoBehaviour
     {
         if(nameObject) nameObject.text = nameText + (index + 1);
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
+        soundManager ??= FindObjectOfType<SoundManager>();
         _crownManager ??= GetComponent<CrownManager>();
     }
 

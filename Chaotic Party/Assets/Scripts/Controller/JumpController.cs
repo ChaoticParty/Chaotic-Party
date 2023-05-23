@@ -7,6 +7,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider2D))]
 public class JumpController : MiniGameController
 {
+    [SerializeField] private AudioClip jumpSoundClip;
     private Rigidbody2D _rigidbody2D;
     public SpamButton jumpButton = SpamButton.A;
     public float jumpForce = 5;
@@ -107,6 +108,11 @@ public class JumpController : MiniGameController
     private void Jumping()
     {
         //_rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        if (jumpSoundClip != null)
+        {
+            gameObject.GetComponent<AudioSource>().clip = jumpSoundClip;
+            player.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
+        }
         _rigidbody2D.velocity = new Vector2(0, jumpForce);
         player.Jump();
     }

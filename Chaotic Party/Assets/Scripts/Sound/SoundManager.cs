@@ -39,9 +39,11 @@ public class SoundManager : MonoBehaviour
         Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
     }
 
-    public void PlaySelfSound()
+    public void PlaySelfSound(AudioSource cibleAudio)
     {
-        gameObject.GetComponent<AudioSource>().Play();
+        if (cibleAudio.clip == null) return;
+        
+        cibleAudio.Play();
     }
 
     [Serializable]

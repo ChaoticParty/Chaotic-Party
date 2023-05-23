@@ -1820,11 +1820,11 @@ PrefabInstance:
     - target: {fileID: 401168745674120755, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 588101376835224067, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      objectReference: {fileID: 7472121813964314883, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 529741609249119139, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 9196397083483187255, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      objectReference: {fileID: 5986082199191705122, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 1686840274787068689, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Name
       value: BaseTemplate
@@ -1912,7 +1912,7 @@ PrefabInstance:
     - target: {fileID: 3724503200306979010, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 4166462519903898618, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      objectReference: {fileID: 1725101739743704377, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 3879395484462966428, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: miniGameManager
       value: 
@@ -1936,7 +1936,7 @@ PrefabInstance:
     - target: {fileID: 5971148001827546708, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8404602724180169988, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      objectReference: {fileID: -5752230658385225602, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 6454539632491797151, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1972,11 +1972,11 @@ PrefabInstance:
     - target: {fileID: 7888348392387485266, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5787307085332040458, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      objectReference: {fileID: 299173247017991786, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 8183051497114316663, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 961911523804285793, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+      objectReference: {fileID: -6232078699555026518, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 8204989393249634394, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: miniGameManager
       value: 
@@ -2143,6 +2143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 15
   canFootStool: 1
@@ -2160,6 +2161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 15
   canFootStool: 1
@@ -14606,6 +14608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
   forceTacle: {x: 5, y: 5}
 --- !u!114 &968459599
@@ -14633,6 +14636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
   forceTacle: {x: 5, y: 5}
 --- !u!114 &968459602
@@ -14660,6 +14664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
   hitForce: {x: 300, y: 300}
 --- !u!114 &968459608
 MonoBehaviour:
@@ -17096,6 +17101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 15
   canFootStool: 1
@@ -17113,6 +17119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 8224218934337345852, guid: 971d311a8f90ca24c861a9754cf99250, type: 3}
   forceTacle: {x: 5, y: 5}
 --- !u!114 &1160475319
@@ -17140,6 +17147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
   hitForce: {x: 300, y: 300}
 --- !u!114 &1160475325
 MonoBehaviour:
@@ -23255,6 +23263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 15
   canFootStool: 1
@@ -23272,6 +23281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 980744220}
   forceTacle: {x: 7, y: 3}
 --- !u!114 &1654988035
@@ -23315,6 +23325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
   hitForce: {x: 300, y: 300}
 --- !u!114 &1654988042
 MonoBehaviour:
@@ -25384,6 +25395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
   hitForce: {x: 300, y: 300}
 --- !u!114 &1747680652
 MonoBehaviour:

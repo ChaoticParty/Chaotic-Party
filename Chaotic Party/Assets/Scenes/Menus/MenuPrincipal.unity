@@ -544,6 +544,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!82 &174116657 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3897109308362812475, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &205822268 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5712501423552644011, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
@@ -918,6 +923,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5cae074678dac41b8f51103a17638f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &415767702 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8414843668028730542, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &422723122
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,8 +2294,77 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - id: J1RenderYeah
+    soundEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 992704384}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - id: J2RenderYeah
+    soundEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 174116657}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - id: J3RenderYeah
+    soundEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 415767702}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - id: J4RenderYeah
+    soundEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1542395788}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   stopEvent: []
   loopEvent: []
+--- !u!82 &992704384 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2847005153762822817, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1039535631 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1336493702446623293, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
@@ -3121,6 +3200,11 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!82 &1542395788 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3222751312672244318, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1550556772
 GameObject:
   m_ObjectHideFlags: 0
