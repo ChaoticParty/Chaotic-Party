@@ -13,6 +13,7 @@ public class JumpController : MiniGameController
     public bool canFootStool;
     public bool isJumping;
     [NotNull] public Transform footObject;
+    private Collider2D _collider2D;
 
     #region CodeVariables
 
@@ -26,6 +27,7 @@ public class JumpController : MiniGameController
     {
         base.Awake();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _collider2D = GetComponent<Collider2D>();
     }
 
     public override void AddListeners()
@@ -90,13 +92,13 @@ public class JumpController : MiniGameController
         }
         else
         {
-            Collider2D otherPlayerCollider = Physics2D.BoxCast((Vector2)footObject.position + _downVector * 0.2f, _raycastSize, 0, _upVector,
+            Collider2D playerCollider = Physics2D.BoxCast((Vector2)footObject.position + _downVector * 0.2f, _raycastSize, 0, _upVector,
                 0.1f, LayerMask.GetMask("Player")).collider;
-            if (isJumping && canFootStool && otherPlayerCollider)
+            if (isJumping && canFootStool && playerCollider && playerCollider != _collider2D)
             {
                 _rigidbody2D.velocity = Vector2.zero;
                 Jumping();
-                if (otherPlayerCollider.TryGetComponent(out StunController stunScript))
+                if (playerCollider.TryGetComponent(out StunController stunScript))
                 {
                     stunScript.Stun();
                 }

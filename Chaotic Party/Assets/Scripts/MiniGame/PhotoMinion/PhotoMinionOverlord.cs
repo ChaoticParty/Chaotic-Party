@@ -17,12 +17,15 @@ public class PhotoMinionOverlord : MonoBehaviour
     public float baseOrthoSize;
     private static readonly int Launch = Animator.StringToHash("Launch");
     private static readonly int Stop = Animator.StringToHash("Stop");
+    public Animator animator;
+    private static readonly int VariationPosing = Animator.StringToHash("VariationPosing");
 
     private void Awake()
     {
         _currentPosition = transform.parent;
         head ??= transform.Find("Head");
         baseOrthoSize = vCam.m_Lens.OrthographicSize / transform.localScale.x;
+        InvokeRepeating(nameof(ChoosePose), 2, 2);
     }
 
     public void ChangePosition(bool isPositionDifferent = true)
@@ -68,6 +71,17 @@ public class PhotoMinionOverlord : MonoBehaviour
     public void StopAnimationBeforePicture()
     {
         beforePictureAnimator.SetTrigger(Stop);
+    }
+
+    public void ChoosePose()
+    {
+        int rnd = Random.Range(0, 10);
+        animator.SetInteger(VariationPosing, rnd);
+    }
+
+    public void ResetPose()
+    {
+        animator.SetInteger(VariationPosing, 0);
     }
 
     public void Focus()
