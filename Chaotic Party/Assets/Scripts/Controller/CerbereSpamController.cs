@@ -77,7 +77,7 @@ public class CerbereSpamController : SpamController
         //Anim de chute
         player.Chute();
         playerFall.Invoke();
-        player.ChangeBulleText("Fall");
+        player.ChangeBulleText("Debout!");
         _stunController.Stun();
         //Reactivation a la fin de l'anim de chute, voir comment on gere avec le stun controller
     }
@@ -85,7 +85,7 @@ public class CerbereSpamController : SpamController
     private void WakuUp()
     {
         if (isShout || !player.CanMove() || !cerbereManager.isMinigamelaunched) return;
-        player.ChangeBulleText("Hey !!!");
+        player.ChangeBulleText("Hey!!!");
         isShout = true;
         cerbereManager.playerYell.Invoke(transform.position, "Argument");
         cerbereManager.PlayerWakeUp();
@@ -97,10 +97,12 @@ public class CerbereSpamController : SpamController
 
     private IEnumerator StandUpPlayer(float animationTime)
     {
-        player.ChangeBulleText("Stand Up !!!");
         yield return new WaitForSeconds(animationTime);
         isUping = false;
-        player.ChangeBulleText("A | B");
+        if (!player.isStunned)
+        {
+            player.ChangeBulleText("A | B");
+        }
         hasClicked = false;
         etat = Etat.NULL;
     } 
@@ -108,7 +110,14 @@ public class CerbereSpamController : SpamController
     private IEnumerator WakeUpFeedBack(float animationTime)
     {
         yield return new WaitForSeconds(animationTime);
-        player.ChangeBulleText(etat.Equals(Etat.A) ? "B" : "A");
+        if (etat.Equals(Etat.NULL))
+        {
+            player.ChangeBulleText("A | B");
+        }
+        else
+        {
+            player.ChangeBulleText(etat.Equals(Etat.A) ? "B" : "A");
+        }
         isShout = false;
     }
 
