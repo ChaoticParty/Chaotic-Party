@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 1077332108}
   forceTacle: {x: 10, y: 0}
 --- !u!114 &334150789
@@ -290,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -404,7 +406,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.8914673, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -415,7 +417,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.1994672, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &432337079
 MonoBehaviour:
@@ -429,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57912d13217729040a9b82751847b9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 0}
   objectsToHit:
   - {fileID: 1618421594}
   - {fileID: 1963718249}
@@ -511,8 +514,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -221097199
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &449689938
 RectTransform:
@@ -707,6 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 1439755612}
   forceTacle: {x: 10, y: 0}
 --- !u!114 &488147158
@@ -721,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -1011,6 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 1944464183}
   forceTacle: {x: 10, y: 0}
 --- !u!114 &643767588
@@ -1025,6 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -1351,6 +1358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 469754086}
   forceTacle: {x: 10, y: 0}
 --- !u!114 &747449045
@@ -1365,6 +1373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -1988,6 +1997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGameManager: {fileID: 0}
+  soundManager: {fileID: 0}
   skinSelector: {fileID: 0}
   miniGameControllers: []
   index: 0
@@ -2113,6 +2123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ff964b2e1583d43b08c7260da12182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 0}
   onHitEvent:
     m_PersistentCalls:
       m_Calls:

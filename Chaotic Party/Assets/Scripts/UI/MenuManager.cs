@@ -61,6 +61,7 @@ public class MenuManager : MonoBehaviour
     public float currentBackBtnTime = 0;
     public float backBtnTimeMax = 2;
     public (int, bool) isPressingBack = (-1, false);
+    public bool isRandom = true;
     
     #region MonoBehaviour Méthodes
 
@@ -182,7 +183,7 @@ public class MenuManager : MonoBehaviour
                     ecranPerso.FillSO();    
                 }
             }
-            miniGameData.RandomiseMiniGames();
+            if(isRandom) miniGameData.RandomiseMiniGames();
             SceneManager.LoadScene(playSceneIndex);
         }
     }

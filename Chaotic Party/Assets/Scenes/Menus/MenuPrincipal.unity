@@ -235,6 +235,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2964346414296264589, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: isRandom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964346414296264589, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: miniGameData
       value: 
       objectReference: {fileID: 11400000, guid: c0c22e91ab58e574aae5adf900d5fff4, type: 2}
@@ -1975,6 +1979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -1992,6 +1997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 87899057}
   forceTacle: {x: 20, y: 0}
 --- !u!61 &735630066
@@ -3011,6 +3017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -3028,6 +3035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 84186585}
   forceTacle: {x: 20, y: 0}
 --- !u!61 &1484720500
@@ -3581,6 +3589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -3598,6 +3607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 493358824}
   forceTacle: {x: 20, y: 0}
 --- !u!61 &1637481039
@@ -3890,6 +3900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -3907,6 +3918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ccd4a2ee08c744c9ea9222aba31bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 640178745}
   forceTacle: {x: 20, y: 0}
 --- !u!61 &1735875122
