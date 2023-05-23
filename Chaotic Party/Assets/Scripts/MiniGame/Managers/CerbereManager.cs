@@ -178,7 +178,7 @@ public class CerbereManager : SpamManager
                     //Feedback
                     cerbereAnimEvents[0].Exclamation();
                     cerbereLaser.Invoke();
-                    players[i].ChangeBulleText("Lasered");
+                    players[i].ChangeBulleText("Seen!");
                     scoreDisplay[i].text = "0";
                     players[i].isStunned = true;
                     players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.NULL;
@@ -279,6 +279,13 @@ public class CerbereManager : SpamManager
         foreach (var players in players)
         {
             players.isStunned = false;
+        }
+        for (int i = 0; i < wasHittedByCerbere.Length; i++)
+        {
+            if (wasHittedByCerbere[i])
+            {
+                players[i].ChangeBulleText("A | B");
+            }
         }
         wasHittedByCerbere = new[] {false, false, false, false};
         myCoroutine = null;
