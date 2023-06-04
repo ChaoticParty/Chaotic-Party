@@ -19,6 +19,7 @@ public class SpamRaceController : SpamController
     private TextMeshProUGUI _tmpPrefab;
     private GameObject _effect;
     public Transform spamValuePosition;
+    public Transform spamButton;
     
     protected new void Awake()
     {
@@ -82,6 +83,7 @@ public class SpamRaceController : SpamController
                 }
                 break;
         }
+        spamButton.localScale = Vector3.one * 0.7f;
     }
 
     public void SendClicks()
@@ -112,7 +114,7 @@ public class SpamRaceController : SpamController
         Vector2 endPos = spamManager.players[otherPlayerIndex].transform.position;//new(-3f, -1f);
         void OnEnd() => spamManager.Click(otherPlayerIndex, -spamManager.versusSpamValue);
         throwObjectScript.Setup(pos, endPos/*spamManager.players[otherPlayerIndex].transform.position*/, 0.5f, 
-            1, launchSprite, OnEnd);
+            1, launchSprite, new Vector3(0.3f, 0.3f, 0.3f), OnEnd);
     }
 
     private IEnumerator Cooldown()
@@ -120,6 +122,7 @@ public class SpamRaceController : SpamController
         hasClicked = true;
         yield return new WaitForNextFrameUnit();
         hasClicked = false;
+        spamButton.localScale = Vector3.one;
     }
 
     public Coroutine Race(Vector2 destination, bool winner)

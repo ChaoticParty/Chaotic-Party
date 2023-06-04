@@ -46,6 +46,12 @@ public class CerbereAnimEvent : MonoBehaviour
         cerbereManager.ResetBulleAnim();
         isRompiche = true;
     }
+    public void CheapObserveEnd() //Workaround pour avoir le cerbere éveillé dès le début
+    {
+        tete.GetComponent<SpriteRenderer>().sprite = cerbereDodo;
+        animator.SetBool(UltimoPoderLaser, false);
+        animator.SetTrigger(AuDodoTrigger);
+    }
 
     public void Exclamation()
     {
