@@ -1,0 +1,594 @@
+fileFormatVersion: 2
+guid: 5452ec043a9ff88459868e7c94ed5f83
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Paupiere_Sup_D
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2476
+      width: 459
+      height: 366
+    spriteID: 084dcf3c3ef515d48a26d00431b6d337
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1050, y: 2027}
+  - name: Paupiere_Inf_D
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3737
+      width: 424
+      height: 310
+    spriteID: 78049fd65fa71d54196d10221862c4bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1087, y: 3381}
+  - name: Puppile_D
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 508
+      y: 2829
+      width: 349
+      height: 349
+    spriteID: 70fdb04be0e5d3d47866da8bf779792d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -631, y: 2411}
+  - name: Oeil_D
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2039
+      width: 496
+      height: 429
+    spriteID: 4b17cef487aad6c42afb80b4d5a863a1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1034, y: 1671}
+  - name: machoire supperieure
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1498
+      width: 638
+      height: 533
+    spriteID: aab828f1cc58136438924c628f4e3734
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -533, y: 1332}
+  - name: tete
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1195
+      height: 847
+    spriteID: 0616c206aeeb97d44a660aa4f14096d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -308, y: -98}
+  - name: Oreilles_G
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1207
+      y: 4
+      width: 722
+      height: 504
+    spriteID: 5da53d51bc80d7144b00634ce5128d61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 562, y: -461}
+  - name: Oreilles_D
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3231
+      width: 288
+      height: 498
+    spriteID: 3da9a06036c99ca4880ae38cebe5729e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1357, y: 2766}
+  - name: Machoire_Inf
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 859
+      width: 1130
+      height: 631
+    spriteID: b47433c8375809144866120d04cf983f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -308, y: 805}
+  - name: Paupiere_Sup_G
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2850
+      width: 416
+      height: 373
+    spriteID: 012ba0ac766a9d74dae827ea10e8d9c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -570, y: 2419}
+  - name: Paupiere_Inf_G
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 508
+      y: 2039
+      width: 388
+      height: 367
+    spriteID: f62f9d738f2ccf64eba822fdc3695528
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -27, y: 1691}
+  - name: Puppile_G
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 508
+      y: 2414
+      width: 310
+      height: 407
+    spriteID: 61dea50aed1689b4d87e0585131c8ae1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -53, y: 2039}
+  - name: oeil_G
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 650
+      y: 1498
+      width: 429
+      height: 429
+    spriteID: 96db568a7a6b9854eb9e8a18e6b59b36
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 92, y: 1145}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Carlin
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 24
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Paupiere_D
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 23
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Paupiere_Sup_D
+    spriteName: Paupiere_Sup_D
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 084dcf3c3ef515d48a26d00431b6d337
+    layerID: 22
+    mosaicPosition: {x: 4, y: 2476}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paupiere_Inf_D
+    spriteName: Paupiere_Inf_D
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 78049fd65fa71d54196d10221862c4bf
+    layerID: 21
+    mosaicPosition: {x: 4, y: 3737}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Oeil_D
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 19
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Puppile_D
+    spriteName: Puppile_D
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 70fdb04be0e5d3d47866da8bf779792d
+    layerID: 18
+    mosaicPosition: {x: 508, y: 2829}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Oeil_D
+    spriteName: Oeil_D
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 4b17cef487aad6c42afb80b4d5a863a1
+    layerID: 17
+    mosaicPosition: {x: 4, y: 2039}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: machoire supperieure
+    spriteName: machoire supperieure
+    isGroup: 0
+    parentIndex: 0
+    spriteID: aab828f1cc58136438924c628f4e3734
+    layerID: 15
+    mosaicPosition: {x: 4, y: 1498}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: tete
+    spriteName: tete
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 0616c206aeeb97d44a660aa4f14096d5
+    layerID: 14
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Oreilles_G
+    spriteName: Oreilles_G
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 5da53d51bc80d7144b00634ce5128d61
+    layerID: 13
+    mosaicPosition: {x: 1207, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Oreilles_D
+    spriteName: Oreilles_D
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 3da9a06036c99ca4880ae38cebe5729e
+    layerID: 12
+    mosaicPosition: {x: 4, y: 3231}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Machoire_Inf
+    spriteName: Machoire_Inf
+    isGroup: 0
+    parentIndex: 0
+    spriteID: b47433c8375809144866120d04cf983f
+    layerID: 11
+    mosaicPosition: {x: 4, y: 859}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paupiere_G
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 10
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Paupiere_Sup_G
+    spriteName: Paupiere_Sup_G
+    isGroup: 0
+    parentIndex: 12
+    spriteID: 012ba0ac766a9d74dae827ea10e8d9c3
+    layerID: 9
+    mosaicPosition: {x: 4, y: 2850}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paupiere_Inf_G
+    spriteName: Paupiere_Inf_G
+    isGroup: 0
+    parentIndex: 12
+    spriteID: f62f9d738f2ccf64eba822fdc3695528
+    layerID: 8
+    mosaicPosition: {x: 508, y: 2039}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Oeil_G
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 6
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Puppile_G
+    spriteName: Puppile_G
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 61dea50aed1689b4d87e0585131c8ae1
+    layerID: 5
+    mosaicPosition: {x: 508, y: 2414}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oeil_G
+    spriteName: oeil_G
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 96db568a7a6b9854eb9e8a18e6b59b36
+    layerID: 4
+    mosaicPosition: {x: 650, y: 1498}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: "Arri\xE8re-plan"
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 1
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
