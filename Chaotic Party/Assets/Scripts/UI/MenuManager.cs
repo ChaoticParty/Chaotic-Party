@@ -88,6 +88,8 @@ public class MenuManager : MonoBehaviour
 
         nbCurrentGamepads = multiplayerManager.GamepadCount();
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
+        
+        soundManager.EventPlay("PrincipalMusic");
 
         partyBTN.onClick.AddListener(PartyClick);
         minigameBTN.onClick.AddListener(MinigameClick);
@@ -197,6 +199,8 @@ public class MenuManager : MonoBehaviour
     private void PartyClick()
     {
         soundManager.EventPlay("PartyClick");
+        soundManager.EventStop("PrincipalMusic");
+        soundManager.EventPlay("PartyMusic");
         ResetSelectedPerso();
         PanelChange(panelPrincipal, panelParty);
         if (nbCurrentGamepads < 2) partyPlayerMinGO.SetTrigger("Descend");
@@ -222,6 +226,7 @@ public class MenuManager : MonoBehaviour
     private void MinigameClick()
     {
         soundManager.EventPlay("MiniGameClick");
+        soundManager.EventStop("PrincipalMusic");
         PanelChange(panelPrincipal, panelMinigame);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstMinigame);
@@ -230,6 +235,7 @@ public class MenuManager : MonoBehaviour
     private void OptionsClick()
     {
         soundManager.EventPlay("OptionsClick");
+        soundManager.EventStop("PrincipalMusic");
         _referenceHolder.oldEventSystem = EventSystem.current.gameObject;
         EventSystem.current.gameObject.SetActive(false);
         SceneManager.LoadSceneAsync(optionsScene, LoadSceneMode.Additive);
@@ -238,11 +244,16 @@ public class MenuManager : MonoBehaviour
     private void QuitClick()
     {
         soundManager.EventPlay("QuitGameClick");
+        soundManager.EventStop("PrincipalMusic");
         Application.Quit();
     }
 
     public void Back(GameObject actualPanel)
     {
+        if (actualPanel.Equals(panelParty))
+        {
+            soundManager.EventStop("PartyMusic");
+        }
         oldPanel.SetActive(true);
         actualPanel.SetActive(false);
     }
