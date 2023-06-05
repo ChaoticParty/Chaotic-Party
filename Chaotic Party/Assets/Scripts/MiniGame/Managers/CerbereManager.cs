@@ -19,6 +19,7 @@ public class CerbereManager : SpamManager
     [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cerbereAnimEvents;
     [SerializeField] [Tooltip("Animator de la bulle de cerbere")] private Animator bulleAnimator;
     [SerializeField] [Tooltip("Animator des nuages de la bulle de cerbere")] private Animator[] nuagesAnimator;
+    [SerializeField] [Tooltip("Animator des z cassé de la bulle de cerbere")] private Animator[] zBreakAnimator;
     private int winnerIndex;
     private bool[] wasHittedByCerbere; //Tableau de bool, true si a été touché. Repasse a false quand Cerbere se rendort. De 0 à 3, correspondant aux players;
     private float[] walkDestination = new float[]{};
@@ -339,23 +340,23 @@ public class CerbereManager : SpamManager
 
     public void PlayerWakeUp()
     {
-        // if (myCoroutine != null) StopCoroutine(myCoroutine);
         switch (rompicheState)
         {
             case RompicheState.UN:
+                zBreakAnimator[2].gameObject.SetActive(true);
                 WakeUp();
                 timePassedBeforeWake = 0;
                 rompicheState = RompicheState.NULL;
                 break;
             case RompicheState.DEUX:
+                zBreakAnimator[1].gameObject.SetActive(true);
                 timePassedBeforeWake = timeBeforeWake / 3;
                 LaunchBulleAnim(rompicheState);
-                // myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
                 break;
             case RompicheState.TROIS:
+                zBreakAnimator[0].gameObject.SetActive(true);
                 timePassedBeforeWake = timeBeforeWake / 3 * 2;
                 LaunchBulleAnim(rompicheState);
-                // myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
                 break;
             case RompicheState.NULL:
                 Debug.Log("Cerbere already wake up");
