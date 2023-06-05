@@ -234,9 +234,9 @@ public class CerbereManager : SpamManager
             if (clicksArray[i] >= endValue)
             {
                 //Version temporaire du msg de fin
-                winnerIndex = i;
-                winTMP.text = "j"+(i+1)+" win";
-                winTMP.gameObject.SetActive(true);
+                // winnerIndex = i;
+                // winTMP.text = "j"+(i+1)+" win";
+                // winTMP.gameObject.SetActive(true);
                 //
                 return true;
             }
@@ -300,7 +300,7 @@ public class CerbereManager : SpamManager
 
     private IEnumerator DelayedPlayerGoBack(int index)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
         walkDestination[index] = xStartValuePos;
         playerGetBackToStart.Invoke(players[index].transform.position, "Argument");
         players[index].transform.position = new Vector3(xStartValuePos, players[index].transform.position.y,
@@ -370,42 +370,51 @@ public class CerbereManager : SpamManager
 
     protected override void OnMinigameEnd()
     {
+        timerManager.isPaused = true;
+        isMinigamelaunched = false;
         foreach (PlayerController player in players)
         {
             if(!player.gameObject.activeSelf) continue;
             player.RemoveAllListeners();
         }
         StopAllCoroutines();
-        // StartCoroutine(EndMiniGameAnim()); //TODO enlever une fois les anims preparer
+        StartCoroutine(EndMiniGameAnim());
         
         ranking = GetRanking();
         AddPoints();
         SetCurrentRanking();
-        
-        LoadRecap();
         //Gerer la fin du mini jeu
     }
 
     #region Feedback Methods
 
-    private IEnumerator LaserFeedBack(float laserTime, GameObject laser)
-    {
-        yield return new WaitForSeconds(laserTime);
-        laser.SetActive(false);
-    }
-
     private IEnumerator EndMiniGameAnim()
     {
         //Anim du player gagnant qui touche le cerbere
-        yield return new WaitForSeconds(cerberBeginAnimTime);
+        foreach (var animator in cerbereAnimator)
+        {
+            animator.SetTrigger("MiniGameEnd");
+        } 
+        foreach (var animator in nuagesAnimator)
+        {
+            animator.ResetTrigger("Depop");
+            animator.SetTrigger("MiniGameEnd");
+        } 
+        bulleAnimator.SetTrigger("MiniGameEnd");
+        
         for (int i = 0; i < players.Count; i++)
         {
-            if (!players[i].gameObject.activeSelf || i.Equals(winnerIndex)) yield break;
-            StartCoroutine(LaserFeedBack(2, laserPlaceHolder[i]));
-            //Disparition du player ou retour au debut ?
+            if (!players[i].gameObject.activeSelf || i.Equals(winnerIndex)) continue;
+            laserPlaceHolder[i].SetActive(true);
         }
-        yield return new WaitForSeconds(2);
-        //Anime du winner qui se fait manger
+        players[winnerIndex].Releve();
+        players[winnerIndex].VictoryAnimation();
+        yield return new WaitForSeconds(4);
+        for (int i = 0; i < players.Count; i++)
+        {
+            laserPlaceHolder[i].SetActive(false);
+        }
+        LoadRecap();
     }
 
     #endregion
