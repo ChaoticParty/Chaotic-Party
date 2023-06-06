@@ -1,11 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class RecapScoreManager : MiniGameManager
 {
+    public bool endMenu;
     public GameObject nextMiniGameButton;
     private MiniGameData miniGameData;
 
@@ -21,7 +21,7 @@ public class RecapScoreManager : MiniGameManager
         miniGameData ??= ReferenceHolder.Instance.miniGameData;
         if (!HasNextMiniGame())
         {
-            nextMiniGameButton.SetActive(false);
+            //nextMiniGameButton.SetActive(false);
         }
 
         List<PlayerSO> playersData = ReferenceHolder.Instance.players.players;
@@ -43,7 +43,9 @@ public class RecapScoreManager : MiniGameManager
             }
             else
             {
-                scoreObj.playerName.text = "Joueur" + (rankToPlayerData[i].id + 1);
+                Debug.Log(rankToPlayerData[i].color);
+                ColorTools.ColorToName(rankToPlayerData[i].color, out string playerColor);
+                scoreObj.playerName.text = rankToPlayerData[i].race.nomRace + " " + playerColor;//"Joueur" + (rankToPlayerData[i].id + 1);
                 scoreObj.score.text = rankToPlayerData[i].points.ToString();
                 Transform playerTransform = players[playersData[i].ranking].transform;
                 playerTransform.SetParent(scoreObj.sceneObject);
