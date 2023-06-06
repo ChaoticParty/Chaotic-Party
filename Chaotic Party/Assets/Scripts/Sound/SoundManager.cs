@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
         foreach (var soundEvent in playEvent.Where(soundEvent => soundEvent.id.Equals(id)))
         {
             soundEvent.soundEvent.Invoke();
+            Debug.Log("SoundEvent : Play. Id : "+id);
             return;
         }
         Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
@@ -25,6 +26,7 @@ public class SoundManager : MonoBehaviour
         foreach (var soundEvent in stopEvent.Where(soundEvent => soundEvent.id.Equals(id)))
         {
             soundEvent.soundEvent.Invoke();
+            Debug.Log("SoundEvent : Stop. Id : "+id);
             return;
         }
         Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
@@ -34,6 +36,7 @@ public class SoundManager : MonoBehaviour
         foreach (var soundEvent in loopEvent.Where(soundEvent => soundEvent.id.Equals(id)))
         {
             soundEvent.soundEvent.Invoke();
+            Debug.Log("SoundEvent : Loop. Id : "+id);
             return;
         }
         Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
@@ -41,6 +44,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySelfSound(AudioSource cibleAudio)
     {
+        Debug.Log("SoundEvent : Self. Id : "+cibleAudio.gameObject.name);
         if (cibleAudio.clip == null) return;
         
         cibleAudio.Play();
