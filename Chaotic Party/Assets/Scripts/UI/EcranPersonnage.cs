@@ -609,9 +609,11 @@ public class EcranPersonnage : MonoBehaviour
 
     public void FillSO()
     {
-        menuManager.playersListSO.players[playerSOIndex].head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
-        menuManager.playersListSO.players[playerSOIndex].body = listCorps[currentRaceIndex].listCorps[currentCorpsIndex];
-        menuManager.playersListSO.players[playerSOIndex].color = listColor[currentColorIndex];
+        PlayerSO playerSo = menuManager.playersListSO.players[playerSOIndex];
+        playerSo.race = currentRace;
+        playerSo.head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
+        playerSo.body = listCorps[currentRaceIndex].listCorps[currentCorpsIndex];
+        playerSo.color = listColor[currentColorIndex];
     }
 
     public void LockColor(bool _isReady)

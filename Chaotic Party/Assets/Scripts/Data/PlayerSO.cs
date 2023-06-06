@@ -21,6 +21,7 @@ public class PlayerSO : ScriptableObject
     public SelectedSkin head;
     public SelectedSkin body;
     public Color color;
+    public Races race;
 
     #endregion
 }
