@@ -44,8 +44,8 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySelfSound(AudioSource cibleAudio)
     {
-        if (cibleAudio.clip == null) return;
         Debug.Log("SoundEvent : Self. Id : "+cibleAudio.gameObject.name);
+        if (cibleAudio.clip == null) return;
         
         cibleAudio.Play();
     }
