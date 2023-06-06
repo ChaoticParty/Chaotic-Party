@@ -23,6 +23,7 @@ public class CerbereAnimEvent : MonoBehaviour
     private static readonly int UltimoPoderLaser = Animator.StringToHash("UltimoPoderLaser");
     private static readonly int AuDodoTrigger = Animator.StringToHash("AuDodoTrigger");
     private static readonly int Property = Animator.StringToHash("!Pop");
+    private static readonly int WakeUpTrigger = Animator.StringToHash("WakeUpTrigger");
 
     public void WakeUpEnd()
     {
@@ -43,8 +44,15 @@ public class CerbereAnimEvent : MonoBehaviour
         tete.GetComponent<SpriteRenderer>().sprite = cerbereDodo;
         animator.SetBool(UltimoPoderLaser, false);
         animator.SetTrigger(AuDodoTrigger);
+        animator.ResetTrigger(WakeUpTrigger);
         cerbereManager.ResetBulleAnim();
         isRompiche = true;
+    }
+    public void CheapObserveEnd() //Workaround pour avoir le cerbere éveillé dès le début
+    {
+        tete.GetComponent<SpriteRenderer>().sprite = cerbereDodo;
+        animator.SetBool(UltimoPoderLaser, false);
+        animator.SetTrigger(AuDodoTrigger);
     }
 
     public void Exclamation()

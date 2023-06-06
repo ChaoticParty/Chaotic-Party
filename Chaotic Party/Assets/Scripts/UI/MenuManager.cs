@@ -12,6 +12,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     public MultiplayerManager multiplayerManager;
+    public SoundManager soundManager;
     public PlayersListSO playersListSO;
     public List<PlayerController> listUiPlayerControllers;
     public List<PlayerController> listInGamePlayerControllers;
@@ -60,6 +61,7 @@ public class MenuManager : MonoBehaviour
     public float currentBackBtnTime = 0;
     public float backBtnTimeMax = 2;
     public (int, bool) isPressingBack = (-1, false);
+    public bool isRandom = true;
     
     #region MonoBehaviour Méthodes
 
@@ -181,7 +183,7 @@ public class MenuManager : MonoBehaviour
                     ecranPerso.FillSO();    
                 }
             }
-            miniGameData.RandomiseMiniGames();
+            if(isRandom) miniGameData.RandomiseMiniGames();
             SceneManager.LoadScene(playSceneIndex);
         }
     }
@@ -194,6 +196,7 @@ public class MenuManager : MonoBehaviour
 
     private void PartyClick()
     {
+        soundManager.EventPlay("PartyClick");
         ResetSelectedPerso();
         PanelChange(panelPrincipal, panelParty);
         if (nbCurrentGamepads < 2) partyPlayerMinGO.SetTrigger("Descend");
@@ -218,6 +221,7 @@ public class MenuManager : MonoBehaviour
 
     private void MinigameClick()
     {
+        soundManager.EventPlay("MiniGameClick");
         PanelChange(panelPrincipal, panelMinigame);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstMinigame);
@@ -225,6 +229,7 @@ public class MenuManager : MonoBehaviour
 
     private void OptionsClick()
     {
+        soundManager.EventPlay("OptionsClick");
         _referenceHolder.oldEventSystem = EventSystem.current.gameObject;
         EventSystem.current.gameObject.SetActive(false);
         SceneManager.LoadSceneAsync(optionsScene, LoadSceneMode.Additive);
@@ -232,6 +237,7 @@ public class MenuManager : MonoBehaviour
 
     private void QuitClick()
     {
+        soundManager.EventPlay("QuitGameClick");
         Application.Quit();
     }
 

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 5776382496720922157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0724926, y: -0.3263731, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5776382497683549683}
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 5776382497568809414}
   m_LocalRotation: {x: -0, y: -0, z: 0.22208183, w: 0.97502804}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6818, y: 0.6818, z: 0.6818}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5776382497683549683}
@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 5776382497683549683}
   - component: {fileID: 5776382497683549684}
   - component: {fileID: 5776382497683549685}
+  - component: {fileID: 1049426989528527905}
   m_Layer: 0
   m_Name: Comics BAM!
   m_TagString: Untagged
@@ -236,3 +237,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bamAnimator: {fileID: 5776382497683549684}
+  script: {fileID: 1049426989528527905}
+--- !u!114 &1049426989528527905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776382497683549686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd41f8831e8f623488012a9d4088a280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureDatas:
+  - textureOnomatope: {fileID: 21300000, guid: 05d35a2751093c547915fc186189c001, type: 3}
+    textureFond: {fileID: 21300000, guid: 42625e1edc9f6434991b632200e81181, type: 3}
+  - textureOnomatope: {fileID: 21300000, guid: 7388be1c9775a8346874d654bacca60b, type: 3}
+    textureFond: {fileID: 21300000, guid: f6bbebc848d400e4e80ebe9c208c00f1, type: 3}
+  - textureOnomatope: {fileID: 21300000, guid: cc624463240a7414fb9fed3eb251dbee, type: 3}
+    textureFond: {fileID: 21300000, guid: ed3a9b4d6f5f4814d954bdace655498a, type: 3}
+  - textureOnomatope: {fileID: 21300000, guid: 42db2f4337e05604abc2276def3952e7, type: 3}
+    textureFond: {fileID: 21300000, guid: ed3a9b4d6f5f4814d954bdace655498a, type: 3}
+  - textureOnomatope: {fileID: 21300000, guid: c99ab08399ab2434a8518dbbc5259d98, type: 3}
+    textureFond: {fileID: 21300000, guid: f6bbebc848d400e4e80ebe9c208c00f1, type: 3}
+  spriteFond: {fileID: 5776382496720922155}
+  spriteOnomatope: {fileID: 5776382497568809412}
