@@ -12,7 +12,7 @@ public class CP_OnomatopeChoice : MonoBehaviour
     
     public void BAM ()
     {
-        var texturechoisie = textureDatas[Random.Range(0, textureDatas.Count)];
+        TextureData texturechoisie = textureDatas[Random.Range(0, textureDatas.Count)];
         spriteFond.sprite = texturechoisie.textureFond;
         spriteOnomatope.sprite = texturechoisie.textureOnomatope;
     }

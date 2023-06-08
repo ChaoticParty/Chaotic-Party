@@ -14,9 +14,15 @@ public class RecapScoreController : MiniGameController
     private void NextMiniGame()
     {
         RecapScoreManager manager = player.miniGameManager as RecapScoreManager;
-        if(manager && manager.HasNextMiniGame())
+        if(!manager) return;
+        
+        if(manager.HasNextMiniGame())
         {
             SceneManager.LoadScene("RulesUI");
+        }
+        else if(!manager.endMenu)
+        {
+            SceneManager.LoadScene("EndResults");
         }
     }
 
