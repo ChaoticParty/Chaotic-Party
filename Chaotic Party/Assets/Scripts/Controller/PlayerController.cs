@@ -455,6 +455,10 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger(Relever);
     }
+    public void ResetReleve()
+    {
+        animator.ResetTrigger(Relever);
+    }
 
     public void StartTacle()
     {

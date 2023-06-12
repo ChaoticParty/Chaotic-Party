@@ -6007,6 +6007,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1596990859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7583316606717427421, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
+  m_PrefabInstance: {fileID: 1538398048707536860}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1600337074
 GameObject:
   m_ObjectHideFlags: 0
@@ -6837,6 +6842,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1707349121 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1387292419596655710, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
+  m_PrefabInstance: {fileID: 1538398048707536860}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1717757052
 GameObject:
   m_ObjectHideFlags: 0
@@ -6873,6 +6883,11 @@ Transform:
   m_Father: {fileID: 1009665458}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1718813885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6307649383487505238, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
+  m_PrefabInstance: {fileID: 1538398048707536860}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1733423296
 GameObject:
   m_ObjectHideFlags: 0
@@ -7652,6 +7667,11 @@ MonoBehaviour:
   cheapCerbere: {fileID: 1101652544}
   trueCerbere: {fileID: 1717757052}
   Hud: {fileID: 1538398048707536862}
+  hudMegaphone:
+  - {fileID: 1718813885}
+  - {fileID: 1707349121}
+  - {fileID: 2088700058}
+  - {fileID: 1596990859}
   cerbereAnimator:
   - {fileID: 342803616}
   - {fileID: 1236475797}
@@ -7671,6 +7691,7 @@ MonoBehaviour:
   - {fileID: 2042403158}
   - {fileID: 990008037}
   - {fileID: 1880695908}
+  hasAlreadyShout: 
   rompicheState: 0
   timePassedBeforeWake: 0
   endValue: 1000
@@ -8479,6 +8500,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2088700058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4978473648065978745, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
+  m_PrefabInstance: {fileID: 1538398048707536860}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2094540643 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1538398047569297599, guid: 27d967278b5ff2e428ea2eaead9e4703, type: 3}
