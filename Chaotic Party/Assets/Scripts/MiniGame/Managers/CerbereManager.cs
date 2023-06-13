@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -15,6 +14,7 @@ public class CerbereManager : SpamManager
     [SerializeField] [Tooltip("Gameobject du cerbere")] private GameObject trueCerbere;
     [Header("Setup")]
     [SerializeField] private CanvasGroup Hud;
+    public GameObject[] hudMegaphone;
     [SerializeField] [Tooltip("Tableau d'animator, de 0 à 3, correspondant aux players")] private Animator[] cerbereAnimator;
     [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cerbereAnimEvents;
     [SerializeField] [Tooltip("Animator de la bulle de cerbere")] private Animator bulleAnimator;
@@ -22,6 +22,7 @@ public class CerbereManager : SpamManager
     [SerializeField] [Tooltip("Animator des z cassé de la bulle de cerbere")] private Animator[] zBreakAnimator;
     private int winnerIndex;
     private bool[] wasHittedByCerbere; //Tableau de bool, true si a été touché. Repasse a false quand Cerbere se rendort. De 0 à 3, correspondant aux players;
+    public bool[] hasAlreadyShout; //Tableau de bool, true si a déjà crié. De 0 à 3, correspondant aux players;
     private float[] walkDestination = new float[]{};
     private Coroutine myCoroutine;
     [HideInInspector] public RompicheState rompicheState;
@@ -111,6 +112,7 @@ public class CerbereManager : SpamManager
         timePassedBeforeWake = timeBeforeWake;
         
         wasHittedByCerbere = new[] {false, false, false, false};
+        hasAlreadyShout = new[] {false, false, false, false};
         
         xStartValuePos = players[0].transform.position.x;
         xEndValuePos = listTeteCerbere[0].transform.position.x - 2; //Le -1 est un padding pour que l'arrivée soit devant cerbere et pas dessus, a changer en fonction
@@ -131,12 +133,17 @@ public class CerbereManager : SpamManager
             if (players[i].gameObject.activeSelf)
             {
                 players[i].ActivateBulle(true);
-                scoreDisplay[i].transform.parent.gameObject.SetActive(true); //TODO avoir la foi de changer ca, c'est moche et pas opti
+                scoreDisplay[i].transform.parent.gameObject.SetActive(true);
                 scoreDisplay[i].text = "0";
             }
         }
         
         bulleAnimator.gameObject.SetActive(true);
+        
+        foreach(GameObject obj in hudMegaphone)
+        {
+            obj.SetActive(true);
+        }
 
         Hud.alpha = 1;
     }
@@ -285,7 +292,9 @@ public class CerbereManager : SpamManager
         {
             if (wasHittedByCerbere[i])
             {
+                players[i].Releve();
                 players[i].ChangeBulleText("A | B");
+                players[i].ResetReleve();
             }
         }
         wasHittedByCerbere = new[] {false, false, false, false};

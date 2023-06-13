@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AnimatedImagebuilder", menuName = "ScriptableObjects/FX/AnimatedImageBuilder")]

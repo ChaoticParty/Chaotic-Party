@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class CerbereSpamController : SpamController
 {
@@ -84,10 +81,12 @@ public class CerbereSpamController : SpamController
 
     private void WakuUp()
     {
-        if (isShout || !player.CanMove() || !cerbereManager.isMinigamelaunched) return;
+        if (isShout || !player.CanMove() || !cerbereManager.isMinigamelaunched || cerbereManager.hasAlreadyShout[player.index]) return;
         player.ChangeBulleText("Hey!!!");
         isShout = true;
+        cerbereManager.hasAlreadyShout[player.index] = true;
         cerbereManager.playerYell.Invoke(transform.position, "Argument");
+        cerbereManager.hudMegaphone[player.index].GetComponent<Animator>().SetTrigger("Bigger");
         cerbereManager.PlayerWakeUp();
         StartCoroutine(WakeUpFeedBack(wakeUpAnimTime));
     }
