@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class ReferenceHolder : MonoBehaviour
@@ -13,7 +14,7 @@ public class ReferenceHolder : MonoBehaviour
             }
             else
             {
-                return instance = new GameObject("SingletonHolder").AddComponent<ReferenceHolder>();
+                return null;
             }
         }
     }
@@ -24,6 +25,14 @@ public class ReferenceHolder : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (instance && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        
         instance = this;
         miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");

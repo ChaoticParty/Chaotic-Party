@@ -7,6 +7,7 @@ public class RecapScoreManager : MiniGameManager
 {
     public bool endMenu;
     public GameObject nextMiniGameButton;
+    public GameObject menuButton;
     private MiniGameData miniGameData;
 
     #region UpdateScore
@@ -36,6 +37,7 @@ public class RecapScoreManager : MiniGameManager
         }
         for (int i = 0; i < scoreObjects.Count; i++)
         {
+            Debug.Log("obj" + i);
             Score scoreObj = scoreObjects[i];
             if (i >= players.Count)
             {
@@ -43,7 +45,6 @@ public class RecapScoreManager : MiniGameManager
             }
             else
             {
-                Debug.Log(rankToPlayerData[i].color);
                 ColorTools.ColorToName(rankToPlayerData[i].color, out string playerColor);
                 scoreObj.playerName.text = rankToPlayerData[i].race.nomRace + " " + playerColor;//"Joueur" + (rankToPlayerData[i].id + 1);
                 scoreObj.score.text = rankToPlayerData[i].points.ToString();
