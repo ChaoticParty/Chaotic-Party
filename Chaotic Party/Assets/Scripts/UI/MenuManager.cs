@@ -1,12 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
@@ -186,8 +182,23 @@ public class MenuManager : MonoBehaviour
                 }
             }
             if(isRandom) miniGameData.RandomiseMiniGames();
-            SceneManager.LoadScene(playSceneIndex);
+            Vector3 point = Camera.main.WorldToScreenPoint(listInGamePlayerControllers[0].transform.position);
+            ReferenceHolder.Instance.transitionSetter.StartTransition(null, LoadScene, 
+                SetRulesPosition, null, point);
         }
+    }
+
+    private void LoadScene()
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(playSceneIndex, LoadSceneMode.Additive);
+        Scene currentScene = gameObject.scene;
+        ReferenceHolder.Instance.transitionSetter.WaitTillSceneLoad(asyncOperation, currentScene);
+    }
+
+    private void SetRulesPosition()
+    {
+        ReferenceHolder referenceHolder = ReferenceHolder.Instance;
+        referenceHolder.transitionSetter.lastTransition.SetPosition(referenceHolder.miniGameData.GetTransitionPosition(playSceneIndex));
     }
     #endregion
 
