@@ -584,8 +584,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetupSprite(PlayerSO playerSo)
     {
-        _playerSo = playerSo;
-        
+        _playerSo = playerSo; 
         skinSelector.SetupSkin(_playerSo.head, _playerSo.body, _playerSo.color);
     }
 
