@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public abstract class SpamController : MiniGameController
 {
     public SpamManager spamManager;

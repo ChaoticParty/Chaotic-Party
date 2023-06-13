@@ -1,15 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "MiniGameData", menuName = "ScriptableObjects/MiniGameData")]
-public class MiniGameData : ScriptableObject
+public class MiniGameData : SerializedScriptableObject
 {
     public List<string> miniGames;
     public List<string> chosenMiniGames;
     public int currentMiniGameIndex;
     public int numberOfMinigames;
+    public Dictionary<string, Vector3> TransitionPositionInScene = new();
 
     public void RandomiseMiniGames()
     {
@@ -23,5 +24,23 @@ public class MiniGameData : ScriptableObject
             chosenMiniGames.Add(miniGamesTemp[rnd]);
             miniGamesTemp.RemoveAt(rnd);
         }
+    }
+
+    public Vector3 GetTransitionPosition(string scene)
+    {
+        return TransitionPositionInScene.ContainsKey(scene) ? TransitionPositionInScene[scene] : default;
+    }
+
+    public Vector3 GetTransitionPosition(int scene)
+    {
+        string sceneName = SceneManager.GetSceneByBuildIndex(scene).name;
+        Debug.Log(sceneName);
+        return TransitionPositionInScene.ContainsKey(sceneName) ? TransitionPositionInScene[sceneName] : default;
+    }
+
+    [Button]
+    public void SetSceneName(int sceneIndex)
+    {
+        TransitionPositionInScene.Add(SceneManager.GetSceneByBuildIndex(sceneIndex).name, default);
     }
 }

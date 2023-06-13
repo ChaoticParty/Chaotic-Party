@@ -11,7 +11,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
-using UnityEngine.UI;
 
 public class SpamRaceManager : SpamManager
 {

@@ -1,10 +1,7 @@
-using System;
 using System.Collections;
 using TMPro;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class SpamRaceController : SpamController
 {
@@ -20,6 +17,7 @@ public class SpamRaceController : SpamController
     private GameObject _effect;
     public Transform spamValuePosition;
     public Transform spamButton;
+    public ChevalRace chevalRace;
     
     protected new void Awake()
     {
@@ -84,6 +82,9 @@ public class SpamRaceController : SpamController
                 break;
         }
         spamButton.localScale = Vector3.one * 0.7f;
+        Transform chevalRaceTransform = this.chevalRace.transform;
+        ChevalRace chevalRace = Instantiate(this.chevalRace, chevalRaceTransform.parent);
+        chevalRace.StartAnimation();
     }
 
     public void SendClicks()
