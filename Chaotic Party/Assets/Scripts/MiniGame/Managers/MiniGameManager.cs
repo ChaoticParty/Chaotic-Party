@@ -90,14 +90,20 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
 
     public void LoadRecap()
     {
-        //Vector3 point = Camera.main.WorldToScreenPoint(listInGamePlayerControllers[0].transform.position);
-        //ReferenceHolder.Instance.transitionSetter.StartTransition(null, LoadRecapScene, 
-          //  SetRulesPosition, null, point);
+        Vector3 point = Camera.main.WorldToScreenPoint(RankingToList()[0].transform.position);
+        ReferenceHolder.Instance.transitionSetter.StartTransition(null, LoadRecapScene, 
+            SetRecapPosition, null, point);
     }
 
     private void LoadRecapScene()
     {
         SceneManager.LoadScene("RecapScore");
+    }
+
+    private void SetRecapPosition()
+    {
+        ReferenceHolder referenceHolder = ReferenceHolder.Instance;
+        referenceHolder.transitionSetter.lastTransition.SetPosition(referenceHolder.miniGameData.GetTransitionPosition("RecapScore"));
     }
 
     public void AddPoints()
