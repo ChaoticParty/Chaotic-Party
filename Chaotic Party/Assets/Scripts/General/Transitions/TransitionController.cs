@@ -61,6 +61,7 @@ public class TransitionController : MonoBehaviour
     {
         OnTransitionFinisherDone?.Invoke();
         ResetEvents();
+        Time.timeScale = 1;
         DeactivateTransition();
     }
 
