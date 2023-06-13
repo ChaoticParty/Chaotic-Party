@@ -11,9 +11,10 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
 {
     [Tooltip("Liste des joueurs, remplie automatiquement")] public List<PlayerController> players;
     [SerializeField] [Tooltip("Animator de compteur de debut du minijeu")] private Animator beginAnimator;
+    [SerializeField] [Tooltip("Objet Stop de fin de mini jeu")] protected GameObject stopMiniGameObject;
     [Header("Timer")]
     [SerializeField] [Tooltip("Dur�e du minijeu")] protected float timer;
-     public TimerManager timerManager;
+    public TimerManager timerManager;
     public bool isGameDone;
     protected Dictionary<PlayerController, int> ranking = new();
     [SerializeField] protected GameObject[] crowns;
@@ -80,6 +81,7 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
     protected virtual void OnMinigameEnd()
     {
         isMinigamelaunched = false;
+        if (stopMiniGameObject != null) stopMiniGameObject.SetActive(true);
     }
 
     public virtual void StartMiniGame()

@@ -131,6 +131,10 @@ public class PlayerController : MonoBehaviour
     private static readonly int MarcheDiscrete = Animator.StringToHash("MarcheDiscrete");
     private static readonly int Chute1 = Animator.StringToHash("Chute");
     private static readonly int Relever = Animator.StringToHash("Relever");
+    private static readonly int Crie1 = Animator.StringToHash("Crie");
+    private static readonly int Degat = Animator.StringToHash("Degat");
+    private static readonly int DegatVersion = Animator.StringToHash("DegatVersion");
+    private static readonly int EndLaserDegat = Animator.StringToHash("EndLaserDegat");
 
     #endregion
 
@@ -446,9 +450,25 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger(MarcheDiscrete, value);
     }
 
+    public void DegatGaucheLaser()
+    {
+        animator.SetTrigger(Degat);
+        animator.SetInteger(DegatVersion, 3);
+    }
+    public void EndDegatLaser()
+    {
+        animator.SetTrigger(EndLaserDegat);
+        animator.SetInteger(MarcheDiscrete, 2);
+    }
+
     public void Chute()
     {
         animator.SetTrigger(Chute1);
+    }
+
+    public void Crie()
+    {
+        animator.SetTrigger(Crie1);
     }
 
     public void Releve()
