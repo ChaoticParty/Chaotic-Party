@@ -31,8 +31,8 @@ public class CerbereManager : SpamManager
     // private bool isRompiche = true;
     private float timeBeforeWake = 0;
     [SerializeField] private float timePassedBeforeWake = 0;
-    private float xStartValuePos = 0;
-    private float xEndValuePos = 0;
+    private float[] xStartValuePos = new float[4];
+    private float[] xEndValuePos = new float[4];
     private float inGameValuePerClick = 0;
     [Space]
     [Header("Distance avec Cerbere")]
@@ -115,11 +115,15 @@ public class CerbereManager : SpamManager
         
         wasHittedByCerbere = new[] {false, false, false, false};
         hasAlreadyShout = new[] {false, false, false, false};
+
+        for (int i = 0; i < xStartValuePos.Length; i++)
+        {
+            if (i >= players.Count) continue;
+            xStartValuePos[i] = players[i].transform.position.x;
+            xEndValuePos[i] = listTeteCerbere[i].transform.position.x - 2; //Le -2 est un padding pour que l'arrivée soit devant cerbere et pas dessus, a changer en fonction
+        } 
         
-        xStartValuePos = players[0].transform.position.x;
-        xEndValuePos = listTeteCerbere[0].transform.position.x - 2; //Le -1 est un padding pour que l'arrivée soit devant cerbere et pas dessus, a changer en fonction
-        
-        float distance = xEndValuePos - xStartValuePos;
+        float distance = xEndValuePos[0] - xStartValuePos[0];
         float valueForOneClick = endValue / spamValue;
         inGameValuePerClick = distance / valueForOneClick;
         
@@ -156,7 +160,7 @@ public class CerbereManager : SpamManager
         for (int i = 0; i < walkDestination.Length; i++)
         {
             if(i >= players.Count) continue;
-            if (walkDestination[i] > xEndValuePos) walkDestination[i] = xEndValuePos;
+            if (walkDestination[i] > xEndValuePos[i]) walkDestination[i] = xEndValuePos[i];
             if (players[i].transform.position.x >= walkDestination[i]) continue;
             
             players[i].transform.position = new Vector3(Mathf.Lerp(players[i].transform.position.x, walkDestination[i], Time.deltaTime * 10),
@@ -186,10 +190,9 @@ public class CerbereManager : SpamManager
                     StartCoroutine(DelayedPlayerGoBack(i));
                     // walkDestination[i] = xStartValuePos;
                     //Feedback
-                    cerbereAnimEvents[0].Exclamation();
+                    cerbereAnimEvents[i].Exclamation();
                     cerbereLaser.Invoke();
-                    players[i].ChangeBulleText("Seen!");
-                    scoreDisplay[i].text = "0";
+                    players[i].ChangeBulleText("!");
                     players[i].isStunned = true;
                     players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.NULL;
                 }    
@@ -243,11 +246,7 @@ public class CerbereManager : SpamManager
         {
             if (clicksArray[i] >= endValue)
             {
-                //Version temporaire du msg de fin
                 winnerIndex = i;
-                // winTMP.text = "j"+(i+1)+" win";
-                // winTMP.gameObject.SetActive(true);
-                //
                 return true;
             }
         }
@@ -299,6 +298,7 @@ public class CerbereManager : SpamManager
             {
                 players[i].Releve();
                 players[i].ChangeBulleText("A ou B");
+                players[i].EndDegatLaser();
                 players[i].ResetReleve();
             }
         }
@@ -316,9 +316,11 @@ public class CerbereManager : SpamManager
     private IEnumerator DelayedPlayerGoBack(int index)
     {
         yield return new WaitForSeconds(1f);
-        walkDestination[index] = xStartValuePos;
+        scoreDisplay[index].text = "0";
+        players[index].DegatGaucheLaser();
+        walkDestination[index] = xStartValuePos[index];
         playerGetBackToStart.Invoke(players[index].transform.position, "Argument");
-        players[index].transform.position = new Vector3(xStartValuePos, players[index].transform.position.y,
+        players[index].transform.position = new Vector3(xStartValuePos[index], players[index].transform.position.y,
             players[index].transform.position.z);
     }
 
@@ -396,6 +398,7 @@ public class CerbereManager : SpamManager
     {
         timerManager.isPaused = true;
         isMinigamelaunched = false;
+        if (stopMiniGameObject != null) stopMiniGameObject.SetActive(true);
         foreach (PlayerController player in players)
         {
             if(!player.gameObject.activeSelf) continue;
@@ -407,7 +410,6 @@ public class CerbereManager : SpamManager
         AddPoints();
         SetCurrentRanking();
         StartCoroutine(EndMiniGameAnim());
-        //Gerer la fin du mini jeu
     }
 
     #region Feedback Methods
