@@ -27,7 +27,7 @@ public class CerbereSpamController : SpamController
         base.Awake();
         _stunController ??= GetComponent<StunController>();
         cerbereManager = spamManager as CerbereManager;
-        player.ChangeBulleText("A | B");
+        player.ChangeBulleText("A ou B");
         AddListeners();
     }
 
@@ -103,7 +103,7 @@ public class CerbereSpamController : SpamController
         isUping = false;
         if (!player.isStunned)
         {
-            player.ChangeBulleText("A | B");
+            player.ChangeBulleText("A ou B");
         }
         hasClicked = false;
         etat = Etat.NULL;
@@ -114,7 +114,7 @@ public class CerbereSpamController : SpamController
         yield return new WaitForSeconds(animationTime);
         if (etat.Equals(Etat.NULL))
         {
-            player.ChangeBulleText("A | B");
+            player.ChangeBulleText("A ou B");
         }
         else
         {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class CerbereManager : SpamManager
     [Header("Setup")]
     [SerializeField] private CanvasGroup Hud;
     public GameObject[] hudMegaphone;
+    [SerializeField] private GameObject nuitObject;
     [SerializeField] [Tooltip("Tableau d'animator, de 0 à 3, correspondant aux players")] private Animator[] cerbereAnimator;
     [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cerbereAnimEvents;
     [SerializeField] [Tooltip("Animator de la bulle de cerbere")] private Animator bulleAnimator;
@@ -243,7 +245,7 @@ public class CerbereManager : SpamManager
             if (clicksArray[i] >= endValue)
             {
                 //Version temporaire du msg de fin
-                // winnerIndex = i;
+                winnerIndex = i;
                 // winTMP.text = "j"+(i+1)+" win";
                 // winTMP.gameObject.SetActive(true);
                 //
@@ -257,6 +259,9 @@ public class CerbereManager : SpamManager
     private void WakeUp()
     {
         if(rompicheState.Equals(RompicheState.NULL)) return;
+        
+        nuitObject.SetActive(true);
+        nuitObject.GetComponent<Animator>().SetTrigger("Bigger");
         
         foreach (var animator in cerbereAnimator)
         {
@@ -294,7 +299,7 @@ public class CerbereManager : SpamManager
             if (wasHittedByCerbere[i])
             {
                 players[i].Releve();
-                players[i].ChangeBulleText("A | B");
+                players[i].ChangeBulleText("A ou B");
                 players[i].ResetReleve();
             }
         }
@@ -376,6 +381,15 @@ public class CerbereManager : SpamManager
 
     public override void FinishTimer()
     {
+        float value = -1;
+        for (int i = 0; i < clicksArray.Length; i++)
+        {
+            if (value < clicksArray[i])
+            {
+                value = clicksArray[i];
+                winnerIndex = i;
+            }
+        }
         OnMinigameEnd();
     }
 
@@ -389,11 +403,11 @@ public class CerbereManager : SpamManager
             player.RemoveAllListeners();
         }
         StopAllCoroutines();
-        StartCoroutine(EndMiniGameAnim());
         
         ranking = GetRanking();
         AddPoints();
         SetCurrentRanking();
+        StartCoroutine(EndMiniGameAnim());
         //Gerer la fin du mini jeu
     }
 
@@ -401,7 +415,12 @@ public class CerbereManager : SpamManager
 
     private IEnumerator EndMiniGameAnim()
     {
-        //Anim du player gagnant qui touche le cerbere
+        int[] tabRank = new int[4];
+        foreach (var player in ranking)
+        {
+            tabRank[player.Value] = player.Key.index;
+        }
+
         foreach (var animator in cerbereAnimator)
         {
             animator.SetTrigger("MiniGameEnd");
@@ -412,12 +431,14 @@ public class CerbereManager : SpamManager
             animator.SetTrigger("MiniGameEnd");
         } 
         bulleAnimator.SetTrigger("MiniGameEnd");
-        
-        for (int i = 0; i < players.Count; i++)
+
+        for (int i = tabRank.Length - 1; i >= 0; i--)
         {
-            if (!players[i].gameObject.activeSelf || i.Equals(winnerIndex)) continue;
+            if (i >= players.Count || i.Equals(winnerIndex)) continue;
             laserPlaceHolder[i].SetActive(true);
+            yield return new WaitForSeconds(1);
         }
+
         players[winnerIndex].Releve();
         players[winnerIndex].VictoryAnimation();
         yield return new WaitForSeconds(4);
