@@ -24,7 +24,7 @@ public class ReferenceHolder : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Referenceholder awake");
+        instance = this;
         miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
         ResetPlayerData();

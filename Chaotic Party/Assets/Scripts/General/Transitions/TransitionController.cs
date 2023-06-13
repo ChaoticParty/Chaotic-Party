@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class TransitionController : MonoBehaviour
@@ -17,7 +15,7 @@ public class TransitionController : MonoBehaviour
     private Scene _sceneToLoad;
 
     public void StartTransition(Action transitionStartedAction, Action transitionDoneAction, 
-        Action transitionFinisherStartedAction, Action transitionFinisherDoneAction)
+        Action transitionFinisherStartedAction, Action transitionFinisherDoneAction, Vector3 position = default)
     {
         OnTransitionStarted += transitionStartedAction;
         OnTransitionDone += transitionDoneAction;
@@ -25,6 +23,12 @@ public class TransitionController : MonoBehaviour
         OnTransitionFinisherDone += transitionFinisherDoneAction;
         animator.SetTrigger(Launch);
         OnTransitionStarted?.Invoke();
+        SetPosition(position);
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        animator.transform.position = position;
     }
 
     public void TransitionDone()
@@ -32,15 +36,18 @@ public class TransitionController : MonoBehaviour
         OnTransitionDone?.Invoke();
     }
 
-    private IEnumerator WaitTillSceneLoad(AsyncOperation asyncOperation)
+    public IEnumerator WaitTillSceneLoad(AsyncOperation asyncOperation, Scene sceneToUnload)
     {
         while (!asyncOperation.isDone)
         {
             yield return null;
         }
 
-        
-        SceneManager.UnloadSceneAsync(_sceneToUnload);
+        asyncOperation = SceneManager.UnloadSceneAsync(sceneToUnload);
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
+        }
         FinishTransition();
     }
 
@@ -54,6 +61,7 @@ public class TransitionController : MonoBehaviour
     {
         OnTransitionFinisherDone?.Invoke();
         ResetEvents();
+        DeactivateTransition();
     }
 
     private void ResetEvents()
