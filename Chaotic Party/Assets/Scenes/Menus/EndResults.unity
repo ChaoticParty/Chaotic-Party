@@ -1790,6 +1790,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1097025927}
     m_Modifications:
+    - target: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 812722593}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -2901,6 +2905,7 @@ MonoBehaviour:
   cinematicObjectsToColorise: []
   endMenu: 1
   nextMiniGameButton: {fileID: 0}
+  menuButton: {fileID: 309469516}
   scoreObjects:
   - sceneObject: {fileID: 751180178}
     obj: {fileID: 533280273}
@@ -2935,7 +2940,7 @@ MonoBehaviour:
   - {fileID: 470076308}
   - {fileID: 1895322998}
   - {fileID: 1979745186}
-  miniGameManager: {fileID: 0}
+  miniGameManager: {fileID: 812722593}
   playersListSo: {fileID: 0}
   isInMenu: 0
 --- !u!1 &833381565
@@ -3216,6 +3221,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 751180178}
     m_Modifications:
+    - target: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 812722593}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -4049,7 +4058,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 378920211
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c4a3361d83d0c644d9ca3c0270738e3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5533,6 +5542,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1355287688}
     m_Modifications:
+    - target: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 812722593}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -6722,6 +6735,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 568588830}
     m_Modifications:
+    - target: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 812722593}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
       value: Player (1)

@@ -35,24 +35,16 @@ public class MiniGameData : SerializedScriptableObject
     {
         string path = SceneUtility.GetScenePathByBuildIndex(scene);
         string sceneName = path.Split('/')[^1].Replace(".unity", "");
-        Debug.Log(sceneName);
-        Debug.Log(TransitionPositionInScene.ContainsKey(sceneName));
-        Debug.Log(TransitionPositionInScene[sceneName]);
-        return TransitionPositionInScene.ContainsKey(sceneName) ? TransitionPositionInScene[sceneName] : default;
+        return TransitionPositionInScene.ContainsKey(sceneName) 
+                ? TransitionPositionInScene[sceneName] 
+                : default;
     }
 
     [Button]
     public void SetSceneName(int sceneIndex)
     {
-        Debug.Log(SceneManager.sceneCount);
-        Debug.Log(SceneManager.sceneCountInBuildSettings);
-        Debug.Log(sceneIndex);
-        Debug.Log(SceneManager.GetSceneByBuildIndex(sceneIndex));
-        Debug.Log(SceneManager.GetSceneByBuildIndex(sceneIndex).name);
         string path = SceneUtility.GetScenePathByBuildIndex(sceneIndex);
         string sceneName = path.Split('/')[^1].Replace(".unity", "");
-        Debug.Log(path);
-        Debug.Log(sceneName);
         TransitionPositionInScene.Add(sceneName, default);
     }
 }

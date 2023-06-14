@@ -19,6 +19,7 @@ public class MultiplayerManager : MonoBehaviour
 
     public void InitMultiplayer()
     {
+        Debug.Log("init multiplayer");
         for (int i = 0; i < Hinput.gamepad.Count; i++)
         {
             Gamepad gamepad = Hinput.gamepad[i];

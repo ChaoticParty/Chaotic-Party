@@ -15,7 +15,7 @@ public class CerbereSpamController : SpamController
     [Header("Temps placeholder, a changer une fois les anims dispo")]
     [SerializeField] private TextMeshProUGUI bullPlayerFeedback;
     [SerializeField] private float standUpAnimTime = 0.75f;
-    [SerializeField] private float wakeUpAnimTime = 1f;
+    [SerializeField] private float wakeUpAnimTime = 0.69f;
     //Event
     public UnityEvent playerFall;
 
@@ -83,6 +83,7 @@ public class CerbereSpamController : SpamController
     {
         if (isShout || !player.CanMove() || !cerbereManager.isMinigamelaunched || cerbereManager.hasAlreadyShout[player.index]) return;
         player.ChangeBulleText("Hey!!!");
+        player.Crie();
         isShout = true;
         cerbereManager.hasAlreadyShout[player.index] = true;
         cerbereManager.playerYell.Invoke(transform.position, "Argument");
