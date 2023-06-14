@@ -11,6 +11,7 @@ public class HitPhoto : HitController
         
         Debug.Log("Photo");
         player.isHit = true;
+        player.PlayHitSound();
         if (bamPrefab != null) Instantiate(bamPrefab, transform.position, Quaternion.identity);
         //Lancement de l'anim de hit
         player.gamepad.A.Disable();
