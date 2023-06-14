@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 
 public abstract class MiniGameManager : SerializedMonoBehaviour
 {
@@ -93,7 +90,20 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
 
     public void LoadRecap()
     {
+        Vector3 point = Camera.main.WorldToScreenPoint(RankingToList()[0].transform.position);
+        ReferenceHolder.Instance.transitionSetter.StartTransition(null, LoadRecapScene, 
+            SetRecapPosition, null, point);
+    }
+
+    private void LoadRecapScene()
+    {
         SceneManager.LoadScene("RecapScore");
+    }
+
+    private void SetRecapPosition()
+    {
+        ReferenceHolder referenceHolder = ReferenceHolder.Instance;
+        referenceHolder.transitionSetter.lastTransition.SetPosition(referenceHolder.miniGameData.GetTransitionPosition("RecapScore"));
     }
 
     public void AddPoints()

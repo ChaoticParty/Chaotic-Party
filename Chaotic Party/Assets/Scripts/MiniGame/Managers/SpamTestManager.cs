@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class SpamTestManager : SpamManager
 {
     private new void Start()

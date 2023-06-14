@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace HinputClasses.Internal {
+﻿namespace HinputClasses.Internal {
 	// Hinput class measuring a stick axis, and feeding it to a Stick.
     public class Axis {
      	// --------------------

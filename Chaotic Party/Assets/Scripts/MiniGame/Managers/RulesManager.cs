@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,6 +28,8 @@ public class RulesManager : MiniGameManager
         //StartMiniGame();
         StartCoroutine(LoadMiniGameScene());
         StartCoroutine(OngoingLoading());
+
+        TransitionController[] transitionController = FindObjectsOfType<TransitionController>();
     }
 
     // ReSharper disable Unity.PerformanceAnalysis

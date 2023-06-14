@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class CerbereSpamController : SpamController
 {
@@ -27,7 +24,7 @@ public class CerbereSpamController : SpamController
         base.Awake();
         _stunController ??= GetComponent<StunController>();
         cerbereManager = spamManager as CerbereManager;
-        player.ChangeBulleText("A | B");
+        player.ChangeBulleText("A ou B");
         AddListeners();
     }
 
@@ -84,10 +81,12 @@ public class CerbereSpamController : SpamController
 
     private void WakuUp()
     {
-        if (isShout || !player.CanMove() || !cerbereManager.isMinigamelaunched) return;
+        if (isShout || !player.CanMove() || !cerbereManager.isMinigamelaunched || cerbereManager.hasAlreadyShout[player.index]) return;
         player.ChangeBulleText("Hey!!!");
         isShout = true;
+        cerbereManager.hasAlreadyShout[player.index] = true;
         cerbereManager.playerYell.Invoke(transform.position, "Argument");
+        cerbereManager.hudMegaphone[player.index].GetComponent<Animator>().SetTrigger("Bigger");
         cerbereManager.PlayerWakeUp();
         StartCoroutine(WakeUpFeedBack(wakeUpAnimTime));
     }
@@ -101,7 +100,7 @@ public class CerbereSpamController : SpamController
         isUping = false;
         if (!player.isStunned)
         {
-            player.ChangeBulleText("A | B");
+            player.ChangeBulleText("A ou B");
         }
         hasClicked = false;
         etat = Etat.NULL;
@@ -112,7 +111,7 @@ public class CerbereSpamController : SpamController
         yield return new WaitForSeconds(animationTime);
         if (etat.Equals(Etat.NULL))
         {
-            player.ChangeBulleText("A | B");
+            player.ChangeBulleText("A ou B");
         }
         else
         {
