@@ -31,6 +31,7 @@ public class TransitionSetter : MonoBehaviour
         transitionScript.StartTransition(transitionStartedAction, transitionDoneAction, 
             transitionFinisherStartedAction, transitionFinisherDoneAction, position);
 
+        Debug.Log("set transition");
         lastTransition = transitionScript;
     }
 

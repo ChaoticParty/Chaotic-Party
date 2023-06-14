@@ -92,20 +92,22 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
 
     public void LoadRecap()
     {
-        Vector3 point = Camera.main.WorldToScreenPoint(RankingToList()[0].transform.position);
         ReferenceHolder.Instance.transitionSetter.StartTransition(null, LoadRecapScene, 
-            SetRecapPosition, null, point);
+            SetRecapPosition, null, Camera.main.WorldToScreenPoint(RankingToList()[0].transform.position));
+        // SceneManager.LoadScene("RecapScore");
     }
 
     private void LoadRecapScene()
     {
-        SceneManager.LoadScene("RecapScore");
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("RecapScore", LoadSceneMode.Additive);
+        Scene currentScene = gameObject.scene;
+        ReferenceHolder.Instance.transitionSetter.WaitTillSceneLoad(asyncOperation, currentScene);
     }
 
     private void SetRecapPosition()
     {
         ReferenceHolder referenceHolder = ReferenceHolder.Instance;
-        referenceHolder.transitionSetter.lastTransition.SetPosition(referenceHolder.miniGameData.GetTransitionPosition("RecapScore"));
+        referenceHolder.transitionSetter.lastTransition.SetUIPosition(referenceHolder.miniGameData.GetTransitionPosition("RecapScore"));
     }
 
     public void AddPoints()
