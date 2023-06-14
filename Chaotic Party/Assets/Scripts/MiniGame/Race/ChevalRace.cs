@@ -17,11 +17,12 @@ public class ChevalRace : MonoBehaviour
 
     public void MoveHorse()
     {
-        transform.SetParent(voiture);
+        //transform.SetParent(voiture);
     }
 
     public void Destroy()
     {
-        Destroy(gameObject);
+        positionAnimator.SetTrigger("Fin");
+        Pooling.instance.ReturnToPool(gameObject);
     }
 }

@@ -1292,6 +1292,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7466727021374288918, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: playersListSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 42d594bc8afb56a42ba27f94141ce02f, type: 2}
+    - target: {fileID: 7466727021374288918, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 1596240953}
     - target: {fileID: 7634396555278298209, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2082,7 +2090,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -221097199
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c2d042a4162505648940f43c6d0268b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2572,6 +2580,7 @@ MonoBehaviour:
       Data: 
   players: []
   beginAnimator: {fileID: 0}
+  stopMiniGameObject: {fileID: 0}
   timer: 0
   timerManager: {fileID: 0}
   isGameDone: 0
@@ -2643,7 +2652,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 391533363
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.96678466, g: 1, b: 0.4198113, a: 1}
@@ -2951,7 +2960,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 391533363
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

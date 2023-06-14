@@ -17,7 +17,7 @@ public class SpamRaceController : SpamController
     private GameObject _effect;
     public Transform spamValuePosition;
     public Transform spamButton;
-    public ChevalRace chevalRace;
+    public Transform playerPositionVoiture;
     
     protected new void Awake()
     {
@@ -82,8 +82,8 @@ public class SpamRaceController : SpamController
                 break;
         }
         spamButton.localScale = Vector3.one * 0.7f;
-        Transform chevalRaceTransform = this.chevalRace.transform;
-        ChevalRace chevalRace = Instantiate(this.chevalRace, chevalRaceTransform.parent);
+        GameObject poolObject = Pooling.instance.GetPoolObject(playerPositionVoiture);
+        ChevalRace chevalRace = poolObject.GetComponent<ChevalRace>();
         chevalRace.StartAnimation();
     }
 
