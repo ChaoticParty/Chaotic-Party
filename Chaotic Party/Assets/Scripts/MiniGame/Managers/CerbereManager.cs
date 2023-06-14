@@ -318,6 +318,7 @@ public class CerbereManager : SpamManager
         yield return new WaitForSeconds(1f);
         scoreDisplay[index].text = "0";
         players[index].DegatGaucheLaser();
+        players[index].PlayHitSound();
         walkDestination[index] = xStartValuePos[index];
         playerGetBackToStart.Invoke(players[index].transform.position, "Argument");
         players[index].transform.position = new Vector3(xStartValuePos[index], players[index].transform.position.y,

@@ -173,6 +173,8 @@ public class MenuManager : MonoBehaviour
     {
         if (IsLaunchPossible())
         {
+            soundManager.EventPlay("StartGameClick");
+            soundManager.EventStop("PartyMusic");
             startGameAnim.SetTrigger("Push");
             foreach (EcranPersonnage ecranPerso in listPersonnages)
             {
