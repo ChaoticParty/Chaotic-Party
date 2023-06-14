@@ -2465,6 +2465,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - id: StartGameClick
+    soundEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1588116661}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   stopEvent:
   - id: PrincipalMusic
     soundEvent:
@@ -2784,6 +2800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionControllers:
   - {fileID: 7578703578150387650, guid: b5b8dd3110e380a4db7931121822aa08, type: 3}
+  lastTransition: {fileID: 0}
 --- !u!114 &1240165807 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
@@ -3584,6 +3601,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2627cb73d747a4e488a3382538cecabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1588116661 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8225258600979001474, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1595603459 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}

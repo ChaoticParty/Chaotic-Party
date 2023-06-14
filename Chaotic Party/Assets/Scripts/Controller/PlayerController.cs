@@ -117,6 +117,18 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region SoundRef
+
+    [Header("AudioSource")]
+    [SerializeField] private AudioSource IdleSource;
+    [SerializeField] private AudioSource TricheSource;
+    [SerializeField] private AudioSource HitSource;
+    [SerializeField] private AudioSource HappySource;
+    [SerializeField] private AudioSource atterissageSource;
+    [SerializeField] private AudioSource marcheSource;
+
+    #endregion
+
     #region Animation
     
     public Animator animator;
@@ -622,6 +634,40 @@ public class PlayerController : MonoBehaviour
         head.color = color;
         body.color = color;
     }
+
+    #region SoundMethodes
+
+    public void PlayIdleSound()
+    {
+        soundManager.PlaySelfSound(IdleSource, true); //TODO voir l'intervale entre les sons
+    }
+
+    public void PlayTricheSound()
+    {
+        soundManager.PlaySelfSound(TricheSource); //TODO voir l'intervale entre les sons pour pas spammer les son dans le race par exemple
+    }
+
+    public void PlayHitSound()
+    {
+        soundManager.PlaySelfSound(HitSource);
+    }
+
+    public void PlayHappySound()
+    {
+        soundManager.PlaySelfSound(HappySource);
+    }
+
+    public void PlayAtterissageSound()
+    {
+        soundManager.PlaySelfSound(atterissageSource);
+    }
+
+    public void PlayMarcheSound()
+    {
+        soundManager.PlaySelfSound(marcheSource);
+    }
+
+    #endregion
 
     #region Methodes Bulle
 
