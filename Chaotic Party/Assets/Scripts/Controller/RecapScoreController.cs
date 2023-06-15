@@ -20,6 +20,9 @@ public class RecapScoreController : MiniGameController
         RecapScoreManager manager = player.miniGameManager as RecapScoreManager;
         if(!manager) return;
         
+        player.soundManager.EventPlay("NextGameClick");
+        player.soundManager.StopSelfSound(_manager.GetComponent<AudioSource>());
+        
         if(manager.HasNextMiniGame())
         {
             _transitionSetter.StartTransition(null, LoadRules, 
@@ -60,6 +63,8 @@ public class RecapScoreController : MiniGameController
     
     private void ReturnToMenu()
     {
+        player.soundManager.EventPlay("MenuClick");
+        player.soundManager.StopSelfSound(_manager.GetComponent<AudioSource>());
         _transitionSetter.StartTransition(null, LoadMainMenu, 
             ResetTransitionPosition, null, 
             _manager.menuButton.transform.position);

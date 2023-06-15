@@ -639,13 +639,10 @@ public class EcranPersonnage : MonoBehaviour
         {
             aClick.SetTrigger("Push");
             menuManager.soundManager.PlaySelfSound(aClick.gameObject.GetComponent<AudioSource>());
-            //Anim du parchemin qui se ferme et remonte + possibilité au joueur de jouer avec son perso
             menuManager.readyCount++;
-            //Faire le check aussi
         }
         else
         {
-            //Anim du parchemin qui s'ouvre et redscent + peut plus jouer avec son perso
             menuManager.readyCount--;
         }
         LockColor(isReady);

@@ -49,6 +49,7 @@ public class CerbereSpamController : SpamController
             hasClicked = true;
             isUping = true;
             StartCoroutine(StandUpPlayer(standUpAnimTime));
+            player.MarcheDiscretement(2); //TODO voir si on garde car evite le doublons au niveau de la marche mais l'idle bouge
             player.Releve();
             return;
         }

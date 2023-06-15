@@ -14,6 +14,7 @@ public class CerbereManager : SpamManager
     [SerializeField] [Tooltip("Gameobject cheap du cerbere")] private GameObject cheapCerbere;
     [SerializeField] [Tooltip("Gameobject du cerbere")] private GameObject trueCerbere;
     [Header("Setup")]
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private CanvasGroup Hud;
     public GameObject[] hudMegaphone;
     [SerializeField] private GameObject nuitObject;
@@ -85,6 +86,7 @@ public class CerbereManager : SpamManager
     private new void Start()
     {
         base.Start();
+        soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>(), true);
     }
 
     private IEnumerator CheapCerbereAnimLaunch() //Workaround pour avoir le cerbere éveillé dès le début
@@ -188,7 +190,6 @@ public class CerbereManager : SpamManager
                     laserPlaceHolder[i].SetActive(true);
                     wasHittedByCerbere[i] = true;
                     StartCoroutine(DelayedPlayerGoBack(i));
-                    // walkDestination[i] = xStartValuePos;
                     //Feedback
                     cerbereAnimEvents[i].Exclamation();
                     cerbereLaser.Invoke();
@@ -260,6 +261,8 @@ public class CerbereManager : SpamManager
         
         nuitObject.SetActive(true);
         nuitObject.GetComponent<Animator>().SetTrigger("Bigger");
+        soundManager.PlaySelfSound(nuitObject.GetComponent<AudioSource>());
+        soundManager.EventStop("CerbereDodo");
         
         foreach (var animator in cerbereAnimator)
         {
@@ -278,6 +281,7 @@ public class CerbereManager : SpamManager
         foreach (var lasers in laserPlaceHolder)
         {
             lasers.SetActive(false);
+            soundManager.StopSelfSound(lasers.GetComponent<AudioSource>());
         }
         foreach (var animEvent in cerbereAnimEvents)
         {
@@ -307,6 +311,8 @@ public class CerbereManager : SpamManager
         
         yield return new WaitForSeconds(0.33f);
         
+        soundManager.EventPlay("CerbereDodo");
+        
         timeBeforeWake = Random.Range(cerberRompicheRangeMin, cerberRompicheRangeMax + 1);
         timePassedBeforeWake = timeBeforeWake;
 
@@ -318,6 +324,7 @@ public class CerbereManager : SpamManager
         yield return new WaitForSeconds(1f);
         scoreDisplay[index].text = "0";
         players[index].DegatGaucheLaser();
+        soundManager.PlaySelfSound(laserPlaceHolder[index].GetComponent<AudioSource>(), true);
         players[index].PlayHitSound();
         walkDestination[index] = xStartValuePos[index];
         playerGetBackToStart.Invoke(players[index].transform.position, "Argument");
@@ -417,6 +424,7 @@ public class CerbereManager : SpamManager
 
     private IEnumerator EndMiniGameAnim()
     {
+        soundManager.EventStop("CerbereDodo");
         int[] tabRank = new int[4];
         foreach (var player in ranking)
         {
@@ -433,20 +441,30 @@ public class CerbereManager : SpamManager
             animator.SetTrigger("MiniGameEnd");
         } 
         bulleAnimator.SetTrigger("MiniGameEnd");
+        
+        cerbereAnimEvents[winnerIndex].ChangeHeadToDodo();
 
         for (int i = tabRank.Length - 1; i >= 0; i--)
         {
+            if (!i.Equals(winnerIndex)) cerbereAnimator[i].SetTrigger(WakeUpTrigger);
             if (i >= players.Count || i.Equals(winnerIndex)) continue;
             laserPlaceHolder[i].SetActive(true);
             yield return new WaitForSeconds(1);
+            soundManager.PlaySelfSound(laserPlaceHolder[i].GetComponent<AudioSource>(), true);
+            players[i].DegatGaucheLaser();
+            players[i].PlayHitSound();
+            players[i].ChangeBulleText("!");
+            players[i].transform.position = new Vector3(xStartValuePos[i], players[i].transform.position.y,
+                players[i].transform.position.z);
         }
 
         players[winnerIndex].Releve();
         players[winnerIndex].VictoryAnimation();
         yield return new WaitForSeconds(4);
-        for (int i = 0; i < players.Count; i++)
+        soundManager.StopSelfSound(gameObject.GetComponent<AudioSource>());
+        foreach (var laser in laserPlaceHolder)
         {
-            laserPlaceHolder[i].SetActive(false);
+            soundManager.StopSelfSound(laser.GetComponent<AudioSource>());
         }
         LoadRecap();
     }
