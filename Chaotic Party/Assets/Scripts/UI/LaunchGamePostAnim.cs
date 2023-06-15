@@ -18,6 +18,6 @@ public class LaunchGamePostAnim : MonoBehaviour
 
     public void SoundPlay()
     {
-        soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
+        if(soundManager) soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
     }
 }
