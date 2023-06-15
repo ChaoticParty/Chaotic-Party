@@ -148,6 +148,9 @@ public class PlayerController : MonoBehaviour
     private static readonly int Degat = Animator.StringToHash("Degat");
     private static readonly int DegatVersion = Animator.StringToHash("DegatVersion");
     private static readonly int EndLaserDegat = Animator.StringToHash("EndLaserDegat");
+    private static readonly int Defaite = Animator.StringToHash("Defaite");
+    private static readonly int DefaiteVersion = Animator.StringToHash("DefaiteVersion");
+    private static readonly int VictoireVersion = Animator.StringToHash("VictoireVersion");
 
     #endregion
 
@@ -538,9 +541,16 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(Fall1, false);
     }
 
-    public void VictoryAnimation()
+    public void VictoryAnimation(int version = 0)
     {
         animator.SetBool(Victoire, true);
+        animator.SetInteger(VictoireVersion, version);
+    }
+
+    public void DefeatAnimation(int version = 0)
+    {
+        animator.SetBool(Defaite, true);
+        animator.SetInteger(DefaiteVersion, version);
     }
 
     private void OnDisable()
