@@ -9,6 +9,7 @@ public class RecapScoreManager : MiniGameManager
     public GameObject nextMiniGameButton;
     public GameObject menuButton;
     private MiniGameData miniGameData;
+    [SerializeField] private SoundManager _soundManager;
 
     #region UpdateScore
 
@@ -59,6 +60,11 @@ public class RecapScoreManager : MiniGameManager
         // {
         //     player.ChangeColor();
         // }
+    }
+
+    private void OnEnable()
+    {
+        _soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>(), true);
     }
 
     public bool HasNextMiniGame()

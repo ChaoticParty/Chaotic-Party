@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -112,6 +113,8 @@ public class MenuManager : MonoBehaviour
         nbCurrentGamepads = multiplayerManager.GamepadCount();
         if (!nbCurrentGamepads.Equals(nbGamepadsLastFrame))
         {
+            readyCount = 0;
+            selectColor.Clear();
             multiplayerManager.InitMultiplayer();
             foreach (EcranPersonnage ecranPersonnage in listPersonnages)
             {
@@ -119,14 +122,19 @@ public class MenuManager : MonoBehaviour
                 if (ecranPersonnage.myPlayerController.gamepad != null)
                 {
                     Debug.Log(ecranPersonnage.myPlayerController.index);
-                    ecranPersonnage.transform.parent.gameObject.SetActive(ecranPersonnage.myPlayerController.gamepad.isConnected); //Gere l'activation du mask du player
+                    ecranPersonnage.transform.parent.gameObject.SetActive(ecranPersonnage.myPlayerController.gamepad.isConnected);
                     ecranPersonnage.gameObject.SetActive(ecranPersonnage.myPlayerController.gamepad.isConnected);
-                    ecranPersonnage.InitCusto();
                 }
                 else
                 {
                     Debug.Log("null");
                 }
+            }
+
+            foreach (var player in listInGamePlayerControllers.Where(player => player.gameObject.activeSelf))
+            {
+                readyCount++;
+                selectColor.Add((sbyte)player.index, (sbyte)listPersonnages[0].listColor.IndexOf(player._playerSo.color)); //TODO tester si les color lock sont bien géré grâce à cette ligne
             }
             partyBandeauReadyGO.SetActive(IsLaunchPossible());
             partyPlayerMinGO.SetTrigger(nbCurrentGamepads < 2 ? "Descend" : "Monte");

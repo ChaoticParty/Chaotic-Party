@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class HitRules : HitController
 {
+    [SerializeField] private SoundManager _soundManager;
     public List<GameObject> objectsToHit;
     public Vector2 hitForce;
     private bool _wasHit;
@@ -20,7 +21,7 @@ public class HitRules : HitController
         _wasHit = true;
         
         animator.SetTrigger("Fall");
-        
+        _soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         float xScale = hitter.transform.localScale.x;
         //Lancement de l'anim de hit
         foreach (GameObject objectToHit in objectsToHit)

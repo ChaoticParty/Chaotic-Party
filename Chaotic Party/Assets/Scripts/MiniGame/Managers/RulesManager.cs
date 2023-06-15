@@ -12,6 +12,7 @@ public class RulesManager : MiniGameManager
     public SpriteRenderer launchButton;
     private MiniGameManager _loadedMiniGameManager;
     private AudioListener _audioListener;
+    [SerializeField] private SoundManager soundManager;
 
     [Space] 
     [Header("Listes des composants des règles")] 
@@ -30,6 +31,7 @@ public class RulesManager : MiniGameManager
         StartCoroutine(OngoingLoading());
 
         TransitionController[] transitionController = FindObjectsOfType<TransitionController>();
+        soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -88,6 +90,7 @@ public class RulesManager : MiniGameManager
     public void StartLoadedMinigame()
     {
         _loadedMiniGameManager.LoadMiniGame();
+        soundManager.StopSelfSound(gameObject.GetComponent<AudioSource>());
         foreach (PlayerController player in _loadedMiniGameManager.players)
         {
             player.gamepad.A.Enable();

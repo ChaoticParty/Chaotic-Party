@@ -188,7 +188,6 @@ public class CerbereManager : SpamManager
                     laserPlaceHolder[i].SetActive(true);
                     wasHittedByCerbere[i] = true;
                     StartCoroutine(DelayedPlayerGoBack(i));
-                    // walkDestination[i] = xStartValuePos;
                     //Feedback
                     cerbereAnimEvents[i].Exclamation();
                     cerbereLaser.Invoke();
@@ -439,15 +438,16 @@ public class CerbereManager : SpamManager
             if (i >= players.Count || i.Equals(winnerIndex)) continue;
             laserPlaceHolder[i].SetActive(true);
             yield return new WaitForSeconds(1);
+            players[i].DegatGaucheLaser();
+            players[i].PlayHitSound();
+            players[i].ChangeBulleText("!");
+            players[i].transform.position = new Vector3(xStartValuePos[i], players[i].transform.position.y,
+                players[i].transform.position.z);
         }
 
         players[winnerIndex].Releve();
         players[winnerIndex].VictoryAnimation();
         yield return new WaitForSeconds(4);
-        for (int i = 0; i < players.Count; i++)
-        {
-            laserPlaceHolder[i].SetActive(false);
-        }
         LoadRecap();
     }
 
