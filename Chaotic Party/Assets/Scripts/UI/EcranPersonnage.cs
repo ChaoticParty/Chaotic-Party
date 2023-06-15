@@ -691,6 +691,7 @@ public class EcranPersonnage : MonoBehaviour
 
     public void SpawnSelectionScreen()
     {
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         UiOpenAnim();
         menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(BackBurning);
         menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listUiPlayerControllers[playerSOIndex];

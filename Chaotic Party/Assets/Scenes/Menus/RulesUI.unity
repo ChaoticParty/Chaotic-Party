@@ -449,7 +449,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5852094399139696963, guid: 9b73cf579823678448df0dabf24dc15e, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3178c7c47472ab74dab20b4bca514612, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -976,7 +976,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549724644}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &549724646
 Camera:
   m_ObjectHideFlags: 0
@@ -2112,6 +2112,7 @@ MonoBehaviour:
   bulleText: {fileID: 0}
   bullSpt: {fileID: 0}
   _playerSo: {fileID: 0}
+  crownManager: {fileID: 0}
   head: {fileID: 0}
   body: {fileID: 0}
   isInTheAir: 0
@@ -2141,6 +2142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectsToActivate: []
   ObjectsToDeactivate: []
+  AnimationDatas: []
 --- !u!114 &1178782481
 MonoBehaviour:
   m_ObjectHideFlags: 0

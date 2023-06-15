@@ -221,9 +221,10 @@ public class MenuManager : MonoBehaviour
     {
         soundManager.EventPlay("PartyClick");
         soundManager.EventStop("PrincipalMusic");
-        soundManager.EventPlay("PartyMusic");
         ResetSelectedPerso();
         PanelChange(panelPrincipal, panelParty);
+        soundManager.EventPlay("PartyMusic");
+        soundManager.EventPlay("ParcheminSound");
         if (nbCurrentGamepads < 2) partyPlayerMinGO.SetTrigger("Descend");
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstParty);

@@ -82,6 +82,8 @@ public class RecapScoreManager : MiniGameManager
     private void OnEnable()
     {
         _soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>(), true);
+        _soundManager.EventPlay("Confettis");
+        _soundManager.EventPlay("Applaudis");
     }
 
     public bool HasNextMiniGame()
