@@ -221,6 +221,8 @@ public class PhotoMinionManager : MiniGameManager
             //_scores[i] += (int)(Mathf.Clamp(20 - overlord.GetPlayerDistance(players[i].transform), 0, 20) * 10);
             UpdatePlayerScoreUI(i);
         }
+        
+        DisplayCrown();
     }
 
     private void UpdatePlayerScoreUI(int index)
@@ -246,7 +248,18 @@ public class PhotoMinionManager : MiniGameManager
 
     protected override int GetWinner()
     {
-        return 0;
+        int winnerIndex = 0;
+        float winValue = _scores[0];
+        for (int i = 0; i < _scores.Count; i++)
+        {
+            if (_scores[i] > winValue)
+            {
+                winValue = _scores[i];
+                winnerIndex = i;
+            }
+        }
+
+        return winnerIndex;
     }
 
     protected override Dictionary<PlayerController, int> GetRanking()
