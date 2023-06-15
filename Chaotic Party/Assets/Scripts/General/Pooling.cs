@@ -20,6 +20,7 @@ public class Pooling : MonoBehaviour
     {
         GameObject poolobject = GetPoolObject();
         poolobject.transform.SetParent(parent);
+        poolobject.transform.localPosition = Vector3.zero;
         return poolobject;
     }
 

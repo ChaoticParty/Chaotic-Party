@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6868778495577798461, guid: 35054b4ba9d293d40824b95a62c79cf1, type: 3}
       propertyPath: m_Name
-      value: Cheval_Rock
+      value: Cheval
       objectReference: {fileID: 0}
     - target: {fileID: 7076177164911409643, guid: 35054b4ba9d293d40824b95a62c79cf1, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -145,6 +145,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35054b4ba9d293d40824b95a62c79cf1, type: 3}
+--- !u!95 &988462082776671078 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4193452039337971966, guid: 35054b4ba9d293d40824b95a62c79cf1, type: 3}
+  m_PrefabInstance: {fileID: 4000774747292447640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8655723996680215750 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5736130665415110494, guid: 35054b4ba9d293d40824b95a62c79cf1, type: 3}
+  m_PrefabInstance: {fileID: 4000774747292447640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5276341314974194825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,7 +165,11 @@ PrefabInstance:
     - target: {fileID: 137156595056806436, guid: e56b2a323e0e2cb4b8e0ef88019c96ff, type: 3}
       propertyPath: voiture
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8655723996680215750}
+    - target: {fileID: 137156595056806436, guid: e56b2a323e0e2cb4b8e0ef88019c96ff, type: 3}
+      propertyPath: chevalAnimator
+      value: 
+      objectReference: {fileID: 988462082776671078}
     - target: {fileID: 137156595056806439, guid: e56b2a323e0e2cb4b8e0ef88019c96ff, type: 3}
       propertyPath: m_Name
       value: Cheval_Rock

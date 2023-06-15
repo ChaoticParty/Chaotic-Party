@@ -10,7 +10,11 @@ PrefabInstance:
     - target: {fileID: 137156595056806436, guid: e56b2a323e0e2cb4b8e0ef88019c96ff, type: 3}
       propertyPath: voiture
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 431199608920588116}
+    - target: {fileID: 137156595056806436, guid: e56b2a323e0e2cb4b8e0ef88019c96ff, type: 3}
+      propertyPath: chevalAnimator
+      value: 
+      objectReference: {fileID: 8093843578009534708}
     - target: {fileID: 137156595056806439, guid: e56b2a323e0e2cb4b8e0ef88019c96ff, type: 3}
       propertyPath: m_Name
       value: Cheval_Yakari
@@ -223,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6868778495577798461, guid: c33b77911c5b6524295526ef2208a530, type: 3}
       propertyPath: m_Name
-      value: Cheval_Yakari
+      value: Cheval
       objectReference: {fileID: 0}
     - target: {fileID: 7076177164911409643, guid: c33b77911c5b6524295526ef2208a530, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -255,3 +259,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c33b77911c5b6524295526ef2208a530, type: 3}
+--- !u!4 &431199608920588116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5736130665415110494, guid: c33b77911c5b6524295526ef2208a530, type: 3}
+  m_PrefabInstance: {fileID: 5359628462136315914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8093843578009534708 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4193452039337971966, guid: c33b77911c5b6524295526ef2208a530, type: 3}
+  m_PrefabInstance: {fileID: 5359628462136315914}
+  m_PrefabAsset: {fileID: 0}

@@ -53,10 +53,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6868778495577798461, guid: 156192c5c4f0b8149b402676904ac923, type: 3}
       propertyPath: m_Name
-      value: Cheval_Harry
+      value: Cheval
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156192c5c4f0b8149b402676904ac923, type: 3}
+--- !u!95 &1021589223955154114 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4193452039337971966, guid: 156192c5c4f0b8149b402676904ac923, type: 3}
+  m_PrefabInstance: {fileID: 3755803721386579004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8900696053223570274 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5736130665415110494, guid: 156192c5c4f0b8149b402676904ac923, type: 3}
+  m_PrefabInstance: {fileID: 3755803721386579004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5276341314974194825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,7 +77,11 @@ PrefabInstance:
     - target: {fileID: 137156595056806436, guid: e56b2a323e0e2cb4b8e0ef88019c96ff, type: 3}
       propertyPath: voiture
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8900696053223570274}
+    - target: {fileID: 137156595056806436, guid: e56b2a323e0e2cb4b8e0ef88019c96ff, type: 3}
+      propertyPath: chevalAnimator
+      value: 
+      objectReference: {fileID: 1021589223955154114}
     - target: {fileID: 137156595056806439, guid: e56b2a323e0e2cb4b8e0ef88019c96ff, type: 3}
       propertyPath: m_Name
       value: Cheval_Harry

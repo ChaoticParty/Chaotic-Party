@@ -6,7 +6,6 @@ public class ChevalRace : MonoBehaviour
 {
     public Animator positionAnimator;
     public Animator chevalAnimator;
-    public Transform voiture;
 
     public void StartAnimation()
     {
@@ -23,6 +22,7 @@ public class ChevalRace : MonoBehaviour
     public void Destroy()
     {
         positionAnimator.SetTrigger("Fin");
+        chevalAnimator.SetTrigger("Fin");
         Pooling.instance.ReturnToPool(gameObject);
     }
 }

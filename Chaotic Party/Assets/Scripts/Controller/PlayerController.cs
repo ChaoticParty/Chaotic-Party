@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using HinputClasses;
+using Sirenix.OdinInspector;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bulleText;
     [SerializeField] private Image bullSpt;
     [HideInInspector] public PlayerSO _playerSo;
-    private CrownManager _crownManager;
+    public CrownManager crownManager;
 
     #region Sprites
     
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     #region SoundRef
 
-    [Header("AudioSource")]
+    [FoldoutGroup("AudioSource"), Header("AudioSource")]
     [SerializeField] private AudioSource IdleSource;
     [SerializeField] private AudioSource TricheSource;
     [SerializeField] private AudioSource HitSource;
@@ -155,7 +156,7 @@ public class PlayerController : MonoBehaviour
         if(nameObject) nameObject.text = nameText + (index + 1);
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
         soundManager ??= FindObjectOfType<SoundManager>();
-        _crownManager ??= GetComponent<CrownManager>();
+        crownManager ??= GetComponent<CrownManager>();
     }
 
     public void AddAllListeners()
@@ -659,7 +660,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayAtterissageSound()
     {
-        soundManager.PlaySelfSound(atterissageSource);
+        //soundManager.PlaySelfSound(atterissageSource);
     }
 
     public void PlayMarcheSound()
