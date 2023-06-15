@@ -1,10 +1,7 @@
-using System;
 using System.Collections;
 using TMPro;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class SpamRaceController : SpamController
 {
@@ -17,7 +14,10 @@ public class SpamRaceController : SpamController
     private int _clickValue;
     private SpamRaceManager _spamRaceManager;
     private TextMeshProUGUI _tmpPrefab;
+    private GameObject _effect;
     public Transform spamValuePosition;
+    public Transform spamButton;
+    public ChevalRace chevalRace;
     
     protected new void Awake()
     {
@@ -62,10 +62,13 @@ public class SpamRaceController : SpamController
                 break;
             case PointsType.BigPoints:
                 _clickValue += (int)spamManager.spamValue;
+                
+                if(_effect) Destroy(_effect);
+                
                 if (_tmpPrefab)
                 {
                     _spamRaceManager.SetClickText(_tmpPrefab.transform, _tmpPrefab, _clickValue, 
-                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1);
+                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1, out _effect);
                 }
                 else
                 {
@@ -74,10 +77,14 @@ public class SpamRaceController : SpamController
                         transform.GetChild(0).GetChild(0));
                     _tmpPrefab.transform.localScale = _spamRaceManager.points[0].scale;
                     _spamRaceManager.SetClickText(_tmpPrefab.transform, _tmpPrefab, _clickValue, 
-                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1);
+                        Mathf.RoundToInt(_clickValue / _spamRaceManager.spamValue) - 1, out _effect);
                 }
                 break;
         }
+        spamButton.localScale = Vector3.one * 0.7f;
+        Transform chevalRaceTransform = this.chevalRace.transform;
+        ChevalRace chevalRace = Instantiate(this.chevalRace, chevalRaceTransform.parent);
+        chevalRace.StartAnimation();
     }
 
     public void SendClicks()
@@ -108,7 +115,7 @@ public class SpamRaceController : SpamController
         Vector2 endPos = spamManager.players[otherPlayerIndex].transform.position;//new(-3f, -1f);
         void OnEnd() => spamManager.Click(otherPlayerIndex, -spamManager.versusSpamValue);
         throwObjectScript.Setup(pos, endPos/*spamManager.players[otherPlayerIndex].transform.position*/, 0.5f, 
-            1, launchSprite, OnEnd);
+            1, launchSprite, new Vector3(0.3f, 0.3f, 0.3f), OnEnd);
     }
 
     private IEnumerator Cooldown()
@@ -116,6 +123,7 @@ public class SpamRaceController : SpamController
         hasClicked = true;
         yield return new WaitForNextFrameUnit();
         hasClicked = false;
+        spamButton.localScale = Vector3.one;
     }
 
     public Coroutine Race(Vector2 destination, bool winner)

@@ -5,7 +5,6 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EcranPersonnage : MonoBehaviour
@@ -66,6 +65,8 @@ public class EcranPersonnage : MonoBehaviour
     private static readonly int Burning = Animator.StringToHash("Burning");
     private static readonly int BackBurning = Animator.StringToHash("BackBurning");
 
+    private Coroutine backBtnCoroutine = null;
+
 
     private void Awake()
     {
@@ -77,6 +78,11 @@ public class EcranPersonnage : MonoBehaviour
         InitCusto();
         
         AddAllListeners();
+    }
+    
+    private void OnDisable()
+    {
+        BackToMainReleased();
     }
 
     public void AddAllListeners()
@@ -96,7 +102,8 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.rightStickJustMovedRight.AddListener(ColorChangeRight);
         
         myPlayerController.aJustPressed.AddListener(Ready);
-        myPlayerController.bJustPressed.AddListener(BackToMain); //TODO remplacer par select quand on aura le sprite
+        myPlayerController.bJustPressed.AddListener(LauchBackToMain);
+        myPlayerController.bJustReleased.AddListener(BackToMainReleased);
     }
     public void RemoveAllListeners()
     {
@@ -115,7 +122,8 @@ public class EcranPersonnage : MonoBehaviour
         myPlayerController.rightStickJustMovedRight.RemoveListener(ColorChangeRight);
         
         myPlayerController.aJustPressed.RemoveListener(Ready);
-        myPlayerController.bJustPressed.RemoveListener(BackToMain);
+        myPlayerController.bJustPressed.RemoveListener(LauchBackToMain);
+        myPlayerController.bJustReleased.RemoveListener(BackToMainReleased);
     }
 
     private void RaceChangeRight(float x = 0, float y = 0)
@@ -126,6 +134,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         leftStickToRight.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(leftStickToRight.gameObject.GetComponent<AudioSource>());
         currentTeteIndex = 0;
         currentCorpsIndex = 0;
         if (currentRaceIndex == listRaces.Count - 1)
@@ -146,6 +155,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         leftStickToLeft.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(leftStickToLeft.gameObject.GetComponent<AudioSource>());
         currentTeteIndex = 0;
         currentCorpsIndex = 0;
         if (currentRaceIndex == 0)
@@ -164,6 +174,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         rightBumperClick.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(rightBumperClick.gameObject.GetComponent<AudioSource>());
         if (currentTeteIndex == listCurrentTete.Count - 1)
         {
             currentTeteIndex = 0;
@@ -183,6 +194,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         leftBumperClick.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(leftBumperClick.gameObject.GetComponent<AudioSource>());
         if (currentTeteIndex == 0)
         {
             currentTeteIndex = Convert.ToSByte(listCurrentTete.Count - 1);
@@ -203,6 +215,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         rightTriggerClick.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(rightTriggerClick.gameObject.GetComponent<AudioSource>());
         if (currentCorpsIndex == listCurrentCorps.Count - 1)
         {
             currentCorpsIndex = 0;
@@ -223,6 +236,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         leftTriggerClick.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(leftTriggerClick.gameObject.GetComponent<AudioSource>());
         if (currentCorpsIndex == 0)
         {
             currentCorpsIndex = Convert.ToSByte(listCurrentCorps.Count - 1);
@@ -248,6 +262,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         rightStickToRight.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(rightStickToRight.gameObject.GetComponent<AudioSource>());
         if (currentColorIndex == listColor.Count - 1)
         {
             currentColorIndex = 0;
@@ -281,6 +296,7 @@ public class EcranPersonnage : MonoBehaviour
     {
         if (isReady) return;
         rightStickToLeft.SetTrigger("Push");
+        menuManager.soundManager.PlaySelfSound(rightStickToLeft.gameObject.GetComponent<AudioSource>());
         
         if (currentColorIndex == 0)
         {
@@ -330,6 +346,33 @@ public class EcranPersonnage : MonoBehaviour
                 foreach (var s in c.listCorps)
                 {
                     listCurrentCorps.Add(s);
+                }
+            }
+        }
+
+        if (!IsColorDispo(currentColorIndex))
+        {
+            if (currentColorIndex == listColor.Count - 1)
+            {
+                currentColorIndex = 0;
+                while (!IsColorDispo(currentColorIndex))
+                {
+                    currentColorIndex++;
+                }
+            }
+            else
+            {
+                currentColorIndex ++;
+                while (!IsColorDispo(currentColorIndex))
+                {
+                    if (currentColorIndex == listColor.Count - 1)
+                    {
+                        currentColorIndex = 0;
+                    }
+                    else
+                    {
+                        currentColorIndex++;
+                    }
                 }
             }
         }
@@ -518,18 +561,58 @@ public class EcranPersonnage : MonoBehaviour
         VisualRefresh();
     }
 
-    private void BackToMain()
+    private void LauchBackToMain()
     {
-        menuManager.backAnim.SetTrigger("Push");
-        menuManager.Back(actualPanel);
-        EventSystem.current.SetSelectedGameObject(menuManager.partyBTN.gameObject);
+        menuManager.backTrembleAnim.SetTrigger("Tremble");
+        backBtnCoroutine = StartCoroutine(BackToMain());
+    }
+
+    private IEnumerator BackToMain()
+    {
+        if (menuManager.isPressingBack.Item2)
+        {
+            if (!menuManager.isPressingBack.Item1.Equals(playerSOIndex)) yield break;
+        }
+        menuManager.isPressingBack = (playerSOIndex, true);
+        
+        if (menuManager.currentBackBtnTime >= menuManager.backBtnTimeMax)
+        {
+            BackToMainReleased();
+            menuManager.partyBackMask.sizeDelta = new Vector2(menuManager.maxWeightPartyBackmask, menuManager.partyBackMask.sizeDelta.y);
+            menuManager.backAnim.SetTrigger("Push");
+            menuManager.Back(actualPanel);
+            EventSystem.current.SetSelectedGameObject(menuManager.partyBTN.gameObject);
+        }
+        else
+        {
+            menuManager.partyBackMask.sizeDelta = new Vector2(menuManager.currentBackBtnTime / menuManager.backBtnTimeMax * menuManager.maxWeightPartyBackmask, menuManager.partyBackMask.sizeDelta.y);
+        }
+
+        menuManager.currentBackBtnTime += Time.deltaTime;
+
+        yield return null;
+        
+        backBtnCoroutine = StartCoroutine(BackToMain());
+    }
+
+    private void BackToMainReleased()
+    {
+        if (backBtnCoroutine != null) StopCoroutine(backBtnCoroutine);
+        
+        menuManager.backTrembleAnim.SetTrigger("Idle");
+        backBtnCoroutine = null;
+        menuManager.currentBackBtnTime = 0;
+        menuManager.isPressingBack = (-1, false);
+        menuManager.partyBackMask.sizeDelta = new Vector2(0, menuManager.partyBackMask.sizeDelta.y);
     }
 
     public void FillSO()
     {
-        menuManager.playersListSO.players[playerSOIndex].head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
-        menuManager.playersListSO.players[playerSOIndex].body = listCorps[currentRaceIndex].listCorps[currentCorpsIndex];
-        menuManager.playersListSO.players[playerSOIndex].color = listColor[currentColorIndex];
+        PlayerSO playerSo = menuManager.playersListSO.players[playerSOIndex];
+        playerSo.race = currentRace;
+        playerSo.head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
+        playerSo.body = listCorps[currentRaceIndex].listCorps[currentCorpsIndex];
+        playerSo.color = listColor[currentColorIndex];
     }
 
     public void LockColor(bool _isReady)
@@ -542,7 +625,12 @@ public class EcranPersonnage : MonoBehaviour
 
     private bool IsColorDispo(sbyte colorIndex)
     {
-        return !menuManager.selectColor.ContainsValue(colorIndex);
+        if (menuManager.selectColor.ContainsValue(colorIndex) && !menuManager.selectColor.ContainsKey(playerSOIndex))
+        {
+            return false;
+        }
+
+        return true;
     }
     
     private void Ready()
@@ -550,6 +638,7 @@ public class EcranPersonnage : MonoBehaviour
         if (!isReady)
         {
             aClick.SetTrigger("Push");
+            menuManager.soundManager.PlaySelfSound(aClick.gameObject.GetComponent<AudioSource>());
             //Anim du parchemin qui se ferme et remonte + possibilité au joueur de jouer avec son perso
             menuManager.readyCount++;
             //Faire le check aussi
@@ -562,10 +651,14 @@ public class EcranPersonnage : MonoBehaviour
         LockColor(isReady);
 
         isReady = !isReady;
-        VisualRefresh();
+        foreach (EcranPersonnage ecranPersonnage in menuManager.listPersonnages)
+        {
+            ecranPersonnage.VisualRefresh();
+        }
         menuManager.partyBandeauReadyGO.SetActive(menuManager.IsLaunchPossible());
         if (isReady)
         {
+            menuManager.soundManager.EventPlay("J"+ (playerSOIndex + 1) +"RenderYeah");
             SpawnPlayer();
         }
     }

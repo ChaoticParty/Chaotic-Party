@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +8,7 @@ public class TimerManager : MonoBehaviour
     [SerializeField] private Image timerFleche;
     [SerializeField] private float originTime;
     public float currentTime;
+    public bool isPaused = false;
 
     private void Awake()
     {
@@ -26,7 +24,7 @@ public class TimerManager : MonoBehaviour
 
     private void Update()
     {
-        if(!gameManager.isMinigamelaunched) return;
+        if(!gameManager.isMinigamelaunched || isPaused) return;
         
         currentTime -= Time.deltaTime;
 

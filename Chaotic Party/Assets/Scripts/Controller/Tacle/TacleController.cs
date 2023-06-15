@@ -1,13 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 public class TacleController : MiniGameController
 {
+    [SerializeField] private AudioClip tacleSoundClip;
     public GameObject tacleChild;
     
     public Vector2 forceTacle;
@@ -39,6 +37,12 @@ public class TacleController : MiniGameController
         }
         if (!player.CanAct()) return;
         //Lancement de l'anim
+        if (tacleSoundClip != null)
+        {
+            gameObject.GetComponent<AudioSource>().clip = tacleSoundClip;
+            player.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
+        }
+        
         isTacling = true;
         player.isTackling = true;
         player.gamepad.leftStick.Disable();

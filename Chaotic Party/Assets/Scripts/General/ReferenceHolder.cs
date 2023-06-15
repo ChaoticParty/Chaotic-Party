@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class ReferenceHolder : MonoBehaviour
 {
@@ -17,16 +14,26 @@ public class ReferenceHolder : MonoBehaviour
             }
             else
             {
-                return instance = new GameObject("SingletonHolder").AddComponent<ReferenceHolder>();
+                return null;
             }
         }
     }
     public PlayersListSO players;
     public MiniGameData miniGameData;
     public GameObject oldEventSystem;
+    public TransitionSetter transitionSetter;
 
     private void Awake()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (instance && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        
+        instance = this;
         miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
         ResetPlayerData();

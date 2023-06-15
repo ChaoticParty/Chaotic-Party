@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -103,6 +101,11 @@ public class PhotoMinionManager : MiniGameManager
             SetTimeBeforeNextPicture();
             TakePicture();
             _animLaunched = false;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Space) /*|| (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.SysReq)*/)
+        {
+            TakePicture();
         }
     }
 

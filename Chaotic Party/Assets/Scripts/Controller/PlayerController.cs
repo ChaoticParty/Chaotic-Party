@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
+    public SoundManager soundManager;
     public SkinSelector skinSelector;
     public List<MiniGameController> miniGameControllers;
     public Gamepad gamepad;
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent bJustPressed = new ();
     [NonSerialized] public UnityEvent xJustPressed = new ();
     [NonSerialized] public UnityEvent yJustPressed = new ();
+    
+    [NonSerialized] public UnityEvent bJustReleased = new ();
 
     [NonSerialized] public UnityEvent<float> aLongPressed = new ();
     [NonSerialized] public UnityEvent<float> bLongPressed = new ();
@@ -114,6 +117,18 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region SoundRef
+
+    [Header("AudioSource")]
+    [SerializeField] private AudioSource IdleSource;
+    [SerializeField] private AudioSource TricheSource;
+    [SerializeField] private AudioSource HitSource;
+    [SerializeField] private AudioSource HappySource;
+    [SerializeField] private AudioSource atterissageSource;
+    [SerializeField] private AudioSource marcheSource;
+
+    #endregion
+
     #region Animation
     
     public Animator animator;
@@ -128,6 +143,10 @@ public class PlayerController : MonoBehaviour
     private static readonly int MarcheDiscrete = Animator.StringToHash("MarcheDiscrete");
     private static readonly int Chute1 = Animator.StringToHash("Chute");
     private static readonly int Relever = Animator.StringToHash("Relever");
+    private static readonly int Crie1 = Animator.StringToHash("Crie");
+    private static readonly int Degat = Animator.StringToHash("Degat");
+    private static readonly int DegatVersion = Animator.StringToHash("DegatVersion");
+    private static readonly int EndLaserDegat = Animator.StringToHash("EndLaserDegat");
 
     #endregion
 
@@ -135,6 +154,7 @@ public class PlayerController : MonoBehaviour
     {
         if(nameObject) nameObject.text = nameText + (index + 1);
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
+        soundManager ??= FindObjectOfType<SoundManager>();
         _crownManager ??= GetComponent<CrownManager>();
     }
 
@@ -177,6 +197,11 @@ public class PlayerController : MonoBehaviour
         if(gamepad.Y.justPressed)
         {
             yJustPressed.Invoke();
+        }
+
+        if (gamepad.B.justReleased)
+        {
+            bJustReleased.Invoke();
         }
         
         if(gamepad.A.longPress.pressed)
@@ -437,14 +462,34 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger(MarcheDiscrete, value);
     }
 
+    public void DegatGaucheLaser()
+    {
+        animator.SetTrigger(Degat);
+        animator.SetInteger(DegatVersion, 3);
+    }
+    public void EndDegatLaser()
+    {
+        animator.SetTrigger(EndLaserDegat);
+        animator.SetInteger(MarcheDiscrete, 2);
+    }
+
     public void Chute()
     {
         animator.SetTrigger(Chute1);
     }
 
+    public void Crie()
+    {
+        animator.SetTrigger(Crie1);
+    }
+
     public void Releve()
     {
         animator.SetTrigger(Relever);
+    }
+    public void ResetReleve()
+    {
+        animator.ResetTrigger(Relever);
     }
 
     public void StartTacle()
@@ -513,6 +558,7 @@ public class PlayerController : MonoBehaviour
         bLongPressed.RemoveAllListeners();
         xLongPressed.RemoveAllListeners();
         yLongPressed.RemoveAllListeners();
+        bJustReleased.RemoveAllListeners();
         rightStickMoved.RemoveAllListeners();
         rightStickJustMoved.RemoveAllListeners();
         rightStickMovedDown.RemoveAllListeners();
@@ -574,8 +620,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetupSprite(PlayerSO playerSo)
     {
-        _playerSo = playerSo;
-        
+        _playerSo = playerSo; 
         skinSelector.SetupSkin(_playerSo.head, _playerSo.body, _playerSo.color);
     }
 
@@ -589,6 +634,40 @@ public class PlayerController : MonoBehaviour
         head.color = color;
         body.color = color;
     }
+
+    #region SoundMethodes
+
+    public void PlayIdleSound()
+    {
+        soundManager.PlaySelfSound(IdleSource, true); //TODO voir l'intervale entre les sons
+    }
+
+    public void PlayTricheSound()
+    {
+        soundManager.PlaySelfSound(TricheSource); //TODO voir l'intervale entre les sons pour pas spammer les son dans le race par exemple
+    }
+
+    public void PlayHitSound()
+    {
+        soundManager.PlaySelfSound(HitSource);
+    }
+
+    public void PlayHappySound()
+    {
+        soundManager.PlaySelfSound(HappySource);
+    }
+
+    public void PlayAtterissageSound()
+    {
+        soundManager.PlaySelfSound(atterissageSource);
+    }
+
+    public void PlayMarcheSound()
+    {
+        soundManager.PlaySelfSound(marcheSource);
+    }
+
+    #endregion
 
     #region Methodes Bulle
 

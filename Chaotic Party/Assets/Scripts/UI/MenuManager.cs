@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -11,6 +8,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     public MultiplayerManager multiplayerManager;
+    public SoundManager soundManager;
     public PlayersListSO playersListSO;
     public List<PlayerController> listUiPlayerControllers;
     public List<PlayerController> listInGamePlayerControllers;
@@ -22,6 +20,7 @@ public class MenuManager : MonoBehaviour
     public Dictionary<sbyte, sbyte> selectColor = new Dictionary<sbyte, sbyte>();
     public sbyte readyCount = 0;
     public sbyte playSceneIndex = 1;
+    public MiniGameData miniGameData;
     public List<EcranPersonnage> listPersonnages = new List<EcranPersonnage>();
     public List<Animator> listMaskPersonnagesAnimator = new List<Animator>();
     private sbyte nbCurrentGamepads = 0;
@@ -50,7 +49,15 @@ public class MenuManager : MonoBehaviour
     [Header("Animator")]
     [SerializeField] private Animator transitionAnim;
     [SerializeField] private Animator startGameAnim;
+    [Header("BackBtnGestion")]
     public Animator backAnim;
+    public Animator backTrembleAnim;
+    public RectTransform partyBackMask;
+    [HideInInspector] public float maxWeightPartyBackmask = 0;
+    public float currentBackBtnTime = 0;
+    public float backBtnTimeMax = 2;
+    public (int, bool) isPressingBack = (-1, false);
+    public bool isRandom = true;
     
     #region MonoBehaviour Méthodes
 
@@ -63,6 +70,9 @@ public class MenuManager : MonoBehaviour
             ecranPersonnage.myPlayerController ??= ecranPersonnage.gameObject.GetComponent<PlayerController>();
         }
         playersListSO ??= ReferenceHolder.Instance.players;
+        
+        maxWeightPartyBackmask = partyBackMask.sizeDelta.x;
+        partyBackMask.sizeDelta = new Vector2(0, partyBackMask.sizeDelta.y);
     }
 
     private void OnEnable()
@@ -74,6 +84,8 @@ public class MenuManager : MonoBehaviour
 
         nbCurrentGamepads = multiplayerManager.GamepadCount();
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
+        
+        soundManager.EventPlay("PrincipalMusic");
 
         partyBTN.onClick.AddListener(PartyClick);
         minigameBTN.onClick.AddListener(MinigameClick);
@@ -161,6 +173,8 @@ public class MenuManager : MonoBehaviour
     {
         if (IsLaunchPossible())
         {
+            soundManager.EventPlay("StartGameClick");
+            soundManager.EventStop("PartyMusic");
             startGameAnim.SetTrigger("Push");
             foreach (EcranPersonnage ecranPerso in listPersonnages)
             {
@@ -169,8 +183,24 @@ public class MenuManager : MonoBehaviour
                     ecranPerso.FillSO();    
                 }
             }
-            SceneManager.LoadScene(playSceneIndex);
+            if(isRandom) miniGameData.RandomiseMiniGames();
+            ReferenceHolder.Instance.transitionSetter.StartTransition(null, LoadScene, 
+                SetRulesPosition, null, 
+                Camera.main.WorldToScreenPoint(listInGamePlayerControllers[0].transform.position));
         }
+    }
+
+    private void LoadScene()
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(playSceneIndex, LoadSceneMode.Additive);
+        Scene currentScene = gameObject.scene;
+        ReferenceHolder.Instance.transitionSetter.WaitTillSceneLoad(asyncOperation, currentScene);
+    }
+
+    private void SetRulesPosition()
+    {
+        ReferenceHolder referenceHolder = ReferenceHolder.Instance;
+        referenceHolder.transitionSetter.lastTransition.SetUIPosition(referenceHolder.miniGameData.GetTransitionPosition(playSceneIndex));
     }
     #endregion
 
@@ -181,6 +211,9 @@ public class MenuManager : MonoBehaviour
 
     private void PartyClick()
     {
+        soundManager.EventPlay("PartyClick");
+        soundManager.EventStop("PrincipalMusic");
+        soundManager.EventPlay("PartyMusic");
         ResetSelectedPerso();
         PanelChange(panelPrincipal, panelParty);
         if (nbCurrentGamepads < 2) partyPlayerMinGO.SetTrigger("Descend");
@@ -205,6 +238,8 @@ public class MenuManager : MonoBehaviour
 
     private void MinigameClick()
     {
+        soundManager.EventPlay("MiniGameClick");
+        soundManager.EventStop("PrincipalMusic");
         PanelChange(panelPrincipal, panelMinigame);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstMinigame);
@@ -212,6 +247,8 @@ public class MenuManager : MonoBehaviour
 
     private void OptionsClick()
     {
+        soundManager.EventPlay("OptionsClick");
+        soundManager.EventStop("PrincipalMusic");
         _referenceHolder.oldEventSystem = EventSystem.current.gameObject;
         EventSystem.current.gameObject.SetActive(false);
         SceneManager.LoadSceneAsync(optionsScene, LoadSceneMode.Additive);
@@ -219,11 +256,17 @@ public class MenuManager : MonoBehaviour
 
     private void QuitClick()
     {
+        soundManager.EventPlay("QuitGameClick");
+        soundManager.EventStop("PrincipalMusic");
         Application.Quit();
     }
 
     public void Back(GameObject actualPanel)
     {
+        if (actualPanel.Equals(panelParty))
+        {
+            soundManager.EventStop("PartyMusic");
+        }
         oldPanel.SetActive(true);
         actualPanel.SetActive(false);
     }

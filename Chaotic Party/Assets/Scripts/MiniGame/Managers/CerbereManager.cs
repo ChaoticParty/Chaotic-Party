@@ -1,31 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class CerbereManager : SpamManager
 {
+    [Header("CheapSetup")] //Workaround pour avoir le cerbere éveillé dès le début
+    [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cheapCerbereAnimEvents;
+    [SerializeField] [Tooltip("Gameobject cheap du cerbere")] private GameObject cheapCerbere;
+    [SerializeField] [Tooltip("Gameobject du cerbere")] private GameObject trueCerbere;
     [Header("Setup")]
-    // [SerializeField] private ParticleSystem rompicheEffect;
     [SerializeField] private CanvasGroup Hud;
+    public GameObject[] hudMegaphone;
+    [SerializeField] private GameObject nuitObject;
     [SerializeField] [Tooltip("Tableau d'animator, de 0 à 3, correspondant aux players")] private Animator[] cerbereAnimator;
     [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cerbereAnimEvents;
     [SerializeField] [Tooltip("Animator de la bulle de cerbere")] private Animator bulleAnimator;
     [SerializeField] [Tooltip("Animator des nuages de la bulle de cerbere")] private Animator[] nuagesAnimator;
+    [SerializeField] [Tooltip("Animator des z cassé de la bulle de cerbere")] private Animator[] zBreakAnimator;
     private int winnerIndex;
     private bool[] wasHittedByCerbere; //Tableau de bool, true si a été touché. Repasse a false quand Cerbere se rendort. De 0 à 3, correspondant aux players;
+    public bool[] hasAlreadyShout; //Tableau de bool, true si a déjà crié. De 0 à 3, correspondant aux players;
     private float[] walkDestination = new float[]{};
     private Coroutine myCoroutine;
     [HideInInspector] public RompicheState rompicheState;
     // private bool isRompiche = true;
     private float timeBeforeWake = 0;
-    private float timePassedBeforeWake = 0;
-    private float xStartValuePos = 0;
-    private float xEndValuePos = 0;
+    [SerializeField] private float timePassedBeforeWake = 0;
+    private float[] xStartValuePos = new float[4];
+    private float[] xEndValuePos = new float[4];
     private float inGameValuePerClick = 0;
     [Space]
     [Header("Distance avec Cerbere")]
@@ -80,9 +87,22 @@ public class CerbereManager : SpamManager
         base.Start();
     }
 
+    private IEnumerator CheapCerbereAnimLaunch() //Workaround pour avoir le cerbere éveillé dès le début
+    {
+        yield return new WaitForSeconds(2);
+        foreach (var animEvent in cheapCerbereAnimEvents)
+        {
+            animEvent.CheapObserveEnd();
+        }
+        yield return new WaitForSeconds(0.33f);
+        trueCerbere.SetActive(true);
+        cheapCerbere.SetActive(false);
+    }
+
     [ContextMenu("LoadMiniGame")]
     public override void LoadMiniGame()
     {
+        StartCoroutine(CheapCerbereAnimLaunch());
         base.LoadMiniGame();
         rompicheState = RompicheState.NULL;
         if (cerberRompicheRangeMin > cerberRompicheRangeMax)
@@ -94,11 +114,16 @@ public class CerbereManager : SpamManager
         timePassedBeforeWake = timeBeforeWake;
         
         wasHittedByCerbere = new[] {false, false, false, false};
+        hasAlreadyShout = new[] {false, false, false, false};
+
+        for (int i = 0; i < xStartValuePos.Length; i++)
+        {
+            if (i >= players.Count) continue;
+            xStartValuePos[i] = players[i].transform.position.x;
+            xEndValuePos[i] = listTeteCerbere[i].transform.position.x - 2; //Le -2 est un padding pour que l'arrivée soit devant cerbere et pas dessus, a changer en fonction
+        } 
         
-        xStartValuePos = players[0].transform.position.x;
-        xEndValuePos = listTeteCerbere[0].transform.position.x - 1; //Le -1 est un padding pour que l'arrivée soit devant cerbere et pas dessus, a changer en fonction
-        
-        float distance = xEndValuePos - xStartValuePos;
+        float distance = xEndValuePos[0] - xStartValuePos[0];
         float valueForOneClick = endValue / spamValue;
         inGameValuePerClick = distance / valueForOneClick;
         
@@ -114,12 +139,17 @@ public class CerbereManager : SpamManager
             if (players[i].gameObject.activeSelf)
             {
                 players[i].ActivateBulle(true);
-                scoreDisplay[i].transform.parent.gameObject.SetActive(true); //TODO avoir la foi de changer ca, c'est moche et pas opti
+                scoreDisplay[i].transform.parent.gameObject.SetActive(true);
                 scoreDisplay[i].text = "0";
             }
         }
         
         bulleAnimator.gameObject.SetActive(true);
+        
+        foreach(GameObject obj in hudMegaphone)
+        {
+            obj.SetActive(true);
+        }
 
         Hud.alpha = 1;
     }
@@ -130,7 +160,7 @@ public class CerbereManager : SpamManager
         for (int i = 0; i < walkDestination.Length; i++)
         {
             if(i >= players.Count) continue;
-            if (walkDestination[i] > xEndValuePos) walkDestination[i] = xEndValuePos;
+            if (walkDestination[i] > xEndValuePos[i]) walkDestination[i] = xEndValuePos[i];
             if (players[i].transform.position.x >= walkDestination[i]) continue;
             
             players[i].transform.position = new Vector3(Mathf.Lerp(players[i].transform.position.x, walkDestination[i], Time.deltaTime * 10),
@@ -148,23 +178,21 @@ public class CerbereManager : SpamManager
             
             for (int i = 0; i < players.Count; i++)
             {
-                if ((players[i].GetComponent<CerbereSpamController>().isShout || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false))
+                if ((players[i].GetComponent<CerbereSpamController>().isShout 
+                    || Math.Abs(players[i].transform.position.x - walkDestination[i]) > 0.01f) && wasHittedByCerbere[i].Equals(false) 
+                    || (players[i].GetComponent<CerbereSpamController>().isUping && wasHittedByCerbere[i].Equals(false)))
                 {
                     cerbereSee.Invoke();
                     clicksArray[i] = 0;
                     cerbereAnimator[i].SetBool(UltimoPoderLaser, true);
                     laserPlaceHolder[i].SetActive(true);
                     wasHittedByCerbere[i] = true;
-                    walkDestination[i] = xStartValuePos;
+                    StartCoroutine(DelayedPlayerGoBack(i));
+                    // walkDestination[i] = xStartValuePos;
                     //Feedback
-                    cerbereAnimEvents[0].Exclamation();
+                    cerbereAnimEvents[i].Exclamation();
                     cerbereLaser.Invoke();
-                    playerGetBackToStart.Invoke(players[i].transform.position, "Argument");
-                    //
-                    players[i].transform.position = new Vector3(xStartValuePos, players[i].transform.position.y,
-                        players[i].transform.position.z);
-                    players[i].ChangeBulleText("Lasered");
-                    scoreDisplay[i].text = "0";
+                    players[i].ChangeBulleText("!");
                     players[i].isStunned = true;
                     players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.NULL;
                 }    
@@ -185,12 +213,11 @@ public class CerbereManager : SpamManager
             {
                 rompicheState = RompicheState.UN;
             }
-            //Animation (les z du dodo qui decrementent ?)
         }
         else //Lancement d'une nouvelle boucle de dodo
         {
-            // if (!rompicheState.Equals(RompicheState.ZERO)) return;
             WakeUp();
+            
             rompicheState = RompicheState.NULL;
         }
     }
@@ -199,12 +226,10 @@ public class CerbereManager : SpamManager
     {
         base.StartMiniGame();
         LaunchBulleAnim(rompicheState);
-        // StartCoroutine(ZNumberFeedBack(timeBeforeWake));
     }
 
     public override void Click(int playerIndex, float value, SpamButton spamButton = SpamButton.Any)
     {
-        //BUG Si on descactive les input avec le stun et qu'on r'appui, tt les inputs sont compté et nous "tp" a la fin, Envoyer une action dans le stun ? (peut etre plus d'actu)
         if (!isMinigamelaunched) return;
         walkDestination[playerIndex] += inGameValuePerClick;
         clicksArray[playerIndex] += Mathf.RoundToInt(spamValue);
@@ -221,11 +246,7 @@ public class CerbereManager : SpamManager
         {
             if (clicksArray[i] >= endValue)
             {
-                //Version temporaire du msg de fin
                 winnerIndex = i;
-                winTMP.text = "j"+(i+1)+" win";
-                winTMP.gameObject.SetActive(true);
-                //
                 return true;
             }
         }
@@ -236,6 +257,9 @@ public class CerbereManager : SpamManager
     private void WakeUp()
     {
         if(rompicheState.Equals(RompicheState.NULL)) return;
+        
+        nuitObject.SetActive(true);
+        nuitObject.GetComponent<Animator>().SetTrigger("Bigger");
         
         foreach (var animator in cerbereAnimator)
         {
@@ -258,19 +282,47 @@ public class CerbereManager : SpamManager
         foreach (var animEvent in cerbereAnimEvents)
         {
             animEvent.ObserveEnd();
+            
+        }
+        foreach (var animator in nuagesAnimator)
+        {
+            animator.ResetTrigger(Depop);
         }
         foreach (var players in players)
         {
             players.isStunned = false;
         }
+        for (int i = 0; i < wasHittedByCerbere.Length; i++)
+        {
+            if (wasHittedByCerbere[i])
+            {
+                players[i].Releve();
+                players[i].ChangeBulleText("A ou B");
+                players[i].EndDegatLaser();
+                players[i].ResetReleve();
+            }
+        }
         wasHittedByCerbere = new[] {false, false, false, false};
         myCoroutine = null;
-        yield return new WaitForSeconds(1);
+        
+        yield return new WaitForSeconds(0.33f);
         
         timeBeforeWake = Random.Range(cerberRompicheRangeMin, cerberRompicheRangeMax + 1);
         timePassedBeforeWake = timeBeforeWake;
-        
+
         LaunchBulleAnim(rompicheState);
+    }
+
+    private IEnumerator DelayedPlayerGoBack(int index)
+    {
+        yield return new WaitForSeconds(1f);
+        scoreDisplay[index].text = "0";
+        players[index].DegatGaucheLaser();
+        players[index].PlayHitSound();
+        walkDestination[index] = xStartValuePos[index];
+        playerGetBackToStart.Invoke(players[index].transform.position, "Argument");
+        players[index].transform.position = new Vector3(xStartValuePos[index], players[index].transform.position.y,
+            players[index].transform.position.z);
     }
 
     private void LaunchBulleAnim(RompicheState rompicheState)
@@ -305,23 +357,23 @@ public class CerbereManager : SpamManager
 
     public void PlayerWakeUp()
     {
-        // if (myCoroutine != null) StopCoroutine(myCoroutine);
         switch (rompicheState)
         {
             case RompicheState.UN:
-                timePassedBeforeWake = 0;
+                zBreakAnimator[2].gameObject.SetActive(true);
                 WakeUp();
+                timePassedBeforeWake = 0;
                 rompicheState = RompicheState.NULL;
                 break;
             case RompicheState.DEUX:
+                zBreakAnimator[1].gameObject.SetActive(true);
                 timePassedBeforeWake = timeBeforeWake / 3;
                 LaunchBulleAnim(rompicheState);
-                // myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
                 break;
             case RompicheState.TROIS:
+                zBreakAnimator[0].gameObject.SetActive(true);
                 timePassedBeforeWake = timeBeforeWake / 3 * 2;
                 LaunchBulleAnim(rompicheState);
-                // myCoroutine = StartCoroutine(ZNumberFeedBack(timeBeforeWake));
                 break;
             case RompicheState.NULL:
                 Debug.Log("Cerbere already wake up");
@@ -331,47 +383,72 @@ public class CerbereManager : SpamManager
 
     public override void FinishTimer()
     {
+        float value = -1;
+        for (int i = 0; i < clicksArray.Length; i++)
+        {
+            if (value < clicksArray[i])
+            {
+                value = clicksArray[i];
+                winnerIndex = i;
+            }
+        }
         OnMinigameEnd();
     }
 
     protected override void OnMinigameEnd()
     {
+        timerManager.isPaused = true;
+        isMinigamelaunched = false;
+        if (stopMiniGameObject != null) stopMiniGameObject.SetActive(true);
         foreach (PlayerController player in players)
         {
             if(!player.gameObject.activeSelf) continue;
             player.RemoveAllListeners();
         }
         StopAllCoroutines();
-        // StartCoroutine(EndMiniGameAnim()); //TODO enlever une fois les anims preparer
         
         ranking = GetRanking();
         AddPoints();
         SetCurrentRanking();
-        
-        LoadRecap();
-        //Gerer la fin du mini jeu
+        StartCoroutine(EndMiniGameAnim());
     }
 
     #region Feedback Methods
 
-    private IEnumerator LaserFeedBack(float laserTime, GameObject laser)
-    {
-        yield return new WaitForSeconds(laserTime);
-        laser.SetActive(false);
-    }
-
     private IEnumerator EndMiniGameAnim()
     {
-        //Anim du player gagnant qui touche le cerbere
-        yield return new WaitForSeconds(cerberBeginAnimTime);
+        int[] tabRank = new int[4];
+        foreach (var player in ranking)
+        {
+            tabRank[player.Value] = player.Key.index;
+        }
+
+        foreach (var animator in cerbereAnimator)
+        {
+            animator.SetTrigger("MiniGameEnd");
+        } 
+        foreach (var animator in nuagesAnimator)
+        {
+            animator.ResetTrigger("Depop");
+            animator.SetTrigger("MiniGameEnd");
+        } 
+        bulleAnimator.SetTrigger("MiniGameEnd");
+
+        for (int i = tabRank.Length - 1; i >= 0; i--)
+        {
+            if (i >= players.Count || i.Equals(winnerIndex)) continue;
+            laserPlaceHolder[i].SetActive(true);
+            yield return new WaitForSeconds(1);
+        }
+
+        players[winnerIndex].Releve();
+        players[winnerIndex].VictoryAnimation();
+        yield return new WaitForSeconds(4);
         for (int i = 0; i < players.Count; i++)
         {
-            if (!players[i].gameObject.activeSelf || i.Equals(winnerIndex)) yield break;
-            StartCoroutine(LaserFeedBack(2, laserPlaceHolder[i]));
-            //Disparition du player ou retour au debut ?
+            laserPlaceHolder[i].SetActive(false);
         }
-        yield return new WaitForSeconds(2);
-        //Anime du winner qui se fait manger
+        LoadRecap();
     }
 
     #endregion

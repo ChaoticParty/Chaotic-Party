@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -18,7 +16,7 @@ public class ThrowObjectCurve : MonoBehaviour
     [SerializeField] private float maxHeight = 3;
     private Action _onEnd;
 
-    public void Setup(Vector2 startPos, Vector2 endPos, float durate = -1, float height = -1, Sprite sprite = null, Action onEnd = null)
+    public void Setup(Vector2 startPos, Vector2 endPos, float durate = -1, float height = -1, Sprite sprite = null, Vector3 scale = default, Action onEnd = null)
     {
         startPosition = startPos;
         endPosition = endPos;
@@ -27,12 +25,13 @@ public class ThrowObjectCurve : MonoBehaviour
         animationCurve = new AnimationCurve(new[] { new Keyframe(0, 0, 0, 10), 
             new Keyframe(duration / 2, maxHeight), new Keyframe(duration, 0, -10, 0) });
         _onEnd = onEnd;
+        transform.localScale = scale;
 
         if (sprite != null)
         {
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             renderer.sprite = sprite;
-            renderer.sortingLayerName = "FX";
+            renderer.sortingLayerName = "Foreground";
             renderer.sortingOrder = 100;
         }
         transform.position = startPosition;

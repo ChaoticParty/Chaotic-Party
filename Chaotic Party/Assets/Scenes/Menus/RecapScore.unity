@@ -764,9 +764,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375213263}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.7896805, y: -0.20696002, z: 0}
-  m_LocalScale: {x: 2.56, y: 2.56, z: 2.56}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.028, y: -0.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1631761157}
@@ -1175,6 +1175,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 1679073473}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2007,9 +2011,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763900086}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.456246, y: -0.37260342, z: 0}
-  m_LocalScale: {x: 1.4301677, y: 1.4301677, z: 1.4301677}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.028, y: -0.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1258689492}
@@ -2038,9 +2042,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775033264}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.452196, y: -0.2843935, z: 0}
-  m_LocalScale: {x: 2.0983605, y: 2.0983605, z: 2.0983605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.028, y: -0.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1197619067}
@@ -2796,6 +2800,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1518813490}
     m_Modifications:
+    - target: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 1679073473}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -2895,6 +2903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -3313,6 +3322,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 81981154}
     m_Modifications:
+    - target: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 1679073473}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -3391,6 +3404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -4461,6 +4475,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2095161052}
     m_Modifications:
+    - target: {fileID: 4518951441886738144, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 1679073473}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -4560,6 +4578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -4765,6 +4784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970c9f963aa60d440a7112c48261eb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
   jumpButton: 0
   jumpForce: 10
   canFootStool: 0
@@ -5095,7 +5115,9 @@ MonoBehaviour:
       m_Calls: []
   miniGameObjectsToColorise: []
   cinematicObjectsToColorise: []
-  nextMiniGameButton: {fileID: 0}
+  endMenu: 0
+  nextMiniGameButton: {fileID: 618559048}
+  menuButton: {fileID: 1778679591}
   scoreObjects:
   - sceneObject: {fileID: 178499215}
     obj: {fileID: 1539033934}
@@ -6172,6 +6194,6 @@ MonoBehaviour:
   - {fileID: 1258689493}
   - {fileID: 1197619069}
   - {fileID: 1631761159}
-  miniGameManager: {fileID: 0}
-  playersListSo: {fileID: 0}
+  miniGameManager: {fileID: 1679073473}
+  playersListSo: {fileID: 11400000, guid: 42d594bc8afb56a42ba27f94141ce02f, type: 2}
   isInMenu: 0

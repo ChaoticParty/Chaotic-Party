@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HitPhoto : HitController
@@ -12,6 +11,7 @@ public class HitPhoto : HitController
         
         Debug.Log("Photo");
         player.isHit = true;
+        if (bamPrefab != null) Instantiate(bamPrefab, transform.position, Quaternion.identity, transform);
         //Lancement de l'anim de hit
         player.gamepad.A.Disable();
         player.gamepad.Y.Disable();

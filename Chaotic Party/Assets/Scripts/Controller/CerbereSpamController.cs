@@ -1,23 +1,21 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class CerbereSpamController : SpamController
 {
     private StunController _stunController;
     private bool hasClicked = false;
     [HideInInspector] public bool isShout = false;
+    [HideInInspector] public bool isUping = false;
     [HideInInspector] public Etat etat = Etat.NULL;
     private CerbereManager cerbereManager;
     [Header("Temps placeholder, a changer une fois les anims dispo")]
     [SerializeField] private TextMeshProUGUI bullPlayerFeedback;
-    [SerializeField] private float standUpAnimTime = 1f;
-    [SerializeField] private float wakeUpAnimTime = 1f;
+    [SerializeField] private float standUpAnimTime = 0.75f;
+    [SerializeField] private float wakeUpAnimTime = 0.69f;
     //Event
     public UnityEvent playerFall;
 
@@ -26,7 +24,7 @@ public class CerbereSpamController : SpamController
         base.Awake();
         _stunController ??= GetComponent<StunController>();
         cerbereManager = spamManager as CerbereManager;
-        player.ChangeBulleText("A / B");
+        player.ChangeBulleText("A ou B");
         AddListeners();
     }
 
@@ -49,13 +47,14 @@ public class CerbereSpamController : SpamController
         if (etat.Equals(Etat.FALL))
         {
             hasClicked = true;
+            isUping = true;
             StartCoroutine(StandUpPlayer(standUpAnimTime));
             player.Releve();
             return;
-        } 
+        }
         
         StartCoroutine(Cooldown());
-        
+
         if (etat != value)
         {
             Click();
@@ -75,17 +74,20 @@ public class CerbereSpamController : SpamController
         //Anim de chute
         player.Chute();
         playerFall.Invoke();
-        player.ChangeBulleText("Fall");
+        player.ChangeBulleText("Debout!");
         _stunController.Stun();
         //Reactivation a la fin de l'anim de chute, voir comment on gere avec le stun controller
     }
 
     private void WakuUp()
     {
-        if (isShout || !player.CanMove() || !cerbereManager.isMinigamelaunched) return;
-        player.ChangeBulleText("Hey !!!");
+        if (isShout || !player.CanMove() || !cerbereManager.isMinigamelaunched || cerbereManager.hasAlreadyShout[player.index]) return;
+        player.ChangeBulleText("Hey!!!");
+        player.Crie();
         isShout = true;
+        cerbereManager.hasAlreadyShout[player.index] = true;
         cerbereManager.playerYell.Invoke(transform.position, "Argument");
+        cerbereManager.hudMegaphone[player.index].GetComponent<Animator>().SetTrigger("Bigger");
         cerbereManager.PlayerWakeUp();
         StartCoroutine(WakeUpFeedBack(wakeUpAnimTime));
     }
@@ -95,9 +97,12 @@ public class CerbereSpamController : SpamController
 
     private IEnumerator StandUpPlayer(float animationTime)
     {
-        player.ChangeBulleText("Stand Up !!!");
         yield return new WaitForSeconds(animationTime);
-        player.ChangeBulleText("A / B");
+        isUping = false;
+        if (!player.isStunned)
+        {
+            player.ChangeBulleText("A ou B");
+        }
         hasClicked = false;
         etat = Etat.NULL;
     } 
@@ -105,7 +110,14 @@ public class CerbereSpamController : SpamController
     private IEnumerator WakeUpFeedBack(float animationTime)
     {
         yield return new WaitForSeconds(animationTime);
-        player.ChangeBulleText(etat.Equals(Etat.A) ? "B" : "A");
+        if (etat.Equals(Etat.NULL))
+        {
+            player.ChangeBulleText("A ou B");
+        }
+        else
+        {
+            player.ChangeBulleText(etat.Equals(Etat.A) ? "B" : "A");
+        }
         isShout = false;
     }
 
