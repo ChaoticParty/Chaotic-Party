@@ -37,6 +37,11 @@ public class CerbereAnimEvent : MonoBehaviour
         canWakeUpEnd = false;
     }
 
+    public void ChangeHeadToDodo()
+    {
+        tete.GetComponent<SpriteRenderer>().sprite = cerbereDodo;
+    }
+
     public void ObserveEnd()
     {
         tete.GetComponent<SpriteRenderer>().sprite = cerbereDodo;

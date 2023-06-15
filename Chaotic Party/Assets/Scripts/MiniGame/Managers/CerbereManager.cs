@@ -432,9 +432,12 @@ public class CerbereManager : SpamManager
             animator.SetTrigger("MiniGameEnd");
         } 
         bulleAnimator.SetTrigger("MiniGameEnd");
+        
+        cerbereAnimEvents[winnerIndex].ChangeHeadToDodo();
 
         for (int i = tabRank.Length - 1; i >= 0; i--)
         {
+            if (!i.Equals(winnerIndex)) cerbereAnimator[i].SetTrigger(WakeUpTrigger);
             if (i >= players.Count || i.Equals(winnerIndex)) continue;
             laserPlaceHolder[i].SetActive(true);
             yield return new WaitForSeconds(1);
