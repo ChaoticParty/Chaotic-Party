@@ -584,7 +584,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1735875118}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &173221916
 BoxCollider2D:
@@ -1856,7 +1856,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1637481035}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &709321801
 BoxCollider2D:
@@ -1914,7 +1914,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 735630062}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &728354693
 BoxCollider2D:
@@ -2481,6 +2481,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - id: ParcheminSound
+    soundEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1086279674}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   stopEvent:
   - id: PrincipalMusic
     soundEvent:
@@ -2631,6 +2647,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2627cb73d747a4e488a3382538cecabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1086279674 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4299349407449225071, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1097787159 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 684590222044655730, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
@@ -2709,7 +2730,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1484720496}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1187723782
 BoxCollider2D:
