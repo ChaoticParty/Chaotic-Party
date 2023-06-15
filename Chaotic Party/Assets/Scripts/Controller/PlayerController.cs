@@ -660,7 +660,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayAtterissageSound()
     {
-        //soundManager.PlaySelfSound(atterissageSource);
+        soundManager.PlaySelfSound(atterissageSource);
     }
 
     public void PlayMarcheSound()
