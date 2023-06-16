@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RecapScoreManager : MiniGameManager
 {
@@ -53,6 +54,22 @@ public class RecapScoreManager : MiniGameManager
                 playerTransform.SetParent(scoreObj.sceneObject);
                 playerTransform.localScale = Vector3.one;
                 playerTransform.localPosition = Vector3.zero;
+            }
+        }
+
+        foreach (PlayerController player in players)
+        {
+            switch (player._playerSo.ranking)
+            {
+                case 0:
+                    player.VictoryAnimation(Random.Range(0, 2));
+                    break;
+                case 2:
+                    player.DefeatAnimation();
+                break;
+                case 3:
+                    player.DefeatAnimation(1);
+                    break;
             }
         }
 

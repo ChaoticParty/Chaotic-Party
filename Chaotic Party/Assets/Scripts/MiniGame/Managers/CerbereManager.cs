@@ -198,6 +198,7 @@ public class CerbereManager : SpamManager
                     players[i].ChangeBulleText("!");
                     players[i].isStunned = true;
                     players[i].GetComponent<CerbereSpamController>().etat = CerbereSpamController.Etat.NULL;
+                    DisplayCrown();
                 }    
             }
         }
