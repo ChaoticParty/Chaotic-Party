@@ -14,10 +14,10 @@ using UnityEngine.Playables;
 
 public class SpamRaceManager : SpamManager
 {
-    [SerializeField] private SoundManager soundManager;
+    [SerializeField] public SoundManager soundManager;
     [FoldoutGroup("Scene Objects")]
     [FoldoutGroup("Scene Objects/Cars"), SceneObjectsOnly]
-    [SerializeField] private GameObject[] cars;
+    [SerializeField] public GameObject[] cars;
     [FoldoutGroup("Scene Objects/Camera"), SceneObjectsOnly]
     [SerializeField] private CinemachineVirtualCamera raceCamera;
     [FoldoutGroup("Scene Objects/Cars"), SceneObjectsOnly]
@@ -214,6 +214,7 @@ public class SpamRaceManager : SpamManager
 
     public void UpdateClickUi(int playerIndex, float value, bool valueToAdd = false)
     {
+        if (value > 0) soundManager.PlaySelfSound(spamTexts[playerIndex].transform.parent.GetComponent<AudioSource>());
         if (valueToAdd) value += Convert.ToInt32(spamTexts[playerIndex].text.Replace("+", ""));
         spamTexts[playerIndex].text = value.ToString(CultureInfo.CurrentCulture);
     }

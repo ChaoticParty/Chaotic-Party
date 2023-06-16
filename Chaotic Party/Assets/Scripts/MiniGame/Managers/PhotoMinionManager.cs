@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class PhotoMinionManager : MiniGameManager
 {
     public CanvasGroup uiCanvasGroup;
+    public SoundManager soundManager;
     public PhotoMinionOverlord overlord;
     [Range(0, 500)] 
     public int pointsGained;
@@ -46,6 +47,7 @@ public class PhotoMinionManager : MiniGameManager
     {
         ActivateUI(false);
         pictureData ??= FindObjectOfType<OnOverlordTrigger>();
+        // soundManager ??= FindObjectOfType<SoundManager>();
         overlord.ChangePosition(false);
         overlord.PlaceCameraOnOverlord();
         //ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
@@ -68,6 +70,7 @@ public class PhotoMinionManager : MiniGameManager
     public override void LoadMiniGame()
     {
         overlord ??= FindObjectOfType<PhotoMinionOverlord>();
+        soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>(), true);
         _waitSeconds = new WaitForSecondsRealtime(timeToWait / 3);
         foreach (PlayerController player in players)
         {
@@ -148,6 +151,7 @@ public class PhotoMinionManager : MiniGameManager
 
     private void TakePicture()
     {
+        soundManager.EventPlay("Photo");
         StartCoroutine(TakePictureCoroutine());
     }
 
@@ -209,6 +213,7 @@ public class PhotoMinionManager : MiniGameManager
                     // Si le joueur est près de l'overlord et il n'est ni stun ni poussé
                     // Gagne des points
                     _scores[i] += pointsGained;
+                    soundManager.PlaySelfSound(scoreTexts[i].GetComponent<AudioSource>());
                 }
             }
             else
@@ -243,6 +248,7 @@ public class PhotoMinionManager : MiniGameManager
         ranking = GetRanking();
         AddPoints();
         SetCurrentRanking();
+        soundManager.StopSelfSound(gameObject.GetComponent<AudioSource>());
         LoadRecap();
     }
 
