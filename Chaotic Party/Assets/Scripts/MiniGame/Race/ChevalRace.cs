@@ -6,12 +6,18 @@ public class ChevalRace : MonoBehaviour
 {
     public Animator positionAnimator;
     public Animator chevalAnimator;
+    public AudioSource source;
 
     public void StartAnimation()
     {
         positionAnimator.SetTrigger("Cheval");
         //positionAnimator.transform.GetChild(0).gameObject.SetActive(true);
         chevalAnimator.SetTrigger("Cheval");
+    }
+
+    public void PlaySound()
+    {
+        source.Play();
     }
 
     public void MoveHorse()

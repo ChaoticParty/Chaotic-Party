@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
     public SoundManager soundManager;
+    public List<PlayerSoundSo> listPlayerSoundSo;
     public SkinSelector skinSelector;
     public List<MiniGameController> miniGameControllers;
     public Gamepad gamepad;
@@ -122,11 +123,13 @@ public class PlayerController : MonoBehaviour
 
     #region SoundRef
 
-    [FoldoutGroup("AudioSource"), Header("AudioSource")]
+    [Header("AudioSource")]
     [SerializeField] private AudioSource IdleSource;
     [SerializeField] private AudioSource TricheSource;
     [SerializeField] private AudioSource HitSource;
     [SerializeField] private AudioSource HappySource;
+    [SerializeField] private AudioSource SadSource;
+    [SerializeField] private AudioSource JumpSource;
     [SerializeField] private AudioSource atterissageSource;
     [SerializeField] private AudioSource marcheSource;
 
@@ -635,6 +638,38 @@ public class PlayerController : MonoBehaviour
     {
         _playerSo = playerSo; 
         skinSelector.SetupSkin(_playerSo.head, _playerSo.body, _playerSo.color);
+        SetupPlayerSound(_playerSo);
+    }
+
+    public void SetupPlayerSound(PlayerSO playerSo)
+    {
+        switch (playerSo.race.nomRace)
+        {
+            case "Gogoblin" :
+                IdleSource.clip = listPlayerSoundSo[0].idle;
+                TricheSource.clip = listPlayerSoundSo[0].triche;
+                HitSource.clip = listPlayerSoundSo[0].hit;
+                HappySource.clip = listPlayerSoundSo[0].happy;
+                break;
+            case "Sauve-Garde" :
+                IdleSource.clip = listPlayerSoundSo[1].idle;
+                TricheSource.clip = listPlayerSoundSo[1].triche;
+                HitSource.clip = listPlayerSoundSo[1].hit;
+                HappySource.clip = listPlayerSoundSo[1].happy;
+                break;
+            case "Diabolo" :
+                IdleSource.clip = listPlayerSoundSo[2].idle;
+                TricheSource.clip = listPlayerSoundSo[2].triche;
+                HitSource.clip = listPlayerSoundSo[2].hit;
+                HappySource.clip = listPlayerSoundSo[2].happy;
+                break;
+            case "Homme-Poisseux" :
+                IdleSource.clip = listPlayerSoundSo[3].idle;
+                TricheSource.clip = listPlayerSoundSo[3].triche;
+                HitSource.clip = listPlayerSoundSo[3].hit;
+                HappySource.clip = listPlayerSoundSo[3].happy;
+                break;
+        }
     }
 
     public void ChangeColor()
@@ -668,6 +703,16 @@ public class PlayerController : MonoBehaviour
     public void PlayHappySound()
     {
         soundManager.PlaySelfSound(HappySource);
+    }
+
+    public void PlaySadSound()
+    {
+        soundManager.PlaySelfSound(HappySource);
+    }
+
+    public void PlayJumpSound()
+    {
+        soundManager.PlaySelfSound(JumpSource);
     }
 
     public void PlayAtterissageSound()

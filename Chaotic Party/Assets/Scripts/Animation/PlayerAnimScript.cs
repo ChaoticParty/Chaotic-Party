@@ -6,14 +6,33 @@ public class PlayerAnimScript : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
 
-    //TODO a like dans l'animator
     public void PlayIdleSound()
     {
-        player.PlayIdleSound();
+        if (player != null) player.PlayIdleSound();
+    }
+    public void PlayTricheSound()
+    {
+        if (player != null) player.PlayTricheSound();
+    }
+    public void PlayHappySound()
+    {
+        if (player != null) player.PlayHappySound();
+    }
+    public void PlaySadSound()
+    {
+        if (player != null) player.PlaySadSound();
+    }
+    public void PlayHitSound()
+    {
+        if (player != null) player.PlayHitSound();
+    }
+    public void PlayJumpSound()
+    {
+        if (player != null) player.PlayJumpSound();
     }
     
     public void PlayWalkSound()
     {
-        player.PlayMarcheSound();
+        if (player != null) player.PlayMarcheSound();
     }
 }

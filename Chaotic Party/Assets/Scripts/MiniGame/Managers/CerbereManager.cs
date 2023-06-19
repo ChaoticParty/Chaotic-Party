@@ -86,7 +86,6 @@ public class CerbereManager : SpamManager
     private new void Start()
     {
         base.Start();
-        soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>(), true);
     }
 
     private IEnumerator CheapCerbereAnimLaunch() //Workaround pour avoir le cerbere éveillé dès le début
@@ -104,6 +103,8 @@ public class CerbereManager : SpamManager
     [ContextMenu("LoadMiniGame")]
     public override void LoadMiniGame()
     {
+        soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>(), true);
+        soundManager.EventPlay("BruitFond");
         StartCoroutine(CheapCerbereAnimLaunch());
         base.LoadMiniGame();
         rompicheState = RompicheState.NULL;
@@ -192,6 +193,7 @@ public class CerbereManager : SpamManager
                     StartCoroutine(DelayedPlayerGoBack(i));
                     //Feedback
                     cerbereAnimEvents[i].Exclamation();
+                    soundManager.PlaySelfSound(cerbereAnimEvents[i].GetComponent<AudioSource>());
                     cerbereLaser.Invoke();
                     players[i].ChangeBulleText("!");
                     players[i].isStunned = true;
@@ -263,6 +265,7 @@ public class CerbereManager : SpamManager
         nuitObject.SetActive(true);
         nuitObject.GetComponent<Animator>().SetTrigger("Bigger");
         soundManager.PlaySelfSound(nuitObject.GetComponent<AudioSource>());
+        soundManager.PlaySelfSound(bulleAnimator.GetComponent<AudioSource>());
         soundManager.EventStop("CerbereDodo");
         
         foreach (var animator in cerbereAnimator)
@@ -426,6 +429,7 @@ public class CerbereManager : SpamManager
     private IEnumerator EndMiniGameAnim()
     {
         soundManager.EventStop("CerbereDodo");
+        soundManager.EventStop("BruitFond");
         int[] tabRank = new int[4];
         foreach (var player in ranking)
         {
