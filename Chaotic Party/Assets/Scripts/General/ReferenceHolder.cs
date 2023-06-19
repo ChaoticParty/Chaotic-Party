@@ -28,16 +28,18 @@ public class ReferenceHolder : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        if (instance && instance != this)
-        {
-            Destroy(gameObject);
-        }
-        
-        instance = this;
         miniGameData ??= Resources.Load<MiniGameData>("ScriptableObjects/MiniGameData");
         players ??= Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players");
         ResetPlayerData();
         ResetMiniGameData();
+        
+        if (instance && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

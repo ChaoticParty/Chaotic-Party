@@ -3,7 +3,11 @@ guid: 3eacf22bece486649a3a24f0827de69f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - players: {fileID: 11400000, guid: 42d594bc8afb56a42ba27f94141ce02f, type: 2}
+  - miniGameData: {fileID: 11400000, guid: c0c22e91ab58e574aae5adf900d5fff4, type: 2}
+  - oldEventSystem: {instanceID: 0}
+  - transitionSetter: {instanceID: 0}
   executionOrder: -50
   icon: {instanceID: 0}
   userData: 

@@ -47,10 +47,17 @@ public class RecapScoreManager : MiniGameManager
             }
             else
             {
-                ColorTools.ColorToName(rankToPlayerData[i].color, out string playerColor);
-                scoreObj.playerName.text = rankToPlayerData[i].race.nomRace + " " + playerColor;//"Joueur" + (rankToPlayerData[i].id + 1);
-                scoreObj.score.text = rankToPlayerData[i].points.ToString();
-                Transform playerTransform = players[playersData[i].ranking].transform;
+                PlayerSO playerData = rankToPlayerData[i];
+                ColorTools.ColorToName(playerData.color, out string playerColor);
+                scoreObj.playerName.text = playerData.race.nomRace + " " + playerColor;//"Joueur" + (rankToPlayerData[i].id + 1);
+                scoreObj.score.text = playerData.points.ToString();
+                Transform playerTransform = players[playerData.ranking].transform;
+                
+                // id rank shownRank players[playersData.ranking]
+                // 0 2 1 0 
+                // 1 0 2 
+                // 2 1 0 
+                
                 playerTransform.SetParent(scoreObj.sceneObject);
                 playerTransform.localScale = Vector3.one;
                 playerTransform.localPosition = Vector3.zero;

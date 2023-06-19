@@ -74,7 +74,6 @@ public class RulesManager : MiniGameManager
             miniGameData.currentMiniGameIndex]], rules.transform);
         Instantiate(dictRulesCassable[miniGameData.chosenMiniGames[
             miniGameData.currentMiniGameIndex]], rulesCassable.transform);
-        Debug.Log("fin display rules");
     }
 
     private void SearchForLoadedMinigameManager()

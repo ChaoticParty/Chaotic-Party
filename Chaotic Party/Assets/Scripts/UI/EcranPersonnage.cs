@@ -166,6 +166,7 @@ public class EcranPersonnage : MonoBehaviour
         {
             currentRaceIndex --;
         }
+
         VisualRefresh();
     }
     
@@ -609,7 +610,10 @@ public class EcranPersonnage : MonoBehaviour
     public void FillSO()
     {
         PlayerSO playerSo = menuManager.playersListSO.players[playerSOIndex];
+        Debug.Log(currentRace.nomRace);
+        
         playerSo.race = currentRace;
+        Debug.Log(playerSo.race.nomRace);
         playerSo.head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
         playerSo.body = listCorps[currentRaceIndex].listCorps[currentCorpsIndex];
         playerSo.color = listColor[currentColorIndex];
@@ -678,6 +682,7 @@ public class EcranPersonnage : MonoBehaviour
         UiCloseAnim();
         menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(Burning);
         menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listInGamePlayerControllers[playerSOIndex];
+        currentRace = listRaces[currentRaceIndex];
         FillSO();
         menuManager.listInGamePlayerControllers[playerSOIndex].gameObject.SetActive(true);
         menuManager.listInGamePlayerControllers[playerSOIndex].ActivateBulle(true);
