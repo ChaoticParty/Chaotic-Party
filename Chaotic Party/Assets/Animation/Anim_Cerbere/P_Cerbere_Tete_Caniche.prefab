@@ -1931,6 +1931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7290506675368685759}
   - component: {fileID: 897986843821742513}
+  - component: {fileID: 7398153645281420360}
   m_Layer: 0
   m_Name: NPC_Cerbere_Tete_Caniche
   m_TagString: Untagged
@@ -1989,6 +1990,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &7398153645281420360
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892749066753232092}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
 --- !u!1 &8027402101338446401
 GameObject:
   m_ObjectHideFlags: 0

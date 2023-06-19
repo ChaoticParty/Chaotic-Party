@@ -1194,6 +1194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2151917109250262471}
   - component: {fileID: 7860121842107027958}
+  - component: {fileID: 4334930056739186175}
   m_Layer: 0
   m_Name: NPC_Cerbere_Tete_Chiwawa
   m_TagString: Untagged
@@ -1252,6 +1253,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &4334930056739186175
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104689710055636489}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
 --- !u!1 &6178976281867926769
 GameObject:
   m_ObjectHideFlags: 0
