@@ -173,6 +173,8 @@ public class MenuManager : MonoBehaviour
     {
         if (IsLaunchPossible())
         {
+            soundManager.EventPlay("StartGameClick");
+            soundManager.EventStop("PartyMusic");
             startGameAnim.SetTrigger("Push");
             foreach (EcranPersonnage ecranPerso in listPersonnages)
             {
@@ -182,9 +184,9 @@ public class MenuManager : MonoBehaviour
                 }
             }
             if(isRandom) miniGameData.RandomiseMiniGames();
-            Vector3 point = Camera.main.WorldToScreenPoint(listInGamePlayerControllers[0].transform.position);
             ReferenceHolder.Instance.transitionSetter.StartTransition(null, LoadScene, 
-                SetRulesPosition, null, point);
+                SetRulesPosition, null, 
+                Camera.main.WorldToScreenPoint(listInGamePlayerControllers[0].transform.position));
         }
     }
 
@@ -198,7 +200,7 @@ public class MenuManager : MonoBehaviour
     private void SetRulesPosition()
     {
         ReferenceHolder referenceHolder = ReferenceHolder.Instance;
-        referenceHolder.transitionSetter.lastTransition.SetPosition(referenceHolder.miniGameData.GetTransitionPosition(playSceneIndex));
+        referenceHolder.transitionSetter.lastTransition.SetUIPosition(referenceHolder.miniGameData.GetTransitionPosition(playSceneIndex));
     }
     #endregion
 

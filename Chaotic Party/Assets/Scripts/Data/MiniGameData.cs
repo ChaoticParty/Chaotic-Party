@@ -33,14 +33,18 @@ public class MiniGameData : SerializedScriptableObject
 
     public Vector3 GetTransitionPosition(int scene)
     {
-        string sceneName = SceneManager.GetSceneByBuildIndex(scene).name;
-        Debug.Log(sceneName);
-        return TransitionPositionInScene.ContainsKey(sceneName) ? TransitionPositionInScene[sceneName] : default;
+        string path = SceneUtility.GetScenePathByBuildIndex(scene);
+        string sceneName = path.Split('/')[^1].Replace(".unity", "");
+        return TransitionPositionInScene.ContainsKey(sceneName) 
+                ? TransitionPositionInScene[sceneName] 
+                : default;
     }
 
     [Button]
     public void SetSceneName(int sceneIndex)
     {
-        TransitionPositionInScene.Add(SceneManager.GetSceneByBuildIndex(sceneIndex).name, default);
+        string path = SceneUtility.GetScenePathByBuildIndex(sceneIndex);
+        string sceneName = path.Split('/')[^1].Replace(".unity", "");
+        TransitionPositionInScene.Add(sceneName, default);
     }
 }

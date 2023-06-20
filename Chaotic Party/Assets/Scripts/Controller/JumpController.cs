@@ -12,6 +12,7 @@ public class JumpController : MiniGameController
     public float jumpForce = 5;
     public bool canFootStool;
     public bool isJumping;
+    private bool canPlayAtterissageSound = false;
     [NotNull] public Transform footObject;
     private Collider2D _collider2D;
 
@@ -72,6 +73,11 @@ public class JumpController : MiniGameController
         }
         else
         {
+            if (canPlayAtterissageSound) //Timing foireux et semble pas fonctionner en chute sans saut
+            {
+                player.PlayAtterissageSound();
+                canPlayAtterissageSound = false;
+            }
             player.StopFalling();
             if(Mathf.Abs(_rigidbody2D.velocity.y) < 2)
             {
@@ -114,6 +120,8 @@ public class JumpController : MiniGameController
             gameObject.GetComponent<AudioSource>().clip = jumpSoundClip;
             player.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         }
+
+        canPlayAtterissageSound = true;
         _rigidbody2D.velocity = new Vector2(0, jumpForce);
         player.Jump();
     }

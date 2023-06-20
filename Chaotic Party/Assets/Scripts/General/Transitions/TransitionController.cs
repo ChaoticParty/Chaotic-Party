@@ -31,6 +31,11 @@ public class TransitionController : MonoBehaviour
         animator.transform.position = position;
     }
 
+    public void SetUIPosition(Vector3 position)
+    {
+        animator.transform.position = Camera.main.WorldToScreenPoint(position);
+    }
+
     public void TransitionDone()
     {
         OnTransitionDone?.Invoke();
@@ -61,6 +66,7 @@ public class TransitionController : MonoBehaviour
     {
         OnTransitionFinisherDone?.Invoke();
         ResetEvents();
+        Time.timeScale = 1;
         DeactivateTransition();
     }
 

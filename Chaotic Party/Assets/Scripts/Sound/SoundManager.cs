@@ -41,12 +41,21 @@ public class SoundManager : MonoBehaviour
         Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
     }
 
-    public void PlaySelfSound(AudioSource cibleAudio)
+    public void PlaySelfSound(AudioSource cibleAudio, bool loop = false)
     {
         Debug.Log("SoundEvent : Self. Id : "+cibleAudio.gameObject.name);
         if (cibleAudio.clip == null) return;
         
         cibleAudio.Play();
+        cibleAudio.loop = loop;
+    }
+    public void StopSelfSound(AudioSource cibleAudio, bool loop = false)
+    {
+        Debug.Log("SoundEvent : Self. Id : "+cibleAudio.gameObject.name);
+        if (cibleAudio.clip == null) return;
+        
+        cibleAudio.Stop();
+        cibleAudio.loop = loop;
     }
 
     [Serializable]
