@@ -24,6 +24,22 @@ public class TransitionController : MonoBehaviour
         animator.SetTrigger(Launch);
         OnTransitionStarted?.Invoke();
         SetPosition(position);
+
+        EnableInputs(false);
+    }
+
+    private void EnableInputs(bool enable = true)
+    {
+        MultiplayerManager multiplayerManager = FindObjectOfType<MultiplayerManager>();
+        if (!multiplayerManager) return;
+        
+        foreach (PlayerController player in multiplayerManager.players)
+        {
+            if(enable) 
+                player.EnableAllInputs();
+            else
+                player.DisableAllInputs();  
+        }
     }
 
     public void SetPosition(Vector3 position)
@@ -66,6 +82,7 @@ public class TransitionController : MonoBehaviour
     {
         OnTransitionFinisherDone?.Invoke();
         ResetEvents();
+        EnableInputs(true);
         Time.timeScale = 1;
         DeactivateTransition();
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using HinputClasses;
 using Sirenix.OdinInspector;
@@ -7,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Button = HinputClasses.Button;
 
 [RequireComponent(typeof(CrownManager))]
 public class PlayerController : MonoBehaviour
@@ -743,4 +745,44 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
+    public void DisableAllInputs()
+    {
+        if(gamepad == null) return;
+
+        StartCoroutine(EnableAllInputs(false));
+    }
+
+    public void EnableAllInputs()
+    {
+        if(gamepad == null) return;
+
+        StartCoroutine(EnableAllInputs(true));
+    }
+
+    private IEnumerator EnableAllInputs(bool enable)
+    {
+        yield return new WaitForNextFrameUnit();
+
+        if (enable)
+        {
+            gamepad.leftStick.Enable();
+            gamepad.rightStick.Enable();
+            gamepad.start.Enable();
+            gamepad.A.Enable();
+            gamepad.B.Enable();
+            gamepad.Y.Enable();
+            gamepad.X.Enable();
+        }
+        else
+        {
+            gamepad.leftStick.Disable();
+            gamepad.rightStick.Disable();
+            gamepad.start.Disable();
+            gamepad.A.Disable();
+            gamepad.B.Disable();
+            gamepad.Y.Disable();
+            gamepad.X.Disable();
+        }
+    }
 }
