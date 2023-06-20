@@ -15,7 +15,10 @@ public class MenuManager : MonoBehaviour
     public List<PlayerController> listInGamePlayerControllers;
     private ReferenceHolder _referenceHolder;
     private GameObject oldEventObject;
+    public GameObject cinematicObject;
+    public Animator clickToPlayAnim;
     private bool isClickCheckCoroutineActive = false;
+    private bool inCinematic = false;
     [Space]
     public string optionsScene;
     public Dictionary<sbyte, sbyte> selectColor = new Dictionary<sbyte, sbyte>();
@@ -32,6 +35,7 @@ public class MenuManager : MonoBehaviour
     public GameObject panelMinigame;
     private GameObject oldPanel;
     [Space]
+    public GameObject clickToPlayObject;
     public GameObject firstMenuPrincpal;
     public GameObject firstParty;
     public GameObject firstMinigame;
@@ -64,7 +68,6 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        // Caching.ClearCache(); // Tester si ça resout le soucis de l'attribution des manettes
         _referenceHolder = GameObject.Find("ReferenceHolder").GetComponent<ReferenceHolder>();
         foreach (EcranPersonnage ecranPersonnage in listPersonnages)
         {
@@ -74,12 +77,21 @@ public class MenuManager : MonoBehaviour
         
         maxWeightPartyBackmask = partyBackMask.sizeDelta.x;
         partyBackMask.sizeDelta = new Vector2(0, partyBackMask.sizeDelta.y);
+
+        if (!_referenceHolder.firtslaunch) return;
+        
+        _referenceHolder.firtslaunch = false;
+        inCinematic = true;
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     private void OnEnable()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
+        if (!_referenceHolder.firtslaunch)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
+        }
 
         oldEventObject = firstMenuPrincpal;
 
@@ -110,6 +122,11 @@ public class MenuManager : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (Hinput.anyGamepad.start.pressed && inCinematic)
+        {
+            PassCinematic();
+        }
+        
         nbCurrentGamepads = multiplayerManager.GamepadCount();
         if (!nbCurrentGamepads.Equals(nbGamepadsLastFrame))
         {
@@ -285,6 +302,19 @@ public class MenuManager : MonoBehaviour
         this.oldPanel = oldPanel;
         newPanel.SetActive(true);
         oldPanel.SetActive(false);
+    }
+
+    public void PassCinematic()
+    {
+        inCinematic = false;
+        _referenceHolder.transitionSetter.StartTransition(null, 
+            () => cinematicObject.SetActive(false),null, 
+            () => EventSystem.current.SetSelectedGameObject(clickToPlayObject));
+    }
+    
+    public void ClickToPlay()
+    {
+        clickToPlayAnim.SetTrigger("LaunchAnim");
     }
     
     #endregion

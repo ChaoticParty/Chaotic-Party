@@ -22,6 +22,7 @@ public class ReferenceHolder : MonoBehaviour
     public MiniGameData miniGameData;
     public GameObject oldEventSystem;
     public TransitionSetter transitionSetter;
+    public bool firtslaunch = true;
 
     private void Awake()
     {
