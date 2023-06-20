@@ -52,6 +52,11 @@ public class RecapScoreManager : MiniGameManager
                 scoreObj.playerName.text = playerData.race.nomRace + " " + playerColor;//"Joueur" + (rankToPlayerData[i].id + 1);
                 scoreObj.score.text = playerData.points.ToString();
                 Transform playerTransform = players[playerData.ranking].transform;
+
+                /*foreach (PlayerController player in players)
+                {
+                    if(player._playerSo)
+                }*/
                 
                 // id rank shownRank players[playersData.ranking]
                 // 0 2 1 0 
