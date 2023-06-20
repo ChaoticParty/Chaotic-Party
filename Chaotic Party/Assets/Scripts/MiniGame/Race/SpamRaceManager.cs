@@ -14,9 +14,10 @@ using UnityEngine.Playables;
 
 public class SpamRaceManager : SpamManager
 {
+    [SerializeField] public SoundManager soundManager;
     [FoldoutGroup("Scene Objects")]
     [FoldoutGroup("Scene Objects/Cars"), SceneObjectsOnly]
-    [SerializeField] private GameObject[] cars;
+    [SerializeField] public GameObject[] cars;
     [FoldoutGroup("Scene Objects/Camera"), SceneObjectsOnly]
     [SerializeField] private CinemachineVirtualCamera raceCamera;
     [FoldoutGroup("Scene Objects/Cars"), SceneObjectsOnly]
@@ -77,6 +78,9 @@ public class SpamRaceManager : SpamManager
     {
         base.Start();
         ActivateUI(false);
+        soundManager ??= FindObjectOfType<SoundManager>();
+        soundManager.EventPlay("RaceMusic");
+        soundManager.EventPlay("VroomCar");
         //ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
     }
 
@@ -210,6 +214,7 @@ public class SpamRaceManager : SpamManager
 
     public void UpdateClickUi(int playerIndex, float value, bool valueToAdd = false)
     {
+        if (value > 0) soundManager.PlaySelfSound(spamTexts[playerIndex].transform.parent.GetComponent<AudioSource>());
         if (valueToAdd) value += Convert.ToInt32(spamTexts[playerIndex].text.Replace("+", ""));
         spamTexts[playerIndex].text = value.ToString(CultureInfo.CurrentCulture);
     }
@@ -255,6 +260,7 @@ public class SpamRaceManager : SpamManager
         ranking = GetRanking();
         AddPoints();
         SetCurrentRanking();
+        soundManager.EventStop("VroomCar");
         GetComponent<PlayableDirector>().Play();
     }
 
@@ -328,9 +334,13 @@ public class SpamRaceManager : SpamManager
                 yield return null;
             }
         }*/
+        
+        soundManager.EventPlay("VoitureRoule");
 
         yield return new WaitForSeconds(6);
         
+        soundManager.EventStop("RaceMusic");
+        soundManager.EventStop("VoitureRoule");
         LoadRecap();
     }
 }

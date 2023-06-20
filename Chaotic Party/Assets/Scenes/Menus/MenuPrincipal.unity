@@ -391,22 +391,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &30455454 stripped
 AudioSource:
-  m_CorrespondingSourceObject: {fileID: 270694571644547156, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 86783208607437107, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
   m_PrefabInstance: {fileID: 30455452}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &30455455 stripped
 AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3983741804702384615, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7759650940038434699, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
   m_PrefabInstance: {fileID: 30455452}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &30455456 stripped
 AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8358336836866992925, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4382060368005485833, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
   m_PrefabInstance: {fileID: 30455452}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &30455457 stripped
 AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1500024686254921503, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6944366480960539790, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
   m_PrefabInstance: {fileID: 30455452}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &44963408
@@ -2656,7 +2656,7 @@ MonoBehaviour:
     soundEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 30455454}
+        - m_Target: {fileID: 30455457}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: Play
           m_Mode: 1
@@ -2688,7 +2688,7 @@ MonoBehaviour:
     soundEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 30455457}
+        - m_Target: {fileID: 30455455}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: Play
           m_Mode: 1
@@ -2704,7 +2704,7 @@ MonoBehaviour:
     soundEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 30455455}
+        - m_Target: {fileID: 30455454}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: Play
           m_Mode: 1
@@ -2817,6 +2817,22 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1588116661}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - id: ParcheminSound
+    soundEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1086279674}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: Play
           m_Mode: 1
@@ -3206,6 +3222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2627cb73d747a4e488a3382538cecabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1086279674 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4299349407449225071, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+  m_PrefabInstance: {fileID: 30455452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1097787159 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 684590222044655730, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
@@ -3460,6 +3481,7 @@ MonoBehaviour:
   miniGameData: {fileID: 11400000, guid: c0c22e91ab58e574aae5adf900d5fff4, type: 2}
   oldEventSystem: {fileID: 0}
   transitionSetter: {fileID: 1220554210}
+  firtslaunch: 1
 --- !u!4 &1220554209
 Transform:
   m_ObjectHideFlags: 0

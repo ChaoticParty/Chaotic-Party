@@ -27,6 +27,8 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
     [FoldoutGroup("Scene Objects/Colorisation"), SceneObjectsOnly]
     public List<SpriteRendererListWrapper> cinematicObjectsToColorise = new();
 
+    private PlayerController _currentWinner;
+
     protected virtual void Start()
     {
         if (miniGameObjectsToColorise.Count > 0)
@@ -69,9 +71,12 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
     protected void DisplayCrown()
     {
         int winner = GetWinner();
-        for (int i = 0; i < crowns.Length; i++)
+        if(players[winner] == _currentWinner) return;
+
+        _currentWinner = players[winner];
+        for (int i = 0; i < players.Count; i++)
         {
-            crowns[i].SetActive(i == winner);
+            players[i].crownManager.SetCrown(i == winner);
         }
     }
 
@@ -200,8 +205,16 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
     {
         List<PlayerSO> orderedPlayerSos = new List<PlayerSO>();
         
-        List<PlayerSO> playerSos = ReferenceHolder.Instance.players.players;
-        
+        List<PlayerSO> playerSos;
+        if(ReferenceHolder.Instance)
+        {
+            playerSos = ReferenceHolder.Instance.players.players;
+        }
+        else
+        {
+            playerSos = Resources.Load<PlayersListSO>("ScriptableObjects/Players/Players").players;
+        }
+
         for (int i = 0; i < playerControllers.Count; i++)
         {
             orderedPlayerSos.Add(playerSos[players.IndexOf(playerControllers[i])]);

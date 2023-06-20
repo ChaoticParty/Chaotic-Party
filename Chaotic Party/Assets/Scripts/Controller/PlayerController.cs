@@ -1,17 +1,21 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using HinputClasses;
+using Sirenix.OdinInspector;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Button = HinputClasses.Button;
 
 [RequireComponent(typeof(CrownManager))]
 public class PlayerController : MonoBehaviour
 {
     public MiniGameManager miniGameManager;
     public SoundManager soundManager;
+    public List<PlayerSoundSo> listPlayerSoundSo;
     public SkinSelector skinSelector;
     public List<MiniGameController> miniGameControllers;
     public Gamepad gamepad;
@@ -21,7 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bulleText;
     [SerializeField] private Image bullSpt;
     [HideInInspector] public PlayerSO _playerSo;
-    private CrownManager _crownManager;
+    public CrownManager crownManager;
 
     #region Sprites
     
@@ -124,6 +128,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource TricheSource;
     [SerializeField] private AudioSource HitSource;
     [SerializeField] private AudioSource HappySource;
+    [SerializeField] private AudioSource SadSource;
+    [SerializeField] private AudioSource JumpSource;
     [SerializeField] private AudioSource atterissageSource;
     [SerializeField] private AudioSource marcheSource;
 
@@ -147,6 +153,9 @@ public class PlayerController : MonoBehaviour
     private static readonly int Degat = Animator.StringToHash("Degat");
     private static readonly int DegatVersion = Animator.StringToHash("DegatVersion");
     private static readonly int EndLaserDegat = Animator.StringToHash("EndLaserDegat");
+    private static readonly int Defaite = Animator.StringToHash("Defaite");
+    private static readonly int DefaiteVersion = Animator.StringToHash("DefaiteVersion");
+    private static readonly int VictoireVersion = Animator.StringToHash("VictoireVersion");
 
     #endregion
 
@@ -155,7 +164,7 @@ public class PlayerController : MonoBehaviour
         if(nameObject) nameObject.text = nameText + (index + 1);
         miniGameManager ??= FindObjectOfType<MiniGameManager>();
         soundManager ??= FindObjectOfType<SoundManager>();
-        _crownManager ??= GetComponent<CrownManager>();
+        crownManager ??= GetComponent<CrownManager>();
     }
 
     public void AddAllListeners()
@@ -537,9 +546,16 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(Fall1, false);
     }
 
-    public void VictoryAnimation()
+    public void VictoryAnimation(int version = 0)
     {
         animator.SetBool(Victoire, true);
+        animator.SetInteger(VictoireVersion, version);
+    }
+
+    public void DefeatAnimation(int version = 0)
+    {
+        animator.SetBool(Defaite, true);
+        animator.SetInteger(DefaiteVersion, version);
     }
 
     private void OnDisable()
@@ -622,6 +638,38 @@ public class PlayerController : MonoBehaviour
     {
         _playerSo = playerSo; 
         skinSelector.SetupSkin(_playerSo.head, _playerSo.body, _playerSo.color);
+        SetupPlayerSound(_playerSo);
+    }
+
+    public void SetupPlayerSound(PlayerSO playerSo)
+    {
+        switch (playerSo.race.nomRace)
+        {
+            case "Gogoblin" :
+                IdleSource.clip = listPlayerSoundSo[0].idle;
+                TricheSource.clip = listPlayerSoundSo[0].triche;
+                HitSource.clip = listPlayerSoundSo[0].hit;
+                HappySource.clip = listPlayerSoundSo[0].happy;
+                break;
+            case "Sauve-Garde" :
+                IdleSource.clip = listPlayerSoundSo[1].idle;
+                TricheSource.clip = listPlayerSoundSo[1].triche;
+                HitSource.clip = listPlayerSoundSo[1].hit;
+                HappySource.clip = listPlayerSoundSo[1].happy;
+                break;
+            case "Diabolo" :
+                IdleSource.clip = listPlayerSoundSo[2].idle;
+                TricheSource.clip = listPlayerSoundSo[2].triche;
+                HitSource.clip = listPlayerSoundSo[2].hit;
+                HappySource.clip = listPlayerSoundSo[2].happy;
+                break;
+            case "Homme-Poisseux" :
+                IdleSource.clip = listPlayerSoundSo[3].idle;
+                TricheSource.clip = listPlayerSoundSo[3].triche;
+                HitSource.clip = listPlayerSoundSo[3].hit;
+                HappySource.clip = listPlayerSoundSo[3].happy;
+                break;
+        }
     }
 
     public void ChangeColor()
@@ -657,6 +705,16 @@ public class PlayerController : MonoBehaviour
         soundManager.PlaySelfSound(HappySource);
     }
 
+    public void PlaySadSound()
+    {
+        soundManager.PlaySelfSound(HappySource);
+    }
+
+    public void PlayJumpSound()
+    {
+        soundManager.PlaySelfSound(JumpSource);
+    }
+
     public void PlayAtterissageSound()
     {
         soundManager.PlaySelfSound(atterissageSource);
@@ -687,4 +745,44 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
+    public void DisableAllInputs()
+    {
+        if(gamepad == null) return;
+
+        StartCoroutine(EnableAllInputs(false));
+    }
+
+    public void EnableAllInputs()
+    {
+        if(gamepad == null) return;
+
+        StartCoroutine(EnableAllInputs(true));
+    }
+
+    private IEnumerator EnableAllInputs(bool enable)
+    {
+        yield return new WaitForNextFrameUnit();
+
+        if (enable)
+        {
+            gamepad.leftStick.Enable();
+            gamepad.rightStick.Enable();
+            gamepad.start.Enable();
+            gamepad.A.Enable();
+            gamepad.B.Enable();
+            gamepad.Y.Enable();
+            gamepad.X.Enable();
+        }
+        else
+        {
+            gamepad.leftStick.Disable();
+            gamepad.rightStick.Disable();
+            gamepad.start.Disable();
+            gamepad.A.Disable();
+            gamepad.B.Disable();
+            gamepad.Y.Disable();
+            gamepad.X.Disable();
+        }
+    }
 }

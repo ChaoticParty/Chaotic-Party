@@ -166,6 +166,7 @@ public class EcranPersonnage : MonoBehaviour
         {
             currentRaceIndex --;
         }
+
         VisualRefresh();
     }
     
@@ -609,7 +610,10 @@ public class EcranPersonnage : MonoBehaviour
     public void FillSO()
     {
         PlayerSO playerSo = menuManager.playersListSO.players[playerSOIndex];
+        Debug.Log(currentRace.nomRace);
+        
         playerSo.race = currentRace;
+        Debug.Log(playerSo.race.nomRace);
         playerSo.head = listTetes[currentRaceIndex].listTête[currentTeteIndex];
         playerSo.body = listCorps[currentRaceIndex].listCorps[currentCorpsIndex];
         playerSo.color = listColor[currentColorIndex];
@@ -639,13 +643,10 @@ public class EcranPersonnage : MonoBehaviour
         {
             aClick.SetTrigger("Push");
             menuManager.soundManager.PlaySelfSound(aClick.gameObject.GetComponent<AudioSource>());
-            //Anim du parchemin qui se ferme et remonte + possibilité au joueur de jouer avec son perso
             menuManager.readyCount++;
-            //Faire le check aussi
         }
         else
         {
-            //Anim du parchemin qui s'ouvre et redscent + peut plus jouer avec son perso
             menuManager.readyCount--;
         }
         LockColor(isReady);
@@ -681,6 +682,7 @@ public class EcranPersonnage : MonoBehaviour
         UiCloseAnim();
         menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(Burning);
         menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listInGamePlayerControllers[playerSOIndex];
+        currentRace = listRaces[currentRaceIndex];
         FillSO();
         menuManager.listInGamePlayerControllers[playerSOIndex].gameObject.SetActive(true);
         menuManager.listInGamePlayerControllers[playerSOIndex].ActivateBulle(true);
@@ -694,6 +696,7 @@ public class EcranPersonnage : MonoBehaviour
 
     public void SpawnSelectionScreen()
     {
+        menuManager.soundManager.PlaySelfSound(gameObject.GetComponent<AudioSource>());
         UiOpenAnim();
         menuManager.listMaskPersonnagesAnimator[playerSOIndex].SetTrigger(BackBurning);
         menuManager.multiplayerManager.players[playerSOIndex] = menuManager.listUiPlayerControllers[playerSOIndex];

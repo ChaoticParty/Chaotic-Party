@@ -6,4 +6,15 @@ public class ZBreakAnim : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    
+    public void SoundPlay()
+    {
+        if (gameObject.TryGetComponent<AudioSource>(out AudioSource source))
+        {
+            if (source.clip != null)
+            {
+                source.Play();
+            }
+        }
+    }
 }

@@ -10,6 +10,7 @@ public class SpamRaceController : SpamController
     public GameObject car;
     public GameObject raceCar;
     public Sprite launchSprite;
+    public AudioSource jetChevalSound;
     public Coroutine _coroutine;
     private int _clickValue;
     private SpamRaceManager _spamRaceManager;
@@ -17,7 +18,7 @@ public class SpamRaceController : SpamController
     private GameObject _effect;
     public Transform spamValuePosition;
     public Transform spamButton;
-    public ChevalRace chevalRace;
+    public Transform playerPositionVoiture;
     
     protected new void Awake()
     {
@@ -50,6 +51,7 @@ public class SpamRaceController : SpamController
         
         if (hasClicked) return;
         player.MetCheval();
+        _spamRaceManager.soundManager.PlaySelfSound(jetChevalSound);
         StartCoroutine(Cooldown());
         switch (_spamRaceManager.typeAjoutPoints)
         {
@@ -82,8 +84,8 @@ public class SpamRaceController : SpamController
                 break;
         }
         spamButton.localScale = Vector3.one * 0.7f;
-        Transform chevalRaceTransform = this.chevalRace.transform;
-        ChevalRace chevalRace = Instantiate(this.chevalRace, chevalRaceTransform.parent);
+        GameObject poolObject = Pooling.instance.GetPoolObject(playerPositionVoiture);
+        ChevalRace chevalRace = poolObject.GetComponent<ChevalRace>();
         chevalRace.StartAnimation();
     }
 
@@ -113,7 +115,13 @@ public class SpamRaceController : SpamController
         ThrowObjectCurve throwObjectScript = new GameObject().AddComponent<ThrowObjectCurve>();
         Vector2 pos = transform.position;
         Vector2 endPos = spamManager.players[otherPlayerIndex].transform.position;//new(-3f, -1f);
-        void OnEnd() => spamManager.Click(otherPlayerIndex, -spamManager.versusSpamValue);
+        
+        void OnEnd()
+        {
+            _spamRaceManager.soundManager.PlaySelfSound(_spamRaceManager.cars[otherPlayerIndex].GetComponent<AudioSource>());
+            spamManager.Click(otherPlayerIndex, -spamManager.versusSpamValue);
+        }
+
         throwObjectScript.Setup(pos, endPos/*spamManager.players[otherPlayerIndex].transform.position*/, 0.5f, 
             1, launchSprite, new Vector3(0.3f, 0.3f, 0.3f), OnEnd);
     }

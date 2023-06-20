@@ -19,11 +19,9 @@ public class MultiplayerManager : MonoBehaviour
 
     public void InitMultiplayer()
     {
-        Debug.Log("init multiplayer");
         for (int i = 0; i < Hinput.gamepad.Count; i++)
         {
             Gamepad gamepad = Hinput.gamepad[i];
-            //Debug.Log(i + " / "+gamepad.isConnected);
             if (players.Count <= i)
             {
                 return;
@@ -42,7 +40,13 @@ public class MultiplayerManager : MonoBehaviour
             {
                 gamepad.Disable();
                 if(player) player.gameObject.SetActive(false);
-                if(player && isInMenu) player.transform.parent.gameObject.SetActive(false);
+                if (player && isInMenu)
+                {
+                    if (player.transform.parent != null)
+                    {
+                        player.transform.parent.gameObject.SetActive(false);
+                    }
+                }
             }
         }
     }

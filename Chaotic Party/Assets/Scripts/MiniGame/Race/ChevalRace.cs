@@ -6,7 +6,7 @@ public class ChevalRace : MonoBehaviour
 {
     public Animator positionAnimator;
     public Animator chevalAnimator;
-    public Transform voiture;
+    public AudioSource source;
 
     public void StartAnimation()
     {
@@ -15,13 +15,20 @@ public class ChevalRace : MonoBehaviour
         chevalAnimator.SetTrigger("Cheval");
     }
 
+    public void PlaySound()
+    {
+        source.Play();
+    }
+
     public void MoveHorse()
     {
-        transform.SetParent(voiture);
+        //transform.SetParent(voiture);
     }
 
     public void Destroy()
     {
-        Destroy(gameObject);
+        positionAnimator.SetTrigger("Fin");
+        chevalAnimator.SetTrigger("Fin");
+        Pooling.instance.ReturnToPool(gameObject);
     }
 }
