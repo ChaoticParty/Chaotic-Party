@@ -1043,6 +1043,7 @@ GameObject:
   - component: {fileID: 6144562888638903640}
   - component: {fileID: 6480797538655177378}
   - component: {fileID: 1296560126144373224}
+  - component: {fileID: 1201780167228158386}
   m_Layer: 0
   m_Name: NPC_Cerbere_Tete_Malinoi
   m_TagString: Untagged
@@ -1119,6 +1120,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Library: []
   m_SpriteLibraryAsset: {fileID: 0}
+--- !u!210 &1201780167228158386
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860482815752439923}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 20
 --- !u!1 &3956774816046981477
 GameObject:
   m_ObjectHideFlags: 0
