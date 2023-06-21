@@ -511,6 +511,12 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(Tacle, false);
     }
 
+    public void Hit()
+    {
+        animator.SetTrigger(Degat);
+        animator.SetInteger(DegatVersion, 0);
+    }
+
     public void MetCheval()
     {
         animator.SetTrigger(Cheval);

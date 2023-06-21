@@ -2283,7 +2283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 728354692}
@@ -2301,7 +2301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 87899057}
-  forceTacle: {x: 20, y: 0}
+  forceTacle: {x: 7, y: 3}
 --- !u!61 &735630066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3549,6 +3549,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2627cb73d747a4e488a3382538cecabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1240165813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735630061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
+  hitForce: {x: 300, y: 300}
+--- !u!114 &1240165814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735630061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
 --- !u!1 &1322829617
 GameObject:
   m_ObjectHideFlags: 0
@@ -4037,7 +4064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 1187723781}
@@ -4055,7 +4082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 84186585}
-  forceTacle: {x: 20, y: 0}
+  forceTacle: {x: 7, y: 3}
 --- !u!61 &1484720500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4511,6 +4538,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2627cb73d747a4e488a3382538cecabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1595603465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484720495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
+  hitForce: {x: 300, y: 300}
+--- !u!114 &1595603466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484720495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
 --- !u!1001 &1637481033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4619,7 +4673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 709321800}
@@ -4637,7 +4691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 493358824}
-  forceTacle: {x: 20, y: 0}
+  forceTacle: {x: 7, y: 3}
 --- !u!61 &1637481039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4711,6 +4765,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2627cb73d747a4e488a3382538cecabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1637481046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637481034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
+  hitForce: {x: 300, y: 300}
+--- !u!114 &1637481047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637481034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
 --- !u!1 &1714082910
 GameObject:
   m_ObjectHideFlags: 0
@@ -4930,7 +5011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 173221915}
@@ -4948,7 +5029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 640178745}
-  forceTacle: {x: 20, y: 0}
+  forceTacle: {x: 7, y: 3}
 --- !u!61 &1735875122
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5022,6 +5103,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2627cb73d747a4e488a3382538cecabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1735875129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735875117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
+  hitForce: {x: 300, y: 300}
+--- !u!114 &1735875130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735875117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
 --- !u!1 &1748063924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3304385477552867488, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
