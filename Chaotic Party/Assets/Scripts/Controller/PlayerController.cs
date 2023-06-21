@@ -762,7 +762,6 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator EnableAllInputs(bool enable)
     {
-        yield return new WaitForNextFrameUnit();
 
         if (enable)
         {
@@ -784,5 +783,6 @@ public class PlayerController : MonoBehaviour
             gamepad.Y.Disable();
             gamepad.X.Disable();
         }
+        yield return new WaitForNextFrameUnit();
     }
 }
