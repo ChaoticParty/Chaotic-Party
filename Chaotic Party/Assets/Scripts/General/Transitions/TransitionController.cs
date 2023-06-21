@@ -35,6 +35,7 @@ public class TransitionController : MonoBehaviour
         
         foreach (PlayerController player in multiplayerManager.players)
         {
+            if(!player.gameObject.activeInHierarchy) continue;
             if(enable) 
                 player.EnableAllInputs();
             else

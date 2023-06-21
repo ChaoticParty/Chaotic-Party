@@ -19,6 +19,7 @@ public class MenuManager : MonoBehaviour
     public Animator clickToPlayAnim;
     private bool isClickCheckCoroutineActive = false;
     private bool inCinematic = false;
+    private bool inClickToPlay = false;
     [Space]
     public string optionsScene;
     public Dictionary<sbyte, sbyte> selectColor = new Dictionary<sbyte, sbyte>();
@@ -80,9 +81,10 @@ public class MenuManager : MonoBehaviour
 
         if (!_referenceHolder.firtslaunch) return;
         
-        _referenceHolder.firtslaunch = false;
         inCinematic = true;
+        inClickToPlay = true;
         EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.firstSelectedGameObject = null;
     }
 
     private void OnEnable()
@@ -91,6 +93,11 @@ public class MenuManager : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
+            EventSystem.current.firstSelectedGameObject = firstMenuPrincpal;
+        }
+        else
+        {
+            _referenceHolder.firtslaunch = false;
         }
 
         oldEventObject = firstMenuPrincpal;
@@ -124,7 +131,11 @@ public class MenuManager : MonoBehaviour
     {
         if (Hinput.anyGamepad.start.pressed && inCinematic)
         {
-            PassCinematic();
+            //PassCinematic(); //TODO attente de fix
+        }
+        if (Hinput.anyGamepad.anyInput.pressed && inClickToPlay)
+        {
+            ClickToPlay();
         }
         
         nbCurrentGamepads = multiplayerManager.GamepadCount();
@@ -158,6 +169,7 @@ public class MenuManager : MonoBehaviour
         }
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
         
+        if (inClickToPlay || inCinematic) return;
         if (EventSystem.current.alreadySelecting) return;
         if (!isClickCheckCoroutineActive) StartCoroutine(CheckMouseClick());
         if (EventSystem.current.currentSelectedGameObject != null)
@@ -315,6 +327,10 @@ public class MenuManager : MonoBehaviour
     public void ClickToPlay()
     {
         clickToPlayAnim.SetTrigger("LaunchAnim");
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
+        EventSystem.current.firstSelectedGameObject = firstMenuPrincpal;
+        inClickToPlay = false;
     }
     
     #endregion

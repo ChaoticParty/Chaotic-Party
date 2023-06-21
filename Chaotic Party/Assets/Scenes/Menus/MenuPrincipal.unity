@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6755694171850523, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1210135839238760577, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_Texture
       value: 
@@ -148,6 +152,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1307911019534166940, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265859463990957434, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2487807896121593321, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
@@ -5338,7 +5346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1978984472
 SpriteRenderer:
   m_ObjectHideFlags: 0
