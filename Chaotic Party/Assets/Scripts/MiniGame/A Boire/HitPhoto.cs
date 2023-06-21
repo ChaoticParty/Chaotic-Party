@@ -13,6 +13,7 @@ public class HitPhoto : HitController
         player.isHit = true;
         if (bamPrefab != null) Instantiate(bamPrefab, transform.position, Quaternion.identity);
         //Lancement de l'anim de hit
+        player.Hit();
         player.gamepad.A.Disable();
         player.gamepad.Y.Disable();
         player.gamepad.leftStick.Disable();

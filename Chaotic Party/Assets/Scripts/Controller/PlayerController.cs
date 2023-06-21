@@ -511,6 +511,12 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(Tacle, false);
     }
 
+    public void Hit()
+    {
+        animator.SetTrigger(Degat);
+        animator.SetInteger(DegatVersion, 0);
+    }
+
     public void MetCheval()
     {
         animator.SetTrigger(Cheval);
@@ -762,7 +768,6 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator EnableAllInputs(bool enable)
     {
-        yield return new WaitForNextFrameUnit();
 
         if (enable)
         {
@@ -784,5 +789,6 @@ public class PlayerController : MonoBehaviour
             gamepad.Y.Disable();
             gamepad.X.Disable();
         }
+        yield return new WaitForNextFrameUnit();
     }
 }

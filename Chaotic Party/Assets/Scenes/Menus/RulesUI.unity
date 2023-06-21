@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 1077332108}
-  forceTacle: {x: 10, y: 0}
+  forceTacle: {x: 7, y: 3}
 --- !u!114 &334150789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 1024261036}
@@ -359,6 +359,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &401786975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747449040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
+  hitForce: {x: 300, y: 300}
+--- !u!114 &401786976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747449040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
 --- !u!1 &432337070
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 1439755612}
-  forceTacle: {x: 10, y: 0}
+  forceTacle: {x: 7, y: 3}
 --- !u!114 &488147158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 498556533}
@@ -1116,7 +1143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 1944464183}
-  forceTacle: {x: 10, y: 0}
+  forceTacle: {x: 7, y: 3}
 --- !u!114 &643767588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,7 +1158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 1046899395}
@@ -1466,7 +1493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 469754086}
-  forceTacle: {x: 10, y: 0}
+  forceTacle: {x: 7, y: 3}
 --- !u!114 &747449045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1481,7 +1508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 677385769}
@@ -1866,6 +1893,87 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7798021414279382180, guid: c3e6f21fce6a45c48885f0e7e5aa739d, type: 3}
   m_PrefabInstance: {fileID: 747449039}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &821879900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747449041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
+  hitForce: {x: 300, y: 300}
+--- !u!114 &821879901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747449041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
+--- !u!114 &821879902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747449042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
+  hitForce: {x: 300, y: 300}
+--- !u!114 &821879903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747449042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
+--- !u!114 &821879904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747449043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41b72864e5547141b6bb8d1148ce773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bamPrefab: {fileID: 5776382497683549686, guid: 9a93d8b6a78deb44387cf0d27a92c5f5, type: 3}
+  hitForce: {x: 300, y: 300}
+--- !u!114 &821879905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747449043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3afa9294cee1841a7f5484e931a58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStunTime: 0.5
 --- !u!1 &1024261035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniGameManager: {fileID: 0}
   soundManager: {fileID: 0}
+  listPlayerSoundSo: []
   skinSelector: {fileID: 0}
   miniGameControllers: []
   index: 0
@@ -2125,6 +2234,8 @@ MonoBehaviour:
   TricheSource: {fileID: 0}
   HitSource: {fileID: 0}
   HappySource: {fileID: 0}
+  SadSource: {fileID: 0}
+  JumpSource: {fileID: 0}
   atterissageSource: {fileID: 0}
   marcheSource: {fileID: 0}
   animator: {fileID: 0}

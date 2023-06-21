@@ -1889,7 +1889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 326301721}
@@ -4227,7 +4227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 337523445}
@@ -6427,7 +6427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 762287620}
@@ -7015,6 +7015,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7255145274150125894, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
 --- !u!4 &1979745181 stripped
@@ -7062,7 +7066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSoundClip: {fileID: 0}
   jumpButton: 0
-  jumpForce: 10
+  jumpForce: 15
   canFootStool: 0
   isJumping: 0
   footObject: {fileID: 359873440}
