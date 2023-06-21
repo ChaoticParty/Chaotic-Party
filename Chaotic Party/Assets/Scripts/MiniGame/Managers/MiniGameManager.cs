@@ -29,6 +29,11 @@ public abstract class MiniGameManager : SerializedMonoBehaviour
 
     private PlayerController _currentWinner;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 120;
+    }
+
     protected virtual void Start()
     {
         if (miniGameObjectsToColorise.Count > 0)
