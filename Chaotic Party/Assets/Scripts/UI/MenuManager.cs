@@ -91,9 +91,10 @@ public class MenuManager : MonoBehaviour
     {
         if (!_referenceHolder.firtslaunch)
         {
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
-            EventSystem.current.firstSelectedGameObject = firstMenuPrincpal;
+            ClickToPlay();
+            // EventSystem.current.SetSelectedGameObject(null);
+            // EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
+            // EventSystem.current.firstSelectedGameObject = firstMenuPrincpal;
         }
         else
         {
@@ -327,6 +328,12 @@ public class MenuManager : MonoBehaviour
     public void ClickToPlay()
     {
         clickToPlayAnim.SetTrigger("LaunchAnim");
+        StartCoroutine(SelectBaseButton());
+    }
+
+    private IEnumerator SelectBaseButton()
+    {
+        yield return new WaitForSeconds(1f);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
         EventSystem.current.firstSelectedGameObject = firstMenuPrincpal;
