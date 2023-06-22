@@ -154,6 +154,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1449173788724899677, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1184.4445
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449173788724899677, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 666.6667
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449173788724899677, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 255.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2265859463990957434, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -390,6 +402,26 @@ PrefabInstance:
       propertyPath: skinSelector
       value: 
       objectReference: {fileID: 1067016947}
+    - target: {fileID: 8881208559045763664, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 203.0692
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881208559045763664, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 121.7059
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881208559045763664, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881208559045763664, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881208559045763664, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -131.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e59aa9fa19313c84c84ee962abbfa3c8, type: 3}
 --- !u!1 &30455453 stripped
@@ -2310,6 +2342,7 @@ MonoBehaviour:
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 87899057}
   forceTacle: {x: 7, y: 3}
+  tacleDetectorManager: {fileID: 0}
 --- !u!61 &735630066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4091,6 +4124,7 @@ MonoBehaviour:
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 84186585}
   forceTacle: {x: 7, y: 3}
+  tacleDetectorManager: {fileID: 0}
 --- !u!61 &1484720500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4700,6 +4734,7 @@ MonoBehaviour:
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 493358824}
   forceTacle: {x: 7, y: 3}
+  tacleDetectorManager: {fileID: 0}
 --- !u!61 &1637481039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5038,6 +5073,7 @@ MonoBehaviour:
   tacleSoundClip: {fileID: 0}
   tacleChild: {fileID: 640178745}
   forceTacle: {x: 7, y: 3}
+  tacleDetectorManager: {fileID: 0}
 --- !u!61 &1735875122
 BoxCollider2D:
   m_ObjectHideFlags: 0

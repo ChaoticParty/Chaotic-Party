@@ -62,7 +62,7 @@ public class PhotoMinionManager : MiniGameManager
 
     public override void StartMiniGame()
     {
-        timer += 0.01f;
+        timer += 1f;
         base.StartMiniGame();
     }
 

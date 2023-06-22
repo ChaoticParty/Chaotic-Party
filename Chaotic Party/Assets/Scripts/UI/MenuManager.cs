@@ -209,6 +209,7 @@ public class MenuManager : MonoBehaviour
 
     public void LauchGame()
     {
+        Debug.Log("Launch Game");
         if (IsLaunchPossible())
         {
             soundManager.EventPlay("StartGameClick");
@@ -218,10 +219,12 @@ public class MenuManager : MonoBehaviour
             {
                 if (ecranPerso.gameObject.activeSelf)
                 {
-                    ecranPerso.FillSO();    
+                    ecranPerso.FillSO();
                 }
             }
             if(isRandom) miniGameData.RandomiseMiniGames();
+            Debug.Log(Camera.main.WorldToScreenPoint(listInGamePlayerControllers[0].transform.position));
+            Debug.Log(listInGamePlayerControllers[0].transform.position);
             ReferenceHolder.Instance.transitionSetter.StartTransition(null, LoadScene, 
                 SetRulesPosition, null, 
                 Camera.main.WorldToScreenPoint(listInGamePlayerControllers[0].transform.position));

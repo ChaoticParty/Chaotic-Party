@@ -17,6 +17,7 @@ public class TransitionController : MonoBehaviour
     public void StartTransition(Action transitionStartedAction, Action transitionDoneAction, 
         Action transitionFinisherStartedAction, Action transitionFinisherDoneAction, Vector3 position = default)
     {
+        Debug.Log("start transi");
         OnTransitionStarted += transitionStartedAction;
         OnTransitionDone += transitionDoneAction;
         OnTransitionFinisherStarted += transitionFinisherStartedAction;
