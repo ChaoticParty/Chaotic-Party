@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class TacleController : MiniGameController
     
     public Vector2 forceTacle;
     private Rigidbody2D rigidbody2D;
+    public TacleDetectorManager tacleDetectorManager;
 
     private bool isTacling = false;
     private new void Awake()
@@ -17,6 +19,13 @@ public class TacleController : MiniGameController
         base.Awake();
         Instantiate(tacleChild, transform);
         rigidbody2D = player.GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if(!isTacling) return;
+        
+        tacleDetectorManager.IsFloored();
     }
 
     public override void AddListeners()
