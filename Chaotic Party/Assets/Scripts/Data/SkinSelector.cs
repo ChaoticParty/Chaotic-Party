@@ -15,6 +15,10 @@ public class SkinSelector : MonoBehaviour
             if (child.gameObject.activeSelf)
             {
                 child.gameObject.SetActive(false);
+                if (child.gameObject.TryGetComponent(out SpriteRenderer spriteRenderer))
+                {
+                    spriteRenderer.enabled = false;
+                }
             }
         }
         
@@ -25,6 +29,7 @@ public class SkinSelector : MonoBehaviour
             foreach (GameObject ap in sv.activatedPart)
             {
                 ap.SetActive(true);
+                ap.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
 
             foreach (SpriteRenderer cp in sv.coloredPart)
@@ -40,6 +45,7 @@ public class SkinSelector : MonoBehaviour
             foreach (GameObject ap in sv.activatedPart)
             {
                 ap.SetActive(true);
+                ap.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
             
             foreach (SpriteRenderer cp in sv.coloredPart)
@@ -55,6 +61,7 @@ public class SkinSelector : MonoBehaviour
             if (child.gameObject.activeSelf)
             {
                 child.gameObject.SetActive(false);
+                child.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
         
@@ -65,6 +72,7 @@ public class SkinSelector : MonoBehaviour
             foreach (GameObject ap in sv.activatedPart)
             {
                 ap.SetActive(true);
+                ap.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
 
             foreach (SpriteRenderer cp in sv.coloredPart)

@@ -92,9 +92,6 @@ public class MenuManager : MonoBehaviour
         if (!_referenceHolder.firtslaunch)
         {
             ClickToPlay();
-            // EventSystem.current.SetSelectedGameObject(null);
-            // EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
-            // EventSystem.current.firstSelectedGameObject = firstMenuPrincpal;
         }
         else
         {
@@ -136,7 +133,7 @@ public class MenuManager : MonoBehaviour
         }
         if (Hinput.anyGamepad.anyInput.pressed && inClickToPlay)
         {
-            ClickToPlay();
+            ClickToPlay(true);
         }
         
         nbCurrentGamepads = multiplayerManager.GamepadCount();
@@ -328,9 +325,16 @@ public class MenuManager : MonoBehaviour
             () => EventSystem.current.SetSelectedGameObject(clickToPlayObject));
     }
     
-    public void ClickToPlay()
+    public void ClickToPlay(bool firstLaunch = false)
     {
-        clickToPlayAnim.SetTrigger("LaunchAnim");
+        if (!firstLaunch)
+        {
+            clickToPlayAnim.SetTrigger("LaunchAnimAround");
+        }
+        else
+        {
+            clickToPlayAnim.SetTrigger("LaunchAnim");
+        }
         StartCoroutine(SelectBaseButton());
     }
 
