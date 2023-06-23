@@ -11,6 +11,7 @@ public class CerbereManager : SpamManager
 {
     [Header("CheapSetup")] //Workaround pour avoir le cerbere éveillé dès le début
     [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cheapCerbereAnimEvents;
+    [SerializeField] [Tooltip("Corps cheap du cerbere")] private CerbereAnimEvent cheapCorpsCerbereAnimEvents;
     [SerializeField] [Tooltip("Gameobject cheap du cerbere")] private GameObject cheapCerbere;
     [SerializeField] [Tooltip("Gameobject du cerbere")] private GameObject trueCerbere;
     [Header("Setup")]
@@ -19,7 +20,9 @@ public class CerbereManager : SpamManager
     public GameObject[] hudMegaphone;
     [SerializeField] private GameObject nuitObject;
     [SerializeField] [Tooltip("Tableau d'animator, de 0 à 3, correspondant aux players")] private Animator[] cerbereAnimator;
+    [SerializeField] [Tooltip("Animator du corps de Cebrere")] private Animator cerbereCorpsAnimator;
     [SerializeField] [Tooltip("Tableau des cerberes, de 0 à 3, correspondant aux players")] private CerbereAnimEvent[] cerbereAnimEvents;
+    [SerializeField] [Tooltip("Anim event du corps de cerbere")] private CerbereAnimEvent cerbereCorpsAnimEvents;
     [SerializeField] [Tooltip("Animator de la bulle de cerbere")] private Animator bulleAnimator;
     [SerializeField] [Tooltip("Animator des nuages de la bulle de cerbere")] private Animator[] nuagesAnimator;
     [SerializeField] [Tooltip("Animator des z cassé de la bulle de cerbere")] private Animator[] zBreakAnimator;
@@ -56,7 +59,7 @@ public class CerbereManager : SpamManager
     //
     [Space] 
     [Header("Cerbere UI")] 
-    [SerializeField] private List<SpriteRenderer> listTeteCerbere = new List<SpriteRenderer>(); //Les 4 tetes
+    [SerializeField] private List<GameObject> listTeteCerbere = new List<GameObject>(); //Les 4 tetes
     
     #region Events
 
@@ -95,6 +98,7 @@ public class CerbereManager : SpamManager
         {
             animEvent.CheapObserveEnd();
         }
+        cheapCorpsCerbereAnimEvents.CheapObserveEnd();
         yield return new WaitForSeconds(0.33f);
         trueCerbere.SetActive(true);
         cheapCerbere.SetActive(false);
@@ -187,6 +191,7 @@ public class CerbereManager : SpamManager
                 {
                     cerbereSee.Invoke();
                     clicksArray[i] = 0;
+                    cerbereCorpsAnimator.SetBool(UltimoPoderLaser, true);
                     cerbereAnimator[i].SetBool(UltimoPoderLaser, true);
                     laserPlaceHolder[i].SetActive(true);
                     wasHittedByCerbere[i] = true;
@@ -268,6 +273,7 @@ public class CerbereManager : SpamManager
         soundManager.PlaySelfSound(bulleAnimator.GetComponent<AudioSource>());
         soundManager.EventStop("CerbereDodo");
         
+        cerbereCorpsAnimator.SetTrigger(WakeUpTrigger);
         foreach (var animator in cerbereAnimator)
         {
             animator.SetTrigger(WakeUpTrigger);
@@ -287,10 +293,10 @@ public class CerbereManager : SpamManager
             lasers.SetActive(false);
             soundManager.StopSelfSound(lasers.GetComponent<AudioSource>());
         }
+        cerbereCorpsAnimEvents.ObserveEnd();
         foreach (var animEvent in cerbereAnimEvents)
         {
             animEvent.ObserveEnd();
-            
         }
         foreach (var animator in nuagesAnimator)
         {
@@ -378,11 +384,21 @@ public class CerbereManager : SpamManager
                 break;
             case RompicheState.DEUX:
                 zBreakAnimator[1].gameObject.SetActive(true);
+                cerbereCorpsAnimator.SetTrigger("SomeOneYell");
+                foreach (var animator in cerbereAnimator)
+                {
+                    animator.SetTrigger("SomeOneYell");
+                }
                 timePassedBeforeWake = timeBeforeWake / 3;
                 LaunchBulleAnim(rompicheState);
                 break;
             case RompicheState.TROIS:
                 zBreakAnimator[0].gameObject.SetActive(true);
+                cerbereCorpsAnimator.SetTrigger("SomeOneYell");
+                foreach (var animator in cerbereAnimator)
+                {
+                    animator.SetTrigger("SomeOneYell");
+                }
                 timePassedBeforeWake = timeBeforeWake / 3 * 2;
                 LaunchBulleAnim(rompicheState);
                 break;
@@ -435,10 +451,13 @@ public class CerbereManager : SpamManager
         {
             tabRank[player.Value] = player.Key.index;
         }
-
+        
+        cerbereCorpsAnimator.SetTrigger("MiniGameEnd");
+        cerbereCorpsAnimator.SetBool(UltimoPoderLaser, false);
         foreach (var animator in cerbereAnimator)
         {
             animator.SetTrigger("MiniGameEnd");
+            animator.SetBool(UltimoPoderLaser, false);
         } 
         foreach (var animator in nuagesAnimator)
         {
@@ -449,10 +468,13 @@ public class CerbereManager : SpamManager
         
         cerbereAnimEvents[winnerIndex].ChangeHeadToDodo();
 
+        cerbereCorpsAnimator.SetTrigger("MiniGameEnd");
+        cerbereCorpsAnimator.SetBool(UltimoPoderLaser, true);
         for (int i = tabRank.Length - 1; i >= 0; i--)
         {
             if (!i.Equals(winnerIndex)) cerbereAnimator[i].SetTrigger(WakeUpTrigger);
             if (i >= players.Count || i.Equals(winnerIndex)) continue;
+            cerbereAnimator[i].SetBool(UltimoPoderLaser, true);
             laserPlaceHolder[i].SetActive(true);
             yield return new WaitForSeconds(1);
             soundManager.PlaySelfSound(laserPlaceHolder[i].GetComponent<AudioSource>(), true);

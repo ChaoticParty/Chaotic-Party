@@ -9,12 +9,7 @@ public class CerbereAnimEvent : MonoBehaviour
     [HideInInspector] public bool canWakeUpEnd = true;
     [Space]
     [Header("Gameobject du cerbere")]
-    [SerializeField] [Tooltip("Tête du cerbere")] private GameObject tete;
     [SerializeField] [Tooltip("Animator du ! du cerbere")] private Animator exclamationAnimator;
-    [Space]
-    [Header("Sprites du cerbere")]
-    [SerializeField] [Tooltip("Sprite du dodo du cerbere")] private Sprite cerbereDodo;
-    [SerializeField] [Tooltip("Sprite du cerbere qui observe")] private Sprite cerbereObserve;
     
     //Id des params d'animator
     private static readonly int ObserveTrigger = Animator.StringToHash("ObserveTrigger");
@@ -30,21 +25,18 @@ public class CerbereAnimEvent : MonoBehaviour
             canWakeUpEnd = true;
             return;
         }
+        canWakeUpEnd = false;
         
-        tete.GetComponent<SpriteRenderer>().sprite = cerbereObserve;
         animator.SetTrigger(ObserveTrigger);
         isRompiche = false;
-        canWakeUpEnd = false;
     }
 
     public void ChangeHeadToDodo()
     {
-        tete.GetComponent<SpriteRenderer>().sprite = cerbereDodo;
     }
 
     public void ObserveEnd()
     {
-        tete.GetComponent<SpriteRenderer>().sprite = cerbereDodo;
         animator.SetBool(UltimoPoderLaser, false);
         animator.SetTrigger(AuDodoTrigger);
         animator.ResetTrigger(WakeUpTrigger);
@@ -53,13 +45,12 @@ public class CerbereAnimEvent : MonoBehaviour
     }
     public void CheapObserveEnd() //Workaround pour avoir le cerbere éveillé dès le début
     {
-        tete.GetComponent<SpriteRenderer>().sprite = cerbereDodo;
         animator.SetBool(UltimoPoderLaser, false);
-        animator.SetTrigger(AuDodoTrigger);
+        animator.SetTrigger("AuDodoTrigger");
     }
 
     public void Exclamation()
     {
-        exclamationAnimator.SetTrigger(Property);
+        if (exclamationAnimator != null) exclamationAnimator.SetTrigger(Property);
     }
 }

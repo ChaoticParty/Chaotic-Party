@@ -61,7 +61,10 @@ public class SkinSelector : MonoBehaviour
             if (child.gameObject.activeSelf)
             {
                 child.gameObject.SetActive(false);
-                child.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                if (child.gameObject.TryGetComponent(out SpriteRenderer spriteRenderer))
+                {
+                    spriteRenderer.enabled = false;
+                }
             }
         }
         

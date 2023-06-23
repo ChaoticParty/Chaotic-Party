@@ -25,7 +25,7 @@ public class TacleController : MiniGameController
     {
         if(!isTacling) return;
         
-        tacleDetectorManager.IsFloored();
+        if(tacleDetectorManager != null) tacleDetectorManager.IsFloored();
     }
 
     public override void AddListeners()

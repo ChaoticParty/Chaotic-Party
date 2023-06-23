@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
             // Debug.Log("SoundEvent : Play. Id : "+id);
             return;
         }
-        Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
+        // Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
     }
     public void EventStop(string id)
     {
@@ -28,7 +28,7 @@ public class SoundManager : MonoBehaviour
             // Debug.Log("SoundEvent : Stop. Id : "+id);
             return;
         }
-        Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
+        // Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
     }
     public void EventLoop(string id)
     {
@@ -38,14 +38,14 @@ public class SoundManager : MonoBehaviour
             // Debug.Log("SoundEvent : Loop. Id : "+id);
             return;
         }
-        Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
+        // Debug.LogError("L'id : " + id + " des SoundEvent est inconnu.");
     }
 
     public void PlaySelfSound(AudioSource cibleAudio, bool loop = false)
     {
         if (cibleAudio.clip == null) return;
         
-        Debug.Log("SoundEvent : Self. Id : "+cibleAudio.gameObject.name);
+        // Debug.Log("SoundEvent : Self. Id : "+cibleAudio.gameObject.name);
         
         cibleAudio.Play();
         cibleAudio.loop = loop;
@@ -54,7 +54,7 @@ public class SoundManager : MonoBehaviour
     {
         if (cibleAudio.clip == null) return;
         
-        Debug.Log("SoundEvent : Self. Id : "+cibleAudio.gameObject.name);
+        // Debug.Log("SoundEvent : Self. Id : "+cibleAudio.gameObject.name);
         
         cibleAudio.Stop();
         cibleAudio.loop = loop;

@@ -1421,6 +1421,7 @@ GameObject:
   - component: {fileID: 6412382586067854516}
   - component: {fileID: 4268416911870409204}
   - component: {fileID: 4607068502919384786}
+  - component: {fileID: 6207399051714204061}
   m_Layer: 0
   m_Name: NPC_Cerbere_Tete_Carlin
   m_TagString: Untagged
@@ -1488,6 +1489,23 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 21
+--- !u!114 &6207399051714204061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648657601418989278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d4f3fbced37344aaf233fb22e896a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cerbereManager: {fileID: 0}
+  animator: {fileID: 4268416911870409204}
+  isRompiche: 1
+  canWakeUpEnd: 1
+  exclamationAnimator: {fileID: 0}
 --- !u!1 &6877917332920111451
 GameObject:
   m_ObjectHideFlags: 0

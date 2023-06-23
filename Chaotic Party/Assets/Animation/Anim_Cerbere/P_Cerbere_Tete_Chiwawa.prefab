@@ -1195,6 +1195,7 @@ GameObject:
   - component: {fileID: 2151917109250262471}
   - component: {fileID: 7860121842107027958}
   - component: {fileID: 4334930056739186175}
+  - component: {fileID: 3224207830952554283}
   m_Layer: 0
   m_Name: NPC_Cerbere_Tete_Chiwawa
   m_TagString: Untagged
@@ -1264,6 +1265,23 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
+--- !u!114 &3224207830952554283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104689710055636489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d4f3fbced37344aaf233fb22e896a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cerbereManager: {fileID: 0}
+  animator: {fileID: 7860121842107027958}
+  isRompiche: 1
+  canWakeUpEnd: 1
+  exclamationAnimator: {fileID: 0}
 --- !u!1 &6178976281867926769
 GameObject:
   m_ObjectHideFlags: 0
