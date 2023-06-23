@@ -1360,7 +1360,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 120
+  orthographic size: 150
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1470,7 +1470,7 @@ Camera:
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 1
-  orthographic size: 120
+  orthographic size: 150
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2078,7 +2078,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 120
+  orthographic size: 150
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2224,7 +2224,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 653798451735511860, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
@@ -2278,9 +2278,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7255145274150125894, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7763982333660652373, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
@@ -4006,7 +4010,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 653798451735511860, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
@@ -4060,9 +4064,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7255145274150125894, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7763982333660652373, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
@@ -4456,6 +4464,14 @@ PrefabInstance:
       propertyPath: headSkinValues.Array.data[0].activatedPart.Array.data[13]
       value: 
       objectReference: {fileID: 158675159}
+    - target: {fileID: 3689008161195804145, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845140339192514041, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4518951441886738145, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
       propertyPath: m_Name
       value: CustoRenderPlayer
@@ -4516,6 +4532,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6439104167384720912, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7968773094566440048, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - target: {fileID: 7066241710976384414, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5752230658385225602, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
+    - target: {fileID: 7191018579907611992, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592703402495689045, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3838641511851397346, guid: 1e57391dd433a0e418364acce05d8488, type: 3}
     - target: {fileID: 8490171122682338219, guid: ae06a90946604d144bd81d6d986232ad, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4616,7 +4648,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 653798451735511860, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
@@ -4670,9 +4702,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7255145274150125894, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7763982333660652373, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
@@ -4955,7 +4991,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 653798451735511860, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4518951441886738145, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_Name
@@ -5009,9 +5045,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7255145274150125894, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7763982333660652373, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da4a39f496526be41bb9215f38c42ed8, type: 3}
@@ -5283,7 +5323,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 120
+  orthographic size: 150
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
