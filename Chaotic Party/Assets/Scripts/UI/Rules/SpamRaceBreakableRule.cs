@@ -17,7 +17,6 @@ public class SpamRaceBreakableRule : BreakableUI
             }
             else
             {
-                //TODO: Changer le sprite avec le bon système de sprite après inté
                 spamRaceRuleData[i].head.SetupSkin(_multiplayerManager.players[i]._playerSo.head, 
                     _multiplayerManager.players[i]._playerSo.color);
             }

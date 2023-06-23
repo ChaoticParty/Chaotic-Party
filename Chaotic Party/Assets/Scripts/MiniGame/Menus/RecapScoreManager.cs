@@ -78,6 +78,7 @@ public class RecapScoreManager : MiniGameManager
             {
                 case 0:
                     player.VictoryAnimation(Random.Range(0, 2));
+                    player.crownManager.SetCrown(true);
                     break;
                 case 2:
                     player.DefeatAnimation();
