@@ -7,9 +7,17 @@ public class CrownManager : MonoBehaviour
     public List<GameObject> ObjectsToActivate;
     public List<GameObject> ObjectsToDeactivate;
     public List<AnimationData> AnimationDatas;
+    private static readonly int Finish = Animator.StringToHash("Finish");
 
     public void SetCrown(bool isCrownOn)
     {
+        foreach (AnimationData data in AnimationDatas)
+        {
+            if (data.isCrown != isCrownOn)
+            {
+                data.animator.SetTrigger(Finish);
+            }
+        }
         foreach (GameObject go in ObjectsToActivate)
         {
             go.SetActive(isCrownOn);

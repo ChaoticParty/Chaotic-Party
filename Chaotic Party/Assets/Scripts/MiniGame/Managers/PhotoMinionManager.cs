@@ -31,6 +31,9 @@ public class PhotoMinionManager : MiniGameManager
 
     private float _remainingTimeBeforeNextPicture;
     public GameObject picImage;
+    public SpriteRenderer larbineriePanneau;
+    public float larbinerieCooldown;
+    private bool _isLarbinerieInCd;
     public float timeToWait;
     private List<int> _scores = new();
     public List<TextMeshProUGUI> scoreTexts;
@@ -42,6 +45,9 @@ public class PhotoMinionManager : MiniGameManager
     public List<Image> polaroids;
     public Sprite pictureTaken;
     private int _picIndex;
+    public bool isPictureBeingTaken { get; set; }
+
+    public List<SkinSelector> skinSelectors;
 
     protected void Start()
     {
@@ -51,6 +57,14 @@ public class PhotoMinionManager : MiniGameManager
         overlord.ChangePosition(false);
         overlord.PlaceCameraOnOverlord();
         //ColoriseObjectsAccordingToPlayers(ReferenceHolder.Instance.players.players, carsToColorise);
+        
+        for (int i = 0; i < players.Count; i++)
+        {
+            Debug.Log(i);
+            SkinSelector skinSelector = skinSelectors[i];
+            Debug.Log(skinSelector);
+            skinSelector.SetupSkin(players[i]._playerSo.head, players[i]._playerSo.color);
+        }
     }
 
     private void ActivateUI(bool activate)
@@ -58,6 +72,16 @@ public class PhotoMinionManager : MiniGameManager
         uiCanvasGroup.alpha = activate ? 1 : 0;
         uiCanvasGroup.interactable = activate;
         uiCanvasGroup.blocksRaycasts = activate;
+
+        if (activate)
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                SkinSelector skinSelector = skinSelectors[i];
+                Debug.Log(skinSelector);
+                if(skinSelector) skinSelector.SetupSkin(players[i]._playerSo.head, players[i]._playerSo.color);
+            }
+        }
     }
 
     public override void StartMiniGame()
@@ -106,9 +130,9 @@ public class PhotoMinionManager : MiniGameManager
             _animLaunched = false;
         }
         
-        if (Input.GetKeyDown(KeyCode.Space) /*|| (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.SysReq)*/)
+        if (Input.GetKeyDown(KeyCode.Space) && !isPictureBeingTaken && !_isLarbinerieInCd/*|| (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.SysReq)*/)
         {
-            TakePicture();
+            TakePicture(true);
         }
     }
 
@@ -149,13 +173,14 @@ public class PhotoMinionManager : MiniGameManager
         _remainingTimeBeforeNextPicture = Random.Range(min, max);
     }
 
-    private void TakePicture()
+    private void TakePicture(bool larbinerie = false)
     {
+        isPictureBeingTaken = true;
         soundManager.EventPlay("Photo");
-        StartCoroutine(TakePictureCoroutine());
+        StartCoroutine(TakePictureCoroutine(larbinerie));
     }
 
-    private IEnumerator TakePictureCoroutine()
+    private IEnumerator TakePictureCoroutine(bool larbinerie = false)
     {
         // Stopper le temps pour donner l'effet de prise de photo
         Time.timeScale = 0;
@@ -166,18 +191,41 @@ public class PhotoMinionManager : MiniGameManager
         // Active l'image blanche pour simuler la prise de photo, puis comptabilisation des scores et déplacement de l'overlord
         picImage.SetActive(true);
         overlord.Focus();
-        AddPlayerScores();
         
         // Après un certain temps
         yield return _waitSeconds;
+        AddPlayerScores();
 
-        polaroids[_picIndex].sprite = pictureTaken;
-        _picIndex++;
+        if (larbinerie)
+        {
+            Image polaroid = polaroids[_picIndex];
+            Image larbineriePolaroid = Instantiate(polaroid, polaroid.transform.parent);
+            larbineriePolaroid.transform.SetSiblingIndex(polaroid.transform.GetSiblingIndex());
+            larbineriePolaroid.color = Color.red;
+            larbineriePolaroid.sprite = pictureTaken;
+            
+            larbineriePanneau.color = Color.red;
+            _isLarbinerieInCd = true;
+            StartCoroutine(LarbinerieCooldown());
+        }
+        else
+        {
+            polaroids[_picIndex].sprite = pictureTaken;
+            _picIndex++;
+        }
+        
         // Désactive l'image blanche
         picImage.SetActive(false);
         
         // Après un certain temps
         yield return _waitSeconds;
+        yield return _waitSeconds;
+        yield return _waitSeconds;
+        yield return _waitSeconds;
+        foreach (PlayerController player in players)
+        {
+            player.GetComponent<DisplayPicturePoints>().Deactivate();
+        }
 
         overlord.RemoveCameraFromOverlord();
         overlord.Unfocus();
@@ -193,6 +241,15 @@ public class PhotoMinionManager : MiniGameManager
         // Remet le temps normal et active les input players
         Time.timeScale = 1;
         ActivatePlayerInput(true);
+        isPictureBeingTaken = false;
+    }
+
+    private IEnumerator LarbinerieCooldown()
+    {
+        yield return new WaitForSeconds(larbinerieCooldown);
+        
+        larbineriePanneau.color = Color.white;
+        _isLarbinerieInCd = false;
     }
 
     private void AddPlayerScores()
@@ -214,6 +271,7 @@ public class PhotoMinionManager : MiniGameManager
                     // Gagne des points
                     _scores[i] += pointsGained;
                     soundManager.PlaySelfSound(scoreTexts[i].GetComponent<AudioSource>());
+                    player.GetComponent<DisplayPicturePoints>().StartAnimation(player.transform);
                 }
             }
             else

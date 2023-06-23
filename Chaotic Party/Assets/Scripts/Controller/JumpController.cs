@@ -100,8 +100,10 @@ public class JumpController : MiniGameController
         {
             Collider2D playerCollider = Physics2D.BoxCast((Vector2)footObject.position + _downVector * 0.2f, _raycastSize, 0, _upVector,
                 0.1f, LayerMask.GetMask("Player")).collider;
-            if (isJumping && canFootStool && playerCollider && playerCollider != _collider2D)
+            if (isJumping && canFootStool && playerCollider && playerCollider != _collider2D && !playerCollider.TryGetComponent(out TacleDetector _))
             {
+                Debug.Log(playerCollider.gameObject);
+                Debug.Log(playerCollider.transform.parent.gameObject);
                 _rigidbody2D.velocity = Vector2.zero;
                 Jumping();
                 if (playerCollider.TryGetComponent(out StunController stunScript))
