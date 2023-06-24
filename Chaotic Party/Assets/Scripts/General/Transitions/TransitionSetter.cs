@@ -38,4 +38,9 @@ public class TransitionSetter : MonoBehaviour
     {
         StartCoroutine(lastTransition.WaitTillSceneLoad(asyncOperation, sceneToUnload));
     }
+
+    public void SetTriggerLaunch()
+    {
+        lastTransition.FinishTransition();
+    }
 }

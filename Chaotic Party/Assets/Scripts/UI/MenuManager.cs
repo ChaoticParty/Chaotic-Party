@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class MenuManager : MonoBehaviour
 {
@@ -16,10 +18,13 @@ public class MenuManager : MonoBehaviour
     private ReferenceHolder _referenceHolder;
     private GameObject oldEventObject;
     public GameObject cinematicObject;
+    public VideoPlayer cinematic;
+    public GameObject startToSkip;
     public Animator clickToPlayAnim;
     private bool isClickCheckCoroutineActive = false;
     private bool inCinematic = false;
     private bool inClickToPlay = false;
+    private bool canPlay = false;
     [Space]
     public string optionsScene;
     public Dictionary<sbyte, sbyte> selectColor = new Dictionary<sbyte, sbyte>();
@@ -80,9 +85,9 @@ public class MenuManager : MonoBehaviour
         partyBackMask.sizeDelta = new Vector2(0, partyBackMask.sizeDelta.y);
 
         if (!_referenceHolder.firtslaunch) return;
-        
+
+        cinematic.loopPointReached += PassCinematic;
         inCinematic = true;
-        inClickToPlay = true;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.firstSelectedGameObject = null;
     }
@@ -129,7 +134,7 @@ public class MenuManager : MonoBehaviour
     {
         if (Hinput.anyGamepad.start.pressed && inCinematic)
         {
-            //PassCinematic(); //TODO attente de fix
+            PassCinematic(cinematic); //TODO attente de fix
         }
         if (Hinput.anyGamepad.anyInput.pressed && inClickToPlay)
         {
@@ -167,7 +172,7 @@ public class MenuManager : MonoBehaviour
         }
         nbGamepadsLastFrame = multiplayerManager.GamepadCount();
         
-        if (inClickToPlay || inCinematic) return;
+        if (!canPlay) return;
         if (EventSystem.current.alreadySelecting) return;
         if (!isClickCheckCoroutineActive) StartCoroutine(CheckMouseClick());
         if (EventSystem.current.currentSelectedGameObject != null)
@@ -317,12 +322,22 @@ public class MenuManager : MonoBehaviour
         oldPanel.SetActive(false);
     }
 
-    public void PassCinematic()
+    void PassCinematic(VideoPlayer vp)
     {
         inCinematic = false;
         _referenceHolder.transitionSetter.StartTransition(null, 
-            () => cinematicObject.SetActive(false),null, 
-            () => EventSystem.current.SetSelectedGameObject(clickToPlayObject));
+            () =>
+            {
+                cinematicObject.SetActive(false);
+                _referenceHolder.transitionSetter.SetTriggerLaunch();
+            },
+            null, 
+            () =>
+            {
+                inClickToPlay = true;
+            },
+            cinematicObject.transform.position);
+        
     }
     
     public void ClickToPlay(bool firstLaunch = false)
@@ -345,6 +360,7 @@ public class MenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(firstMenuPrincpal);
         EventSystem.current.firstSelectedGameObject = firstMenuPrincpal;
         inClickToPlay = false;
+        canPlay = true;
     }
     
     #endregion

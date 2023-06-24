@@ -685,8 +685,8 @@ public class EcranPersonnage : MonoBehaviour
         currentRace = listRaces[currentRaceIndex];
         FillSO();
         menuManager.listInGamePlayerControllers[playerSOIndex].gameObject.SetActive(true);
-        menuManager.listInGamePlayerControllers[playerSOIndex].ActivateBulle(true);
-        menuManager.listInGamePlayerControllers[playerSOIndex].ChangeBulleText("Y");
+        // menuManager.listInGamePlayerControllers[playerSOIndex].ActivateBulle(true);
+        // menuManager.listInGamePlayerControllers[playerSOIndex].ChangeBulleText("Y");
         menuManager.listInGamePlayerControllers[playerSOIndex].transform.position = Camera.main.ScreenToWorldPoint(transform.position);
         menuManager.listInGamePlayerControllers[playerSOIndex].transform.localScale = new Vector3(1,1,1);
         menuManager.listInGamePlayerControllers[playerSOIndex].SetupSprite(menuManager.playersListSO.players[playerSOIndex]);
