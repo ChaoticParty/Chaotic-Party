@@ -97,6 +97,8 @@ public class MenuManager : MonoBehaviour
         if (!_referenceHolder.firtslaunch)
         {
             ClickToPlay();
+            cinematicObject.SetActive(false);
+            canPlay = true;
         }
         else
         {
