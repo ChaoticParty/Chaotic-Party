@@ -16,8 +16,9 @@ public class ExplosionController : MiniGameController
 
     public override void AddListeners()
     {
-        // player.yLongPressed.AddListener(MacronExplosion); //TODO ajouter les anims
-        player.yJustPressed.AddListener(MacronExplosion);
+        player.yJustPressed.AddListener(BaseMacronExplosion);
+        // player.yJustPressed.AddListener(MacronExplosion); //TODO Same
+        // player.yJustReleased.AddListener(CancelExplosion); //TODO y reactivé apres le fix de christophe
         player.bJustPressed.AddListener(LauchBackToMain);
         player.bJustReleased.AddListener(BackToMainReleased);
         player.startPressed.AddListener(ReadyClick);
@@ -45,9 +46,22 @@ public class ExplosionController : MiniGameController
             //lancement anim d'explosion
         }
     }
-    private void MacronExplosion()
+    private void BaseMacronExplosion()
     {
         EndExplosionAnimMenu();
+    }
+    private void MacronExplosion()
+    {
+        if (!player.CanAct()) return;
+        
+        player.isExplosing = true;
+        player.MExplosion(true);
+        //EndExplosionAnimMenu();
+    }
+    private void CancelExplosion()
+    {
+        player.isExplosing = false;
+        player.MExplosion(false);
     }
     
     private void LauchBackToMain()
@@ -97,7 +111,6 @@ public class ExplosionController : MiniGameController
 
     private void ReadyClick()
     {
-        // menuManager.TransitionAnimLaunch(true); //TODO montrer ca aux autres et voir si ca les inspirent
         menuManager.LauchGame();
     }
 

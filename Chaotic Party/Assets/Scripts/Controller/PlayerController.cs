@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public UnityEvent yJustPressed = new ();
     
     [NonSerialized] public UnityEvent bJustReleased = new ();
+    [NonSerialized] public UnityEvent yJustReleased = new ();
 
     [NonSerialized] public UnityEvent<float> aLongPressed = new ();
     [NonSerialized] public UnityEvent<float> bLongPressed = new ();
@@ -118,6 +119,7 @@ public class PlayerController : MonoBehaviour
     public bool isPausing;
     public bool isStunned;
     public bool isMoving;
+    public bool isExplosing;
 
     #endregion
 
@@ -156,6 +158,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int Defaite = Animator.StringToHash("Defaite");
     private static readonly int DefaiteVersion = Animator.StringToHash("DefaiteVersion");
     private static readonly int VictoireVersion = Animator.StringToHash("VictoireVersion");
+    private static readonly int Explosion = Animator.StringToHash("MExplosion");
 
     #endregion
 
@@ -211,6 +214,10 @@ public class PlayerController : MonoBehaviour
         if (gamepad.B.justReleased)
         {
             bJustReleased.Invoke();
+        }
+        if(gamepad.Y.justReleased)
+        {
+            yJustReleased.Invoke();
         }
         
         if(gamepad.A.longPress.pressed)
@@ -564,6 +571,11 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger(DefaiteVersion, version);
     }
 
+    public void MExplosion(bool activated)
+    {
+        animator.SetBool(Explosion, activated);
+    }
+
     private void OnDisable()
     {
         RemoveAllListeners();
@@ -581,6 +593,7 @@ public class PlayerController : MonoBehaviour
         xLongPressed.RemoveAllListeners();
         yLongPressed.RemoveAllListeners();
         bJustReleased.RemoveAllListeners();
+        yJustReleased.RemoveAllListeners();
         rightStickMoved.RemoveAllListeners();
         rightStickJustMoved.RemoveAllListeners();
         rightStickMovedDown.RemoveAllListeners();
@@ -617,22 +630,22 @@ public class PlayerController : MonoBehaviour
 
     public bool IsDoingSomething()
     {
-        return isInTheAir || isTackling || isHit || isPausing || isStunned || isMoving;
+        return isInTheAir || isTackling || isHit || isPausing || isStunned || isMoving || isExplosing;
     }
 
     public bool CanAct()
     {
-        return !(isInTheAir || isTackling || isHit || isStunned);
+        return !(isInTheAir || isTackling || isHit || isStunned || isExplosing);
     }
 
     public bool CanMove()
     {
-        return !(isTackling || isHit || isStunned);
+        return !(isTackling || isHit || isStunned || isExplosing);
     }
 
     public bool CanBeStunned()
     {
-        return !(isStunned || isHit);
+        return !(isStunned || isHit || isExplosing);
     }
 
     public bool IsStandingStill()

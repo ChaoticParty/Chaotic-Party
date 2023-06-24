@@ -5,6 +5,16 @@ using UnityEngine;
 public class PlayerAnimScript : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
+    [SerializeField] private MenuManager menuManager;
+
+    public void SpawnSelectionScreen()
+    {
+        if (player == null || menuManager == null) return;
+        
+        menuManager.listPersonnages[menuManager.multiplayerManager.players.IndexOf(player)].SpawnSelectionScreen();
+        player.isExplosing = false;
+        player.gameObject.SetActive(false);
+    }
 
     public void PlayIdleSound()
     {
