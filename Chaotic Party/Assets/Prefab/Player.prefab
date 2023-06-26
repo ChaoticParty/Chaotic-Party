@@ -1071,6 +1071,7 @@ MonoBehaviour:
   isPausing: 0
   isStunned: 0
   isMoving: 0
+  isExplosing: 0
   IdleSource: {fileID: 8206645924228714381}
   TricheSource: {fileID: 8169987121631257204}
   HitSource: {fileID: 4878488285170471907}
@@ -1759,6 +1760,7 @@ MonoBehaviour:
     - {fileID: 6184757725695535588}
     - {fileID: 23483598486115347}
     - {fileID: 4609331261119491093}
+    - {fileID: 585394055751051221}
   - selectedSkin: 11
     activatedPart:
     - {fileID: 7139613955372507343}
@@ -3164,6 +3166,11 @@ GameObject:
 --- !u!1 &584197148303137600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1772444014080458913, guid: 79d765ba1ece64f44862f5806eedccd7, type: 3}
+  m_PrefabInstance: {fileID: 1189935767593360353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &585394055751051221 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1773358926986066996, guid: 79d765ba1ece64f44862f5806eedccd7, type: 3}
   m_PrefabInstance: {fileID: 1189935767593360353}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &690328598952968994 stripped

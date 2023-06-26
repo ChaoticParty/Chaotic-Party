@@ -16,9 +16,9 @@ public class ExplosionController : MiniGameController
 
     public override void AddListeners()
     {
-        player.yJustPressed.AddListener(BaseMacronExplosion);
-        // player.yJustPressed.AddListener(MacronExplosion); //TODO Same
-        // player.yJustReleased.AddListener(CancelExplosion); //TODO y reactivé apres le fix de christophe
+        //player.yJustPressed.AddListener(BaseMacronExplosion);
+        player.yJustPressed.AddListener(MacronExplosion); //TODO Same
+        player.yJustReleased.AddListener(CancelExplosion); //TODO y reactivé apres le fix de christophe
         player.bJustPressed.AddListener(LauchBackToMain);
         player.bJustReleased.AddListener(BackToMainReleased);
         player.startPressed.AddListener(ReadyClick);
